@@ -1,0 +1,755 @@
+\documentclass[]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={Gráficos con R},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{apalike}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{Gráficos con R}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{Juan Carlos Correa Morales\\
+Freddy Hernández Barajas}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{2016-11-30}
+
+\usepackage{booktabs}
+\usepackage[spanish]{babel}
+\decimalpoint
+\selectlanguage{spanish}
+
+\usepackage[dvipsnames]{xcolor} % para usar color en la caja del código
+
+\newcommand{\pkg}[1]{{\normalfont\fontseries{b}\selectfont #1}}
+\let\proglang=\textsf
+\let\code=\texttt
+
+\usepackage{makeidx}  % paquete para crear el índice
+\makeindex
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\chapter*{Prefacio}\label{prefacio}
+\addcontentsline{toc}{chapter}{Prefacio}
+
+Este libro \ldots{}
+
+\chapter{Introducción}\label{introduccion}
+
+\section{Orígenes} \label{sec:origenes}
+
+\proglang{R} es un lenguaje de programación usado para realizar
+procedimientos estadísticos y gráficos de alto nivel, este lenguaje fue
+creado en 1993 por los profesores e investigadores Robert Gentleman y
+Ross Ihaka. Inicialmente el lenguaje se usó para apoyar los cursos que
+tenían a su cargo los profesores pero luego de ver la utilidad de la
+herramienta desarrollada decidieron colocar copias de \proglang{R} en
+StatLib. A partir de 1995 el código fuente de \proglang{R} está
+disponible bajo licencia GNU GPL para sistemas operativos Windows,
+Macintosh y distribuciones Unix/Linux. La comunidad de usuarios de
+\proglang{R} en el mundo es muy grande y los usuarios cuentan con
+diferentes espacios para interactuar, a continuación una lista no
+exhaustiva de los sitios más populares relacionados con \proglang{R}:
+
+\begin{itemize}
+    \item Rbloggers: \url{https://www.r-bloggers.com/}.
+    \item Comunidad hispana de \proglang{R}: \url{http://r-es.org/}.
+    \item Nabble: \url{http://r.789695.n4.nabble.com/}.
+    \item Foro en portugués: \url{http://r-br.2285057.n4.nabble.com/}.
+    \item Stackoverflow: \url{http://stackoverflow.com/questions/tagged/r}.
+    \item Cross Validated: \url{http://stats.stackexchange.com/questions/tagged/r}.
+    \item R-Help Mailing List: \url{https://stat.ethz.ch/mailman/listinfo/r-help}.
+    \item Revolutions: \url{http://blog.revolutionanalytics.com/}.
+    \item R-statistics blog: \url{https://www.r-statistics.com/}.
+    \item RDataMining: \url{https://rdatamining.wordpress.com/}.
+\end{itemize}
+
+\begin{figure}
+
+{\centering \includegraphics[width=2.53in]{figures/Robert_Roos} 
+
+}
+
+\caption{Robert Gentleman (izquierda) y Ross Ihaka (derecha) creadores de R.}\label{fig:unnamed-chunk-1}
+\end{figure}
+
+\section{Descarga e instalación} \label{sec:descarga}
+
+Para realizar la instalación \index{instalación} de \proglang{R} usted
+debe visitar la página del CRAN
+(\textit{Comprehensive R Archive Network}) disponible en este enlace
+\url{https://cran.r-project.org/}. Una vez ingrese a la página
+encontrará un cuadro similar al mostrado en la Figura \ref{fig:cran}
+donde aparecen los enlaces de la instalación para los sistemas
+operativos Linux, Mac y Windows.
+
+\begin{figure}
+
+{\centering \includegraphics[width=4.54in]{figures/cran} 
+
+}
+
+\caption{Página del Cran.}\label{fig:cran}
+\end{figure}
+
+Supongamos que se desea instalar \proglang{R} en Windows, para esto se
+debe dar clic sobre el hiperenlace
+\textcolor{BurntOrange}{Download R for Windows} de la Figura
+\ref{fig:cran}. Una vez hecho esto se abrirá una página con el contenido
+mostrado en la Figura \ref{fig:inst1}. Una vez ingrese a esa nueva
+página usted debe dar clic sobre el hiperenlace
+\textcolor{BurntOrange}{install R for the first time} como es señalado
+por la flecha roja en la Figura \ref{fig:inst1}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=5.31in]{figures/instalacion1} 
+
+}
+
+\caption{Página de instalación para la primera ocasión.}\label{fig:inst1}
+\end{figure}
+
+Luego de esto se abrirá otra página con un encabezado similar al
+mostrado en la Figura \ref{fig:inst2}, al momento de capturar la figura
+la versión actual de \proglang{R} era 3.2.5 pero seguramente en este
+momento usted tendrá disponible una versión actualizada. Una vez allí
+uste debe dar clic sobre
+\textcolor{BurntOrange}{Download R 3.2.5 for Windows} como es señalado
+por la flecha verde. Luego de esto se descargará el instalador
+\proglang{R} en el computador el cual deberá ser instalado con las
+opciones que vienen por defecto.
+
+\begin{figure}
+
+{\centering \includegraphics[width=2.54in]{figures/instalacion2} 
+
+}
+
+\caption{Página de descarga.}\label{fig:inst2}
+\end{figure}
+
+Se recomienda que antes de instalar se observe el siguiente video
+didáctico de instalación de \proglang{R} disponible en este enlace
+\url{http://tinyurl.com/jd7b9ks}.
+
+\section{Apariencia del programa} \label{sec:apariencia}
+
+Una vez que esté instalado \proglang{R} en su computador usted podrá
+acceder a él por la lista de programas o por medio del acceso directo
+que quedó en el escritorio, en la Figura \ref{fig:rlogo} se muestra la
+apariencia del acceso directo para ingresar a \proglang{R}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1.14in]{figures/rlogo} 
+
+}
+
+\caption{Apariencia del acceso directo para ingresar a R.}\label{fig:rlogo}
+\end{figure}
+
+Una vez se abra \proglang{R} lo que aparecerá en la pantalla de su
+computador será algo muy similar a lo que está en la figura
+\ref{fig:pantalla}, la ventana izquierda se llama consola y es donde se
+ingresan las instrucciones, una vez que se construye un gráfico se
+activa otra ventana llamada ventana gráfica. Cualquier usuario puede
+modificar la posición y tamaños de estas ventanas, puede cambiar el tipo
+y tamaño de las letras en la consola, para hacer esto se deben explorar
+las opciones de \textit{editar} en la barra de herramientas.
+
+\begin{figure}
+
+{\centering \includegraphics[width=3.6in]{figures/Rpantallazo} 
+
+}
+
+\caption{Apariencia de R.}\label{fig:pantalla}
+\end{figure}
+
+\section{Tipos de objetos} \label{sec:objetos}
+
+En \proglang{R} existen varios tipos de objectos \index{objetos} que
+permiten que el usuario pueda almacenar la información para realizar
+procedimientos estadísticos y gráficos. Los principales objetos en
+\proglang{R} son vectores, matrices, arreglos, marcos de datos y listas.
+A continuación se presentan las características de estos objetos y la
+forma para crearlos.
+
+\subsection{Vectores}
+
+Los vectores \index{vectores} son arreglos ordenados en los cuales se
+puede almacenar información de tipo numérico (variable cuantitativa),
+alfanumérico (variable cualitativa) o lógico (\texttt{TRUE} o
+\texttt{FALSE}), pero no mezclas de éstos. La función de \proglang{R}
+para crear un vector es \texttt{c()} que significa concatenar, dentro de
+los paréntesis de esta función se ubica la información a almacenar. Una
+vez construído el vector se acostumbra a etiquetarlo con un nombre corto
+y representativo de la información que almacena, la asignación se hace
+con el operador \texttt{\textless{}-} entre el nombre y el vector.
+
+A continuación se presenta un ejemplo de cómo crear tres vectores que
+contienen las respuestas de cinco personas a tres preguntas que se les
+realizaron.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edad <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{13}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\DecValTok{20}\NormalTok{)}
+\NormalTok{deporte <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OtherTok{TRUE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\OtherTok{FALSE}\NormalTok{, }\OtherTok{TRUE}\NormalTok{)}
+\NormalTok{comic.fav <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\StringTok{'Superman'}\NormalTok{, }\StringTok{'Batman'}\NormalTok{, }\OtherTok{NA}\NormalTok{, }\StringTok{'Batman'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+El vector \texttt{edad} es un vector cuantitativo y contiene las edades
+de las 5 personas. En la cuarta posición del vector se colocó el símbolo
+\texttt{NA} que significa \textit{Not Available} debido a que no se
+registró la edad para esa persona. Al hacer una asignación se acostumbra
+a dejar un espacio antes y después del operador \texttt{\textless{}-} de
+asignación. El segundo vector llamado \texttt{deporte} es un vector
+lógico que almacena las respuestas a la pregunta de si la persona
+practica deporte, nuevamente aquí hay un \texttt{NA} para la tercera
+persona. El último vector \texttt{comic.fav} contiene la información del
+cómic favorito de cada persona, como esta variable es cualitativa es
+necesario usar las comillas
+\texttt{\textquotesingle{}\ \textquotesingle{}} para encerrar las
+respuestas. Cuando se usa \texttt{NA} para representar una información
+\textit{Not Available} NO SE DEBEN usar las comillas
+\texttt{\textquotesingle{}\ \textquotesingle{}}.
+
+Si se desea ver lo que está almacenado en cada uno de estos vectores se
+debe escribir en la consola de \proglang{R} el nombre de uno de los
+objetos y luego se presiona la tecla \textit{enter} o \textit{intro}, al
+realizar esto lo que se obtiene se muestra a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{edad}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 15 19 13 NA 20
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{deporte}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  TRUE  TRUE    NA FALSE  TRUE
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{comic.fav}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] NA         "Superman" "Batman"   NA         "Batman"
+\end{verbatim}
+
+\subsection{Matrices}
+
+Las matrices \index{matrices} son arreglos rectangulares de filas y
+columnas con información numérica, alfanumérica o lógica. Para construir
+una matriz se usa la función \texttt{matrix(\ )}. Por ejemplo, para
+crear una matriz de 4 filas y 5 columnas (de dimensión \(4 \times 5\))
+con los primeros 20 números positivos se escribe el código siguiente en
+la consola.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mimatriz <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{data=}\DecValTok{1}\NormalTok{:}\DecValTok{20}\NormalTok{, }\DataTypeTok{nrow=}\DecValTok{4}\NormalTok{, }\DataTypeTok{ncol=}\DecValTok{5}\NormalTok{, }\DataTypeTok{byrow=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+El argumento \texttt{data} de la función sirve para indicar los datos
+que se van a almacenar en la matriz, los argumentos \texttt{nrow} y
+\texttt{ncol} sirven para definir la dimensión de la matriz y por último
+el argumento \texttt{byrow} sirve para indicar si la información
+contenida en \texttt{data} se debe ingresar por filas o no. Para
+observar lo que quedó almacenado en el objeto \texttt{mimatriz} se
+escribe en la consola el nombre del objeto seguido de la tecla
+\textit{enter} o \textit{intro}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mimatriz}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    5    9   13   17
+## [2,]    2    6   10   14   18
+## [3,]    3    7   11   15   19
+## [4,]    4    8   12   16   20
+\end{verbatim}
+
+\subsection{Arreglos}
+
+Un arreglo \index{arreglo} es una matriz de varias dimensiones con
+información numérica, alfanumérica o lógica. Para construir una arreglo
+se usa la función \texttt{array(\ )}. Por ejemplo, para crear un arreglo
+de \(3 \times 4 \times 2\) con las primeras 24 letras minúsculas del
+alfabeto se escribe el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{miarray <-}\StringTok{ }\KeywordTok{array}\NormalTok{(}\DataTypeTok{data=}\NormalTok{letters[}\DecValTok{1}\NormalTok{:}\DecValTok{24}\NormalTok{], }\DataTypeTok{dim=}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+El argumento \texttt{data} de la función sirve para indicar los datos
+que se van a almacenar en el arreglo y el argumento \texttt{dim} sirve
+para indicar las dimensiones del arreglo. Para observar lo que quedó
+almacenado en el objeto \texttt{miarray} se escribe en la consola lo
+siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{miarray}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## , , 1
+## 
+##      [,1] [,2] [,3] [,4]
+## [1,] "a"  "d"  "g"  "j" 
+## [2,] "b"  "e"  "h"  "k" 
+## [3,] "c"  "f"  "i"  "l" 
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3] [,4]
+## [1,] "m"  "p"  "s"  "v" 
+## [2,] "n"  "q"  "t"  "w" 
+## [3,] "o"  "r"  "u"  "x"
+\end{verbatim}
+
+\subsection{Marco de datos}
+
+El marco de datos \index{marco de datos} o \textit{data frame} es uno de
+los objetos más utilizados porque permite agrupar vectores con
+información de diferente tipo (numérica, alfanumérica o lógica) en un
+mismo objeto, la única restricción es que los vectores deben tener la
+misma longitud. Para crear un marco de datos se usa la función
+\texttt{data.frame(\ )}, como ejemplo vamos a crear un marco de datos
+con los vectores \texttt{edad}, \texttt{deporte} y \texttt{comic.fav}
+definidos anteriormente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mimarco <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(edad, deporte, comic.fav)}
+\end{Highlighting}
+\end{Shaded}
+
+Una vez creado el objeto \texttt{mimarco} podemos ver el objeto
+escribiendo su nombre en la consola, a continuación se muestra lo que se
+obtiene.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mimarco}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   edad deporte comic.fav
+## 1   15    TRUE      <NA>
+## 2   19    TRUE  Superman
+## 3   13      NA    Batman
+## 4   NA   FALSE      <NA>
+## 5   20    TRUE    Batman
+\end{verbatim}
+
+De la salida anterior vemos que el marco de datos tiene 3 variables
+(columnas) cuyos nombres coinciden con los nombres de los vectores
+creados anteriormente, los números consecutivos al lado izquierdo son
+sólo de referencia y permiten identificar la información para cada
+persona en la base de datos.
+
+\subsection{Listas}
+
+Las listas \index{lista} son otro tipo de objeto muy usado para
+almacenar objetos de diferente tipo. La instrucción para crear una lista
+es \texttt{list(\ )}. A continuación vamos a crear una lista que
+contiene tres objetos: un vector con 5 números aleatorios llamado
+\texttt{mivector}, una matriz de dimensión \(6 \times 2\) con los
+primeros doce números enteros positivos llamada \texttt{matriz2} y el
+tercer objeto será el marco de datos \texttt{mimarco} creado en el
+apartado anterior. Las instrucciones para crear la lista requerida se
+muestran a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{set.seed}\NormalTok{(}\DecValTok{12345}\NormalTok{)}
+\NormalTok{mivector <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DataTypeTok{n=}\DecValTok{5}\NormalTok{)}
+\NormalTok{matriz2 <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{data=}\DecValTok{1}\NormalTok{:}\DecValTok{12}\NormalTok{, }\DataTypeTok{ncol=}\DecValTok{6}\NormalTok{)}
+\NormalTok{milista <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{E1=}\NormalTok{mivector, }\DataTypeTok{E2=}\NormalTok{matriz2, }\DataTypeTok{E3=}\NormalTok{mimarco)}
+\end{Highlighting}
+\end{Shaded}
+
+La función \texttt{set.seed} de la línea número 1 sirve para fijar la
+semilla de tal manera que los números aleatorios generados en la segunda
+línea con la función \texttt{runif} sean siempre los mismos. En la
+última línea del código anterior se construye la lista, dentro de la
+función \texttt{list} se colocan los tres objetos \texttt{mivector},
+\texttt{matriz2} y \texttt{mimarco}. Es posible colocarle un nombre
+especial a cada uno de los elementos de la lista, en este ejemplo se
+colocaron los nombres \texttt{E1}, \texttt{E2} y \texttt{E3} para cada
+uno de los tres elementos. Para observar lo que quedó almacenado en la
+lista se escribe \texttt{milista} en la consola y el resultado se
+muestra a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{milista}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $E1
+## [1] 0.7209039 0.8757732 0.7609823 0.8861246 0.4564810
+## 
+## $E2
+##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    1    3    5    7    9   11
+## [2,]    2    4    6    8   10   12
+## 
+## $E3
+##   edad deporte comic.fav
+## 1   15    TRUE      <NA>
+## 2   19    TRUE  Superman
+## 3   13      NA    Batman
+## 4   NA   FALSE      <NA>
+## 5   20    TRUE    Batman
+\end{verbatim}
+
+\section{Guía de estilo para la escritura en R} \label{sec:estilo}
+
+Así como en el español existen reglas ortográficas, la escritura de
+códigos en \proglang{R} también tiene unas reglas que se recomienda
+seguir para evitar confusiones. Tener una buena guía de estilo
+\index{guía de estilo} es importante para que el código creado por usted
+sea fácilmente entendido por sus lectores \citep{rpackages}. No existe
+una única y mejor guía de estilo para escritura en \proglang{R}, sin
+embargo aquí vamos a mostrar unas sugerencias basadas en la guía llamada
+\href{https://google.github.io/styleguide/Rguide.xml}{\textit{Google's R style guide}}.
+
+\subsection{Nombres de los archivos}
+
+Se sugiere que el nombre usado para nombrar un archivo tenga sentido y
+que termine con extensión .R. A continuación dos ejemplos de como
+nombrar mal y bien un archivo.
+
+\begin{itemize}
+    \item Mal: \verb|hola.R|
+    \item Bien: \verb|analisis_icfes.R|
+\end{itemize}
+
+\subsection{Nombres de los objetos}
+
+Se recomienda no usar los símbolos \texttt{\_} y \texttt{-} dentro de
+los nombres de objetos. Para las variables es preferible usar letras
+minúsculas y separar las palabras con puntos (\texttt{peso.maiz}) o
+utilizar la notación camello iniciando en minúscula (\texttt{pesoMaiz}).
+Para las funciones se recomienda usar la notación camello iniciando
+todas la palabras en mayúscula (\texttt{PlotRes}). Para los nombres de
+las constantes se recomienda que inicien con la letra k
+(\texttt{kPrecioBus}). A continuación ejemplos de buenas y malas
+prácticas.
+
+Para variables:
+
+\begin{itemize}
+    \item Bien: \verb|avg.clicks|
+    \item Aceptable: \verb|avgClicks|
+    \item Mal: \verb|avg_Clicks|
+\end{itemize}
+
+Para funciones:
+
+\begin{itemize}
+    \item Bien: \verb|CalculateAvgClicks| 
+    \item Mal: \verb|calculate_avg_clicks| , \verb|calculateAvgClicks|
+\end{itemize}
+
+\subsection{Longitud de una línea de código}
+
+Se recomienda que cada línea tenga como máximo 80 caracteres. Si una
+línea es muy larga se debe cortar siempre por una coma.
+
+\subsection{Espacios}
+
+Use espacios alrededor de todos los operadores binarios (=, +, -,
+\textless{}-, etc.). Los espacios alrededor del símbolo ``='' son
+opcionales cuando se usan para ingresar valores dentro de una función.
+Así como en español, nunca coloque espacio antes de una coma, pero
+siempre use espacio luego de una coma. A continuación ejemplos de buenas
+y malas prácticas.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tab <-}\StringTok{ }\KeywordTok{table}\NormalTok{(df[df$days <}\StringTok{ }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{])  }\CommentTok{# Bien}
+\NormalTok{tot <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(x[, }\DecValTok{1}\NormalTok{])                }\CommentTok{# Bien}
+\NormalTok{tot <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(x[}\DecValTok{1}\NormalTok{, ])                }\CommentTok{# Bien}
+\NormalTok{tab <-}\StringTok{ }\KeywordTok{table}\NormalTok{(df[df$days<}\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{])    }\CommentTok{# Faltan espacios alrededor '<' }
+\NormalTok{tab <-}\StringTok{ }\KeywordTok{table}\NormalTok{(df[df$days <}\StringTok{ }\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{])   }\CommentTok{# Falta espacio luego de coma}
+\NormalTok{tab <-}\StringTok{ }\KeywordTok{table}\NormalTok{(df[df$days <}\StringTok{ }\DecValTok{0} \NormalTok{, }\DecValTok{2}\NormalTok{]) }\CommentTok{# Sobra espacio antes de coma}
+\NormalTok{tab<-}\StringTok{ }\KeywordTok{table}\NormalTok{(df[df$days <}\StringTok{ }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{])   }\CommentTok{# Falta espacio antes de '<-'}
+\NormalTok{tab<-}\KeywordTok{table}\NormalTok{(df[df$days <}\StringTok{ }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{])    }\CommentTok{# Falta espacio alrededor de '<-'}
+\NormalTok{tot <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(x[,}\DecValTok{1}\NormalTok{])                 }\CommentTok{# Falta espacio luego de coma}
+\NormalTok{tot <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(x[}\DecValTok{1}\NormalTok{,])                 }\CommentTok{# Falta espacio luego de coma}
+\end{Highlighting}
+\end{Shaded}
+
+Otra buena práctica es colocar espacio antes de un paréntesis excepto
+cuando se llama una función.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{if (debug)    }\CommentTok{# Correcto}
+\NormalTok{if(debug)     }\CommentTok{# Funciona pero no se recomienda}
+\KeywordTok{colMeans} \NormalTok{(x)  }\CommentTok{# Funciona pero no se recomienda}
+\end{Highlighting}
+\end{Shaded}
+
+Espacios extras pueden ser usados si con esto se mejora la apariencia
+del código, ver el ejemplo siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x    =} \NormalTok{x.coord,}
+     \DataTypeTok{y    =} \NormalTok{data.mat[, }\KeywordTok{MakeColName}\NormalTok{(metric, ptiles[}\DecValTok{1}\NormalTok{], }\StringTok{"roiOpt"}\NormalTok{)],}
+     \DataTypeTok{ylim =} \NormalTok{ylim,}
+     \DataTypeTok{xlab =} \StringTok{"dates"}\NormalTok{,}
+     \DataTypeTok{ylab =} \NormalTok{metric,}
+     \DataTypeTok{main =} \NormalTok{(}\KeywordTok{paste}\NormalTok{(metric, }\StringTok{" for 3 samples "}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+No coloque espacios alrededor del código que esté dentro de paréntesis
+\texttt{(\ )\textquotesingle{}\textquotesingle{}\ o\ corchetes}{[}
+{]}'', la única excepción es luego de una coma, ver el ejemplo
+siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{if (condicion)    }\CommentTok{# Correcto }
+\NormalTok{x[}\DecValTok{1}\NormalTok{, ]            }\CommentTok{# Correcto}
+\NormalTok{if ( condicion )  }\CommentTok{# Sobran espacios alrededor de condicion}
+\NormalTok{x[}\DecValTok{1}\NormalTok{,]             }\CommentTok{# Se necesita espacio luego de coma}
+\end{Highlighting}
+\end{Shaded}
+
+Los signos de agrupación llaves
+\texttt{\textbackslash{}\{\ \textbackslash{}\}\textquotesingle{}\textquotesingle{}\ se\ utilizan\ para\ agrupar\ bloques\ de\ código\ y\ se\ recomienda\ que\ nunca\ una\ llave\ abierta}\{`'
+esté sola en una línea; una llave cerrada ``\}'' si debe ir sola en su
+propia línea. Se pueden omitir las llaves cuando el bloque de
+instrucciones esté formado por una sola línea pero esa línea de código
+NO debe ir en la misma línea de la condición. A continuación dos
+ejemplos de lo que se recomienda.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{if (}\KeywordTok{is.null}\NormalTok{(ylim)) \{                     }\CommentTok{# Correcto}
+  \NormalTok{ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)}
+\NormalTok{\}}
+
+\NormalTok{if (}\KeywordTok{is.null}\NormalTok{(ylim))                       }\CommentTok{# Correcto}
+  \NormalTok{ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)}
+
+\NormalTok{if (}\KeywordTok{is.null}\NormalTok{(ylim)) ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)    }\CommentTok{# Aceptable}
+
+\NormalTok{if (}\KeywordTok{is.null}\NormalTok{(ylim))                       }\CommentTok{# No se recomienda}
+\NormalTok{\{        }
+  \NormalTok{ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)}
+\NormalTok{\}}
+    
+\NormalTok{if (}\KeywordTok{is.null}\NormalTok{(ylim)) \{ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)\}  }\CommentTok{# Frente a la llave \{ no debe ir nada}
+                                         \CommentTok{# la llave de cierre \} debe ir sola}
+\end{Highlighting}
+\end{Shaded}
+
+La sentencia else debe ir siempre entre llaves ``\} \{'', ver el
+siguiente ejemplo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{if (condition) \{         }
+  \NormalTok{one or more lines}
+\NormalTok{\} else \{                 }\CommentTok{# Correcto}
+  \NormalTok{one or more lines}
+\NormalTok{\}}
+
+
+\NormalTok{if (condition) \{         }
+  \NormalTok{one or more lines}
+\NormalTok{\}}
+\NormalTok{else \{                   }\CommentTok{# Incorrecto}
+  \NormalTok{one or more lines}
+\NormalTok{\}}
+
+
+\NormalTok{if (condition)           }
+  \NormalTok{one line}
+\NormalTok{else                     }\CommentTok{# Incorrecto}
+  \NormalTok{one line}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Asignación}
+
+Para realizar asignaciones se recomienda usar el símbolo
+\texttt{\textless{}-}, el símbolo de igualdad \texttt{=} no se
+recomienda usarlo para asignaciones.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\DecValTok{5}  \CommentTok{# Correcto}
+\NormalTok{x =}\StringTok{ }\DecValTok{5}   \CommentTok{# No recomendado}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Punto y coma}
+
+No se recomienda colocar varias instrucciones separadas por \texttt{;}
+en la misma línea, aunque funciona dificulta la revisión del código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n <-}\StringTok{ }\DecValTok{100}\NormalTok{; y <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(n, }\DataTypeTok{mean=}\DecValTok{5}\NormalTok{); }\KeywordTok{hist}\NormalTok{(y)  }\CommentTok{# No se recomienda}
+
+\NormalTok{n <-}\StringTok{ }\DecValTok{100}                                  \CommentTok{# Correcto}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(n, }\DataTypeTok{mean=}\DecValTok{5}\NormalTok{)}
+\KeywordTok{hist}\NormalTok{(y)}
+\end{Highlighting}
+\end{Shaded}
+
+\bibliography{packages,book}
+
+
+\end{document}

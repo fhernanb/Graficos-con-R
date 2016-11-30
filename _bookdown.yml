@@ -1,0 +1,4 @@
+book_filename: "Graficos con R"
+output_dir: docs
+clean: [packages.bib, bookdown.bbl]
+new_session: yes
