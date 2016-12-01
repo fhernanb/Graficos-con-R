@@ -16,7 +16,7 @@
 
 \begin{figure}
 
-{\centering \includegraphics[width=2.4in]{figures/Robert_Roos} 
+{\centering \includegraphics[width=2.4in]{images/Robert_Roos} 
 
 }
 
@@ -29,7 +29,7 @@ Para realizar la instalación de \proglang{R} usted debe visitar la página del 
 
 \begin{figure}
 
-{\centering \includegraphics[width=4.54in]{figures/cran} 
+{\centering \includegraphics[width=4.54in]{images/cran} 
 
 }
 
@@ -40,7 +40,7 @@ Supongamos que se desea instalar \proglang{R} en Windows, para esto se debe dar 
   
 \begin{figure}
 
-{\centering \includegraphics[width=5.31in]{figures/instalacion1} 
+{\centering \includegraphics[width=5.31in]{images/instalacion1} 
 
 }
 
@@ -51,7 +51,7 @@ Luego de esto se abrirá otra página con un encabezado similar al mostrado en l
 
 \begin{figure}
 
-{\centering \includegraphics[width=2.54in]{figures/instalacion2} 
+{\centering \includegraphics[width=2.54in]{images/instalacion2} 
 
 }
 
@@ -65,7 +65,7 @@ Una vez que esté instalado \proglang{R} en su computador, usted podrá acceder 
 
 \begin{figure}
 
-{\centering \includegraphics[width=1.14in]{figures/rlogo} 
+{\centering \includegraphics[width=1.14in]{images/rlogo} 
 
 }
 
@@ -76,7 +76,7 @@ Al abrir \proglang{R} lo que aparecerá en la pantalla de su computador será al
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.6in]{figures/Rpantallazo} 
+{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
 
 }
 

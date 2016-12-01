@@ -23,9 +23,13 @@
 }{}
 \usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
+\PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
 \hypersetup{unicode=true,
             pdftitle={Gráficos con R},
-            pdfborder={0 0 0},
+            colorlinks=true,
+            linkcolor=Maroon,
+            citecolor=Blue,
+            urlcolor=Blue,
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{natbib}
@@ -124,19 +128,19 @@ Freddy Hernández Barajas}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2016-11-30}
+  \date{2016-12-01}
 
 \usepackage{booktabs}
 \usepackage[spanish]{babel}
 \decimalpoint
 \selectlanguage{spanish}
 
-\usepackage[dvipsnames]{xcolor} % para usar color en la caja del código
-
+% Comandos para escribir nombres de paquetes, programas y codigos
 \newcommand{\pkg}[1]{{\normalfont\fontseries{b}\selectfont #1}}
 \let\proglang=\textsf
 \let\code=\texttt
 
+% Para crear el indice
 \usepackage{makeidx}
 \makeindex
 
@@ -144,6 +148,7 @@ Freddy Hernández Barajas}
 \maketitle
 
 {
+\hypersetup{linkcolor=black}
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
@@ -197,7 +202,7 @@ exhaustiva de los sitios más populares relacionados con \proglang{R}:
 
 \begin{figure}
 
-{\centering \includegraphics[width=2.4in]{figures/Robert_Roos} 
+{\centering \includegraphics[width=2.4in]{images/Robert_Roos} 
 
 }
 
@@ -215,7 +220,7 @@ sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics[width=4.54in]{figures/cran} 
+{\centering \includegraphics[width=4.54in]{images/cran} 
 
 }
 
@@ -233,7 +238,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=5.31in]{figures/instalacion1} 
+{\centering \includegraphics[width=5.31in]{images/instalacion1} 
 
 }
 
@@ -252,7 +257,7 @@ opciones que vienen por defecto.
 
 \begin{figure}
 
-{\centering \includegraphics[width=2.54in]{figures/instalacion2} 
+{\centering \includegraphics[width=2.54in]{images/instalacion2} 
 
 }
 
@@ -272,7 +277,7 @@ apariencia del acceso directo para ingresar a \proglang{R}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=1.14in]{figures/rlogo} 
+{\centering \includegraphics[width=1.14in]{images/rlogo} 
 
 }
 
@@ -290,7 +295,7 @@ de \textit{editar} en la barra de herramientas.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.6in]{figures/Rpantallazo} 
+{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
 
 }
 
@@ -804,7 +809,9 @@ los datos.
   \tightlist
   \item
     Outliers: Observaciones individuales que caen muy por fuera del
-    patrón general de los datos. \_ Gaps: Huecos en la distribución
+    patrón general de los datos.
+  \item
+    Gaps: Huecos en la distribución
   \end{itemize}
 \end{enumerate}
 

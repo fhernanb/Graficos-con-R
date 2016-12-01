@@ -15,7 +15,7 @@
 - RDataMining: \url{https://rdatamining.wordpress.com/}.
 
 ```{r, echo=F, fig.cap='Robert Gentleman (izquierda) y Ross Ihaka (derecha) creadores de R.', dpi=200, fig.align='center'}
-knitr::include_graphics("figures/Robert_Roos.png")
+knitr::include_graphics("images/Robert_Roos.png")
 ```
 
 \section{Descarga e instalación} \label{sec:descarga}
@@ -23,19 +23,19 @@ knitr::include_graphics("figures/Robert_Roos.png")
 Para realizar la instalación de \proglang{R} usted debe visitar la página del CRAN (\textit{Comprehensive R Archive Network}) disponible en este enlace \url{https://cran.r-project.org/}. Una vez ingrese a la página encontrará un cuadro similar al mostrado en la Figura \@ref(fig:cran) donde aparecen los enlaces de la instalación para los sistemas operativos Linux, Mac y Windows.
 
 ```{r cran, echo=F, fig.cap='Página del Cran.', dpi=190, fig.align='center'}
-knitr::include_graphics("figures/cran.png")
+knitr::include_graphics("images/cran.png")
 ```
 
 Supongamos que se desea instalar \proglang{R} en Windows, para esto se debe dar clic sobre el hiperenlace \textcolor{BurntOrange}{Download R for Windows} de la Figura \@ref(fig:cran). Una vez hecho esto se abrirá una página con el contenido mostrado en la Figura \@ref(fig:inst1). Una vez ingrese a esa nueva página usted debe dar clic sobre el hiperenlace \textcolor{BurntOrange}{install R for the first time} como es señalado por la flecha roja en la Figura \@ref(fig:inst1).
   
 ```{r inst1, echo=F, fig.cap='Página de instalación para la primera ocasión.', dpi=190, fig.align='center'}
-knitr::include_graphics("figures/instalacion1.png")
+knitr::include_graphics("images/instalacion1.png")
 ```
 
 Luego de esto se abrirá otra página con un encabezado similar al mostrado en la Figura \@ref(fig:inst2), al momento de capturar la figura la versión actual de \proglang{R} era 3.2.5 pero seguramente en este momento usted tendrá disponible una versión actualizada. Una vez allí uste debe dar clic sobre \textcolor{BurntOrange}{Download R 3.2.5 for Windows} como es señalado por la flecha verde. Luego de esto se descargará el instalador \proglang{R} en el computador el cual deberá ser instalado con las opciones que vienen por defecto.
 
 ```{r inst2, echo=F, fig.cap='Página de descarga.', dpi=190, fig.align='center'}
-knitr::include_graphics("figures/instalacion2.png")
+knitr::include_graphics("images/instalacion2.png")
 ```
 
 Se recomienda observar el siguiente video didáctico de instalación de \proglang{R} disponible en este enlace \url{http://tinyurl.com/jd7b9ks} para facilitar la tarea de instalación.
@@ -44,13 +44,13 @@ Se recomienda observar el siguiente video didáctico de instalación de \proglan
 Una vez que esté instalado \proglang{R} en su computador, usted podrá acceder a él por la lista de programas o por medio del acceso directo que quedó en el escritorio, en la Figura \@ref(fig:rlogo) se muestra la apariencia del acceso directo para ingresar a \proglang{R}.
 
 ```{r rlogo, echo=F, fig.cap='Apariencia del acceso directo para ingresar a R.', dpi=700, fig.align='center'}
-knitr::include_graphics("figures/rlogo.png")
+knitr::include_graphics("images/rlogo.png")
 ```
 
 Al abrir \proglang{R} lo que aparecerá en la pantalla de su computador será algo muy similar a lo que está en la Figura \@ref(fig:pantalla). La ventana izquierda se llama consola y es donde se ingresan las instrucciones, una vez que se construye un gráfico se activa otra ventana llamada ventana gráfica. Cualquier usuario puede modificar la posición y tamaños de estas ventanas, puede cambiar el tipo y tamaño de las letras en la consola, para hacer esto se deben explorar las opciones de \textit{editar} en la barra de herramientas.
 
 ```{r pantalla, echo=F, fig.cap='Apariencia de R.', dpi=400, fig.align='center'}
-knitr::include_graphics("figures/Rpantallazo.png")
+knitr::include_graphics("images/Rpantallazo.png")
 ```
 
 

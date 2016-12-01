@@ -10,8 +10,9 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
+colorlinks: yes
 github-repo: fhernanb/graficos-con-R
-cover-image: images/cover.jpg
+cover-image: images/cover.png
 ---
 
 # Prefacio {-}

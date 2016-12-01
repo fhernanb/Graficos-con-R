@@ -15,7 +15,7 @@ Nos permite obtener el gráfico llamado de tallo y hoja debido a su apariencia. 
 	- Sesgada a la derecha: Opuesto a la sesgada a la izquierda.
 3. Desviaciones marcadas de la forma global de la distribución.
 	- Outliers: Observaciones individuales que caen muy por fuera del patrón general de los datos. 
-	_ Gaps: Huecos en la distribución
+	- Gaps: Huecos en la distribución
 
 Ventajas del gráfico:
 

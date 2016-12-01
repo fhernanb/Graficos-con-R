@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9) (preloaded format=xelatex 2016.8.6)  30 NOV 2016 20:42
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9) (preloaded format=xelatex 2016.8.6)  1 DEC 2016 10:11
 entering extended mode
 **./Graficos_con_R.tex
 (Graficos_con_R.tex
@@ -684,12 +684,13 @@ tly
 )
 \Hy@SectionHShift=\skip52
 )
-Package hyperref Info: Option `unicode' set `true' on input line 29.
+Package hyperref Info: Option `unicode' set `true' on input line 33.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\se-ascii-print.def"
 File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 
 )
-Package hyperref Info: Option `breaklinks' set `true' on input line 29.
+Package hyperref Info: Option `colorlinks' set `true' on input line 33.
+Package hyperref Info: Option `breaklinks' set `true' on input line 33.
 (C:\Users\Pity\AppData\Roaming\MiKTeX\2.9\tex\latex\natbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip53
@@ -702,7 +703,9 @@ Package: color 2016/06/02 v1.1d Standard LaTeX Color (DPC)
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package color Info: Driver file: xetex.def on input line 147.
-) (C:\Users\Pity\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyvrb\fancyvrb.sty
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\dvipsnam.def"
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+)) (C:\Users\Pity\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyvrb\fancyvrb.sty
 Package: fancyvrb 2008/02/07
 
 Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
@@ -793,26 +796,9 @@ Package babel Info: Making . an active character on input line 662.
 Package babel Info: Making < an active character on input line 707.
 Package babel Info: Making > an active character on input line 707.
 ))
-LaTeX Info: Redefining \. on input line 132.
-LaTeX Info: Redefining \% on input line 132.
-(C:\Users\Pity\AppData\Roaming\MiKTeX\2.9\tex\latex\xcolor\xcolor.sty
-Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\00miktex\color.cfg"
-File: color.cfg 2016/01/02 v1.6 sample color configuration
-)
-Package xcolor Info: Driver file: xetex.def on input line 225.
-LaTeX Info: Redefining \color on input line 709.
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
-Package xcolor Info: Model `RGB' extended on input line 1364.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\dvipsnam.def"
-File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
-)) ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\makeidx.sty"
+LaTeX Info: Redefining \. on input line 136.
+LaTeX Info: Redefining \% on input line 136.
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\makeidx.sty"
 Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
 )
 \@indexfile=\write4
@@ -827,38 +813,38 @@ LaTeX Info: Redefining \% on input line 28.
 )
 \openout1 = `Graficos_con_R.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 143.
-LaTeX Font Info:    Try loading font information for T3+cmr on input line 143.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for EU1/lmr/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 147.
+LaTeX Font Info:    Try loading font information for T3+cmr on input line 147.
 (C:\Users\Pity\AppData\Roaming\MiKTeX\2.9\tex\latex\tipa\t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 143.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 143.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 147.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 147.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 143.
-LaTeX Font Info:    ... okay on input line 143.
-LaTeX Info: Redefining \microtypecontext on input line 143.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Info: Redefining \microtypecontext on input line 147.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: No adjustment of tracking.
@@ -904,7 +890,7 @@ ern Roman (RS)
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 \AtBeginShipoutBox=\box50
-Package hyperref Info: Link coloring OFF on input line 143.
+Package hyperref Info: Link coloring ON on input line 147.
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
@@ -912,15 +898,15 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count171
 )
-LaTeX Info: Redefining \ref on input line 143.
-LaTeX Info: Redefining \pageref on input line 143.
-LaTeX Info: Redefining \nameref on input line 143.
+LaTeX Info: Redefining \ref on input line 147.
+LaTeX Info: Redefining \pageref on input line 147.
+LaTeX Info: Redefining \nameref on input line 147.
 (Graficos_con_R.out) (Graficos_con_R.out)
 \@outlinefile=\write5
 \openout5 = `Graficos_con_R.out'.
 
-LaTeX Info: Redefining \. on input line 143.
-LaTeX Info: Redefining \% on input line 143.
+LaTeX Info: Redefining \. on input line 147.
+LaTeX Info: Redefining \% on input line 147.
 [1
 
 
@@ -978,13 +964,13 @@ File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 \openout6 = `Graficos_con_R.toc'.
 
 [3]
-LaTeX Info: Redefining \. on input line 150.
-LaTeX Info: Redefining \% on input line 150.
+LaTeX Info: Redefining \. on input line 155.
+LaTeX Info: Redefining \% on input line 155.
 [4
 
 ] [5]
-LaTeX Info: Redefining \. on input line 155.
-LaTeX Info: Redefining \% on input line 155.
+LaTeX Info: Redefining \. on input line 160.
+LaTeX Info: Redefining \% on input line 160.
 [6
 
 ]
@@ -993,289 +979,65 @@ Package microtype Info: Loading generic settings for font family
 (microtype)             `lmss' (encoding: EU1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-File: figures/Robert_Roos.png Graphic file (type QTm)
-<use  "figures/Robert_Roos.png" >
+File: images/Robert_Roos.png Graphic file (type QTm)
+<use  "images/Robert_Roos.png" >
 Underfull \vbox (badness 1975) has occurred while \output is active []
 
 [7]
-File: figures/cran.png Graphic file (type QTm)
-<use  "figures/cran.png" >
-File: figures/instalacion1.png Graphic file (type QTm)
-<use  "figures/instalacion1.png" >
-File: figures/instalacion2.png Graphic file (type QTm)
-<use  "figures/instalacion2.png" >
+File: images/cran.png Graphic file (type QTm)
+<use  "images/cran.png" >
+File: images/instalacion1.png Graphic file (type QTm)
+<use  "images/instalacion1.png" >
+File: images/instalacion2.png Graphic file (type QTm)
+<use  "images/instalacion2.png" >
 Underfull \vbox (badness 2393) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 272.
-LaTeX Info: Redefining \% on input line 272.
+LaTeX Info: Redefining \. on input line 277.
+LaTeX Info: Redefining \% on input line 277.
 [8]
-File: figures/rlogo.png Graphic file (type QTm)
-<use  "figures/rlogo.png" >
-File: figures/Rpantallazo.png Graphic file (type QTm)
-<use  "figures/Rpantallazo.png" >
-LaTeX Info: Redefining \. on input line 321.
-LaTeX Info: Redefining \% on input line 321.
+File: images/rlogo.png Graphic file (type QTm)
+<use  "images/rlogo.png" >
+File: images/Rpantallazo.png Graphic file (type QTm)
+<use  "images/Rpantallazo.png" >
+LaTeX Info: Redefining \. on input line 326.
+LaTeX Info: Redefining \% on input line 326.
 [9]
-
-Package xcolor Warning: Incompatible color definition on input line 326.
-
 LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 328.
-
-Package xcolor Warning: Incompatible color definition on input line 332.
-
-
-Package xcolor Warning: Incompatible color definition on input line 332.
-
-
-Package xcolor Warning: Incompatible color definition on input line 355.
-
-
-Package xcolor Warning: Incompatible color definition on input line 359.
-
-
-Package xcolor Warning: Incompatible color definition on input line 359.
-
-
-Package xcolor Warning: Incompatible color definition on input line 365.
-
-
-Package xcolor Warning: Incompatible color definition on input line 369.
-
-
-Package xcolor Warning: Incompatible color definition on input line 369.
-
-
-Package xcolor Warning: Incompatible color definition on input line 375.
-
-
-Package xcolor Warning: Incompatible color definition on input line 379.
-
-
-Package xcolor Warning: Incompatible color definition on input line 379.
-
-
-Package xcolor Warning: Incompatible color definition on input line 394.
-
-
-Package xcolor Warning: Incompatible color definition on input line 398.
-
-
-Package xcolor Warning: Incompatible color definition on input line 398.
-
-
-Package xcolor Warning: Incompatible color definition on input line 409.
-
-
-Package xcolor Warning: Incompatible color definition on input line 413.
-
-
-Package xcolor Warning: Incompatible color definition on input line 413.
-
-LaTeX Info: Redefining \. on input line 430.
-LaTeX Info: Redefining \% on input line 430.
+(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 333.
+LaTeX Info: Redefining \. on input line 435.
+LaTeX Info: Redefining \% on input line 435.
 [10]
-
-Package xcolor Warning: Incompatible color definition on input line 431.
-
-
-Package xcolor Warning: Incompatible color definition on input line 435.
-
-
-Package xcolor Warning: Incompatible color definition on input line 435.
-
-
-Package xcolor Warning: Incompatible color definition on input line 443.
-
-
-Package xcolor Warning: Incompatible color definition on input line 447.
-
-
-Package xcolor Warning: Incompatible color definition on input line 447.
-
-
-Package xcolor Warning: Incompatible color definition on input line 476.
-
-
-Package xcolor Warning: Incompatible color definition on input line 480.
-
-
-Package xcolor Warning: Incompatible color definition on input line 480.
-
-
-Package xcolor Warning: Incompatible color definition on input line 486.
-
-
-Package xcolor Warning: Incompatible color definition on input line 490.
-
-
-Package xcolor Warning: Incompatible color definition on input line 490.
-
-
 Underfull \vbox (badness 1215) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 518.
-LaTeX Info: Redefining \% on input line 518.
+LaTeX Info: Redefining \. on input line 523.
+LaTeX Info: Redefining \% on input line 523.
 [11]
-
-Package xcolor Warning: Incompatible color definition on input line 519.
-
-
-Package xcolor Warning: Incompatible color definition on input line 526.
-
-
-Package xcolor Warning: Incompatible color definition on input line 526.
-
-
-Package xcolor Warning: Incompatible color definition on input line 540.
-
-
-Package xcolor Warning: Incompatible color definition on input line 544.
-
-
-Package xcolor Warning: Incompatible color definition on input line 544.
-
-LaTeX Info: Redefining \. on input line 597.
-LaTeX Info: Redefining \% on input line 597.
+LaTeX Info: Redefining \. on input line 602.
+LaTeX Info: Redefining \% on input line 602.
 [12]
-
-Package xcolor Warning: Incompatible color definition on input line 627.
-
-
-Package xcolor Warning: Incompatible color definition on input line 640.
-
-
-Package xcolor Warning: Incompatible color definition on input line 640.
-
-
-Package xcolor Warning: Incompatible color definition on input line 645.
-
-
-Package xcolor Warning: Incompatible color definition on input line 651.
-
-
-Package xcolor Warning: Incompatible color definition on input line 651.
-
-
-Package xcolor Warning: Incompatible color definition on input line 656.
-
-
-Package xcolor Warning: Incompatible color definition on input line 665.
-
-
-Package xcolor Warning: Incompatible color definition on input line 665.
-
-
-Package xcolor Warning: Incompatible color definition on input line 665.
-
-LaTeX Info: Redefining \. on input line 665.
-LaTeX Info: Redefining \% on input line 665.
+LaTeX Info: Redefining \. on input line 670.
+LaTeX Info: Redefining \% on input line 670.
 [13]
-
-Package xcolor Warning: Incompatible color definition on input line 665.
-
-
-Package xcolor Warning: Incompatible color definition on input line 665.
-
-
-Package xcolor Warning: Incompatible color definition on input line 672.
-
-
-Package xcolor Warning: Incompatible color definition on input line 679.
-
-
-Package xcolor Warning: Incompatible color definition on input line 679.
-
-
-Package xcolor Warning: Incompatible color definition on input line 689.
-
-
-Package xcolor Warning: Incompatible color definition on input line 708.
-
-
-Package xcolor Warning: Incompatible color definition on input line 708.
-
-
-Package xcolor Warning: Incompatible color definition on input line 713.
-
-
-Package xcolor Warning: Incompatible color definition on input line 735.
-
-
-Package xcolor Warning: Incompatible color definition on input line 735.
-
-
-Package xcolor Warning: Incompatible color definition on input line 743.
-
-
 Underfull \vbox (badness 1297) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 743.
-LaTeX Info: Redefining \% on input line 743.
+LaTeX Info: Redefining \. on input line 748.
+LaTeX Info: Redefining \% on input line 748.
 [14]
-
-Package xcolor Warning: Incompatible color definition on input line 748.
-
-
-Package xcolor Warning: Incompatible color definition on input line 748.
-
-
-Package xcolor Warning: Incompatible color definition on input line 755.
-
-
-Package xcolor Warning: Incompatible color definition on input line 763.
-
-
-Package xcolor Warning: Incompatible color definition on input line 763.
-
-LaTeX Info: Redefining \. on input line 765.
-LaTeX Info: Redefining \% on input line 765.
+LaTeX Info: Redefining \. on input line 770.
+LaTeX Info: Redefining \% on input line 770.
 [15]
-LaTeX Info: Redefining \. on input line 765.
-LaTeX Info: Redefining \% on input line 765.
+LaTeX Info: Redefining \. on input line 770.
+LaTeX Info: Redefining \% on input line 770.
 [16
 
 ]
 Capítulo 2.
 LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 771.
-
-Package xcolor Warning: Incompatible color definition on input line 844.
-
-
-Package xcolor Warning: Incompatible color definition on input line 850.
-
-
-Package xcolor Warning: Incompatible color definition on input line 850.
-
+(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 776.
 [17]
-
-Package xcolor Warning: Incompatible color definition on input line 850.
-
-
-Package xcolor Warning: Incompatible color definition on input line 850.
-
-
-Package xcolor Warning: Incompatible color definition on input line 880.
-
-
-Package xcolor Warning: Incompatible color definition on input line 886.
-
-
-Package xcolor Warning: Incompatible color definition on input line 886.
-
-LaTeX Info: Redefining \. on input line 952.
-LaTeX Info: Redefining \% on input line 952.
+LaTeX Info: Redefining \. on input line 959.
+LaTeX Info: Redefining \% on input line 959.
 [18]
-
-Package xcolor Warning: Incompatible color definition on input line 953.
-
-
-Package xcolor Warning: Incompatible color definition on input line 968.
-
-
-Package xcolor Warning: Incompatible color definition on input line 968.
-
 File: 02_graphs1v_files/figure-latex/boxplots-1.pdf Graphic file (type QTm)
 <use  "02_graphs1v_files/figure-latex/boxplots-1.pdf" > (Graficos_con_R.bbl
 LaTeX Info: Redefining \. on input line 1.
@@ -1289,24 +1051,24 @@ LaTeX Info: Redefining \% on input line 1.
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1004.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1004.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1011.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1011.
 (Graficos_con_R.aux
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
 LaTeX Info: Redefining \. on input line 28.
 LaTeX Info: Redefining \% on input line 28.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1004.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1004.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1011.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1011.
  ) 
 Here is how much of TeX's memory you used:
- 26583 strings out of 428409
- 457587 string characters out of 3159523
- 534078 words of memory out of 3000000
- 29697 multiletter control sequences out of 15000+200000
+ 26318 strings out of 428409
+ 455292 string characters out of 3159523
+ 523805 words of memory out of 3000000
+ 29437 multiletter control sequences out of 15000+200000
  16407 words of font info for 50 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
- 52i,6n,68p,10414b,474s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 52i,6n,68p,10414b,490s stack positions out of 5000i,500n,10000p,200000b,50000s
 
 Output written on Graficos_con_R.pdf (22 pages).
