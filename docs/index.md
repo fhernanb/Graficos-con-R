@@ -10,9 +10,12 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: rstudio/bookdown-demo
+github-repo: fhernanb/graficos-con-R
+cover-image: images/cover.jpg
 ---
 
 # Prefacio {-}
 
 Este libro ...
+
+

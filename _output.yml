@@ -1,6 +1,7 @@
 bookdown::pdf_book:
   includes:
-    in_header: preamble.tex
+    in_header: latex/preamble.tex
+    after_body: latex/after_body.tex
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
@@ -14,3 +15,4 @@ bookdown::gitbook:
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
     edit: https://github.com/rstudio/bookdown-demo/edit/master/%s
+

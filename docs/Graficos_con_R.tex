@@ -137,7 +137,7 @@ Freddy Hernández Barajas}
 \let\proglang=\textsf
 \let\code=\texttt
 
-\usepackage{makeidx}  % paquete para crear el índice
+\usepackage{makeidx}
 \makeindex
 
 \begin{document}
@@ -160,8 +160,8 @@ Este libro \ldots{}
 procedimientos estadísticos y gráficos de alto nivel, este lenguaje fue
 creado en 1993 por los profesores e investigadores Robert Gentleman y
 Ross Ihaka. Inicialmente el lenguaje se usó para apoyar los cursos que
-tenían a su cargo los profesores pero luego de ver la utilidad de la
-herramienta desarrollada decidieron colocar copias de \proglang{R} en
+tenían a su cargo los profesores, pero luego de ver la utilidad de la
+herramienta desarrollada, decidieron colocar copias de \proglang{R} en
 StatLib. A partir de 1995 el código fuente de \proglang{R} está
 disponible bajo licencia GNU GPL para sistemas operativos Windows,
 Macintosh y distribuciones Unix/Linux. La comunidad de usuarios de
@@ -170,21 +170,34 @@ diferentes espacios para interactuar, a continuación una lista no
 exhaustiva de los sitios más populares relacionados con \proglang{R}:
 
 \begin{itemize}
-    \item Rbloggers: \url{https://www.r-bloggers.com/}.
-    \item Comunidad hispana de \proglang{R}: \url{http://r-es.org/}.
-    \item Nabble: \url{http://r.789695.n4.nabble.com/}.
-    \item Foro en portugués: \url{http://r-br.2285057.n4.nabble.com/}.
-    \item Stackoverflow: \url{http://stackoverflow.com/questions/tagged/r}.
-    \item Cross Validated: \url{http://stats.stackexchange.com/questions/tagged/r}.
-    \item R-Help Mailing List: \url{https://stat.ethz.ch/mailman/listinfo/r-help}.
-    \item Revolutions: \url{http://blog.revolutionanalytics.com/}.
-    \item R-statistics blog: \url{https://www.r-statistics.com/}.
-    \item RDataMining: \url{https://rdatamining.wordpress.com/}.
+\tightlist
+\item
+  Rbloggers: \url{https://www.r-bloggers.com/}.
+\item
+  Comunidad hispana de \proglang{R}: \url{http://r-es.org/}.
+\item
+  Nabble: \url{http://r.789695.n4.nabble.com/}.
+\item
+  Foro en portugués: \url{http://r-br.2285057.n4.nabble.com/}.
+\item
+  Stackoverflow: \url{http://stackoverflow.com/questions/tagged/r}.
+\item
+  Cross Validated:
+  \url{http://stats.stackexchange.com/questions/tagged/r}.
+\item
+  R-Help Mailing List:
+  \url{https://stat.ethz.ch/mailman/listinfo/r-help}.
+\item
+  Revolutions: \url{http://blog.revolutionanalytics.com/}.
+\item
+  R-statistics blog: \url{https://www.r-statistics.com/}.
+\item
+  RDataMining: \url{https://rdatamining.wordpress.com/}.
 \end{itemize}
 
 \begin{figure}
 
-{\centering \includegraphics[width=2.53in]{figures/Robert_Roos} 
+{\centering \includegraphics[width=2.4in]{figures/Robert_Roos} 
 
 }
 
@@ -193,13 +206,12 @@ exhaustiva de los sitios más populares relacionados con \proglang{R}:
 
 \section{Descarga e instalación} \label{sec:descarga}
 
-Para realizar la instalación \index{instalación} de \proglang{R} usted
-debe visitar la página del CRAN
-(\textit{Comprehensive R Archive Network}) disponible en este enlace
-\url{https://cran.r-project.org/}. Una vez ingrese a la página
-encontrará un cuadro similar al mostrado en la Figura \ref{fig:cran}
-donde aparecen los enlaces de la instalación para los sistemas
-operativos Linux, Mac y Windows.
+Para realizar la instalación de \proglang{R} usted debe visitar la
+página del CRAN (\textit{Comprehensive R Archive Network}) disponible en
+este enlace \url{https://cran.r-project.org/}. Una vez ingrese a la
+página encontrará un cuadro similar al mostrado en la Figura
+\ref{fig:cran} donde aparecen los enlaces de la instalación para los
+sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
@@ -247,13 +259,13 @@ opciones que vienen por defecto.
 \caption{Página de descarga.}\label{fig:inst2}
 \end{figure}
 
-Se recomienda que antes de instalar se observe el siguiente video
-didáctico de instalación de \proglang{R} disponible en este enlace
-\url{http://tinyurl.com/jd7b9ks}.
+Se recomienda observar el siguiente video didáctico de instalación de
+\proglang{R} disponible en este enlace \url{http://tinyurl.com/jd7b9ks}
+para facilitar la tarea de instalación.
 
 \section{Apariencia del programa} \label{sec:apariencia}
 
-Una vez que esté instalado \proglang{R} en su computador usted podrá
+Una vez que esté instalado \proglang{R} en su computador, usted podrá
 acceder a él por la lista de programas o por medio del acceso directo
 que quedó en el escritorio, en la Figura \ref{fig:rlogo} se muestra la
 apariencia del acceso directo para ingresar a \proglang{R}.
@@ -267,14 +279,14 @@ apariencia del acceso directo para ingresar a \proglang{R}.
 \caption{Apariencia del acceso directo para ingresar a R.}\label{fig:rlogo}
 \end{figure}
 
-Una vez se abra \proglang{R} lo que aparecerá en la pantalla de su
-computador será algo muy similar a lo que está en la figura
-\ref{fig:pantalla}, la ventana izquierda se llama consola y es donde se
-ingresan las instrucciones, una vez que se construye un gráfico se
-activa otra ventana llamada ventana gráfica. Cualquier usuario puede
-modificar la posición y tamaños de estas ventanas, puede cambiar el tipo
-y tamaño de las letras en la consola, para hacer esto se deben explorar
-las opciones de \textit{editar} en la barra de herramientas.
+Al abrir \proglang{R} lo que aparecerá en la pantalla de su computador
+será algo muy similar a lo que está en la Figura \ref{fig:pantalla}. La
+ventana izquierda se llama consola y es donde se ingresan las
+instrucciones, una vez que se construye un gráfico se activa otra
+ventana llamada ventana gráfica. Cualquier usuario puede modificar la
+posición y tamaños de estas ventanas, puede cambiar el tipo y tamaño de
+las letras en la consola, para hacer esto se deben explorar las opciones
+de \textit{editar} en la barra de herramientas.
 
 \begin{figure}
 
@@ -300,11 +312,12 @@ Los vectores \index{vectores} son arreglos ordenados en los cuales se
 puede almacenar información de tipo numérico (variable cuantitativa),
 alfanumérico (variable cualitativa) o lógico (\texttt{TRUE} o
 \texttt{FALSE}), pero no mezclas de éstos. La función de \proglang{R}
-para crear un vector es \texttt{c()} que significa concatenar, dentro de
-los paréntesis de esta función se ubica la información a almacenar. Una
-vez construído el vector se acostumbra a etiquetarlo con un nombre corto
-y representativo de la información que almacena, la asignación se hace
-con el operador \texttt{\textless{}-} entre el nombre y el vector.
+para crear un vector es \texttt{c()} y que significa concatenar; dentro
+de los paréntesis de esta función se ubica la información a almacenar.
+Una vez construído el vector se acostumbra a etiquetarlo con un nombre
+corto y representativo de la información que almacena, la asignación se
+hace por medio del operador \texttt{\textless{}-} entre el nombre y el
+vector.
 
 A continuación se presenta un ejemplo de cómo crear tres vectores que
 contienen las respuestas de cinco personas a tres preguntas que se les
@@ -323,7 +336,7 @@ de las 5 personas. En la cuarta posición del vector se colocó el símbolo
 \texttt{NA} que significa \textit{Not Available} debido a que no se
 registró la edad para esa persona. Al hacer una asignación se acostumbra
 a dejar un espacio antes y después del operador \texttt{\textless{}-} de
-asignación. El segundo vector llamado \texttt{deporte} es un vector
+asignación. El segundo vector es llamado \texttt{deporte} y es un vector
 lógico que almacena las respuestas a la pregunta de si la persona
 practica deporte, nuevamente aquí hay un \texttt{NA} para la tercera
 persona. El último vector \texttt{comic.fav} contiene la información del
@@ -334,7 +347,7 @@ respuestas. Cuando se usa \texttt{NA} para representar una información
 \textit{Not Available} NO SE DEBEN usar las comillas
 \texttt{\textquotesingle{}\ \textquotesingle{}}.
 
-Si se desea ver lo que está almacenado en cada uno de estos vectores se
+Si se desea ver lo que está almacenado en cada uno de estos vectores, se
 debe escribir en la consola de \proglang{R} el nombre de uno de los
 objetos y luego se presiona la tecla \textit{enter} o \textit{intro}, al
 realizar esto lo que se obtiene se muestra a continuación.
@@ -749,7 +762,243 @@ en la misma línea, aunque funciona dificulta la revisión del código.
 \end{Highlighting}
 \end{Shaded}
 
+\chapter{Gráficos para una variable}\label{graficos-para-una-variable}
+
+En este capítulo se presentan funciones para la creación de gráficos con
+una sola variable.
+
+\section{\texorpdfstring{Función
+\texttt{stem}}{Función stem}}\label{funcion-stem}
+
+Nos permite obtener el gráfico llamado de tallo y hoja debido a su
+apariencia. Este gráfico fue propuesto por Tukey (1977) y a pesar de no
+ser un gráfico para presentación definitiva se utiliza a la vez que el
+analista recoge la información para ver rápidamente la distribución de
+los datos.
+
+¿Qué muestra este gráfico?
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  El centro de la distribución.
+\item
+  La forma general de la distribución:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Simétrica: Si las porciones a cada lado del centro son imágenes
+    espejos de las otras.
+  \item
+    Sesgada a la izquierda: Si la cola izquierda (los valores menores)
+    es mucho más larga que los de la derecha (los valores mayores).
+  \item
+    Sesgada a la derecha: Opuesto a la sesgada a la izquierda.
+  \end{itemize}
+\item
+  Desviaciones marcadas de la forma global de la distribución.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Outliers: Observaciones individuales que caen muy por fuera del
+    patrón general de los datos. \_ Gaps: Huecos en la distribución
+  \end{itemize}
+\end{enumerate}
+
+Ventajas del gráfico:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Muy fácil de realizar y puede hacerse a mano.
+\item
+  Fácil de entender.
+\end{enumerate}
+
+Desventajas del gráfico:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  El gráfico es tosco y no sirve para presentaciones definitivas.
+\item
+  Funciona cuando el número de observaciones no es muy grande.
+\item
+  No permite comparar claramente diferentes poblaciones
+\end{enumerate}
+
+\subsection*{Ejemplo}\label{ejemplo}
+\addcontentsline{toc}{subsection}{Ejemplo}
+
+Como ilustración vamos a crear el gráfico de tallo y hoja para la
+variable altura (cm) de un grupo de estudiantes de la universidad.
+Primero se leerán los datos disponibles en github y luego se usará la
+función \texttt{stem} para obtener el gráfico. A continuación el código
+usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
+\KeywordTok{stem}\NormalTok{(datos$altura)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##   The decimal point is 1 digit(s) to the right of the |
+## 
+##   14 | 7
+##   15 | 3
+##   15 | 679
+##   16 | 0001
+##   16 | 68888
+##   17 | 001334
+##   17 | 5678899
+##   18 | 000033
+##   18 | 88
+##   19 | 1
+\end{verbatim}
+
+De este gráfico sencillo se puede ver que la variable presenta una mayor
+frecuencia para alturas ente 170 y 179 cm y que no tiene una
+distribución simétrica.
+
+\section{\texorpdfstring{Función
+\texttt{boxplot}}{Función boxplot}}\label{funcion-boxplot}
+
+La función \texttt{boxplot} sirve para crear un diagrama de cajas y
+bigote \index{boxplot} para una variable cuantitativa. La estructura de
+la función \texttt{boxplot} con los argumentos más comunes de uso se
+muestran a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{boxplot}\NormalTok{(x, formula, data, subset, na.action,}
+        \NormalTok{range, width, varwidth, notch, names, }
+        \NormalTok{plot, col, log, horizontal, add, ...)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función \texttt{boxplot} son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: vector numérico con los datos para crear el boxplot.
+\item
+  \texttt{formula}: fórmula con la estructura
+  \texttt{x\ \textasciitilde{}\ g} para indicar que las observaciones en
+  el vector \texttt{x} van a ser agrupadas de acuerdo a los niveles del
+  factor \texttt{g}.
+\item
+  \texttt{data}: marco de datos con las variables.
+\item
+  \texttt{subset}: un vector opcional para especificar un subconjunto de
+  observaciones a ser usadas en el proceso de ajuste.
+\item
+  \texttt{na.action}: una función la cual indica lo que debería pasar
+  cuando los datos contienen ``NA's''.
+\item
+  \texttt{range}: valor numérico que indica la extensión de los bigotes.
+  Si es positivo, los bigotes se extenderán hasta el punto más extremo
+  de tal manera que el bigote no supere \code{range} veces el rango
+  intercuatílico (\(IQ\)). Un valor de cero hace que los bigotes se
+  extiendan hasta los datos extremos.
+\item
+  \texttt{width}: un vector con los anchos relativos de las cajas.
+\item
+  \texttt{varwidth}: Si es \texttt{TRUE}, las cajas son dibujadas con
+  anchos proporcionales a las raíces cuadradas del número de
+  observaciones en los grupos.
+\item
+  \texttt{notch}: si es \texttt{TRUE}, una cuña es dibujada a cada lado
+  de las cajas. Cuando las cuñas de dos gráficos de caja no se
+  traslapan, entonces las medianas son significativamente diferentes a
+  un nivel del 5\%.
+\item
+  \texttt{names}: un con las etiquetas a ser impresas debajo de cada
+  boxplot.
+\item
+  \texttt{plot}: si es \texttt{TRUE} (por defecto) entonces se produce
+  el gráfico, de lo contrario, se producen los resúmenes de los
+  boxplots.
+\item
+  \texttt{col}: vector con los colores a usar en el cuerpo de las cajas.
+\item
+  \texttt{log}: para indicar si las coordenadas \texttt{x} o \texttt{y}
+  o serán graficadas en escala logarítmica.
+\item
+  \texttt{...}: otros parámetros gráficos que pueden ser pasados como
+  argumentos para el boxplot.
+\end{itemize}
+
+\subsection*{Ejemplo}\label{ejemplo-1}
+\addcontentsline{toc}{subsection}{Ejemplo}
+
+Como ilustración vamos a crear tres boxplot para la variable altura (cm)
+de un grupo de estudiantes de la universidad, el primer boxplot será
+sobre la variable altura, el segundo será un boxplot para altura
+diferenciando por sexo y el tercer boxplot será igual que el primero
+pero modificando los nombres a imprimir en el eje horizontal. Primero se
+leerán los datos disponibles en github y luego se usará la función
+\texttt{boxplot} para obtener ambos gráfico. A continuación el código
+usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{))}
+\KeywordTok{boxplot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$altura, }\DataTypeTok{ylab=}\StringTok{'Altura (cm)'}\NormalTok{)}
+
+\KeywordTok{boxplot}\NormalTok{(altura ~}\StringTok{ }\NormalTok{sexo, }\DataTypeTok{data=}\NormalTok{datos,}
+        \DataTypeTok{xlab=}\StringTok{'Sexo'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Altura (cm)'}\NormalTok{)}
+                
+\KeywordTok{boxplot}\NormalTok{(altura ~}\StringTok{ }\NormalTok{sexo, }\DataTypeTok{data=}\NormalTok{datos, }\DataTypeTok{horizontal=}\OtherTok{TRUE}\NormalTok{,}
+        \DataTypeTok{ylab=}\StringTok{'Género'}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{'Altura (cm)'}\NormalTok{,}
+        \DataTypeTok{names=}\KeywordTok{c}\NormalTok{(}\StringTok{'Masculino'}\NormalTok{, }\StringTok{'Femenino'}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{02_graphs1v_files/figure-latex/boxplots-1.pdf}
+\caption{\label{fig:boxplots}Boxplot para la variable altura.}
+\end{figure}
+
+En la Figura \ref{fig:boxplots} se presentan los boxplots obtenidos con
+las instrucciones anteriores. El segundo y tercer boxplot son el mismo,
+lo único que se modificó fueron los nombres o etiquetas a colocar debajo
+de cada boxplot por medio del argumento \texttt{names} y la orientación.
+
+\section{\texorpdfstring{Función
+\texttt{hist}}{Función hist}}\label{funcion-hist}
+
+La función \texttt{hist} sirve para crear el histograma
+\index{histograma}\index{hist} para una variable cuantitativa. Como
+argumentos esta función recibe un vector con los datos y opcionalmente
+puede ingresarse como argumento el número de intervalos a ser graficados
+o en su defecto el número de clases se determina con la fórmula de
+Sturges.
+
+Nota: los programas de computador usualmente construyen los histogramas
+automáticamente, sin embargo, un buen programa debe permitirnos elegir
+el número de intervalos del histograma. Si usted posee un programa que
+no le permite hacer cambios, cambie de programa.
+
+La estructura de la función \texttt{hist} con los argumentos más comunes
+de uso se muestran a continuación.
+
 \bibliography{packages,book}
+
+\printindex
 
 
 \end{document}

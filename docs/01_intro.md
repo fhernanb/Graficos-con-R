@@ -1,24 +1,22 @@
 # Introducción
 
 \section{Orígenes} \label{sec:origenes}
-\proglang{R} es un lenguaje de programación usado para realizar procedimientos estadísticos y gráficos de alto nivel, este lenguaje fue creado en 1993 por los profesores e investigadores Robert Gentleman y Ross Ihaka. Inicialmente el lenguaje se usó para apoyar los cursos que tenían a su cargo los profesores pero luego de ver la utilidad de la herramienta desarrollada decidieron colocar copias de \proglang{R} en StatLib. A partir de 1995 el código fuente de \proglang{R} está disponible bajo licencia GNU GPL para sistemas operativos Windows, Macintosh y distribuciones Unix/Linux. La comunidad de usuarios de \proglang{R} en el mundo es muy grande y los usuarios cuentan con diferentes espacios para interactuar, a continuación una lista no exhaustiva de los sitios más populares relacionados con \proglang{R}:
+\proglang{R} es un lenguaje de programación usado para realizar procedimientos estadísticos y gráficos de alto nivel, este lenguaje fue creado en 1993 por los profesores e investigadores Robert Gentleman y Ross Ihaka. Inicialmente el lenguaje se usó para apoyar los cursos que tenían a su cargo los profesores, pero luego de ver la utilidad de la herramienta desarrollada, decidieron colocar copias de \proglang{R} en StatLib. A partir de 1995 el código fuente de \proglang{R} está disponible bajo licencia GNU GPL para sistemas operativos Windows, Macintosh y distribuciones Unix/Linux. La comunidad de usuarios de \proglang{R} en el mundo es muy grande y los usuarios cuentan con diferentes espacios para interactuar, a continuación una lista no exhaustiva de los sitios más populares relacionados con \proglang{R}:
 
-\begin{itemize}
-	\item Rbloggers: \url{https://www.r-bloggers.com/}.
-	\item Comunidad hispana de \proglang{R}: \url{http://r-es.org/}.
-	\item Nabble: \url{http://r.789695.n4.nabble.com/}.
-	\item Foro en portugués: \url{http://r-br.2285057.n4.nabble.com/}.
-	\item Stackoverflow: \url{http://stackoverflow.com/questions/tagged/r}.
-	\item Cross Validated: \url{http://stats.stackexchange.com/questions/tagged/r}.
-	\item R-Help Mailing List: \url{https://stat.ethz.ch/mailman/listinfo/r-help}.
-	\item Revolutions: \url{http://blog.revolutionanalytics.com/}.
-	\item R-statistics blog: \url{https://www.r-statistics.com/}.
-	\item RDataMining: \url{https://rdatamining.wordpress.com/}.
-\end{itemize}
+- Rbloggers: \url{https://www.r-bloggers.com/}.
+- Comunidad hispana de \proglang{R}: \url{http://r-es.org/}.
+- Nabble: \url{http://r.789695.n4.nabble.com/}.
+- Foro en portugués: \url{http://r-br.2285057.n4.nabble.com/}.
+- Stackoverflow: \url{http://stackoverflow.com/questions/tagged/r}.
+- Cross Validated: \url{http://stats.stackexchange.com/questions/tagged/r}.
+- R-Help Mailing List: \url{https://stat.ethz.ch/mailman/listinfo/r-help}.
+- Revolutions: \url{http://blog.revolutionanalytics.com/}.
+- R-statistics blog: \url{https://www.r-statistics.com/}.
+- RDataMining: \url{https://rdatamining.wordpress.com/}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=2.53in]{figures/Robert_Roos} 
+{\centering \includegraphics[width=2.4in]{figures/Robert_Roos} 
 
 }
 
@@ -27,7 +25,7 @@
 
 \section{Descarga e instalación} \label{sec:descarga}
 
-Para realizar la instalación \index{instalación} de \proglang{R} usted debe visitar la página del CRAN (\textit{Comprehensive R Archive Network}) disponible en este enlace \url{https://cran.r-project.org/}. Una vez ingrese a la página encontrará un cuadro similar al mostrado en la Figura \ref{fig:cran} donde aparecen los enlaces de la instalación para los sistemas operativos Linux, Mac y Windows.
+Para realizar la instalación de \proglang{R} usted debe visitar la página del CRAN (\textit{Comprehensive R Archive Network}) disponible en este enlace \url{https://cran.r-project.org/}. Una vez ingrese a la página encontrará un cuadro similar al mostrado en la Figura \@ref(fig:cran) donde aparecen los enlaces de la instalación para los sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
@@ -60,10 +58,10 @@ Luego de esto se abrirá otra página con un encabezado similar al mostrado en l
 \caption{Página de descarga.}(\#fig:inst2)
 \end{figure}
 
-Se recomienda que antes de instalar se observe el siguiente video didáctico de instalación de \proglang{R} disponible en este enlace \url{http://tinyurl.com/jd7b9ks}.
+Se recomienda observar el siguiente video didáctico de instalación de \proglang{R} disponible en este enlace \url{http://tinyurl.com/jd7b9ks} para facilitar la tarea de instalación.
 
 \section{Apariencia del programa} \label{sec:apariencia}
-Una vez que esté instalado \proglang{R} en su computador usted podrá acceder a él por la lista de programas o por medio del acceso directo que quedó en el escritorio, en la Figura \@ref(fig:rlogo) se muestra la apariencia del acceso directo para ingresar a \proglang{R}.
+Una vez que esté instalado \proglang{R} en su computador, usted podrá acceder a él por la lista de programas o por medio del acceso directo que quedó en el escritorio, en la Figura \@ref(fig:rlogo) se muestra la apariencia del acceso directo para ingresar a \proglang{R}.
 
 \begin{figure}
 
@@ -74,7 +72,8 @@ Una vez que esté instalado \proglang{R} en su computador usted podrá acceder a
 \caption{Apariencia del acceso directo para ingresar a R.}(\#fig:rlogo)
 \end{figure}
 
-Una vez se abra \proglang{R} lo que aparecerá en la pantalla de su computador será algo muy similar a lo que está en la figura \@ref(fig:pantalla), la ventana izquierda se llama consola y es donde se ingresan las instrucciones, una vez que se construye un gráfico se activa otra ventana llamada ventana gráfica. Cualquier usuario puede modificar la posición y tamaños de estas ventanas, puede cambiar el tipo y tamaño de las letras en la consola, para hacer esto se deben explorar las opciones de \textit{editar} en la barra de herramientas.
+Al abrir \proglang{R} lo que aparecerá en la pantalla de su computador será algo muy similar a lo que está en la Figura \@ref(fig:pantalla). La ventana izquierda se llama consola y es donde se ingresan las instrucciones, una vez que se construye un gráfico se activa otra ventana llamada ventana gráfica. Cualquier usuario puede modificar la posición y tamaños de estas ventanas, puede cambiar el tipo y tamaño de las letras en la consola, para hacer esto se deben explorar las opciones de \textit{editar} en la barra de herramientas.
+
 \begin{figure}
 
 {\centering \includegraphics[width=3.6in]{figures/Rpantallazo} 
@@ -91,10 +90,9 @@ En \proglang{R} existen varios tipos de objectos \index{objetos} que permiten qu
 
 \subsection{Vectores}
 
-Los vectores \index{vectores} son arreglos ordenados en los cuales se puede almacenar información de tipo numérico (variable cuantitativa), alfanumérico (variable cualitativa) o lógico (`TRUE` o `FALSE`), pero no mezclas de éstos. La función de \proglang{R} para crear un vector es `c()` que significa concatenar, dentro de los paréntesis de esta función se ubica la información a almacenar. Una vez construído el vector se acostumbra a etiquetarlo con un nombre corto y representativo de la información que almacena, la asignación se hace con el operador `<-` entre el nombre y el vector.
+Los vectores \index{vectores} son arreglos ordenados en los cuales se puede almacenar información de tipo numérico (variable cuantitativa), alfanumérico (variable cualitativa) o lógico (`TRUE` o `FALSE`), pero no mezclas de éstos. La función de \proglang{R} para crear un vector es `c()` y que significa concatenar; dentro de los paréntesis de esta función se ubica la información a almacenar. Una vez construído el vector se acostumbra a etiquetarlo con un nombre corto y representativo de la información que almacena, la asignación se hace por medio del operador `<-` entre el nombre y el vector.
 
 A continuación se presenta un ejemplo de cómo crear tres vectores que contienen las respuestas de cinco personas a tres preguntas que se les realizaron.
-
 
 
 ```r
@@ -103,9 +101,9 @@ deporte <- c(TRUE, TRUE, NA, FALSE, TRUE)
 comic.fav <- c(NA, 'Superman', 'Batman', NA, 'Batman')
 ```
 
-El vector `edad` es un vector cuantitativo y contiene las edades de las 5 personas. En la cuarta posición del vector se colocó el símbolo `NA` que significa \textit{Not Available} debido a que no se registró la edad para esa persona. Al hacer una asignación se acostumbra a dejar un espacio antes y después del operador `<-` de asignación. El segundo vector llamado `deporte` es un vector lógico que almacena las respuestas a la pregunta de si la persona practica deporte, nuevamente aquí hay un `NA` para la tercera persona. El último vector `comic.fav` contiene la información del cómic favorito de cada persona, como esta variable es cualitativa es necesario usar las comillas `' '` para encerrar las respuestas. Cuando se usa `NA` para representar una información \textit{Not Available} NO SE DEBEN usar las comillas `' '`.
+El vector `edad` es un vector cuantitativo y contiene las edades de las 5 personas. En la cuarta posición del vector se colocó el símbolo `NA` que significa \textit{Not Available} debido a que no se registró la edad para esa persona. Al hacer una asignación se acostumbra a dejar un espacio antes y después del operador `<-` de asignación. El segundo vector es llamado `deporte` y es un vector lógico que almacena las respuestas a la pregunta de si la persona practica deporte, nuevamente aquí hay un `NA` para la tercera persona. El último vector `comic.fav` contiene la información del cómic favorito de cada persona, como esta variable es cualitativa es necesario usar las comillas `' '` para encerrar las respuestas. Cuando se usa `NA` para representar una información \textit{Not Available} NO SE DEBEN usar las comillas `' '`.
 
-Si se desea ver lo que está almacenado en cada uno de estos vectores se debe escribir en la consola de \proglang{R} el nombre de uno de los objetos y luego se presiona la tecla \textit{enter} o \textit{intro}, al realizar esto lo que se obtiene se muestra a continuación.
+Si se desea ver lo que está almacenado en cada uno de estos vectores, se debe escribir en la consola de \proglang{R} el nombre de uno de los objetos y luego se presiona la tecla \textit{enter} o \textit{intro}, al realizar esto lo que se obtiene se muestra a continuación.
 
 
 ```r
