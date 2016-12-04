@@ -1,4 +1,4 @@
-\documentclass[]{book}
+\documentclass[10pt,]{book}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -128,7 +128,7 @@ Freddy Hernández Barajas}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2016-12-01}
+  \date{2016-12-03}
 
 \usepackage{booktabs}
 \usepackage[spanish]{babel}
@@ -152,10 +152,18 @@ Freddy Hernández Barajas}
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
+\listoftables
+\listoffigures
 \chapter*{Prefacio}\label{prefacio}
 \addcontentsline{toc}{chapter}{Prefacio}
 
-Este libro \ldots{}
+This short book introduces an R package, \textbf{bookdown}, to change
+your workflow of writing books. It should be technically easy to write a
+book, visually pleasant to view the book, fun to interact with the book,
+convenient to navigate through the book, straightforward for readers to
+contribute or leave feedback to the book author(s), and more
+importantly, authors should not always be distracted by typesetting
+details.
 
 \chapter{Introducción}\label{introduccion}
 
@@ -1007,6 +1015,185 @@ no le permite hacer cambios, cambie de programa.
 
 La estructura de la función \texttt{hist} con los argumentos más comunes
 de uso se muestran a continuación.
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: vector numérico de valores para construir el histograma.
+\item
+  \texttt{breaks}: puede ser un número entero que indica el número
+  aproximado de clases o un vector cuyos elementos indican los límites
+  de los intervalos.
+\item
+  \texttt{freq}: argumento lógico; si se especifica como \texttt{TRUE},
+  el histograma presentará frecuencias absolutas o conteo de datos para
+  cada intervalo; si se especifica como \texttt{FALSE} el histograma
+  presentar las frecuencias relativas (en porcentaje). Por defecto, este
+  argumento toma el valor de \texttt{TRUE} siempre y cuando los
+  intervalos sean de igual ancho.
+\item
+  \texttt{include.lowest}: argumento lógico; si se especifica como
+  \texttt{TRUE}, un \texttt{x{[}i{]}} igual a los equal a un valor
+  \texttt{breaks\textquotesingle{}\textquotesingle{}\ se\ incluirá\ en\ la\ primera\ barra,\ si\ el\ argumento}right
+  = TRUE'', o en la última en caso contrario.
+\item
+  \texttt{right}: argumento lógico; si es \texttt{TRUE}, los intervalos
+  son abiertos a la izquierda y cerrados a la derecha \((a,b]\). Para la
+  primera clase o intervalo si \texttt{include.lowest=TRUE} el valor más
+  pequeño de los datos será incluido en éste. Si es \texttt{FALSE} los
+  intervalos serán de la forma \([a,b)\) y el argumento
+  \texttt{include.lowest=TRUE} tendrá el significado de incluir el ``más
+  alto''.
+\item
+  \texttt{col}: para definir el color de las barras. Por defecto,
+  \texttt{NULL} produce barras sin fondo.
+\item
+  \texttt{border}: para definir el color de los bordes de las barras.
+\item
+  \texttt{plot}: argumento lógico. Por defecto es \texttt{TRUE}, y el
+  resultado es el gráfico del histograma; si se especifica como
+  \texttt{FALSE} el resultado es una lista de conteos por cada
+  intervalo.
+\item
+  \texttt{labels}: argumento lógico o carácter. Si se especifica como
+  \texttt{TRUE} coloca etiquetas arriba de cada barra.
+\item
+  \texttt{...}: parámetros gráficos adicionales a \texttt{title} y
+  \texttt{axis}.
+\end{itemize}
+
+\subsection*{Ejemplo}\label{ejemplo-2}
+\addcontentsline{toc}{subsection}{Ejemplo}
+
+Vamos a construir varios histogramas para los tiempos de 180 corredores
+de la media maratón de CONAVI. A continuación se muestra la forma de
+ingresar los 180 datos.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{maraton <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}
+\DecValTok{10253}\NormalTok{, }\DecValTok{10302}\NormalTok{, }\DecValTok{10307}\NormalTok{, }\DecValTok{10309}\NormalTok{, }\DecValTok{10349}\NormalTok{, }\DecValTok{10353}\NormalTok{, }\DecValTok{10409}\NormalTok{, }\DecValTok{10442}\NormalTok{, }\DecValTok{10447}\NormalTok{, }\DecValTok{10452}\NormalTok{, }\DecValTok{10504}\NormalTok{, }\DecValTok{10517}\NormalTok{,}
+\DecValTok{10530}\NormalTok{, }\DecValTok{10540}\NormalTok{, }\DecValTok{10549}\NormalTok{, }\DecValTok{10549}\NormalTok{, }\DecValTok{10606}\NormalTok{, }\DecValTok{10612}\NormalTok{, }\DecValTok{10646}\NormalTok{, }\DecValTok{10648}\NormalTok{, }\DecValTok{10655}\NormalTok{, }\DecValTok{10707}\NormalTok{, }\DecValTok{10726}\NormalTok{, }\DecValTok{10731}\NormalTok{,}
+\DecValTok{10737}\NormalTok{, }\DecValTok{10743}\NormalTok{, }\DecValTok{10808}\NormalTok{, }\DecValTok{10833}\NormalTok{, }\DecValTok{10843}\NormalTok{, }\DecValTok{10920}\NormalTok{, }\DecValTok{10938}\NormalTok{, }\DecValTok{10949}\NormalTok{, }\DecValTok{10954}\NormalTok{, }\DecValTok{10956}\NormalTok{, }\DecValTok{10958}\NormalTok{, }\DecValTok{11004}\NormalTok{,}
+\DecValTok{11009}\NormalTok{, }\DecValTok{11024}\NormalTok{, }\DecValTok{11037}\NormalTok{, }\DecValTok{11045}\NormalTok{, }\DecValTok{11046}\NormalTok{, }\DecValTok{11049}\NormalTok{, }\DecValTok{11104}\NormalTok{, }\DecValTok{11127}\NormalTok{, }\DecValTok{11205}\NormalTok{, }\DecValTok{11207}\NormalTok{, }\DecValTok{11215}\NormalTok{, }\DecValTok{11226}\NormalTok{,}
+\DecValTok{11233}\NormalTok{, }\DecValTok{11239}\NormalTok{, }\DecValTok{11307}\NormalTok{, }\DecValTok{11330}\NormalTok{, }\DecValTok{11342}\NormalTok{, }\DecValTok{11351}\NormalTok{, }\DecValTok{11405}\NormalTok{, }\DecValTok{11413}\NormalTok{, }\DecValTok{11438}\NormalTok{, }\DecValTok{11453}\NormalTok{, }\DecValTok{11500}\NormalTok{, }\DecValTok{11501}\NormalTok{,}
+\DecValTok{11502}\NormalTok{, }\DecValTok{11503}\NormalTok{, }\DecValTok{11527}\NormalTok{, }\DecValTok{11544}\NormalTok{, }\DecValTok{11549}\NormalTok{, }\DecValTok{11559}\NormalTok{, }\DecValTok{11612}\NormalTok{, }\DecValTok{11617}\NormalTok{, }\DecValTok{11635}\NormalTok{, }\DecValTok{11655}\NormalTok{, }\DecValTok{11731}\NormalTok{, }\DecValTok{11735}\NormalTok{,}
+\DecValTok{11746}\NormalTok{, }\DecValTok{11800}\NormalTok{, }\DecValTok{11814}\NormalTok{, }\DecValTok{11828}\NormalTok{, }\DecValTok{11832}\NormalTok{, }\DecValTok{11841}\NormalTok{, }\DecValTok{11909}\NormalTok{, }\DecValTok{11926}\NormalTok{, }\DecValTok{11937}\NormalTok{, }\DecValTok{11940}\NormalTok{, }\DecValTok{11947}\NormalTok{, }\DecValTok{11952}\NormalTok{,}
+\DecValTok{12005}\NormalTok{, }\DecValTok{12044}\NormalTok{, }\DecValTok{12113}\NormalTok{, }\DecValTok{12209}\NormalTok{, }\DecValTok{12230}\NormalTok{, }\DecValTok{12258}\NormalTok{, }\DecValTok{12309}\NormalTok{, }\DecValTok{12327}\NormalTok{, }\DecValTok{12341}\NormalTok{, }\DecValTok{12413}\NormalTok{, }\DecValTok{12433}\NormalTok{, }\DecValTok{12440}\NormalTok{,}
+\DecValTok{12447}\NormalTok{, }\DecValTok{12530}\NormalTok{, }\DecValTok{12600}\NormalTok{, }\DecValTok{12617}\NormalTok{, }\DecValTok{12640}\NormalTok{, }\DecValTok{12700}\NormalTok{, }\DecValTok{12706}\NormalTok{, }\DecValTok{12727}\NormalTok{, }\DecValTok{12840}\NormalTok{, }\DecValTok{12851}\NormalTok{, }\DecValTok{12851}\NormalTok{, }\DecValTok{12937}\NormalTok{,}
+\DecValTok{13019}\NormalTok{, }\DecValTok{13040}\NormalTok{, }\DecValTok{13110}\NormalTok{, }\DecValTok{13114}\NormalTok{, }\DecValTok{13122}\NormalTok{, }\DecValTok{13155}\NormalTok{, }\DecValTok{13205}\NormalTok{, }\DecValTok{13210}\NormalTok{, }\DecValTok{13220}\NormalTok{, }\DecValTok{13228}\NormalTok{, }\DecValTok{13307}\NormalTok{, }\DecValTok{13316}\NormalTok{,}
+\DecValTok{13335}\NormalTok{, }\DecValTok{13420}\NormalTok{, }\DecValTok{13425}\NormalTok{, }\DecValTok{13435}\NormalTok{, }\DecValTok{13435}\NormalTok{, }\DecValTok{13448}\NormalTok{, }\DecValTok{13456}\NormalTok{, }\DecValTok{13536}\NormalTok{, }\DecValTok{13608}\NormalTok{, }\DecValTok{13612}\NormalTok{, }\DecValTok{13620}\NormalTok{, }\DecValTok{13646}\NormalTok{,}
+\DecValTok{13705}\NormalTok{, }\DecValTok{13730}\NormalTok{, }\DecValTok{13730}\NormalTok{, }\DecValTok{13730}\NormalTok{, }\DecValTok{13747}\NormalTok{, }\DecValTok{13810}\NormalTok{, }\DecValTok{13850}\NormalTok{, }\DecValTok{13854}\NormalTok{, }\DecValTok{13901}\NormalTok{, }\DecValTok{13905}\NormalTok{, }\DecValTok{13907}\NormalTok{, }\DecValTok{13912}\NormalTok{,}
+\DecValTok{13920}\NormalTok{, }\DecValTok{14000}\NormalTok{, }\DecValTok{14010}\NormalTok{, }\DecValTok{14025}\NormalTok{, }\DecValTok{14152}\NormalTok{, }\DecValTok{14208}\NormalTok{, }\DecValTok{14230}\NormalTok{, }\DecValTok{14344}\NormalTok{, }\DecValTok{14400}\NormalTok{, }\DecValTok{14455}\NormalTok{, }\DecValTok{14509}\NormalTok{, }\DecValTok{14552}\NormalTok{,}
+\DecValTok{14652}\NormalTok{, }\DecValTok{15009}\NormalTok{, }\DecValTok{15026}\NormalTok{, }\DecValTok{15242}\NormalTok{, }\DecValTok{15406}\NormalTok{, }\DecValTok{15409}\NormalTok{, }\DecValTok{15528}\NormalTok{, }\DecValTok{15549}\NormalTok{, }\DecValTok{15644}\NormalTok{, }\DecValTok{15758}\NormalTok{, }\DecValTok{15837}\NormalTok{, }\DecValTok{15916}\NormalTok{,}
+\DecValTok{15926}\NormalTok{, }\DecValTok{15948}\NormalTok{, }\DecValTok{20055}\NormalTok{, }\DecValTok{20416}\NormalTok{, }\DecValTok{20520}\NormalTok{, }\DecValTok{20600}\NormalTok{, }\DecValTok{20732}\NormalTok{, }\DecValTok{20748}\NormalTok{, }\DecValTok{20916}\NormalTok{, }\DecValTok{21149}\NormalTok{, }\DecValTok{21714}\NormalTok{, }\DecValTok{23256}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Los datos están codificados como por seis números en el formato hmmss,
+donde h corresponde a las horas, mm a los minutos y ss a los segundos
+necesarios para completar la maratón. Antes de construir los histogramas
+es necesario convertir los tiempos anteriores almacenados en
+\texttt{maraton} a horas, para esto se utiliza el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{horas <-}\StringTok{ }\NormalTok{maraton %/%}\StringTok{ }\DecValTok{10000}
+\NormalTok{min <-}\StringTok{ }\NormalTok{(maraton -}\StringTok{ }\NormalTok{horas *}\StringTok{ }\DecValTok{10000}\NormalTok{) %/%}\StringTok{ }\DecValTok{100}
+\NormalTok{seg <-}\StringTok{ }\NormalTok{maraton -}\StringTok{ }\NormalTok{horas *}\StringTok{ }\DecValTok{10000} \NormalTok{-}\StringTok{ }\NormalTok{min *}\StringTok{ }\DecValTok{100}
+\NormalTok{Tiempos <-}\StringTok{ }\NormalTok{horas +}\StringTok{ }\NormalTok{min /}\StringTok{ }\DecValTok{60} \NormalTok{+}\StringTok{ }\NormalTok{seg /}\StringTok{ }\DecValTok{3600}
+\end{Highlighting}
+\end{Shaded}
+
+A continuación se muestra el código para construir cuatro histogramas
+con 2, 4, 8 y 16 intervalos para los tiempos a partir de la variable
+\texttt{Tiempos}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+
+\KeywordTok{hist}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Tiempos, }\DataTypeTok{breaks=}\DecValTok{2}\NormalTok{, }\DataTypeTok{main=}\StringTok{""}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"Tiempo (horas)"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Frecuencias"}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{)}
+\KeywordTok{mtext}\NormalTok{(}\StringTok{"(A)"}\NormalTok{, }\DataTypeTok{side=}\DecValTok{1}\NormalTok{, }\DataTypeTok{line=}\DecValTok{4}\NormalTok{, }\DataTypeTok{font=}\DecValTok{1}\NormalTok{)}
+\KeywordTok{hist}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Tiempos, }\DataTypeTok{breaks=}\DecValTok{4}\NormalTok{, }\DataTypeTok{main=}\StringTok{""}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"Tiempo (horas)"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Frecuencias"}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{)}
+\KeywordTok{mtext}\NormalTok{(}\StringTok{"(B)"}\NormalTok{, }\DataTypeTok{side=}\DecValTok{1}\NormalTok{, }\DataTypeTok{line=}\DecValTok{4}\NormalTok{, }\DataTypeTok{font=}\DecValTok{1}\NormalTok{)}
+\KeywordTok{hist}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Tiempos, }\DataTypeTok{breaks=}\DecValTok{8}\NormalTok{, }\DataTypeTok{main=}\StringTok{""}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"Tiempo (horas)"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Frecuencias"}\NormalTok{)}
+\KeywordTok{mtext}\NormalTok{(}\StringTok{"(C)"}\NormalTok{, }\DataTypeTok{side=}\DecValTok{1}\NormalTok{, }\DataTypeTok{line=}\DecValTok{4}\NormalTok{, }\DataTypeTok{font=}\DecValTok{1}\NormalTok{)}
+\KeywordTok{hist}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Tiempos, }\DataTypeTok{breaks=}\DecValTok{16}\NormalTok{, }\DataTypeTok{main=}\StringTok{""}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"Tiempo (horas)"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Frecuencias"}\NormalTok{)}
+\KeywordTok{mtext}\NormalTok{(}\StringTok{"(D)"}\NormalTok{, }\DataTypeTok{side=}\DecValTok{1}\NormalTok{, }\DataTypeTok{line=}\DecValTok{4}\NormalTok{, }\DataTypeTok{font=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{02_graphs1v_files/figure-latex/hist1-1.pdf}
+\caption{\label{fig:hist1}Histogramas para el tiempo en la media maratón de
+CONAVI. A: histograma con dos intervalos, B: histograma con cuatro
+intervalos, C: histograma con seis intervalos, C: histograma con 18
+intervalos}
+\end{figure}
+
+En la Figura \ref{fig:hist1} se presentan los cuatro histogramas. El
+histograma C, con 8 barras, muestra más claramente la asimetría (este es
+el que la mayoría de los programas produce por defecto, ya que la regla
+de Sturges para este conjunto de datos aproxima a 8 barras). Si
+consideramos más barras por ejemplo 16, como tenemos en D, se refina más
+la información y empezamos a notar multimodalidad. En el código anterior
+se incluyó \texttt{las\ =\ 1} para conseguir que los número del eje Y
+queden escritos de forma horizontal, ver A y B en Figura
+\ref{fig:hist1}.
+
+A continuación vamos a construir cuatro histogramas: el primero con dos
+intervalos intervalos y puntos de corte dados por el mínimo, la mediana
+y el máximo; el segundo con tres intervalos y puntos de corte dados por
+el mínimo, cuartiles 1, 2, 3 y máximo; el cuarto con diez intervalos y
+puntos de corte dados por los deciles; y el último con veinte intervalos
+y puntos de corte dados por cuantiles 5, 10, \(\ldots\), 95. En el
+código mostrado a continuación se presenta la creación de los puntos de
+corte y los cuatro histogramas.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{puntos1 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{quantile}\NormalTok{(Tiempos, }\DataTypeTok{probs=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\DecValTok{1}\NormalTok{)))}
+\NormalTok{puntos2 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{quantile}\NormalTok{(Tiempos, }\DataTypeTok{probs=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.25}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.75}\NormalTok{, }\DecValTok{1}\NormalTok{)))}
+\NormalTok{puntos3 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{quantile}\NormalTok{(Tiempos, }\DataTypeTok{probs=}\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{by=}\FloatTok{0.1}\NormalTok{)))}
+\NormalTok{puntos4 <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\KeywordTok{quantile}\NormalTok{(Tiempos, }\DataTypeTok{probs=}\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{by=}\FloatTok{0.05}\NormalTok{)))}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{hist}\NormalTok{(Tiempos, }\DataTypeTok{breaks=}\NormalTok{puntos1, }\DataTypeTok{freq=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{), }\DataTypeTok{labels=}\OtherTok{TRUE}\NormalTok{,}
+     \DataTypeTok{main=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Densidad"}\NormalTok{)}
+\KeywordTok{mtext}\NormalTok{(}\StringTok{"(A)"}\NormalTok{, }\DataTypeTok{side=}\DecValTok{1}\NormalTok{, }\DataTypeTok{line=}\DecValTok{4}\NormalTok{, }\DataTypeTok{font=}\DecValTok{1}\NormalTok{)}
+\KeywordTok{hist}\NormalTok{(Tiempos, }\DataTypeTok{breaks=}\NormalTok{puntos2, }\DataTypeTok{freq=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{), }\DataTypeTok{labels=}\OtherTok{TRUE}\NormalTok{,}
+     \DataTypeTok{main=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Densidad"}\NormalTok{)}
+\KeywordTok{mtext}\NormalTok{(}\StringTok{"(B)"}\NormalTok{, }\DataTypeTok{side=}\DecValTok{1}\NormalTok{, }\DataTypeTok{line=}\DecValTok{4}\NormalTok{, }\DataTypeTok{font=}\DecValTok{1}\NormalTok{)}
+\KeywordTok{hist}\NormalTok{(Tiempos, }\DataTypeTok{breaks=}\NormalTok{puntos3, }\DataTypeTok{freq=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{),}
+     \DataTypeTok{main=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Densidad"}\NormalTok{)}
+\KeywordTok{mtext}\NormalTok{(}\StringTok{"(C)"}\NormalTok{, }\DataTypeTok{side=}\DecValTok{1}\NormalTok{, }\DataTypeTok{line=}\DecValTok{4}\NormalTok{, }\DataTypeTok{font=}\DecValTok{1}\NormalTok{)}
+\KeywordTok{hist}\NormalTok{(Tiempos, }\DataTypeTok{breaks=}\NormalTok{puntos4, }\DataTypeTok{freq=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{),}
+     \DataTypeTok{main=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Densidad"}\NormalTok{)}
+\KeywordTok{mtext}\NormalTok{(}\StringTok{"(D)"}\NormalTok{, }\DataTypeTok{side=}\DecValTok{1}\NormalTok{, }\DataTypeTok{line=}\DecValTok{4}\NormalTok{, }\DataTypeTok{font=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{02_graphs1v_files/figure-latex/hist2-1.pdf}
+\caption{\label{fig:hist2}Histogramas para el tiempo en la media maratón de
+CONAVI. A: histograma con dos intervalos, B: histograma con cuatro
+intervalos, C: histograma con diez intervalos, C: histograma con veinte
+intervalos}
+\end{figure}
+
+Nota: En estos histogramas, las alturas corresponden a las intensidades
+(frec. relativa/long. intervalo). Por tanto, el área de cada rectángulo
+da cuenta de las frecuencias relativas. Para el caso (A) ambos
+intervalos tienen igual área y cada uno contiene 50\% de los datos. esto
+puede verificarse así:
+
+\begin{verbatim}
+Intensidad primera clase = 1.4869888 = 0.5 / (1.384306 - 1.048056)
+Intensidad segunda clase = 0.4293381 = 0.5 / (2.548889 - 1.384306)
+\end{verbatim}
 
 \bibliography{packages,book}
 

@@ -114,17 +114,101 @@ Nota: los programas de computador usualmente construyen los histogramas automát
 La estructura de la función `hist` con los argumentos más comunes de uso se muestran a continuación.
 
 
+- `x`: vector numérico de valores para construir el histograma. 
+- `breaks`: puede ser un número entero que indica el número aproximado de clases o un vector cuyos elementos indican los límites de los intervalos. 
+- `freq`: argumento lógico; si se especifica como `TRUE`, el histograma presentará frecuencias absolutas o conteo de datos para cada intervalo; si se especifica como `FALSE` el histograma presentar las frecuencias relativas (en porcentaje). Por defecto, este argumento toma el valor de `TRUE` siempre y cuando los intervalos sean de igual ancho. 
+- `include.lowest`: argumento lógico; si se especifica como `TRUE`, un `x[i]` igual a los equal a un valor ``breaks'' se incluirá en la primera barra, si el argumento ``right = TRUE'', o en la última en caso contrario. 
+- `right`: argumento lógico; si es `TRUE`, los intervalos son abiertos a la izquierda y cerrados a la derecha $(a,b]$. Para la primera clase o intervalo si `include.lowest=TRUE` el valor más pequeño de los datos será incluido en éste. Si es `FALSE` los intervalos serán de la forma $[a,b)$ y el argumento `include.lowest=TRUE` tendrá el significado de incluir el ``más alto''. 
+- `col`: para definir el color de las barras. Por defecto, `NULL` produce barras sin fondo. 
+- `border`: para definir el color de los bordes de las barras.
+- `plot`: argumento lógico. Por defecto es `TRUE`, y el resultado es el gráfico del histograma; si se especifica como `FALSE` el resultado es una lista de conteos por cada intervalo.
+- `labels`: argumento lógico o carácter.  Si se especifica como `TRUE` coloca etiquetas arriba de cada barra.
+- `...`: parámetros gráficos adicionales a `title` y `axis`.
+
+### Ejemplo {-}
+Vamos a construir varios histogramas para los tiempos de 180 corredores de la media maratón de CONAVI. A continuación se muestra la forma de ingresar los 180 datos.
 
 
+```r
+maraton <- c(
+10253, 10302, 10307, 10309, 10349, 10353, 10409, 10442, 10447, 10452, 10504, 10517,
+10530, 10540, 10549, 10549, 10606, 10612, 10646, 10648, 10655, 10707, 10726, 10731,
+10737, 10743, 10808, 10833, 10843, 10920, 10938, 10949, 10954, 10956, 10958, 11004,
+11009, 11024, 11037, 11045, 11046, 11049, 11104, 11127, 11205, 11207, 11215, 11226,
+11233, 11239, 11307, 11330, 11342, 11351, 11405, 11413, 11438, 11453, 11500, 11501,
+11502, 11503, 11527, 11544, 11549, 11559, 11612, 11617, 11635, 11655, 11731, 11735,
+11746, 11800, 11814, 11828, 11832, 11841, 11909, 11926, 11937, 11940, 11947, 11952,
+12005, 12044, 12113, 12209, 12230, 12258, 12309, 12327, 12341, 12413, 12433, 12440,
+12447, 12530, 12600, 12617, 12640, 12700, 12706, 12727, 12840, 12851, 12851, 12937,
+13019, 13040, 13110, 13114, 13122, 13155, 13205, 13210, 13220, 13228, 13307, 13316,
+13335, 13420, 13425, 13435, 13435, 13448, 13456, 13536, 13608, 13612, 13620, 13646,
+13705, 13730, 13730, 13730, 13747, 13810, 13850, 13854, 13901, 13905, 13907, 13912,
+13920, 14000, 14010, 14025, 14152, 14208, 14230, 14344, 14400, 14455, 14509, 14552,
+14652, 15009, 15026, 15242, 15406, 15409, 15528, 15549, 15644, 15758, 15837, 15916,
+15926, 15948, 20055, 20416, 20520, 20600, 20732, 20748, 20916, 21149, 21714, 23256)
+```
+
+Los datos están codificados como por seis números en el formato hmmss, donde h corresponde a las horas, mm a los minutos y ss a los segundos necesarios para completar la maratón. Antes de construir los histogramas es necesario convertir los tiempos anteriores almacenados en `maraton` a horas, para esto se utiliza el siguiente código.
 
 
+```r
+horas <- maraton %/% 10000
+min <- (maraton - horas * 10000) %/% 100
+seg <- maraton - horas * 10000 - min * 100
+Tiempos <- horas + min / 60 + seg / 3600
+```
+
+A continuación se muestra el código para construir cuatro histogramas con 2, 4, 8 y 16 intervalos para los tiempos a partir de la variable `Tiempos`.
 
 
+```r
+par(mfrow=c(2,2))
+
+hist(x=Tiempos, breaks=2, main="", xlab="Tiempo (horas)", ylab="Frecuencias", las=1)
+mtext("(A)", side=1, line=4, font=1)
+hist(x=Tiempos, breaks=4, main="", xlab="Tiempo (horas)", ylab="Frecuencias", las=1)
+mtext("(B)", side=1, line=4, font=1)
+hist(x=Tiempos, breaks=8, main="", xlab="Tiempo (horas)", ylab="Frecuencias")
+mtext("(C)", side=1, line=4, font=1)
+hist(x=Tiempos, breaks=16, main="", xlab="Tiempo (horas)", ylab="Frecuencias")
+mtext("(D)", side=1, line=4, font=1)
+```
+
+![(\#fig:hist1)Histogramas para el tiempo en la media maratón de CONAVI. A: histograma con dos intervalos, B: histograma con cuatro intervalos, C: histograma con seis intervalos, C: histograma con 18 intervalos](02_graphs1v_files/figure-latex/hist1-1.pdf) 
+
+En la Figura \@ref(fig:hist1) se presentan los cuatro histogramas. El histograma C, con 8 barras, muestra más claramente la asimetría (este es el que la mayoría de los programas produce por defecto, ya que la regla de Sturges para este conjunto de datos aproxima a 8 barras). Si consideramos más barras por ejemplo 16, como tenemos en D, se refina más la información y empezamos a notar multimodalidad. En el código anterior se incluyó `las = 1` para conseguir que los número del eje Y queden escritos de forma horizontal, ver A y B en Figura \@ref(fig:hist1).
+
+A continuación vamos a construir cuatro histogramas: el primero con dos intervalos intervalos y puntos de corte dados por el mínimo, la mediana y el máximo; el segundo con tres intervalos y puntos de corte dados por el mínimo, cuartiles 1, 2, 3 y máximo; el cuarto con diez intervalos y puntos de corte dados por los deciles; y el último con veinte intervalos y puntos de corte dados por cuantiles 5, 10, $\ldots$, 95. En el código mostrado a continuación se presenta la creación de los puntos de corte y los cuatro histogramas.
 
 
+```r
+puntos1 <- c(quantile(Tiempos, probs=c(0, 0.5, 1)))
+puntos2 <- c(quantile(Tiempos, probs=c(0, 0.25, 0.5, 0.75, 1)))
+puntos3 <- c(quantile(Tiempos, probs=seq(0, 1, by=0.1)))
+puntos4 <- c(quantile(Tiempos, probs=seq(0, 1, by=0.05)))
 
+par(mfrow=c(2, 2))
+hist(Tiempos, breaks=puntos1, freq=FALSE, ylim=c(0,2), labels=TRUE,
+     main="", ylab="Densidad")
+mtext("(A)", side=1, line=4, font=1)
+hist(Tiempos, breaks=puntos2, freq=FALSE, ylim=c(0,2), labels=TRUE,
+     main="", ylab="Densidad")
+mtext("(B)", side=1, line=4, font=1)
+hist(Tiempos, breaks=puntos3, freq=FALSE, ylim=c(0,2),
+     main="", ylab="Densidad")
+mtext("(C)", side=1, line=4, font=1)
+hist(Tiempos, breaks=puntos4, freq=FALSE, ylim=c(0,2),
+     main="", ylab="Densidad")
+mtext("(D)", side=1, line=4, font=1)
+```
 
+![(\#fig:hist2)Histogramas para el tiempo en la media maratón de CONAVI. A: histograma con dos intervalos, B: histograma con cuatro intervalos, C: histograma con diez intervalos, C: histograma con veinte intervalos](02_graphs1v_files/figure-latex/hist2-1.pdf) 
 
+Nota: En estos histogramas, las alturas corresponden a las intensidades (frec. relativa/long. intervalo). Por tanto, el área de cada rectángulo da cuenta de las frecuencias relativas. Para el caso (A) ambos intervalos tienen igual área y cada uno contiene 50\% de los datos. esto puede verificarse así:
 
+```
+Intensidad primera clase = 1.4869888 = 0.5 / (1.384306 - 1.048056)
+Intensidad segunda clase = 0.4293381 = 0.5 / (2.548889 - 1.384306)
+```
 
 
