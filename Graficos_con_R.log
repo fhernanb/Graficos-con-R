@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9) (preloaded format=xelatex 2016.8.6)  3 DEC 2016 21:53
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9) (preloaded format=xelatex 2016.8.6)  4 DEC 2016 18:01
 entering extended mode
 **./Graficos_con_R.tex
 (Graficos_con_R.tex
@@ -997,8 +997,8 @@ LaTeX Info: Redefining \% on input line 157.
 [8
 
 ] [9]
-LaTeX Info: Redefining \. on input line 168.
-LaTeX Info: Redefining \% on input line 168.
+LaTeX Info: Redefining \. on input line 162.
+LaTeX Info: Redefining \% on input line 162.
 [10
 
 ]
@@ -1020,108 +1020,118 @@ File: images/instalacion2.png Graphic file (type QTm)
 <use  "images/instalacion2.png" >
 Underfull \vbox (badness 5696) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 286.
-LaTeX Info: Redefining \% on input line 286.
+LaTeX Info: Redefining \. on input line 280.
+LaTeX Info: Redefining \% on input line 280.
 [12]
 File: images/rlogo.png Graphic file (type QTm)
 <use  "images/rlogo.png" >
 File: images/Rpantallazo.png Graphic file (type QTm)
 <use  "images/Rpantallazo.png" >
-LaTeX Info: Redefining \. on input line 335.
-LaTeX Info: Redefining \% on input line 335.
+LaTeX Info: Redefining \. on input line 329.
+LaTeX Info: Redefining \% on input line 329.
 [13]
 LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 342.
-LaTeX Info: Redefining \. on input line 439.
-LaTeX Info: Redefining \% on input line 439.
+(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 336.
+LaTeX Info: Redefining \. on input line 433.
+LaTeX Info: Redefining \% on input line 433.
 [14]
-LaTeX Info: Redefining \. on input line 536.
-LaTeX Info: Redefining \% on input line 536.
+LaTeX Info: Redefining \. on input line 530.
+LaTeX Info: Redefining \% on input line 530.
 [15]
 
 Package natbib Warning: Citation `rpackages' on page 16 undefined on input line
- 588.
+ 582.
 
-LaTeX Info: Redefining \. on input line 615.
-LaTeX Info: Redefining \% on input line 615.
+LaTeX Info: Redefining \. on input line 609.
+LaTeX Info: Redefining \% on input line 609.
 [16]
-LaTeX Info: Redefining \. on input line 683.
-LaTeX Info: Redefining \% on input line 683.
+LaTeX Info: Redefining \. on input line 677.
+LaTeX Info: Redefining \% on input line 677.
 [17]
 Underfull \vbox (badness 1297) has occurred while \output is active []
 
-LaTeX Info: Redefining \. on input line 761.
-LaTeX Info: Redefining \% on input line 761.
+LaTeX Info: Redefining \. on input line 755.
+LaTeX Info: Redefining \% on input line 755.
 [18]
-LaTeX Info: Redefining \. on input line 783.
-LaTeX Info: Redefining \% on input line 783.
+LaTeX Info: Redefining \. on input line 777.
+LaTeX Info: Redefining \% on input line 777.
 [19]
-LaTeX Info: Redefining \. on input line 783.
-LaTeX Info: Redefining \% on input line 783.
+LaTeX Info: Redefining \. on input line 777.
+LaTeX Info: Redefining \% on input line 777.
 [20
 
 ]
 Capítulo 2.
 LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 789.
+(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 783.
 [21]
-LaTeX Info: Redefining \. on input line 972.
-LaTeX Info: Redefining \% on input line 972.
+LaTeX Info: Redefining \. on input line 966.
+LaTeX Info: Redefining \% on input line 966.
 [22]
 File: 02_graphs1v_files/figure-latex/boxplots-1.pdf Graphic file (type QTm)
 <use  "02_graphs1v_files/figure-latex/boxplots-1.pdf" >
-LaTeX Info: Redefining \. on input line 1022.
-LaTeX Info: Redefining \% on input line 1022.
+LaTeX Info: Redefining \. on input line 1016.
+LaTeX Info: Redefining \% on input line 1016.
 [23]
-LaTeX Info: Redefining \. on input line 1111.
-LaTeX Info: Redefining \% on input line 1111.
+LaTeX Info: Redefining \. on input line 1105.
+LaTeX Info: Redefining \% on input line 1105.
 [24]
 File: 02_graphs1v_files/figure-latex/hist1-1.pdf Graphic file (type QTm)
 <use  "02_graphs1v_files/figure-latex/hist1-1.pdf" >
-LaTeX Info: Redefining \. on input line 1155.
-LaTeX Info: Redefining \% on input line 1155.
+LaTeX Info: Redefining \. on input line 1149.
+LaTeX Info: Redefining \% on input line 1149.
 [25]
 File: 02_graphs1v_files/figure-latex/hist2-1.pdf Graphic file (type QTm)
 <use  "02_graphs1v_files/figure-latex/hist2-1.pdf" >
-LaTeX Info: Redefining \. on input line 1193.
-LaTeX Info: Redefining \% on input line 1193.
-[26] (Graficos_con_R.bbl
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
+LaTeX Info: Redefining \. on input line 1187.
+LaTeX Info: Redefining \% on input line 1187.
+[26]
+File: 02_graphs1v_files/figure-latex/qqplot1-1.pdf Graphic file (type QTm)
+<use  "02_graphs1v_files/figure-latex/qqplot1-1.pdf" >
+LaTeX Info: Redefining \. on input line 1280.
+LaTeX Info: Redefining \% on input line 1280.
 [27]
+File: 02_graphs1v_files/figure-latex/qqplot2-1.pdf Graphic file (type QTm)
+<use  "02_graphs1v_files/figure-latex/qqplot2-1.pdf" > (Graficos_con_R.bbl
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
-[28
+[28]
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+[29]
+LaTeX Info: Redefining \. on input line 1.
+LaTeX Info: Redefining \% on input line 1.
+[30
 
 ]
 
 Package natbib Warning: Empty `thebibliography' environment on input line 3.
 
-) (Graficos_con_R.ind [29] [30
+) (Graficos_con_R.ind [31] [32
 
 
 ])
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1203.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1203.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1304.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1304.
 (Graficos_con_R.aux
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
 LaTeX Info: Redefining \. on input line 28.
 LaTeX Info: Redefining \% on input line 28.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1203.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1203.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 1304.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 1304.
  ) 
 Here is how much of TeX's memory you used:
- 26344 strings out of 428409
- 455651 string characters out of 3159523
- 526269 words of memory out of 3000000
- 29454 multiletter control sequences out of 15000+200000
+ 26353 strings out of 428409
+ 455838 string characters out of 3159523
+ 526726 words of memory out of 3000000
+ 29461 multiletter control sequences out of 15000+200000
  16407 words of font info for 50 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  52i,6n,68p,10414b,490s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Graficos_con_R.pdf (30 pages).
+Output written on Graficos_con_R.pdf (32 pages).

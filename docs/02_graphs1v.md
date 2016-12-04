@@ -174,7 +174,7 @@ hist(x=Tiempos, breaks=16, main="", xlab="Tiempo (horas)", ylab="Frecuencias")
 mtext("(D)", side=1, line=4, font=1)
 ```
 
-![(\#fig:hist1)Histogramas para el tiempo en la media maratón de CONAVI. A: histograma con dos intervalos, B: histograma con cuatro intervalos, C: histograma con seis intervalos, C: histograma con 18 intervalos](02_graphs1v_files/figure-latex/hist1-1.pdf) 
+![(\#fig:hist1)Histogramas para el tiempo en la media maratón de CONAVI. A: histograma con dos intervalos, B: histograma con cuatro intervalos, C: histograma con seis intervalos, C: histograma con 18 intervalos.](02_graphs1v_files/figure-latex/hist1-1.pdf) 
 
 En la Figura \@ref(fig:hist1) se presentan los cuatro histogramas. El histograma C, con 8 barras, muestra más claramente la asimetría (este es el que la mayoría de los programas produce por defecto, ya que la regla de Sturges para este conjunto de datos aproxima a 8 barras). Si consideramos más barras por ejemplo 16, como tenemos en D, se refina más la información y empezamos a notar multimodalidad. En el código anterior se incluyó `las = 1` para conseguir que los número del eje Y queden escritos de forma horizontal, ver A y B en Figura \@ref(fig:hist1).
 
@@ -202,7 +202,7 @@ hist(Tiempos, breaks=puntos4, freq=FALSE, ylim=c(0,2),
 mtext("(D)", side=1, line=4, font=1)
 ```
 
-![(\#fig:hist2)Histogramas para el tiempo en la media maratón de CONAVI. A: histograma con dos intervalos, B: histograma con cuatro intervalos, C: histograma con diez intervalos, C: histograma con veinte intervalos](02_graphs1v_files/figure-latex/hist2-1.pdf) 
+![(\#fig:hist2)Histogramas para el tiempo en la media maratón de CONAVI. A: histograma con dos intervalos, B: histograma con cuatro intervalos, C: histograma con diez intervalos, C: histograma con veinte intervalos.](02_graphs1v_files/figure-latex/hist2-1.pdf) 
 
 Nota: En estos histogramas, las alturas corresponden a las intensidades (frec. relativa/long. intervalo). Por tanto, el área de cada rectángulo da cuenta de las frecuencias relativas. Para el caso (A) ambos intervalos tienen igual área y cada uno contiene 50\% de los datos. esto puede verificarse así:
 
@@ -210,5 +210,73 @@ Nota: En estos histogramas, las alturas corresponden a las intensidades (frec. r
 Intensidad primera clase = 1.4869888 = 0.5 / (1.384306 - 1.048056)
 Intensidad segunda clase = 0.4293381 = 0.5 / (2.548889 - 1.384306)
 ```
+
+## Función `qqnorm` y `qqplot` \index{qqnorm} \index{qqplot}
+Los gráficos cuantil cuantil (quantile-quantile plot) son una ayuda para explorar si un conjunto de datos o muestra proviene de una población con cierta distribución.
+
+La función `qqnorm` sirve para explorar la normalidad de una muestra mientras que la función `qqplot` es de propósito más general, sirve para crear el gráfico cuantil cuantil para cualquier distribución.
+
+La estructura de las funciones con los argumentos más comunes de uso se muestran a continuación.
+
+
+```r
+qqnorm(y, ...)
+qqplot(y, x, ...)
+```
+
+La función `qqnorm` sólo necesita que se le ingrese el vector con la muestra por medio del parámetro `y`, la función `qqplot` necesita de la muestra en el parámetro `y` y que se ingrese en el parámetro `x` los cuantiles de la población candidata. 
+
+Existe otra función útil y es `qqline`, esta función sirve para agregar una línea de referencia al gráfico cuantil cuantil obtenido con `qqnorm`.
+
+### Ejemplo {-}
+Simular 30 observaciones de una distribución $N(\mu=10, \sigma=4)$ y construir el gráfico cuantil cuantil.
+
+El código para simular la muestra y crear el gráfico cuantil cuantil se muestra a continuación.
+
+
+```r
+muestra <- rnorm(n=30, mean=10, sd=4)
+
+par(mfrow=c(1, 2))
+qqnorm(y=muestra)
+qqline(y=muestra)
+
+qqnorm(y=muestra, main='', ylab='Cuantiles muestrales',
+       xlab='Cuantiles teóricos', las=1)
+qqline(y=muestra, col='blue', lwd=2)
+```
+
+![(\#fig:qqplot1)Gráfico cuantil cuantil para una muestra generada de una población normal.](02_graphs1v_files/figure-latex/qqplot1-1.pdf) 
+
+En la izquierda de la Figura \@ref(fig:qqplot1) está el gráfico cuantil cuantil sin editar, en la derecha se encuentra el gráfico luego de modificar los nombres de los ejes, grosor y color de la línea de referencia.
+
+### Ejemplo {-}
+Simular 100 observaciones de una distribución $Weibull(1,1)$ y construir dos gráficos cuantil cuantil, el primero tomando como referencia los cuantiles de una $N(0,1)$ y el segundo tomando los cuantiles de la $Weibull(1,1)$.
+
+El código para simular la muestra y crear los gráficos cuantil cuantil se muestra a continuación.
+
+
+```r
+n <- 100
+muestra <- rweibull(n=n, shape=1, scale=1)
+
+par(mfrow=c(1, 2))
+qqplot(y=muestra, x=qnorm(ppoints(n)))
+qqplot(y=muestra, x=qweibull(ppoints(n), shape=1, scale=1))
+```
+
+![(\#fig:qqplot2)Gráfico cuantil cuantil para una muestra generada de una población Weibull.](02_graphs1v_files/figure-latex/qqplot2-1.pdf) 
+
+En la Figura \@ref(fig:qqplot2) están los gráficos cuantil cuantil solicitados. Del pánel izquierdo de la figura vemos que los puntos NO están alineados, esto indica que la muestra no proviene de la distribución $N(0, 1)$, esto es un resultado esperado ya que sabíamos que la muestra no fue generada de una normal. En el pánel derecho de la misma figura vemos que los puntos SI están alineados, esto indica que la muestra generada puede provenir de una población $Weibull(1, 1)$. Los nombres de los ejes en la Figura \@ref(fig:qqplot2) pueden ser editados para presentar una figura con mejor apariencia.
+
+
+
+
+
+
+
+
+
+
 
 
