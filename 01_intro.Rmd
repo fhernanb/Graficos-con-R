@@ -218,7 +218,7 @@ if ( condicion )  # Sobran espacios alrededor de condicion
 x[1,]             # Se necesita espacio luego de coma
 ```
 
-Los signos de agrupación llaves ``\{ \}'' se utilizan para agrupar bloques de código y se recomienda que nunca una llave abierta ``\{'' esté sola en una línea; una llave cerrada ``\}'' si debe ir sola en su propia línea. Se pueden omitir las llaves cuando el bloque de instrucciones esté formado por una sola línea pero esa línea de código NO debe ir en la misma línea de la condición. A continuación dos ejemplos de lo que se recomienda.
+Los signos de agrupación llaves `{ }` se utilizan para agrupar bloques de código y se recomienda que nunca una llave abierta `{` esté sola en una línea; una llave cerrada ``\}'' si debe ir sola en su propia línea. Se pueden omitir las llaves cuando el bloque de instrucciones esté formado por una sola línea pero esa línea de código NO debe ir en la misma línea de la condición. A continuación dos ejemplos de lo que se recomienda.
 
 ```{r, eval=F}
 if (is.null(ylim)) {                     # Correcto
@@ -239,7 +239,7 @@ if (is.null(ylim)) {ylim <- c(0, 0.06)}  # Frente a la llave { no debe ir nada
                                          # la llave de cierre } debe ir sola
 ```
 
-La sentencia else debe ir siempre entre llaves ``\} \{'', ver el siguiente ejemplo.
+La sentencia else debe ir siempre entre llaves `} {`, ver el siguiente ejemplo.
 
 ```{r, eval=F}
 if (condition) {         
@@ -272,6 +272,8 @@ x <- 5  # Correcto
 x = 5   # No recomendado
 ```
 
+Para una explicación más detallada sobre el símbolo de asignación se recomienda visitar este [enlace](http://www.win-vector.com/blog/2016/12/the-case-for-using-in-r/).
+
 \subsection{Punto y coma}
 No se recomienda colocar varias instrucciones separadas por `;` en la misma línea, aunque funciona dificulta la revisión del código.
 
@@ -282,7 +284,7 @@ n <- 100                                  # Correcto
 y <- rnorm(n, mean=5)
 hist(y)
 ```
-
+A pesar de la anterior advertencia es posible que en este libro usemos el `;` en algunas ocasiones, si lo hacemos es para ahorrar espacio en la presentación del código.
 
 
 

@@ -243,7 +243,7 @@ qqline(y=muestra)
 
 qqnorm(y=muestra, main='', ylab='Cuantiles muestrales',
        xlab='Cuantiles teóricos', las=1)
-qqline(y=muestra, col='blue', lwd=2)
+qqline(y=muestra, col='blue', lwd=2, lty=2)
 ```
 
 ![(\#fig:qqplot1)Gráfico cuantil cuantil para una muestra generada de una población normal.](02_graphs1v_files/figure-latex/qqplot1-1.pdf) 

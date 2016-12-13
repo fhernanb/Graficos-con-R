@@ -128,7 +128,7 @@ Freddy Hernández Barajas}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2016-12-04}
+  \date{2016-12-13}
 
 \usepackage{booktabs}
 \usepackage[spanish]{babel}
@@ -690,10 +690,10 @@ siguiente.
 \end{Highlighting}
 \end{Shaded}
 
-Los signos de agrupación llaves
-\texttt{\textbackslash{}\{\ \textbackslash{}\}\textquotesingle{}\textquotesingle{}\ se\ utilizan\ para\ agrupar\ bloques\ de\ código\ y\ se\ recomienda\ que\ nunca\ una\ llave\ abierta}\{`'
-esté sola en una línea; una llave cerrada ``\}'' si debe ir sola en su
-propia línea. Se pueden omitir las llaves cuando el bloque de
+Los signos de agrupación llaves \texttt{\{\ \}} se utilizan para agrupar
+bloques de código y se recomienda que nunca una llave abierta
+\texttt{\{} esté sola en una línea; una llave cerrada ``\}'' si debe ir
+sola en su propia línea. Se pueden omitir las llaves cuando el bloque de
 instrucciones esté formado por una sola línea pero esa línea de código
 NO debe ir en la misma línea de la condición. A continuación dos
 ejemplos de lo que se recomienda.
@@ -719,7 +719,7 @@ ejemplos de lo que se recomienda.
 \end{Highlighting}
 \end{Shaded}
 
-La sentencia else debe ir siempre entre llaves ``\} \{'', ver el
+La sentencia else debe ir siempre entre llaves \texttt{\}\ \{}, ver el
 siguiente ejemplo.
 
 \begin{Shaded}
@@ -759,6 +759,10 @@ recomienda usarlo para asignaciones.
 \end{Highlighting}
 \end{Shaded}
 
+Para una explicación más detallada sobre el símbolo de asignación se
+recomienda visitar este
+\href{http://www.win-vector.com/blog/2016/12/the-case-for-using-in-r/}{enlace}.
+
 \subsection{Punto y coma}
 
 No se recomienda colocar varias instrucciones separadas por \texttt{;}
@@ -773,6 +777,10 @@ en la misma línea, aunque funciona dificulta la revisión del código.
 \KeywordTok{hist}\NormalTok{(y)}
 \end{Highlighting}
 \end{Shaded}
+
+A pesar de la anterior advertencia es posible que en este libro usemos
+el \texttt{;} en algunas ocasiones, si lo hacemos es para ahorrar
+espacio en la presentación del código.
 
 \chapter{Gráficos para una variable}\label{graficos-para-una-variable}
 
@@ -1241,7 +1249,7 @@ muestra a continuación.
 
 \KeywordTok{qqnorm}\NormalTok{(}\DataTypeTok{y=}\NormalTok{muestra, }\DataTypeTok{main=}\StringTok{''}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Cuantiles muestrales'}\NormalTok{,}
        \DataTypeTok{xlab=}\StringTok{'Cuantiles teóricos'}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{)}
-\KeywordTok{qqline}\NormalTok{(}\DataTypeTok{y=}\NormalTok{muestra, }\DataTypeTok{col=}\StringTok{'blue'}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{)}
+\KeywordTok{qqline}\NormalTok{(}\DataTypeTok{y=}\NormalTok{muestra, }\DataTypeTok{col=}\StringTok{'blue'}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{2}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1295,6 +1303,238 @@ misma figura vemos que los puntos SI están alineados, esto indica que la
 muestra generada puede provenir de una población \(Weibull(1, 1)\). Los
 nombres de los ejes en la Figura \ref{fig:qqplot2} pueden ser editados
 para presentar una figura con mejor apariencia.
+
+\chapter{Gráficos para varias
+variables}\label{graficos-para-varias-variables}
+
+En este capítulo se presentan funciones para la creación de gráficos que
+involucran varias variables.
+
+\section{\texorpdfstring{Función \texttt{plot} \index{plot}
+\index{diagrama de dispersión}}{Función plot  }}\label{funcion-plot}
+
+La función \texttt{plot} permite crear gráficos de dispersión entre dos
+variables cuantiativas. La estructura de la función con los argumentos
+más usuales se muestran a continuación
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(x, y, type, main, sub, xlab, ylab)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función \texttt{plot} son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: vector numérico con las coordenadas del eje horizontal.
+\item
+  \texttt{y}: vector numérico con las coordenadas del eje vertical
+\item
+  \texttt{type}: tipo de gráfico a dibujar. Las opciones son:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \texttt{\textquotesingle{}p\textquotesingle{}} para obtener puntos,
+    esta es la opción por defecto.
+  \item
+    \texttt{\textquotesingle{}l\textquotesingle{}} para obtener líneas.
+  \item
+    \texttt{\textquotesingle{}b\textquotesingle{}} para obtener los
+    puntos y líneas que unen los puntos.
+  \item
+    \texttt{\textquotesingle{}c\textquotesingle{}} para obtener sólo las
+    líneas y dejando los espacios donde estaban los puntos obtenidos con
+    la opción \texttt{\textquotesingle{}b\textquotesingle{}}.
+  \item
+    \texttt{\textquotesingle{}o\textquotesingle{}} para obtener los
+    puntos y lineas superpuestas.
+  \item
+    \texttt{\textquotesingle{}h\textquotesingle{}} para obtener líneas
+    verticales desde el origen hasta el valor \(y_i\) de cada punto,
+    similar a un histograma.
+  \item
+    \texttt{\textquotesingle{}s\textquotesingle{}} para obtener
+    escalones.
+  \item
+    \texttt{\textquotesingle{}S\textquotesingle{}} similar al anterior.
+  \item
+    \texttt{\textquotesingle{}n\textquotesingle{}} para que no dibuje.
+  \end{itemize}
+\item
+  \texttt{...}: otros parámetros gráficos que pueden ser pasados como
+  argumentos para \texttt{plot}.
+\end{itemize}
+
+\subsection*{Ejemplo}\label{ejemplo-5}
+\addcontentsline{toc}{subsection}{Ejemplo}
+
+Crear 16 parejas de puntos tales que \(x=-5, -4, \ldots, 9, 10\) con
+\(y=-10+(x-3)^2\), dibujar los nueve diagramas de dispersión de \(y\)
+contra \(x\) usando todos los valores posibles para el parámetro
+\texttt{type}.
+
+A continuación se muestra el código para crear las 16 parejas de \(x\) e
+\(y\). Los nueve diagramas de dispersión se observan en la Figura
+\ref{fig:ex1plot}, de esta figura se observa claramente el efecto que
+tiene el parámetro \texttt{type} en la construcción del diagrama de
+dispersión.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\NormalTok{-}\DecValTok{5}\NormalTok{:}\DecValTok{10}
+\NormalTok{y <-}\StringTok{ }\NormalTok{-}\DecValTok{10} \NormalTok{+}\StringTok{ }\NormalTok{(x}\DecValTok{-3}\NormalTok{)^}\DecValTok{2}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{3}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{y, }\DataTypeTok{type=}\StringTok{'p'}\NormalTok{, }\DataTypeTok{main=}\StringTok{"con type='p'"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{y, }\DataTypeTok{type=}\StringTok{'l'}\NormalTok{, }\DataTypeTok{main=}\StringTok{"con type='l'"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{y, }\DataTypeTok{type=}\StringTok{'b'}\NormalTok{, }\DataTypeTok{main=}\StringTok{"con type='b'"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{y, }\DataTypeTok{type=}\StringTok{'c'}\NormalTok{, }\DataTypeTok{main=}\StringTok{"con type='c'"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{y, }\DataTypeTok{type=}\StringTok{'o'}\NormalTok{, }\DataTypeTok{main=}\StringTok{"con type='o'"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{y, }\DataTypeTok{type=}\StringTok{'h'}\NormalTok{, }\DataTypeTok{main=}\StringTok{"con type='h'"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{y, }\DataTypeTok{type=}\StringTok{'s'}\NormalTok{, }\DataTypeTok{main=}\StringTok{"con type='s'"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{y, }\DataTypeTok{type=}\StringTok{'S'}\NormalTok{, }\DataTypeTok{main=}\StringTok{"con type='S'"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{y, }\DataTypeTok{type=}\StringTok{'n'}\NormalTok{, }\DataTypeTok{main=}\StringTok{"con type='n'"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{03_graphs2v_files/figure-latex/ex1plot-1.pdf}
+\caption{\label{fig:ex1plot}Efecto del parámetro \texttt{type} en la función
+\texttt{plot}.}
+\end{figure}
+
+\subsection*{Ejemplo}\label{ejemplo-6}
+\addcontentsline{toc}{subsection}{Ejemplo}
+
+Como ilustración vamos a crear un diagrama de dispersión entre el precio
+de apartamentos usados en la ciudad de Medellín y el área de los
+apartamentos. El código necesario para cargar la base de datos y
+construir el diagrama de dispersión se muestra a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015'}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$mt2, }\DataTypeTok{y=}\NormalTok{datos$precio,)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$mt2, }\DataTypeTok{y=}\NormalTok{datos$precio, }\DataTypeTok{pch=}\StringTok{'.'}\NormalTok{,}
+     \DataTypeTok{xlab=}\StringTok{'Área del apartamento (m2)'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Precio (millones de pesos)'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{03_graphs2v_files/figure-latex/ex2plot-1.pdf}
+\caption{\label{fig:ex2plot}Diagrama de dispersión del precio del
+apartamento versus área del apartamento. A la izquierda el diagrama de
+dispersión sin editar y a la derecha el diagrama de dispersión mejorado}
+\end{figure}
+
+En la Figura \ref{fig:ex2plot} se presenta el diagrama de dispersión
+entre precio y área de los apartamentos, de este diagrama se observa
+claramente que a medida que los apartamentos tienen mayor área el precio
+promedio y la variabilidad del precio aumentan. Para el diagrama de
+dispersión de la derecha se usó el parámetro
+\texttt{pch=\textquotesingle{}.\textquotesingle{}} con el objetivo de
+obtener pequeños puntos que representen cada apartamento y que no se
+traslapen debido a que se tienen 694 observaciones en la base de datos.
+
+\section{\texorpdfstring{Función \texttt{persp}
+\index{persp}}{Función persp }}\label{funcion-persp}
+
+La función \texttt{persp} dibuja superfices en tres dimensiones y es
+posible rotar la superficie para obtener una perpectiva apropiada. La
+estructura de la función con los argumentos más usuales se muestran a
+continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{persp}\NormalTok{(x, y, z, main, sub, theta, phi, r, col, border, box, axes, nticks)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función \texttt{plot} son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: vector numérico con los valores de \(x\) donde fue
+  evaluada la función o superficie.
+\item
+  \texttt{y}: vector numérico con los valores de \(y\) donde fue
+  evaluada la función o superficie.
+\item
+  \texttt{z}: matriz que contiene las alturas \(z\) de la supercifie
+  para cada combinación de \(x\) e \(y\).
+\item
+  \texttt{main}: vector numérico con las coordenadas del eje vertical.
+\item
+  \texttt{sub}: vector numérico con las coordenadas del eje vertical.
+\item
+  \texttt{theta,\ phi}: ángulo para la visión de la superficie,
+  \texttt{theta} para la dirección azimutal y \texttt{phi} para latitud.
+  Ver Figura \ref{fig:globo} para una ilustración de los ángulos.
+\item
+  \texttt{r}: vector numérico con las coordenadas del eje vertical.
+\item
+  \texttt{col}:
+\item
+  \texttt{col}:
+\item
+  \texttt{col}:
+\item
+  \texttt{col}:
+\end{itemize}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.25\linewidth]{images/IC412528} 
+
+}
+
+\caption{Ilustración de los angulos theta y phi para la función persp. Figura tomada de https://i-msdn.sec.s-msft.com/dynimg/IC412528.png}\label{fig:globo}
+\end{figure}
+
+\subsection*{Ejemplo}\label{ejemplo-7}
+\addcontentsline{toc}{subsection}{Ejemplo}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fun <-}\StringTok{ }\NormalTok{function(x, y) \{}
+  \KeywordTok{sin}\NormalTok{(x^}\DecValTok{2} \NormalTok{+}\StringTok{ }\NormalTok{y^}\DecValTok{2}\NormalTok{)}
+\NormalTok{\}}
+
+\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\NormalTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{2}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{50}\NormalTok{)}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\NormalTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{2}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{50}\NormalTok{)}
+\NormalTok{z <-}\StringTok{ }\KeywordTok{outer}\NormalTok{(x, y, fun)}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{), }\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{col=}\StringTok{'aquamarine'}\NormalTok{, }\DataTypeTok{main=}\StringTok{''}\NormalTok{)}
+\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{15}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{15}\NormalTok{, }\DataTypeTok{col=}\StringTok{'lightpink'}\NormalTok{,}
+      \DataTypeTok{main=}\StringTok{'theta=15, phi=15'}\NormalTok{)}
+\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{45}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{30}\NormalTok{, }\DataTypeTok{col=}\StringTok{'yellow1'}\NormalTok{,}
+      \DataTypeTok{main=}\StringTok{'theta=45, phi=30'}\NormalTok{)}
+\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{60}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{50}\NormalTok{, }\DataTypeTok{col=}\StringTok{'lightblue'}\NormalTok{,}
+      \DataTypeTok{main=}\StringTok{'theta=60, phi=50'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{03_graphs2v_files/figure-latex/ex1persp-1.pdf}
+\caption{\label{fig:ex1persp}Superficie generada con \texttt{persp} y
+diferentes valores de theta y phi.}
+\end{figure}
+
+\section{\texorpdfstring{Función \texttt{pairs}
+\index{pairs}}{Función pairs }}\label{funcion-pairs}
+
+\section{\texorpdfstring{Función \texttt{contour} \index{contour}
+\index{gráfico de contornos}}{Función contour  }}\label{funcion-contour}
 
 \bibliography{packages,book}
 
