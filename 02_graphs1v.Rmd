@@ -96,7 +96,7 @@ La estructura de la función `hist` con los argumentos más comunes de uso se mu
 - `x`: vector numérico de valores para construir el histograma. 
 - `breaks`: puede ser un número entero que indica el número aproximado de clases o un vector cuyos elementos indican los límites de los intervalos. 
 - `freq`: argumento lógico; si se especifica como `TRUE`, el histograma presentará frecuencias absolutas o conteo de datos para cada intervalo; si se especifica como `FALSE` el histograma presentar las frecuencias relativas (en porcentaje). Por defecto, este argumento toma el valor de `TRUE` siempre y cuando los intervalos sean de igual ancho. 
-- `include.lowest`: argumento lógico; si se especifica como `TRUE`, un `x[i]` igual a los equal a un valor ``breaks'' se incluirá en la primera barra, si el argumento ``right = TRUE'', o en la última en caso contrario. 
+- `include.lowest`: argumento lógico; si se especifica como `TRUE`, un `x[i]` igual a los equal a un valor `breaks` se incluirá en la primera barra, si el argumento `right = TRUE`, o en la última en caso contrario. 
 - `right`: argumento lógico; si es `TRUE`, los intervalos son abiertos a la izquierda y cerrados a la derecha $(a,b]$. Para la primera clase o intervalo si `include.lowest=TRUE` el valor más pequeño de los datos será incluido en éste. Si es `FALSE` los intervalos serán de la forma $[a,b)$ y el argumento `include.lowest=TRUE` tendrá el significado de incluir el ``más alto''. 
 - `col`: para definir el color de las barras. Por defecto, `NULL` produce barras sin fondo. 
 - `border`: para definir el color de los bordes de las barras.

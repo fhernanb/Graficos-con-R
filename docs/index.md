@@ -3,7 +3,7 @@ title: "Gráficos con R"
 author: |
   | Juan Carlos Correa Morales
   | Freddy Hernández Barajas
-date: "2016-12-13"
+date: "2016-12-14"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
@@ -21,4 +21,4 @@ cover-image: images/cover.png
 
 # Prefacio {-}
 
-Este libro ...
+Este libro ... 

@@ -252,7 +252,7 @@ milista
 
 \section{Guía de estilo para la escritura en R} \label{sec:estilo}
 
-Así como en el español existen reglas ortográficas, la escritura de códigos en \proglang{R} también tiene unas reglas que se recomienda seguir para evitar confusiones. Tener una buena guía de estilo \index{guía de estilo} es importante para que el código creado por usted sea fácilmente entendido por sus lectores \citep{rpackages}. No existe una única y mejor guía de estilo para escritura en \proglang{R}, sin embargo aquí vamos a mostrar unas sugerencias basadas en la guía llamada \href{https://google.github.io/styleguide/Rguide.xml}{\textit{Google's R style guide}}.
+Así como en el español existen reglas ortográficas, la escritura de códigos en \proglang{R} también tiene unas reglas que se recomienda seguir para evitar confusiones. Tener una buena guía de estilo \index{guía de estilo} es importante para que el código creado por usted sea fácilmente entendido por sus lectores @rpackages. No existe una única y mejor guía de estilo para escritura en \proglang{R}, sin embargo aquí vamos a mostrar unas sugerencias basadas en la guía llamada \href{https://google.github.io/styleguide/Rguide.xml}{\textit{Google's R style guide}}.
 
 \subsection{Nombres de los archivos}
 Se sugiere que el nombre usado para nombrar un archivo tenga sentido y que termine con extensión .R. A continuación dos ejemplos de como nombrar mal y bien un archivo.
@@ -321,7 +321,7 @@ plot(x    = x.coord,
      main = (paste(metric, " for 3 samples ", sep = "")))
 ```
 
-No coloque espacios alrededor del código que esté dentro de paréntesis ``( )'' o corchetes ``[ ]'', la única excepción es luego de una coma, ver el ejemplo siguiente.
+No coloque espacios alrededor del código que esté dentro de paréntesis `( )` o corchetes `[ ]`, la única excepción es luego de una coma, ver el ejemplo siguiente.
 
 
 ```r
@@ -331,7 +331,7 @@ if ( condicion )  # Sobran espacios alrededor de condicion
 x[1,]             # Se necesita espacio luego de coma
 ```
 
-Los signos de agrupación llaves `{ }` se utilizan para agrupar bloques de código y se recomienda que nunca una llave abierta `{` esté sola en una línea; una llave cerrada ``\}'' si debe ir sola en su propia línea. Se pueden omitir las llaves cuando el bloque de instrucciones esté formado por una sola línea pero esa línea de código NO debe ir en la misma línea de la condición. A continuación dos ejemplos de lo que se recomienda.
+Los signos de agrupación llaves `{ }` se utilizan para agrupar bloques de código y se recomienda que nunca una llave abierta `{` esté sola en una línea; una llave cerrada `}` si debe ir sola en su propia línea. Se pueden omitir las llaves cuando el bloque de instrucciones esté formado por una sola línea pero esa línea de código NO debe ir en la misma línea de la condición. A continuación dos ejemplos de lo que se recomienda.
 
 
 ```r
