@@ -1,4 +1,4 @@
-\documentclass[10pt,]{book}
+\documentclass[10pt,]{krantz}
 \usepackage{lmodern}
 \usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
@@ -21,10 +21,9 @@
 \usepackage{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\usepackage[margin=1in]{geometry}
-\usepackage{hyperref}
+\usepackage[unicode=true]{hyperref}
 \PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
-\hypersetup{unicode=true,
+\hypersetup{
             pdftitle={Gráficos con R},
             colorlinks=true,
             linkcolor=Maroon,
@@ -103,33 +102,6 @@
 \let\oldsubparagraph\subparagraph
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
-
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-%%% Change title format to be more compact
-\usepackage{titling}
-
-% Create subtitle command for use in maketitle
-\newcommand{\subtitle}[1]{
-  \posttitle{
-    \begin{center}\large#1\end{center}
-    }
-}
-
-\setlength{\droptitle}{-2em}
-  \title{Gráficos con R}
-  \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-  \author{Juan Carlos Correa Morales\\
-Freddy Hernández Barajas}
-  \preauthor{\centering\large\emph}
-  \postauthor{\par}
-  \predate{\centering\large\emph}
-  \postdate{\par}
-  \date{2016-12-14}
-
 \usepackage{booktabs}
 \usepackage[spanish]{babel}
 \decimalpoint
@@ -140,24 +112,189 @@ Freddy Hernández Barajas}
 \let\proglang=\textsf
 \let\code=\texttt
 
-% Para crear el indice
+
+
+
+
+
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[bf,singlelinecheck=off]{caption}
+
+\usepackage{framed,color}
+\definecolor{shadecolor}{RGB}{248,248,248}
+
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.8}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\floatpagefraction}{0.75}
+
+\renewenvironment{quote}{\begin{VF}}{\end{VF}}
+\let\oldhref\href
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+
+\ifxetex
+  \usepackage{letltxmacro}
+  \setlength{\XeTeXLinkMargin}{1pt}
+  \LetLtxMacro\SavedIncludeGraphics\includegraphics
+  \def\includegraphics#1#{% #1 catches optional stuff (star/opt. arg.)
+    \IncludeGraphicsAux{#1}%
+  }%
+  \newcommand*{\IncludeGraphicsAux}[2]{%
+    \XeTeXLinkBox{%
+      \SavedIncludeGraphics#1{#2}%
+    }%
+  }%
+\fi
+
+\makeatletter
+\newenvironment{kframe}{%
+\medskip{}
+\setlength{\fboxsep}{.8em}
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\renewenvironment{Shaded}{\begin{kframe}}{\end{kframe}}
+
 \usepackage{makeidx}
 \makeindex
 
+\urlstyle{tt}
+
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+\frontmatter
+
+\title{Gráficos con R}
+\author{Juan Carlos Correa Morales\\
+Freddy Hernández Barajas}
+\date{2016-12-14}
+
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
 \maketitle
 
+% you may need to leave a few empty pages before the dedication page
+
+%\cleardoublepage\newpage\thispagestyle{empty}\null
+%\cleardoublepage\newpage\thispagestyle{empty}\null
+%\cleardoublepage\newpage
+\thispagestyle{empty}
+
+\begin{center}
+
+Gracias a Dios por todo lo que me ha dado.
+
+%\includegraphics{images/dedication.pdf}
+\end{center}
+
+\setlength{\abovedisplayskip}{-5pt}
+\setlength{\abovedisplayshortskip}{-5pt}
+
 {
 \hypersetup{linkcolor=black}
-\setcounter{tocdepth}{1}
+\setcounter{tocdepth}{2}
 \tableofcontents
 }
 \listoftables
 \listoffigures
 \chapter*{Prefacio}\label{prefacio}
-\addcontentsline{toc}{chapter}{Prefacio}
 
-Este libro \ldots{}
+
+Hi there, this is my great book.
+
+\section*{¿Por qué leer este libro?}\label{por-que-leer-este-libro}
+
+
+It is very important\ldots{}
+
+\section*{Estructura del libro}\label{estructura-del-libro}
+
+
+Chapters \ref{introduction} introduces a new topic, and \ldots{}
+
+\section*{Software information and
+conventions}\label{software-information-and-conventions}
+
+
+I used the \textbf{knitr}\index{knitr} package \citep{xie2015} and the
+\textbf{bookdown}\index{bookdown} package \citep{R-bookdown} to compile
+my book. My R session information is shown below:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sessionInfo}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## R version 3.3.2 (2016-10-31)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 10 x64 (build 14393)
+## 
+## locale:
+## [1] LC_COLLATE=Spanish_Colombia.1252 
+## [2] LC_CTYPE=Spanish_Colombia.1252   
+## [3] LC_MONETARY=Spanish_Colombia.1252
+## [4] LC_NUMERIC=C                     
+## [5] LC_TIME=Spanish_Colombia.1252    
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets 
+## [6] methods   base     
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_0.12.6     bookdown_0.2.5  digest_0.6.10  
+##  [4] rprojroot_1.1   mime_0.5        R6_2.1.2       
+##  [7] xtable_1.8-2    backports_1.0.4 magrittr_1.5   
+## [10] evaluate_0.10   stringi_1.1.1   rstudioapi_0.6 
+## [13] miniUI_0.1.1    rmarkdown_1.2   tools_3.3.2    
+## [16] stringr_1.0.0   shiny_0.13.2    httpuv_1.3.3   
+## [19] yaml_2.1.14     htmltools_0.3.5 knitr_1.15.1
+\end{verbatim}
+
+Package names are in bold text (e.g., \textbf{rmarkdown}), and inline
+code and filenames are formatted in a typewriter font (e.g.,
+\texttt{knitr::knit(\textquotesingle{}foo.Rmd\textquotesingle{})}).
+Function names are followed by parentheses (e.g.,
+\texttt{bookdown::render\_book()}).
+
+\section*{Agradecimientos}\label{agradecimientos}
+
+
+A lot of people helped me when I was writing the book.
+
+\BeginKnitrBlock{flushright}
+Frida Gomam\\
+on the Mars
+\EndKnitrBlock{flushright}
+
+\chapter*{Sobre los autores}\label{sobre-los-autores}
+
+
+Frida Gomam is a famous lady. Police will always let her go.
+
+\mainmatter
 
 \chapter{Introducción}\label{introduccion}
 
@@ -208,7 +345,7 @@ exhaustiva de los sitios más populares relacionados con \proglang{R}:
 
 }
 
-\caption{Robert Gentleman (izquierda) y Ross Ihaka (derecha) creadores de R.}\label{fig:unnamed-chunk-1}
+\caption{Robert Gentleman (izquierda) y Ross Ihaka (derecha) creadores de R.}\label{fig:unnamed-chunk-3}
 \end{figure}
 
 \section{Descarga e instalación} \label{sec:descarga}
@@ -391,7 +528,8 @@ realizar esto lo que se obtiene se muestra a continuación.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] NA         "Superman" "Batman"   NA         "Batman"
+## [1] NA         "Superman" "Batman"   NA        
+## [5] "Batman"
 \end{verbatim}
 
 \subsection{Matrices}
@@ -557,7 +695,7 @@ muestra a continuación.
 
 \begin{verbatim}
 ## $E1
-## [1] 0.7209039 0.8757732 0.7609823 0.8861246 0.4564810
+## [1] 0.7209 0.8758 0.7610 0.8861 0.4565
 ## 
 ## $E2
 ##      [,1] [,2] [,3] [,4] [,5] [,6]
@@ -854,7 +992,7 @@ Desventajas del gráfico:
 \end{enumerate}
 
 \subsection*{Ejemplo}\label{ejemplo}
-\addcontentsline{toc}{subsection}{Ejemplo}
+
 
 Como ilustración vamos a crear el gráfico de tallo y hoja para la
 variable altura (cm) de un grupo de estudiantes de la universidad.
@@ -960,7 +1098,7 @@ Los argumentos de la función \texttt{boxplot} son:
 \end{itemize}
 
 \subsection*{Ejemplo}\label{ejemplo-1}
-\addcontentsline{toc}{subsection}{Ejemplo}
+
 
 Como ilustración vamos a crear tres boxplot para la variable altura (cm)
 de un grupo de estudiantes de la universidad, el primer boxplot será
@@ -990,7 +1128,7 @@ usado.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{02_graphs1v_files/figure-latex/boxplots-1.pdf}
+\includegraphics{Graficos_con_R_files/figure-latex/boxplots-1.pdf}
 \caption{\label{fig:boxplots}Boxplot para la variable altura.}
 \end{figure}
 
@@ -1064,7 +1202,7 @@ de uso se muestran a continuación.
 \end{itemize}
 
 \subsection*{Ejemplo}\label{ejemplo-2}
-\addcontentsline{toc}{subsection}{Ejemplo}
+
 
 Vamos a construir varios histogramas para los tiempos de 180 corredores
 de la media maratón de CONAVI. A continuación se muestra la forma de
@@ -1127,7 +1265,7 @@ con 2, 4, 8 y 16 intervalos para los tiempos a partir de la variable
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{02_graphs1v_files/figure-latex/hist1-1.pdf}
+\includegraphics{Graficos_con_R_files/figure-latex/hist1-1.pdf}
 \caption{\label{fig:hist1}Histogramas para el tiempo en la media maratón de
 CONAVI. A: histograma con dos intervalos, B: histograma con cuatro
 intervalos, C: histograma con seis intervalos, C: histograma con 18
@@ -1178,7 +1316,7 @@ corte y los cuatro histogramas.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{02_graphs1v_files/figure-latex/hist2-1.pdf}
+\includegraphics{Graficos_con_R_files/figure-latex/hist2-1.pdf}
 \caption{\label{fig:hist2}Histogramas para el tiempo en la media maratón de
 CONAVI. A: histograma con dos intervalos, B: histograma con cuatro
 intervalos, C: histograma con diez intervalos, C: histograma con veinte
@@ -1230,7 +1368,7 @@ agregar una línea de referencia al gráfico cuantil cuantil obtenido con
 \texttt{qqnorm}.
 
 \subsection*{Ejemplo}\label{ejemplo-3}
-\addcontentsline{toc}{subsection}{Ejemplo}
+
 
 Simular 30 observaciones de una distribución \(N(\mu=10, \sigma=4)\) y
 construir el gráfico cuantil cuantil.
@@ -1254,7 +1392,7 @@ muestra a continuación.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{02_graphs1v_files/figure-latex/qqplot1-1.pdf}
+\includegraphics{Graficos_con_R_files/figure-latex/qqplot1-1.pdf}
 \caption{\label{fig:qqplot1}Gráfico cuantil cuantil para una muestra
 generada de una población normal.}
 \end{figure}
@@ -1265,7 +1403,7 @@ modificar los nombres de los ejes, grosor y color de la línea de
 referencia.
 
 \subsection*{Ejemplo}\label{ejemplo-4}
-\addcontentsline{toc}{subsection}{Ejemplo}
+
 
 Simular 100 observaciones de una distribución \(Weibull(1,1)\) y
 construir dos gráficos cuantil cuantil, el primero tomando como
@@ -1288,7 +1426,7 @@ se muestra a continuación.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{02_graphs1v_files/figure-latex/qqplot2-1.pdf}
+\includegraphics{Graficos_con_R_files/figure-latex/qqplot2-1.pdf}
 \caption{\label{fig:qqplot2}Gráfico cuantil cuantil para una muestra
 generada de una población Weibull.}
 \end{figure}
@@ -1370,7 +1508,7 @@ Los argumentos de la función \texttt{plot} son:
 \end{itemize}
 
 \subsection*{Ejemplo}\label{ejemplo-5}
-\addcontentsline{toc}{subsection}{Ejemplo}
+
 
 Crear 16 parejas de puntos tales que \(x=-5, -4, \ldots, 9, 10\) con
 \(y=-10+(x-3)^2\), dibujar los nueve diagramas de dispersión de \(y\)
@@ -1402,13 +1540,13 @@ dispersión.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{03_graphs2v_files/figure-latex/ex1plot-1.pdf}
+\includegraphics{Graficos_con_R_files/figure-latex/ex1plot-1.pdf}
 \caption{\label{fig:ex1plot}Efecto del parámetro \texttt{type} en la función
 \texttt{plot}.}
 \end{figure}
 
 \subsection*{Ejemplo}\label{ejemplo-6}
-\addcontentsline{toc}{subsection}{Ejemplo}
+
 
 Como ilustración vamos a crear un diagrama de dispersión entre el precio
 de apartamentos usados en la ciudad de Medellín y el área de los
@@ -1429,7 +1567,7 @@ construir el diagrama de dispersión se muestra a continuación.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{03_graphs2v_files/figure-latex/ex2plot-1.pdf}
+\includegraphics{Graficos_con_R_files/figure-latex/ex2plot-1.pdf}
 \caption{\label{fig:ex2plot}Diagrama de dispersión del precio del
 apartamento versus área del apartamento. A la izquierda el diagrama de
 dispersión sin editar y a la derecha el diagrama de dispersión mejorado}
@@ -1515,7 +1653,7 @@ Los argumentos de la función \texttt{plot} son:
 \end{figure}
 
 \subsection*{Ejemplo}\label{ejemplo-7}
-\addcontentsline{toc}{subsection}{Ejemplo}
+
 
 Dibujar la superficie asociada a la función \(f(x, y)=sen(x^2+y^2)\)
 para \(-2 \leq x \leq2\) y \(-2 \leq y \leq2\). Usar 4 combinaciones de
@@ -1553,7 +1691,7 @@ variando los parámetros \texttt{theta} y \texttt{phi} de la función
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{03_graphs2v_files/figure-latex/ex1persp-1.pdf}
+\includegraphics{Graficos_con_R_files/figure-latex/ex1persp-1.pdf}
 \caption{\label{fig:ex1persp}Superficie generada con \texttt{persp} y
 diferentes valores de theta y phi.}
 \end{figure}
@@ -1568,7 +1706,7 @@ se recomienda modificar este valor para obtener una superficie
 apropiada.
 
 \subsection*{Ejemplo}\label{ejemplo-8}
-\addcontentsline{toc}{subsection}{Ejemplo}
+
 
 Dibujar la superficie de una distribución normal bivariada con vector de
 medias \(\boldsymbol{\mu}=(5, 12)^\top\), varianzas unitarias y
@@ -1608,7 +1746,7 @@ perspectivas diferentes para la densidad modificando los parámetros
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{03_graphs2v_files/figure-latex/ex2persp-1.pdf}
+\includegraphics{Graficos_con_R_files/figure-latex/ex2persp-1.pdf}
 \caption{\label{fig:ex2persp}Distribución normal bivariada.}
 \end{figure}
 
@@ -1623,9 +1761,21 @@ de las perspectivas.
 \section{\texorpdfstring{Función \texttt{contour} \index{contour}
 \index{gráfico de contornos}}{Función contour  }}\label{funcion-contour}
 
+\cleardoublepage 
+
+\appendix \addcontentsline{toc}{chapter}{\appendixname}
+
+
+\chapter{More to Say}\label{more-to-say}
+
+Yeah! I have finished my book, but I have more to say about some topics.
+Let me explain them in this appendix.
+
+To know more about \textbf{bookdown}, see \url{https://bookdown.org}.
+
 \bibliography{packages,book}
 
+\backmatter
 \printindex
-
 
 \end{document}
