@@ -31,12 +31,11 @@ lapply(c(), function(pkg) {
 
 # Prefacio {-}
 
-Hi there, this is my great book.
-
+Este libro fue creado con la intención de ...
 
 ## ¿Por qué leer este libro? {-}
 
-It is very important...
+Este libro es importante porque ...
 
 ## Estructura del libro {-}
 
@@ -44,7 +43,7 @@ Chapters \@ref(introduction) introduces a new topic, and ...
 
 ## Software information and conventions {-}
 
-I used the **knitr**\index{knitr} package [@xie2015] and the **bookdown**\index{bookdown} package [@R-bookdown] to compile my book. My R session information is shown below:
+Para realizar este libro usamos los paquetes **knitr**\index{knitr} [@xie2015] y **bookdown**\index{bookdown} [@R-bookdown]. La información de la sesión de \proglang{R} usada se muestra abajo:
 
 ```{r}
 sessionInfo()
@@ -54,10 +53,10 @@ Package names are in bold text (e.g., **rmarkdown**), and inline code and filena
 
 ## Agradecimientos {-}
 
-A lot of people helped me when I was writing the book.
+Agradecemos a ...
 
 ```{block2, type='flushright', html.tag='p'}
-Frida Gomam  
-on the Mars
+Juan Carlos Correa Morales  
+Freddy Hernández Barajas
 ```
 
