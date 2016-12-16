@@ -188,7 +188,7 @@
 \title{Gráficos con R}
 \author{Juan Carlos Correa Morales\\
 Freddy Hernández Barajas}
-\date{2016-12-14}
+\date{2016-12-16}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -1441,6 +1441,152 @@ muestra generada puede provenir de una población \(Weibull(1, 1)\). Los
 nombres de los ejes en la Figura \ref{fig:qqplot2} pueden ser editados
 para presentar una figura con mejor apariencia.
 
+\section{\texorpdfstring{Función \texttt{density} \index{density}
+\index{densidad}}{Función density  }}\label{funcion-density}
+
+Los gráficos de densidad son muy útiles porque permiten ver el(los)
+intervalo(s) donde una variable cuantitativa puede ocurrir con mayor
+probabilidad.
+
+La función \texttt{density} crea la información de la densidad y la
+función \texttt{plot} dibuja la densidad.
+
+La estructura de la función \texttt{density} con los argumentos más
+comunes de uso se muestra a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{density}\NormalTok{(x, bw, }\DataTypeTok{adjust=}\DecValTok{1}\NormalTok{, }\DataTypeTok{kernel=}\StringTok{'gaussian'}\NormalTok{, }\DataTypeTok{na.rm=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función \texttt{density} son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: vector con los datos para los cuales se quiere la
+  densidad.
+\item
+  \texttt{bw}:\\
+\item
+  \texttt{adjust}:\\
+\item
+  \texttt{kernel}: núcleo de suavización a usar, los posibles valores
+  son: \texttt{gaussian}, \texttt{rectangular}, \texttt{triangular},
+  \texttt{epanechnikov}, \texttt{biweight}, \texttt{cosine} o
+  \texttt{optcosine}, el valor por defecto es \texttt{gaussian}.
+\item
+  \texttt{na.rm}: valor lógico, si es \texttt{TRUE} se eliminan los
+  valores con \texttt{NA} para construir la densidad, el valor por
+  defecto es \texttt{FALSE}.
+\end{itemize}
+
+\subsection*{Ejemplo}\label{ejemplo-5}
+
+
+Simular mil observaciones de una \(N(0, 1)\), aplicar la función
+\texttt{density} al vector y explorar el contenido de la salida.
+
+Primero se generan las observaciones y se almacenan en el objeto
+\texttt{y}, luego se aplica la función \texttt{density} y el resultado
+se guarda en el objeto \texttt{res}, para explorar lo que almacena
+\texttt{res} se usa la función \texttt{names}. A continuación el código
+utilizado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n=}\DecValTok{1000}\NormalTok{)}
+\NormalTok{res <-}\StringTok{ }\KeywordTok{density}\NormalTok{(y)}
+\KeywordTok{names}\NormalTok{(res)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "x"         "y"         "bw"        "n"        
+## [5] "call"      "data.name" "has.na"
+\end{verbatim}
+
+De la salida anterior se observa que la lista \texttt{res} tiene 7
+elementos, los dos primeros son los vectores con las coordenadas para
+dibujar la densidad, los restantes elementos con información adicional.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(y, }\DataTypeTok{kernel=}\StringTok{'gaussian'}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(y, }\DataTypeTok{kernel=}\StringTok{'triangular'}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(y, }\DataTypeTok{kernel=}\StringTok{'cosine'}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(y, }\DataTypeTok{kernel=}\StringTok{'rectangular'}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/density1-1.pdf}
+\caption{\label{fig:density1}Densidad para una muestra aleatoria de una N(0,
+1) cambiando el núcleo de la densidad.}
+\end{figure}
+
+En la Figura \ref{fig:density1} se muestran las densidades para 4
+elecciones del núcleo. En la práctica se usa el núcleo que está por
+defecto (\texttt{gaussian}) ya que el objetivo de una densidad es ver la
+zonas donde es más probable encontrar observaciones de la variable.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(y, }\DataTypeTok{bw=}\FloatTok{0.1}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(y, }\DataTypeTok{bw=}\FloatTok{0.2241}\NormalTok{))  }\CommentTok{# bw obtenido antes}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(y, }\DataTypeTok{bw=}\FloatTok{0.5}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(y, }\DataTypeTok{bw=}\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/density2-1.pdf}
+\caption{\label{fig:density2}Densidad para una muestra aleatoria de una N(0,
+1) cambiando el ancho de banda.}
+\end{figure}
+
+En la Figura \ref{fig:density2} se muestran las densidades para 4
+elecciones del parámetro ancho de banda \texttt{bw}, el valor de 0.2241
+fue el valor calculado automáticamente por \proglang{R} y fue obtenido
+de la Figura \ref{fig:density1}, los otros valores fueron elegidos
+arbitrariamente para ver los cambios en la densidad. El usar un ancho de
+banda pequeño la densidad queda muy rugosa y usar un valor muy grande la
+suaviza, se recomienda usar el valor automático.
+
+\subsection*{Ejemplo}\label{ejemplo-6}
+
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(datos$peso), }\DataTypeTok{main=}\StringTok{'Densidad para el peso corporal'}\NormalTok{,}
+     \DataTypeTok{xlab=}\StringTok{'Peso corporal (kg)'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{)}
+
+\NormalTok{den.hom <-}\StringTok{ }\KeywordTok{with}\NormalTok{(datos, }\KeywordTok{density}\NormalTok{(peso[sexo ==}\StringTok{ 'Hombre'}\NormalTok{]))}
+\NormalTok{den.muj <-}\StringTok{ }\KeywordTok{with}\NormalTok{(datos, }\KeywordTok{density}\NormalTok{(peso[sexo ==}\StringTok{ 'Mujer'}\NormalTok{]))}
+
+\KeywordTok{plot}\NormalTok{(den.hom, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{120}\NormalTok{), }
+     \DataTypeTok{main=}\StringTok{'Densidad para el peso corporal'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{,}
+     \DataTypeTok{xlab=}\StringTok{'Peso corporal (kg)'}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{'blue'}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(den.muj, }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{'red'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/bla-1.pdf}
+\caption{\label{fig:bla}Densidad para la variable peso en la izquierda,
+densidad para el peso diferenciando por sexo a la derecha..}
+\end{figure}
+
 \chapter{Gráficos para varias
 variables}\label{graficos-para-varias-variables}
 
@@ -1507,7 +1653,7 @@ Los argumentos de la función \texttt{plot} son:
   argumentos para \texttt{plot}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-5}
+\subsection*{Ejemplo}\label{ejemplo-7}
 
 
 Crear 16 parejas de puntos tales que \(x=-5, -4, \ldots, 9, 10\) con
@@ -1545,7 +1691,7 @@ dispersión.
 \texttt{plot}.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-6}
+\subsection*{Ejemplo}\label{ejemplo-8}
 
 
 Como ilustración vamos a crear un diagrama de dispersión entre el precio
@@ -1652,7 +1798,7 @@ Los argumentos de la función \texttt{plot} son:
 \caption{Ilustración de los angulos theta y phi para la función persp. Figura tomada de https://i-msdn.sec.s-msft.com/dynimg/IC412528.png}\label{fig:globo}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-7}
+\subsection*{Ejemplo}\label{ejemplo-9}
 
 
 Dibujar la superficie asociada a la función \(f(x, y)=sen(x^2+y^2)\)
@@ -1705,7 +1851,7 @@ los vectores \texttt{x} e \texttt{y} se obtendrá una rejilla más tupida,
 se recomienda modificar este valor para obtener una superficie
 apropiada.
 
-\subsection*{Ejemplo}\label{ejemplo-8}
+\subsection*{Ejemplo}\label{ejemplo-10}
 
 
 Dibujar la superficie de una distribución normal bivariada con vector de

@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Gráficos para una variable
 
 En este capítulo se presentan funciones para la creación de gráficos con una sola variable.
@@ -233,14 +238,75 @@ qqplot(y=muestra, x=qweibull(ppoints(n), shape=1, scale=1))
 
 En la Figura \@ref(fig:qqplot2) están los gráficos cuantil cuantil solicitados. Del pánel izquierdo de la figura vemos que los puntos NO están alineados, esto indica que la muestra no proviene de la distribución $N(0, 1)$, esto es un resultado esperado ya que sabíamos que la muestra no fue generada de una normal. En el pánel derecho de la misma figura vemos que los puntos SI están alineados, esto indica que la muestra generada puede provenir de una población $Weibull(1, 1)$. Los nombres de los ejes en la Figura \@ref(fig:qqplot2) pueden ser editados para presentar una figura con mejor apariencia.
 
+## Función `density` \index{density} \index{densidad}
+Los gráficos de densidad son muy útiles porque permiten ver el(los) intervalo(s) donde una variable cuantitativa puede ocurrir con mayor probabilidad.
 
+La función `density` crea la información de la densidad y la función `plot` dibuja la densidad.
 
+La estructura de la función `density` con los argumentos más comunes de uso se muestra a continuación.
 
+```{r, eval=F}
+density(x, bw, adjust=1, kernel='gaussian', na.rm=FALSE)
+```
+Los argumentos de la función `density` son:
 
+- `x`: vector con los datos para los cuales se quiere la densidad.
+- `bw`:  
+- `adjust`:  
+- `kernel`: núcleo de suavización a usar, los posibles valores son: `gaussian`, `rectangular`, `triangular`, `epanechnikov`, `biweight`, `cosine` o `optcosine`, el valor por defecto es `gaussian`. 
+- `na.rm`: valor lógico, si es `TRUE` se eliminan los valores con `NA` para construir la densidad, el valor por defecto es `FALSE`.
 
+### Ejemplo {-}
+Simular mil observaciones de una $N(0, 1)$, aplicar la función `density` al vector y explorar el contenido de la salida.
 
+Primero se generan las observaciones y se almacenan en el objeto `y`, luego se aplica la función `density` y el resultado se guarda en el objeto `res`, para explorar lo que almacena `res` se usa la función `names`. A continuación el código utilizado.
 
+```{r}
+y <- rnorm(n=1000)
+res <- density(y)
+names(res)
+```
 
+De la salida anterior se observa que la lista `res` tiene 7 elementos, los dos primeros son los vectores con las coordenadas para dibujar la densidad, los restantes elementos con información adicional.
 
+```{r density1, fig.cap='Densidad para una muestra aleatoria de una N(0, 1) cambiando el núcleo de la densidad.', fig.asp=0.6, fig.width=8}
+par(mfrow=c(2, 2))
+plot(density(y, kernel='gaussian'))
+plot(density(y, kernel='triangular'))
+plot(density(y, kernel='cosine'))
+plot(density(y, kernel='rectangular'))
+```
+
+En la Figura \@ref(fig:density1) se muestran las densidades para 4 elecciones del núcleo. En la práctica se usa el núcleo que está por defecto (`gaussian`) ya que el objetivo de una densidad es ver la zonas donde es más probable encontrar observaciones de la variable.
+
+```{r density2, fig.cap='Densidad para una muestra aleatoria de una N(0, 1) cambiando el ancho de banda.', fig.asp=0.6, fig.width=8}
+par(mfrow=c(2, 2))
+plot(density(y, bw=0.1))
+plot(density(y, bw=0.2241))  # bw obtenido antes
+plot(density(y, bw=0.5))
+plot(density(y, bw=1))
+```
+
+En la Figura \@ref(fig:density2) se muestran las densidades para 4 elecciones del parámetro ancho de banda `bw`, el valor de 0.2241 fue el valor calculado automáticamente por \proglang{R} y fue obtenido de la Figura \@ref(fig:density1), los otros valores fueron elegidos arbitrariamente para ver los cambios en la densidad. El usar un ancho de banda pequeño la densidad queda muy rugosa y usar un valor muy grande la suaviza, se recomienda usar el valor automático. 
+
+### Ejemplo {-}
+
+```{r bla, fig.cap='Densidad para la variable peso en la izquierda, densidad para el peso diferenciando por sexo a la derecha..', fig.asp=0.4, fig.width =12}
+url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'
+datos <- read.table(file=url, header=T)
+
+par(mfrow=c(1, 2))
+plot(density(datos$peso), main='Densidad para el peso corporal',
+     xlab='Peso corporal (kg)', ylab='Densidad', lwd=3)
+
+den.hom <- with(datos, density(peso[sexo == 'Hombre']))
+den.muj <- with(datos, density(peso[sexo == 'Mujer']))
+
+plot(den.hom, xlim=c(20, 120), 
+     main='Densidad para el peso corporal', ylab='Densidad',
+     xlab='Peso corporal (kg)', lwd=3, col='blue')
+lines(den.muj, lwd=3, col='red')
+
+```
 
 
