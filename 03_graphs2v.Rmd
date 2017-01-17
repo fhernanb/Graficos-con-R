@@ -217,7 +217,7 @@ pairs(~ precio + mt2 + avaluo, data=datos,
       lower.panel=NULL, col=col1,
       subset=mt2 > 100 & mt2 < 130, pch=19, cex=0.8,
       main="Matriz de dispersión para aptos con 
-      100 < área < 150 mt2")
+      100 < área < 130 mt2")
 ```
 
 En la Figura \@ref(fig:ex3pairs) se presenta la matriz de dispersión solicitada, los puntos rojos representan los apartamento sin parqueadero mientras que los puntos verdes son los apartamento que si tienen parqueadero.
