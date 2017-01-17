@@ -144,8 +144,13 @@ En la Figura \@ref(fig:ex2persp) se presentan las 3 perspectivas para la densida
 
 
 ## Función `pairs` \index{pairs} 
-Las matrices de dispersión obtenidas con la función `pairs` proporcionan un método simple de presentar las relaciones entre pares de variables cuantitativas y son la versión múltiple de la función `plot`. Este gráfico consiste en una matriz donde cada entrada presenta un gráfico de dispersión sencillo. Un inconveniente es que si tenemos muchas variables el tamaño de cada entrada se reduce demasiado impidiendo ver con claridad las relaciones entre los pares de variables. La celda $(i,j)$ de una matriz de dispersión contiene el gráfico de dispersión de la columna $i$ versus la columna $j$ de la matriz de datos.
+Las matrices de dispersión obtenidas con la función `pairs` proporcionan un método simple de presentar las relaciones entre pares de variables cuantitativas y son la versión múltiple de la función `plot`. Este gráfico consiste en una matriz donde cada entrada presenta un gráfico de dispersión sencillo. Un inconveniente es que si tenemos muchas variables el tamaño de cada entrada se reduce demasiado impidiendo ver con claridad las relaciones entre los pares de variables. La celda $(i,j)$ de una matriz de dispersión contiene el gráfico de dispersión de la columna $i$ versus la columna $j$ de la matriz de datos. 
 
+En la Figura \@ref(fig:ex0pairs) se muestra un ejemplo de una matriz de dispersión para un conjunto de datos, en la diagonal están los nombres de las variables y por fuera de la diagonal están los diagramas de dispersión para cada combinación de variables.
+
+```{r, ex0pairs, echo=F, fig.cap='Ilustración de una matriz de dispersión.', fig.asp=0.8, fig.width=6}
+pairs(USJudgeRatings[,c(2:3,6,1,7)])
+```
 
 
 La estructura de la función `pairs` con los argumentos más usuales se muestran a continuación.
@@ -162,16 +167,16 @@ pairs(x, labels, panel = points, ...,
 
 Los argumentos de la función `pairs` son:
 
-- `x`: matriz o marco de datos con la información de las variables cuantitativas.
-- `labels`: Un vector para identificar los nombres de las columnas, por defecto se usan los nombres de columnas del objeto `x`.
-- `panel`: Para especificar la función `function(x,y,...)` a ser usada para determinar el contenido de los páneles. Por defecto es `points`, indicando que se graficarán los puntos de los pares de datos. También es posible utilizar aquí otras funciones prediseñadas.
-- `...`: Indica que es posible agregar otros parámetros gráficos, tales como pch y col, con los cuales puede especificarse un vector de símbolos y colores a ser usados en los scatterplots.
-- `lower.panel, upper.panel`: Para especificar funciones por separado a ser empleadas en los paneles abajo y arriba de la diagonal.
-- `diag.panel`: Es opcional. Permite que una función: function(x, ...) sea empleada para los paneles de la diagonal.
-- `text.panel`: Es opcional.  Permite que una función: function(x, y, labels, cex, font, ...) sea aplicada a los paneles de la diagonal.
+- `x`: matriz o marco de datos con la información de las variables cuantitativas a incluir en la matriz de dispersión.
+- `labels`: vector opcional con los nombres a colocar en la diagonal, por defecto se usan los nombres de columnas del objeto `x`.
+- `panel`: función usual de la forma `function(x,y,...)` a ser usada para determinar el contenido de los páneles. Por defecto es `points`, indicando que se graficarán los puntos de los pares de variables. Es posible utilizar aquí otras funciones diseñadas por el usuario.
+- `...`: Indica que es posible agregar otros parámetros gráficos, tales como `pch` y `col`, con los cuales puede especificarse un vector de símbolos y colores a ser usados en los scatterplots.
+- `lower.panel, upper.panel`: función usual de la forma `function(x,y,...)` para definir lo que se desea dibujar en los paneles abajo y arriba de la diagonal.
+- `diag.panel`: función usual de la forma `function(x,y,...)` para definir lo que se desea dibujar en la diagonal.
+- `text.panel`: Es opcional. Permite que una función: `function(x, y, labels, cex, font, ...)` sea aplicada a los paneles de la diagonal.
 - `label.pos`: Para especificar la posición $y$ de las etiquetas en el text panel.
 - `cex.labels, font.labels`: Parámetros para la expansión de caracteres y fuentes a usar en las etiquetas de las variables.
-- `row1attop`: Parámetro lógico con el cual se especifica si el gráfico para especificar si el diseño lucirá como una matriz con su primera fila en la parte superior o como un gráfico con fila uno en la base.  Por defecto es lo primero.
+- `row1attop`: Parámetro lógico con el cual se especifica si el gráfico para especificar si el diseño lucirá como una matriz con su primera fila en la parte superior o como un gráfico con fila uno en la base. Por defecto es lo primero.
 
 
 ### Ejemplo {-}
@@ -184,15 +189,114 @@ url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015'
 datos <- read.table(file=url, header=T)
 datos.num <- datos[, c('precio', 'mt2', 'alcobas', 'banos')]
 
-pairs(datos.num, lower.panel=NULL)
+pairs(datos.num)
 ```
 
 En la Figura \@ref(fig:ex1pairs) se muestra la matriz de dispersión para las variables del marco de datos `datos.num`.
 
+### Ejemplo {-}
+Volver a construir la Figura \@ref(fig:ex1pairs) editando los nombres de las variables, usando cruces rojas en lugar de puntos, en escala logaritmica, con marcas horizontales en el eje vertical y eliminando los diagramas de dispersión abajo de la diagonal.
+
+Para obtener la nueva matriz de dispersión con los cambios solicitados se usa el siguiente código. En la Figura \@ref(fig:ex2pairs) se presenta la nueva matriz de dispersión.
 
 ```{r ex2pairs, fig.cap='Matriz de dispersión modificando los parámetros adicionales de la función pairs.', fig.asp=0.8, fig.width=6}
-pairs(datos.num, 
-      labels=c('Precio', 'Área', 'Num alcobas', 'Num baños'))
+pairs(datos.num, lower.panel=NULL, cex.labels=1.5, log='xy',
+      main='Matriz de dispersión', las=1,
+      labels=c('Precio', 'Área', 'Num alcobas', 'Num baños'),
+      pch=3, cex=0.6, col='red')
+```
+
+### Ejemplo {-}
+Construir una matriz de dispersión con las variables precio, área y avaluo para apartamentos que cumplan la condición $100 m^2 < area < 130 m^2$. Adicionalmente, se deben diferenciar los apartamentos sin parqueadero con color rojo y los apartamentos con parqueadero con color verde.
+
+Para crear una matriz de dispersión se puede tambien usar la base de datos original llamada `datos` que contiene todas las variables y usar una fórmula con la ayuda del operador `~` para indicar las variables de interés. La fórmula __NO__ debe contener nada del lado izquierdo mientras que en el lado derecho se colocan todas las variables a considerar en la matriz de dispersión, por esta razón es que en el códido mostrado abajo se inicia con la instrucción `~ precio + mt2 + avaluo`. Para incluir condiciones se usa el parámetro `subset` de la siguiente manera: `subset=mt2 > 100 & mt2 < 130`. A continuación el código completo para construir la matriz de dispersión solicitada.
+
+```{r ex3pairs, fig.cap='Matriz de dispersión con un subconjunto de los datos y con colores para identificar los puntos.', fig.asp=0.8, fig.width=6}
+col1 <- ifelse(datos$parqueadero == 'no', 'red', 'green3')
+pairs(~ precio + mt2 + avaluo, data=datos,
+      lower.panel=NULL, col=col1,
+      subset=mt2 > 100 & mt2 < 130, pch=19, cex=0.8,
+      main="Matriz de dispersión para aptos con 
+      100 < área < 150 mt2")
+```
+
+En la Figura \@ref(fig:ex3pairs) se presenta la matriz de dispersión solicitada, los puntos rojos representan los apartamento sin parqueadero mientras que los puntos verdes son los apartamento que si tienen parqueadero.
+
+
+### Ejemplo {-}
+¿Es posible agregar una leyenda a una matriz de dispersión?
+
+Claro que es posible, se construye la matriz de dispersión y se deja en el lienzo del dibujo un espacio para colocar la leyenda. A continuación se muestra un ejemplo disponible en [Stackoverflow](http://stackoverflow.com/questions/14948852/how-to-use-the-pairs-function-combined-with-layout-in-r). A continuación se muestra el código para el ejemplo y en la Figura \@ref(fig:expairs) se presenta el resultado.
+
+```{r expairs, fig.cap='Matriz de dispersión con leyenda.', fig.asp=0.8, fig.width=6}
+pairs(iris[1:4], main="Anderson's Iris Data -- 3 species",
+      pch=21, bg=c("red", "green3", "blue")[iris$Species],
+      oma=c(4, 4, 6, 12))
+par(xpd=TRUE)
+legend(0.85, 0.7, as.vector(unique(iris$Species)), bty='n',
+       fill=c("red", "green3", "blue"))
+```
+
+### Ejemplo {-}
+¿Es posible modificar el contenido de los páneles de una matriz de dispersión?
+
+Claro que es posible, para hacer esto se definen funciones que hagan lo que se desea ver tanto en la diagonal como arriba y abajo de la misma.
+
+Como ejemplo vamos a construir una matriz de dispersión que cumpla:
+
+- sobre la diagonal un diagrama de dispersión para las variables involucradas y la recta de regresión ajustada,
+- en la diagonal un histograma para la variable,
+- debajo de la diagonal el coeficiente de correlación entre las variables involucradas y usando un tamaño de fuente proporcional a la fuerza de correlación.
+
+Para obtener esta matriz de dispersión especial se definen a continuación las funciones `panel.reg`, `panel.hist` y `panel.cor`, a continuación el código utilizado. Luego se usa la función `pairs` y se indica qué función debe actuar en cada uno de los parámetros `upper.panel`, `diag.panel` y `lower.panel`. 
+
+```{r exmod1pairs, fig.cap='Matriz de dispersión con páneles modificados.', fig.asp=0.8, fig.width=6}
+# Función para dibujar los puntos y agregar la recta de regresión
+panel.reg <- function (x, y) 
+{
+  points(x, y, pch=20)
+  abline(lm(y ~ x), lwd=2, col='dodgerblue2')
+}
+
+# Función para crear el histograma
+panel.hist <- function(x, ...)
+{
+  usr <- par("usr"); on.exit(par(usr))
+  par(usr = c(usr[1:2], 0, 1.5) )
+  h <- hist(x, plot = FALSE)
+  breaks <- h$breaks; nB <- length(breaks)
+  y <- h$counts; y <- y/max(y)
+  rect(breaks[-nB], 0, breaks[-1], y, col="dodgerblue2", ...)
+}
+
+# Función para obtener la correlación
+panel.cor <- function(x, y, digits=2, prefix="", cex.cor)
+{
+  usr <- par("usr"); on.exit(par(usr))
+  par(usr = c(0, 1, 0, 1))
+  r <- abs(cor(x, y))
+  txt <- format(c(r, 0.123456789), digits=digits)[1]
+  txt <- paste(prefix, txt, sep="")
+  if(missing(cex.cor)) cex <- 0.8/strwidth(txt)
+  text(0.5, 0.5, txt, cex = cex * r)
+}
+
+pairs(datos.num,
+      upper.panel = panel.reg,
+      diag.panel = panel.hist,
+      lower.panel = panel.cor)
+```
+
+En la Figura \@ref(fig:exmod1pairs) se presenta la matriz de dispersión con las modificaciones en cada uno de los páneles. Cualquier usuario puede modificar las funciones `panel.reg`, `panel.hist` y `panel.cor` para personalizar la apariencia de los contenidos. 
+
+La función `panel.smooth` está disponible en \proglang{R} para que el usuario pueda incluir arriba o abajo de la diagonal un diagrama de dispersión con una línea resultado de un ajuste suavizado. Abajo se muestra el código de cómo incluir la función `panel.smooth` y en la Figura \@ref(fig:exmod2pairs) se muestra gráfico obtenido.
+
+
+```{r exmod2pairs, fig.cap='Matriz de dispersión usando la función panel.smooth.', fig.asp=0.8, fig.width=6}
+pairs(datos.num,
+      upper.panel = panel.reg,
+      diag.panel = panel.hist,
+      lower.panel = panel.smooth)
 ```
 
 

@@ -226,7 +226,9 @@ Este libro es importante porque \ldots{}
 \section*{Estructura del libro}\label{estructura-del-libro}
 
 
-Chapters \ref{introduction} introduces a new topic, and \ldots{}
+En el capítulo \ref{Introducción} se presenta una introducción breve de
+\proglang{R}, sus orígenes, la instalación, tipos de objetos y una guía
+de estilo para escribir en \proglang{R}.
 
 \section*{Software information and
 conventions}\label{software-information-and-conventions}
@@ -275,7 +277,9 @@ Function names are followed by parentheses (e.g.,
 \section*{Agradecimientos}\label{agradecimientos}
 
 
-Agradecemos a \ldots{}
+Agradecemos a nuestros estudiantes, profesores y colegas que han leído
+el manuscrito y se han tomado el trabajo de escribirnos dándonos sus
+sugerencias y comentarios para mejorar continuamente este material.
 
 \BeginKnitrBlock{flushright}
 Juan Carlos Correa Morales\\
@@ -285,7 +289,13 @@ Freddy Hernández Barajas
 \chapter*{Sobre los autores}\label{sobre-los-autores}
 
 
-Frida Gomam is a famous lady. Police will always let her go.
+Juan Carlos Correa Morales es profesor asociado de la Universidad
+Nacional de Colombia adscrito a la Escuela de Estadística de la Facultad
+de Ciencias.
+
+Freddy Hernández Barajas es profesor asistente de la Universidad
+Nacional de Colombia adscrito a la Escuela de Estadística de la Facultad
+de Ciencias.
 
 \mainmatter
 
@@ -1944,6 +1954,17 @@ La celda \((i,j)\) de una matriz de dispersión contiene el gráfico de
 dispersión de la columna \(i\) versus la columna \(j\) de la matriz de
 datos.
 
+En la Figura \ref{fig:ex0pairs} se muestra un ejemplo de una matriz de
+dispersión para un conjunto de datos, en la diagonal están los nombres
+de las variables y por fuera de la diagonal están los diagramas de
+dispersión para cada combinación de variables.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/ex0pairs-1.pdf}
+\caption{\label{fig:ex0pairs}Ilustración de una matriz de dispersión.}
+\end{figure}
+
 La estructura de la función \texttt{pairs} con los argumentos más
 usuales se muestran a continuación.
 
@@ -1965,31 +1986,34 @@ Los argumentos de la función \texttt{pairs} son:
 \tightlist
 \item
   \texttt{x}: matriz o marco de datos con la información de las
-  variables cuantitativas.
+  variables cuantitativas a incluir en la matriz de dispersión.
 \item
-  \texttt{labels}: Un vector para identificar los nombres de las
-  columnas, por defecto se usan los nombres de columnas del objeto
+  \texttt{labels}: vector opcional con los nombres a colocar en la
+  diagonal, por defecto se usan los nombres de columnas del objeto
   \texttt{x}.
 \item
-  \texttt{panel}: Para especificar la función \texttt{function(x,y,...)}
-  a ser usada para determinar el contenido de los páneles. Por defecto
-  es \texttt{points}, indicando que se graficarán los puntos de los
-  pares de datos. También es posible utilizar aquí otras funciones
-  prediseñadas.
+  \texttt{panel}: función usual de la forma \texttt{function(x,y,...)} a
+  ser usada para determinar el contenido de los páneles. Por defecto es
+  \texttt{points}, indicando que se graficarán los puntos de los pares
+  de variables. Es posible utilizar aquí otras funciones diseñadas por
+  el usuario.
 \item
   \texttt{...}: Indica que es posible agregar otros parámetros gráficos,
-  tales como pch y col, con los cuales puede especificarse un vector de
-  símbolos y colores a ser usados en los scatterplots.
+  tales como \texttt{pch} y \texttt{col}, con los cuales puede
+  especificarse un vector de símbolos y colores a ser usados en los
+  scatterplots.
 \item
-  \texttt{lower.panel,\ upper.panel}: Para especificar funciones por
-  separado a ser empleadas en los paneles abajo y arriba de la diagonal.
+  \texttt{lower.panel,\ upper.panel}: función usual de la forma
+  \texttt{function(x,y,...)} para definir lo que se desea dibujar en los
+  paneles abajo y arriba de la diagonal.
 \item
-  \texttt{diag.panel}: Es opcional. Permite que una función: function(x,
-  \ldots{}) sea empleada para los paneles de la diagonal.
-\item
-  \texttt{text.panel}: Es opcional. Permite que una función: function(x,
-  y, labels, cex, font, \ldots{}) sea aplicada a los paneles de la
+  \texttt{diag.panel}: función usual de la forma
+  \texttt{function(x,y,...)} para definir lo que se desea dibujar en la
   diagonal.
+\item
+  \texttt{text.panel}: Es opcional. Permite que una función:
+  \texttt{function(x,\ y,\ labels,\ cex,\ font,\ ...)} sea aplicada a
+  los paneles de la diagonal.
 \item
   \texttt{label.pos}: Para especificar la posición \(y\) de las
   etiquetas en el text panel.
@@ -2022,7 +2046,7 @@ baños.
 \NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
 \NormalTok{datos.num <-}\StringTok{ }\NormalTok{datos[, }\KeywordTok{c}\NormalTok{(}\StringTok{'precio'}\NormalTok{, }\StringTok{'mt2'}\NormalTok{, }\StringTok{'alcobas'}\NormalTok{, }\StringTok{'banos'}\NormalTok{)]}
 
-\KeywordTok{pairs}\NormalTok{(datos.num, }\DataTypeTok{lower.panel=}\OtherTok{NULL}\NormalTok{)}
+\KeywordTok{pairs}\NormalTok{(datos.num)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2037,10 +2061,24 @@ apartamentos en Medellín.}
 En la Figura \ref{fig:ex1pairs} se muestra la matriz de dispersión para
 las variables del marco de datos \texttt{datos.num}.
 
+\subsection*{Ejemplo}\label{ejemplo-13}
+
+
+Volver a construir la Figura \ref{fig:ex1pairs} editando los nombres de
+las variables, usando cruces rojas en lugar de puntos, en escala
+logaritmica, con marcas horizontales en el eje vertical y eliminando los
+diagramas de dispersión abajo de la diagonal.
+
+Para obtener la nueva matriz de dispersión con los cambios solicitados
+se usa el siguiente código. En la Figura \ref{fig:ex2pairs} se presenta
+la nueva matriz de dispersión.
+
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{pairs}\NormalTok{(datos.num, }
-      \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{'Precio'}\NormalTok{, }\StringTok{'Área'}\NormalTok{, }\StringTok{'Num alcobas'}\NormalTok{, }\StringTok{'Num baños'}\NormalTok{))}
+\KeywordTok{pairs}\NormalTok{(datos.num, }\DataTypeTok{lower.panel=}\OtherTok{NULL}\NormalTok{, }\DataTypeTok{cex.labels=}\FloatTok{1.5}\NormalTok{, }\DataTypeTok{log=}\StringTok{'xy'}\NormalTok{,}
+      \DataTypeTok{main=}\StringTok{'Matriz de dispersión'}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
+      \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{'Precio'}\NormalTok{, }\StringTok{'Área'}\NormalTok{, }\StringTok{'Num alcobas'}\NormalTok{, }\StringTok{'Num baños'}\NormalTok{),}
+      \DataTypeTok{pch=}\DecValTok{3}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.6}\NormalTok{, }\DataTypeTok{col=}\StringTok{'red'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2049,6 +2087,185 @@ las variables del marco de datos \texttt{datos.num}.
 \includegraphics{Graficos_con_R_files/figure-latex/ex2pairs-1.pdf}
 \caption{\label{fig:ex2pairs}Matriz de dispersión modificando los parámetros
 adicionales de la función pairs.}
+\end{figure}
+
+\subsection*{Ejemplo}\label{ejemplo-14}
+
+
+Construir una matriz de dispersión con las variables precio, área y
+avaluo para apartamentos que cumplan la condición
+\(100 m^2 < area < 130 m^2\). Adicionalmente, se deben diferenciar los
+apartamentos sin parqueadero con color rojo y los apartamentos con
+parqueadero con color verde.
+
+Para crear una matriz de dispersión se puede tambien usar la base de
+datos original llamada \texttt{datos} que contiene todas las variables y
+usar una fórmula con la ayuda del operador \texttt{\textasciitilde{}}
+para indicar las variables de interés. La fórmula \textbf{NO} debe
+contener nada del lado izquierdo mientras que en el lado derecho se
+colocan todas las variables a considerar en la matriz de dispersión, por
+esta razón es que en el códido mostrado abajo se inicia con la
+instrucción \texttt{\textasciitilde{}\ precio\ +\ mt2\ +\ avaluo}. Para
+incluir condiciones se usa el parámetro \texttt{subset} de la siguiente
+manera:
+\texttt{subset=mt2\ \textgreater{}\ 100\ \&\ mt2\ \textless{}\ 130}. A
+continuación el código completo para construir la matriz de dispersión
+solicitada.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{col1 <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(datos$parqueadero ==}\StringTok{ 'no'}\NormalTok{, }\StringTok{'red'}\NormalTok{, }\StringTok{'green3'}\NormalTok{)}
+\KeywordTok{pairs}\NormalTok{(~}\StringTok{ }\NormalTok{precio +}\StringTok{ }\NormalTok{mt2 +}\StringTok{ }\NormalTok{avaluo, }\DataTypeTok{data=}\NormalTok{datos,}
+      \DataTypeTok{lower.panel=}\OtherTok{NULL}\NormalTok{, }\DataTypeTok{col=}\NormalTok{col1,}
+      \DataTypeTok{subset=}\NormalTok{mt2 >}\StringTok{ }\DecValTok{100} \NormalTok{&}\StringTok{ }\NormalTok{mt2 <}\StringTok{ }\DecValTok{130}\NormalTok{, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.8}\NormalTok{,}
+      \DataTypeTok{main=}\StringTok{"Matriz de dispersión para aptos con }
+\StringTok{      100 < área < 150 mt2"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/ex3pairs-1.pdf}
+\caption{\label{fig:ex3pairs}Matriz de dispersión con un subconjunto de los
+datos y con colores para identificar los puntos.}
+\end{figure}
+
+En la Figura \ref{fig:ex3pairs} se presenta la matriz de dispersión
+solicitada, los puntos rojos representan los apartamento sin parqueadero
+mientras que los puntos verdes son los apartamento que si tienen
+parqueadero.
+
+\subsection*{Ejemplo}\label{ejemplo-15}
+
+
+¿Es posible agregar una leyenda a una matriz de dispersión?
+
+Claro que es posible, se construye la matriz de dispersión y se deja en
+el lienzo del dibujo un espacio para colocar la leyenda. A continuación
+se muestra un ejemplo disponible en
+\href{http://stackoverflow.com/questions/14948852/how-to-use-the-pairs-function-combined-with-layout-in-r}{Stackoverflow}.
+A continuación se muestra el código para el ejemplo y en la Figura
+\ref{fig:expairs} se presenta el resultado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pairs}\NormalTok{(iris[}\DecValTok{1}\NormalTok{:}\DecValTok{4}\NormalTok{], }\DataTypeTok{main=}\StringTok{"Anderson's Iris Data -- 3 species"}\NormalTok{,}
+      \DataTypeTok{pch=}\DecValTok{21}\NormalTok{, }\DataTypeTok{bg=}\KeywordTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"green3"}\NormalTok{, }\StringTok{"blue"}\NormalTok{)[iris$Species],}
+      \DataTypeTok{oma=}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{12}\NormalTok{))}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{xpd=}\OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{legend}\NormalTok{(}\FloatTok{0.85}\NormalTok{, }\FloatTok{0.7}\NormalTok{, }\KeywordTok{as.vector}\NormalTok{(}\KeywordTok{unique}\NormalTok{(iris$Species)), }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{,}
+       \DataTypeTok{fill=}\KeywordTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"green3"}\NormalTok{, }\StringTok{"blue"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/expairs-1.pdf}
+\caption{\label{fig:expairs}Matriz de dispersión con leyenda.}
+\end{figure}
+
+\subsection*{Ejemplo}\label{ejemplo-16}
+
+
+¿Es posible modificar el contenido de los páneles de una matriz de
+dispersión?
+
+Claro que es posible, para hacer esto se definen funciones que hagan lo
+que se desea ver tanto en la diagonal como arriba y abajo de la misma.
+
+Como ejemplo vamos a construir una matriz de dispersión que cumpla:
+
+\begin{itemize}
+\tightlist
+\item
+  sobre la diagonal un diagrama de dispersión para las variables
+  involucradas y la recta de regresión ajustada,
+\item
+  en la diagonal un histograma para la variable,
+\item
+  debajo de la diagonal el coeficiente de correlación entre las
+  variables involucradas y usando un tamaño de fuente proporcional a la
+  fuerza de correlación.
+\end{itemize}
+
+Para obtener esta matriz de dispersión especial se definen a
+continuación las funciones \texttt{panel.reg}, \texttt{panel.hist} y
+\texttt{panel.cor}, a continuación el código utilizado. Luego se usa la
+función \texttt{pairs} y se indica qué función debe actuar en cada uno
+de los parámetros \texttt{upper.panel}, \texttt{diag.panel} y
+\texttt{lower.panel}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Función para dibujar los puntos y agregar la recta de regresión}
+\NormalTok{panel.reg <-}\StringTok{ }\NormalTok{function (x, y) }
+\NormalTok{\{}
+  \KeywordTok{points}\NormalTok{(x, y, }\DataTypeTok{pch=}\DecValTok{20}\NormalTok{)}
+  \KeywordTok{abline}\NormalTok{(}\KeywordTok{lm}\NormalTok{(y ~}\StringTok{ }\NormalTok{x), }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{col=}\StringTok{'dodgerblue2'}\NormalTok{)}
+\NormalTok{\}}
+
+\CommentTok{# Función para crear el histograma}
+\NormalTok{panel.hist <-}\StringTok{ }\NormalTok{function(x, ...)}
+\NormalTok{\{}
+  \NormalTok{usr <-}\StringTok{ }\KeywordTok{par}\NormalTok{(}\StringTok{"usr"}\NormalTok{); }\KeywordTok{on.exit}\NormalTok{(}\KeywordTok{par}\NormalTok{(usr))}
+  \KeywordTok{par}\NormalTok{(}\DataTypeTok{usr =} \KeywordTok{c}\NormalTok{(usr[}\DecValTok{1}\NormalTok{:}\DecValTok{2}\NormalTok{], }\DecValTok{0}\NormalTok{, }\FloatTok{1.5}\NormalTok{) )}
+  \NormalTok{h <-}\StringTok{ }\KeywordTok{hist}\NormalTok{(x, }\DataTypeTok{plot =} \OtherTok{FALSE}\NormalTok{)}
+  \NormalTok{breaks <-}\StringTok{ }\NormalTok{h$breaks; nB <-}\StringTok{ }\KeywordTok{length}\NormalTok{(breaks)}
+  \NormalTok{y <-}\StringTok{ }\NormalTok{h$counts; y <-}\StringTok{ }\NormalTok{y/}\KeywordTok{max}\NormalTok{(y)}
+  \KeywordTok{rect}\NormalTok{(breaks[-nB], }\DecValTok{0}\NormalTok{, breaks[-}\DecValTok{1}\NormalTok{], y, }\DataTypeTok{col=}\StringTok{"dodgerblue2"}\NormalTok{, ...)}
+\NormalTok{\}}
+
+\CommentTok{# Función para obtener la correlación}
+\NormalTok{panel.cor <-}\StringTok{ }\NormalTok{function(x, y, }\DataTypeTok{digits=}\DecValTok{2}\NormalTok{, }\DataTypeTok{prefix=}\StringTok{""}\NormalTok{, cex.cor)}
+\NormalTok{\{}
+  \NormalTok{usr <-}\StringTok{ }\KeywordTok{par}\NormalTok{(}\StringTok{"usr"}\NormalTok{); }\KeywordTok{on.exit}\NormalTok{(}\KeywordTok{par}\NormalTok{(usr))}
+  \KeywordTok{par}\NormalTok{(}\DataTypeTok{usr =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+  \NormalTok{r <-}\StringTok{ }\KeywordTok{abs}\NormalTok{(}\KeywordTok{cor}\NormalTok{(x, y))}
+  \NormalTok{txt <-}\StringTok{ }\KeywordTok{format}\NormalTok{(}\KeywordTok{c}\NormalTok{(r, }\FloatTok{0.123456789}\NormalTok{), }\DataTypeTok{digits=}\NormalTok{digits)[}\DecValTok{1}\NormalTok{]}
+  \NormalTok{txt <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(prefix, txt, }\DataTypeTok{sep=}\StringTok{""}\NormalTok{)}
+  \NormalTok{if(}\KeywordTok{missing}\NormalTok{(cex.cor)) cex <-}\StringTok{ }\FloatTok{0.8}\NormalTok{/}\KeywordTok{strwidth}\NormalTok{(txt)}
+  \KeywordTok{text}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\FloatTok{0.5}\NormalTok{, txt, }\DataTypeTok{cex =} \NormalTok{cex *}\StringTok{ }\NormalTok{r)}
+\NormalTok{\}}
+
+\KeywordTok{pairs}\NormalTok{(datos.num,}
+      \DataTypeTok{upper.panel =} \NormalTok{panel.reg,}
+      \DataTypeTok{diag.panel =} \NormalTok{panel.hist,}
+      \DataTypeTok{lower.panel =} \NormalTok{panel.cor)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/exmod1pairs-1.pdf}
+\caption{\label{fig:exmod1pairs}Matriz de dispersión con páneles
+modificados.}
+\end{figure}
+
+En la Figura \ref{fig:exmod1pairs} se presenta la matriz de dispersión
+con las modificaciones en cada uno de los páneles. Cualquier usuario
+puede modificar las funciones \texttt{panel.reg}, \texttt{panel.hist} y
+\texttt{panel.cor} para personalizar la apariencia de los contenidos.
+
+La función \texttt{panel.smooth} está disponible en \proglang{R} para
+que el usuario pueda incluir arriba o abajo de la diagonal un diagrama
+de dispersión con una línea resultado de un ajuste suavizado. Abajo se
+muestra el código de cómo incluir la función \texttt{panel.smooth} y en
+la Figura \ref{fig:exmod2pairs} se muestra gráfico obtenido.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pairs}\NormalTok{(datos.num,}
+      \DataTypeTok{upper.panel =} \NormalTok{panel.reg,}
+      \DataTypeTok{diag.panel =} \NormalTok{panel.hist,}
+      \DataTypeTok{lower.panel =} \NormalTok{panel.smooth)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/exmod2pairs-1.pdf}
+\caption{\label{fig:exmod2pairs}Matriz de dispersión usando la función
+panel.smooth.}
 \end{figure}
 
 \section{\texorpdfstring{Función \texttt{contour} \index{contour}
