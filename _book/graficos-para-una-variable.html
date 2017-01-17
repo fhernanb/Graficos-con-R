@@ -25,7 +25,7 @@
 
 
 
-<meta name="date" content="2016-12-16">
+<meta name="date" content="2017-01-16">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -123,6 +123,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.5" data-path="graficos-para-una-variable.html"><a href="graficos-para-una-variable.html#funcion-density"><i class="fa fa-check"></i><b>3.5</b> Función <code>density</code>  </a><ul>
 <li class="chapter" data-level="" data-path="graficos-para-una-variable.html"><a href="graficos-para-una-variable.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="graficos-para-una-variable.html"><a href="graficos-para-una-variable.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable.html"><a href="graficos-para-una-variable.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="graficos-para-varias-variables.html"><a href="graficos-para-varias-variables.html"><i class="fa fa-check"></i><b>4</b> Gráficos para varias variables</a></li>
@@ -270,21 +271,26 @@ FIGURE 3.1: Boxplot para la variable altura.
 <h3>Ejemplo</h3>
 <p>Vamos a construir varios histogramas para los tiempos de 180 corredores de la media maratón de CONAVI. A continuación se muestra la forma de ingresar los 180 datos.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">maraton &lt;-<span class="st"> </span><span class="kw">c</span>(
-<span class="dv">10253</span>, <span class="dv">10302</span>, <span class="dv">10307</span>, <span class="dv">10309</span>, <span class="dv">10349</span>, <span class="dv">10353</span>, <span class="dv">10409</span>, <span class="dv">10442</span>, <span class="dv">10447</span>, <span class="dv">10452</span>, <span class="dv">10504</span>, <span class="dv">10517</span>,
-<span class="dv">10530</span>, <span class="dv">10540</span>, <span class="dv">10549</span>, <span class="dv">10549</span>, <span class="dv">10606</span>, <span class="dv">10612</span>, <span class="dv">10646</span>, <span class="dv">10648</span>, <span class="dv">10655</span>, <span class="dv">10707</span>, <span class="dv">10726</span>, <span class="dv">10731</span>,
-<span class="dv">10737</span>, <span class="dv">10743</span>, <span class="dv">10808</span>, <span class="dv">10833</span>, <span class="dv">10843</span>, <span class="dv">10920</span>, <span class="dv">10938</span>, <span class="dv">10949</span>, <span class="dv">10954</span>, <span class="dv">10956</span>, <span class="dv">10958</span>, <span class="dv">11004</span>,
-<span class="dv">11009</span>, <span class="dv">11024</span>, <span class="dv">11037</span>, <span class="dv">11045</span>, <span class="dv">11046</span>, <span class="dv">11049</span>, <span class="dv">11104</span>, <span class="dv">11127</span>, <span class="dv">11205</span>, <span class="dv">11207</span>, <span class="dv">11215</span>, <span class="dv">11226</span>,
-<span class="dv">11233</span>, <span class="dv">11239</span>, <span class="dv">11307</span>, <span class="dv">11330</span>, <span class="dv">11342</span>, <span class="dv">11351</span>, <span class="dv">11405</span>, <span class="dv">11413</span>, <span class="dv">11438</span>, <span class="dv">11453</span>, <span class="dv">11500</span>, <span class="dv">11501</span>,
-<span class="dv">11502</span>, <span class="dv">11503</span>, <span class="dv">11527</span>, <span class="dv">11544</span>, <span class="dv">11549</span>, <span class="dv">11559</span>, <span class="dv">11612</span>, <span class="dv">11617</span>, <span class="dv">11635</span>, <span class="dv">11655</span>, <span class="dv">11731</span>, <span class="dv">11735</span>,
-<span class="dv">11746</span>, <span class="dv">11800</span>, <span class="dv">11814</span>, <span class="dv">11828</span>, <span class="dv">11832</span>, <span class="dv">11841</span>, <span class="dv">11909</span>, <span class="dv">11926</span>, <span class="dv">11937</span>, <span class="dv">11940</span>, <span class="dv">11947</span>, <span class="dv">11952</span>,
-<span class="dv">12005</span>, <span class="dv">12044</span>, <span class="dv">12113</span>, <span class="dv">12209</span>, <span class="dv">12230</span>, <span class="dv">12258</span>, <span class="dv">12309</span>, <span class="dv">12327</span>, <span class="dv">12341</span>, <span class="dv">12413</span>, <span class="dv">12433</span>, <span class="dv">12440</span>,
-<span class="dv">12447</span>, <span class="dv">12530</span>, <span class="dv">12600</span>, <span class="dv">12617</span>, <span class="dv">12640</span>, <span class="dv">12700</span>, <span class="dv">12706</span>, <span class="dv">12727</span>, <span class="dv">12840</span>, <span class="dv">12851</span>, <span class="dv">12851</span>, <span class="dv">12937</span>,
-<span class="dv">13019</span>, <span class="dv">13040</span>, <span class="dv">13110</span>, <span class="dv">13114</span>, <span class="dv">13122</span>, <span class="dv">13155</span>, <span class="dv">13205</span>, <span class="dv">13210</span>, <span class="dv">13220</span>, <span class="dv">13228</span>, <span class="dv">13307</span>, <span class="dv">13316</span>,
-<span class="dv">13335</span>, <span class="dv">13420</span>, <span class="dv">13425</span>, <span class="dv">13435</span>, <span class="dv">13435</span>, <span class="dv">13448</span>, <span class="dv">13456</span>, <span class="dv">13536</span>, <span class="dv">13608</span>, <span class="dv">13612</span>, <span class="dv">13620</span>, <span class="dv">13646</span>,
-<span class="dv">13705</span>, <span class="dv">13730</span>, <span class="dv">13730</span>, <span class="dv">13730</span>, <span class="dv">13747</span>, <span class="dv">13810</span>, <span class="dv">13850</span>, <span class="dv">13854</span>, <span class="dv">13901</span>, <span class="dv">13905</span>, <span class="dv">13907</span>, <span class="dv">13912</span>,
-<span class="dv">13920</span>, <span class="dv">14000</span>, <span class="dv">14010</span>, <span class="dv">14025</span>, <span class="dv">14152</span>, <span class="dv">14208</span>, <span class="dv">14230</span>, <span class="dv">14344</span>, <span class="dv">14400</span>, <span class="dv">14455</span>, <span class="dv">14509</span>, <span class="dv">14552</span>,
-<span class="dv">14652</span>, <span class="dv">15009</span>, <span class="dv">15026</span>, <span class="dv">15242</span>, <span class="dv">15406</span>, <span class="dv">15409</span>, <span class="dv">15528</span>, <span class="dv">15549</span>, <span class="dv">15644</span>, <span class="dv">15758</span>, <span class="dv">15837</span>, <span class="dv">15916</span>,
-<span class="dv">15926</span>, <span class="dv">15948</span>, <span class="dv">20055</span>, <span class="dv">20416</span>, <span class="dv">20520</span>, <span class="dv">20600</span>, <span class="dv">20732</span>, <span class="dv">20748</span>, <span class="dv">20916</span>, <span class="dv">21149</span>, <span class="dv">21714</span>, <span class="dv">23256</span>)</code></pre></div>
+<span class="dv">10253</span>, <span class="dv">10302</span>, <span class="dv">10307</span>, <span class="dv">10309</span>, <span class="dv">10349</span>, <span class="dv">10353</span>, <span class="dv">10409</span>, <span class="dv">10442</span>, <span class="dv">10447</span>, 
+<span class="dv">10452</span>, <span class="dv">10504</span>, <span class="dv">10517</span>, <span class="dv">10530</span>, <span class="dv">10540</span>, <span class="dv">10549</span>, <span class="dv">10549</span>, <span class="dv">10606</span>, <span class="dv">10612</span>, 
+<span class="dv">10646</span>, <span class="dv">10648</span>, <span class="dv">10655</span>, <span class="dv">10707</span>, <span class="dv">10726</span>, <span class="dv">10731</span>, <span class="dv">10737</span>, <span class="dv">10743</span>, <span class="dv">10808</span>, 
+<span class="dv">10833</span>, <span class="dv">10843</span>, <span class="dv">10920</span>, <span class="dv">10938</span>, <span class="dv">10949</span>, <span class="dv">10954</span>, <span class="dv">10956</span>, <span class="dv">10958</span>, <span class="dv">11004</span>, 
+<span class="dv">11009</span>, <span class="dv">11024</span>, <span class="dv">11037</span>, <span class="dv">11045</span>, <span class="dv">11046</span>, <span class="dv">11049</span>, <span class="dv">11104</span>, <span class="dv">11127</span>, <span class="dv">11205</span>, 
+<span class="dv">11207</span>, <span class="dv">11215</span>, <span class="dv">11226</span>, <span class="dv">11233</span>, <span class="dv">11239</span>, <span class="dv">11307</span>, <span class="dv">11330</span>, <span class="dv">11342</span>, <span class="dv">11351</span>, 
+<span class="dv">11405</span>, <span class="dv">11413</span>, <span class="dv">11438</span>, <span class="dv">11453</span>, <span class="dv">11500</span>, <span class="dv">11501</span>, <span class="dv">11502</span>, <span class="dv">11503</span>, <span class="dv">11527</span>, 
+<span class="dv">11544</span>, <span class="dv">11549</span>, <span class="dv">11559</span>, <span class="dv">11612</span>, <span class="dv">11617</span>, <span class="dv">11635</span>, <span class="dv">11655</span>, <span class="dv">11731</span>, <span class="dv">11735</span>,
+<span class="dv">11746</span>, <span class="dv">11800</span>, <span class="dv">11814</span>, <span class="dv">11828</span>, <span class="dv">11832</span>, <span class="dv">11841</span>, <span class="dv">11909</span>, <span class="dv">11926</span>, <span class="dv">11937</span>, 
+<span class="dv">11940</span>, <span class="dv">11947</span>, <span class="dv">11952</span>, <span class="dv">12005</span>, <span class="dv">12044</span>, <span class="dv">12113</span>, <span class="dv">12209</span>, <span class="dv">12230</span>, <span class="dv">12258</span>, 
+<span class="dv">12309</span>, <span class="dv">12327</span>, <span class="dv">12341</span>, <span class="dv">12413</span>, <span class="dv">12433</span>, <span class="dv">12440</span>, <span class="dv">12447</span>, <span class="dv">12530</span>, <span class="dv">12600</span>, 
+<span class="dv">12617</span>, <span class="dv">12640</span>, <span class="dv">12700</span>, <span class="dv">12706</span>, <span class="dv">12727</span>, <span class="dv">12840</span>, <span class="dv">12851</span>, <span class="dv">12851</span>, <span class="dv">12937</span>,
+<span class="dv">13019</span>, <span class="dv">13040</span>, <span class="dv">13110</span>, <span class="dv">13114</span>, <span class="dv">13122</span>, <span class="dv">13155</span>, <span class="dv">13205</span>, <span class="dv">13210</span>, <span class="dv">13220</span>, 
+<span class="dv">13228</span>, <span class="dv">13307</span>, <span class="dv">13316</span>, <span class="dv">13335</span>, <span class="dv">13420</span>, <span class="dv">13425</span>, <span class="dv">13435</span>, <span class="dv">13435</span>, <span class="dv">13448</span>, 
+<span class="dv">13456</span>, <span class="dv">13536</span>, <span class="dv">13608</span>, <span class="dv">13612</span>, <span class="dv">13620</span>, <span class="dv">13646</span>, <span class="dv">13705</span>, <span class="dv">13730</span>, <span class="dv">13730</span>, 
+<span class="dv">13730</span>, <span class="dv">13747</span>, <span class="dv">13810</span>, <span class="dv">13850</span>, <span class="dv">13854</span>, <span class="dv">13901</span>, <span class="dv">13905</span>, <span class="dv">13907</span>, <span class="dv">13912</span>,
+<span class="dv">13920</span>, <span class="dv">14000</span>, <span class="dv">14010</span>, <span class="dv">14025</span>, <span class="dv">14152</span>, <span class="dv">14208</span>, <span class="dv">14230</span>, <span class="dv">14344</span>, <span class="dv">14400</span>, 
+<span class="dv">14455</span>, <span class="dv">14509</span>, <span class="dv">14552</span>, <span class="dv">14652</span>, <span class="dv">15009</span>, <span class="dv">15026</span>, <span class="dv">15242</span>, <span class="dv">15406</span>, <span class="dv">15409</span>, 
+<span class="dv">15528</span>, <span class="dv">15549</span>, <span class="dv">15644</span>, <span class="dv">15758</span>, <span class="dv">15837</span>, <span class="dv">15916</span>, <span class="dv">15926</span>, <span class="dv">15948</span>, <span class="dv">20055</span>, 
+<span class="dv">20416</span>, <span class="dv">20520</span>, <span class="dv">20600</span>, <span class="dv">20732</span>, <span class="dv">20748</span>, <span class="dv">20916</span>, <span class="dv">21149</span>, <span class="dv">21714</span>, <span class="dv">23256</span>)</code></pre></div>
 <p>Los datos están codificados como por seis números en el formato hmmss, donde h corresponde a las horas, mm a los minutos y ss a los segundos necesarios para completar la maratón. Antes de construir los histogramas es necesario convertir los tiempos anteriores almacenados en <code>maraton</code> a horas, para esto se utiliza el siguiente código.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">horas &lt;-<span class="st"> </span>maraton %/%<span class="st"> </span><span class="dv">10000</span>
 min &lt;-<span class="st"> </span>(maraton -<span class="st"> </span>horas *<span class="st"> </span><span class="dv">10000</span>) %/%<span class="st"> </span><span class="dv">100</span>
@@ -396,11 +402,8 @@ FIGURE 3.5: Gráfico cuantil cuantil para una muestra generada de una población
 <p>Los argumentos de la función <code>density</code> son:</p>
 <ul>
 <li><code>x</code>: vector con los datos para los cuales se quiere la densidad.</li>
-<li><code>bw</code>:<br />
-</li>
-<li><code>adjust</code>:<br />
-</li>
-<li><code>kernel</code>: núcleo de suavización a usar, los posibles valores son: <code>gaussian</code>, <code>rectangular</code>, <code>triangular</code>, <code>epanechnikov</code>, <code>biweight</code>, <code>cosine</code> o <code>optcosine</code>, el valor por defecto es <code>gaussian</code>.</li>
+<li><code>bw</code>: ancho de banda.</li>
+<li><code>kernel</code>: núcleo de suavización a usar, los posibles valores son <code>gaussian</code>, <code>rectangular</code>, <code>triangular</code>, <code>epanechnikov</code>, <code>biweight</code>, <code>cosine</code> o <code>optcosine</code>, el valor por defecto es <code>gaussian</code>.</li>
 <li><code>na.rm</code>: valor lógico, si es <code>TRUE</code> se eliminan los valores con <code>NA</code> para construir la densidad, el valor por defecto es <code>FALSE</code>.</li>
 </ul>
 <div id="ejemplo-5" class="section level3 unnumbered">
@@ -413,6 +416,11 @@ res &lt;-<span class="st"> </span><span class="kw">density</span>(y)
 <pre><code>## [1] &quot;x&quot;         &quot;y&quot;         &quot;bw&quot;        &quot;n&quot;         &quot;call&quot;      &quot;data.name&quot;
 ## [7] &quot;has.na&quot;</code></pre>
 <p>De la salida anterior se observa que la lista <code>res</code> tiene 7 elementos, los dos primeros son los vectores con las coordenadas para dibujar la densidad, los restantes elementos con información adicional.</p>
+</div>
+<div id="ejemplo-6" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Con los datos generados en el ejemplo anterior construir la densidad para varios núcleo y para varios valores de ancho de banda.</p>
+<p>En el siguiente código se construyen 4 densidades para diferentes núcleos.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
 <span class="kw">plot</span>(<span class="kw">density</span>(y, <span class="dt">kernel=</span><span class="st">&#39;gaussian&#39;</span>))
 <span class="kw">plot</span>(<span class="kw">density</span>(y, <span class="dt">kernel=</span><span class="st">&#39;triangular&#39;</span>))
@@ -425,6 +433,7 @@ FIGURE 3.6: Densidad para una muestra aleatoria de una N(0, 1) cambiando el núc
 </p>
 </div>
 <p>En la Figura <a href="graficos-para-una-variable.html#fig:density1">3.6</a> se muestran las densidades para 4 elecciones del núcleo. En la práctica se usa el núcleo que está por defecto (<code>gaussian</code>) ya que el objetivo de una densidad es ver la zonas donde es más probable encontrar observaciones de la variable.</p>
+<p>En el siguiente código se construyen 4 densidades para diferentes anchos de banda.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
 <span class="kw">plot</span>(<span class="kw">density</span>(y, <span class="dt">bw=</span><span class="fl">0.1</span>))
 <span class="kw">plot</span>(<span class="kw">density</span>(y, <span class="dt">bw=</span><span class="fl">0.2241</span>))  <span class="co"># bw obtenido antes</span>
@@ -438,28 +447,32 @@ FIGURE 3.7: Densidad para una muestra aleatoria de una N(0, 1) cambiando el anch
 </div>
 <p>En la Figura <a href="graficos-para-una-variable.html#fig:density2">3.7</a> se muestran las densidades para 4 elecciones del parámetro ancho de banda <code>bw</code>, el valor de 0.2241 fue el valor calculado automáticamente por  y fue obtenido de la Figura <a href="graficos-para-una-variable.html#fig:density1">3.6</a>, los otros valores fueron elegidos arbitrariamente para ver los cambios en la densidad. El usar un ancho de banda pequeño la densidad queda muy rugosa y usar un valor muy grande la suaviza, se recomienda usar el valor automático.</p>
 </div>
-<div id="ejemplo-6" class="section level3 unnumbered">
+<div id="ejemplo-7" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
+<p>Construir un gráfico de densidad para la variable peso corporal de la base de datos <code>medidas_cuerpo</code>, luego construir la densidad para la misma variable pero diferenciando por sexo.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">url &lt;-<span class="st"> &#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span>
 datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)
 
 <span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
 <span class="kw">plot</span>(<span class="kw">density</span>(datos$peso), <span class="dt">main=</span><span class="st">&#39;Densidad para el peso corporal&#39;</span>,
-     <span class="dt">xlab=</span><span class="st">&#39;Peso corporal (kg)&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Densidad&#39;</span>, <span class="dt">lwd=</span><span class="dv">3</span>)
+     <span class="dt">xlab=</span><span class="st">&#39;Peso corporal (kg)&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Densidad&#39;</span>, <span class="dt">lwd=</span><span class="dv">4</span>)
 
 den.hom &lt;-<span class="st"> </span><span class="kw">with</span>(datos, <span class="kw">density</span>(peso[sexo ==<span class="st"> &#39;Hombre&#39;</span>]))
 den.muj &lt;-<span class="st"> </span><span class="kw">with</span>(datos, <span class="kw">density</span>(peso[sexo ==<span class="st"> &#39;Mujer&#39;</span>]))
 
 <span class="kw">plot</span>(den.hom, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">120</span>), 
      <span class="dt">main=</span><span class="st">&#39;Densidad para el peso corporal&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Densidad&#39;</span>,
-     <span class="dt">xlab=</span><span class="st">&#39;Peso corporal (kg)&#39;</span>, <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)
-<span class="kw">lines</span>(den.muj, <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">col=</span><span class="st">&#39;red&#39;</span>)</code></pre></div>
-<div class="figure"><span id="fig:bla"></span>
-<img src="Graficos_con_R_files/figure-html/bla-1.png" alt="Densidad para la variable peso en la izquierda, densidad para el peso diferenciando por sexo a la derecha.." width="1152" />
+     <span class="dt">xlab=</span><span class="st">&#39;Peso corporal (kg)&#39;</span>, <span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)
+<span class="kw">lines</span>(den.muj, <span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">col=</span><span class="st">&#39;red&#39;</span>)
+<span class="kw">legend</span>(<span class="st">&#39;topright&#39;</span>, <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&#39;Hombres&#39;</span>, <span class="st">&#39;Mujeres&#39;</span>), <span class="dt">bty=</span><span class="st">&#39;n&#39;</span>,
+       <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;blue&#39;</span>, <span class="st">&#39;red&#39;</span>))</code></pre></div>
+<div class="figure"><span id="fig:density3"></span>
+<img src="Graficos_con_R_files/figure-html/density3-1.png" alt="Densidad para la variable peso en la izquierda, densidad para el peso diferenciando por sexo a la derecha." width="1152" />
 <p class="caption">
-FIGURE 3.8: Densidad para la variable peso en la izquierda, densidad para el peso diferenciando por sexo a la derecha..
+FIGURE 3.8: Densidad para la variable peso en la izquierda, densidad para el peso diferenciando por sexo a la derecha.
 </p>
 </div>
+<p>En el panel izquierdo de la Figura <a href="graficos-para-una-variable.html#fig:density3">3.8</a> se muestra la densidad para la variable peso, de esta figura se observa que tiene dos sectores de mayor densidad, alrededor de 50 kg y alrededor de 80 kg. En el panel izquierdo están la densidades del peso corporal para hombres y mujeres, aquí se observa claramente la diferencia entre los pesos de hombres y mujeres.</p>
 
 </div>
 </div>

@@ -110,25 +110,30 @@ La estructura de la función `hist` con los argumentos más comunes de uso se mu
 - `...`: parámetros gráficos adicionales a `title` y `axis`.
 
 ### Ejemplo {-}
-Vamos a construir varios histogramas para los tiempos de 180 corredores de la media maratón de CONAVI. A continuación se muestra la forma de ingresar los 180 datos.
+Vamos a construir varios histogramas para los tiempos de 180 corredores de la media maratón de CONAVI realizada hace algunos años. A continuación se muestra la forma de ingresar los 180 datos.
 
 ```{r}
 maraton <- c(
-10253, 10302, 10307, 10309, 10349, 10353, 10409, 10442, 10447, 10452, 10504, 10517,
-10530, 10540, 10549, 10549, 10606, 10612, 10646, 10648, 10655, 10707, 10726, 10731,
-10737, 10743, 10808, 10833, 10843, 10920, 10938, 10949, 10954, 10956, 10958, 11004,
-11009, 11024, 11037, 11045, 11046, 11049, 11104, 11127, 11205, 11207, 11215, 11226,
-11233, 11239, 11307, 11330, 11342, 11351, 11405, 11413, 11438, 11453, 11500, 11501,
-11502, 11503, 11527, 11544, 11549, 11559, 11612, 11617, 11635, 11655, 11731, 11735,
-11746, 11800, 11814, 11828, 11832, 11841, 11909, 11926, 11937, 11940, 11947, 11952,
-12005, 12044, 12113, 12209, 12230, 12258, 12309, 12327, 12341, 12413, 12433, 12440,
-12447, 12530, 12600, 12617, 12640, 12700, 12706, 12727, 12840, 12851, 12851, 12937,
-13019, 13040, 13110, 13114, 13122, 13155, 13205, 13210, 13220, 13228, 13307, 13316,
-13335, 13420, 13425, 13435, 13435, 13448, 13456, 13536, 13608, 13612, 13620, 13646,
-13705, 13730, 13730, 13730, 13747, 13810, 13850, 13854, 13901, 13905, 13907, 13912,
-13920, 14000, 14010, 14025, 14152, 14208, 14230, 14344, 14400, 14455, 14509, 14552,
-14652, 15009, 15026, 15242, 15406, 15409, 15528, 15549, 15644, 15758, 15837, 15916,
-15926, 15948, 20055, 20416, 20520, 20600, 20732, 20748, 20916, 21149, 21714, 23256)
+10253, 10302, 10307, 10309, 10349, 10353, 10409, 10442, 10447, 
+10452, 10504, 10517, 10530, 10540, 10549, 10549, 10606, 10612, 
+10646, 10648, 10655, 10707, 10726, 10731, 10737, 10743, 10808, 
+10833, 10843, 10920, 10938, 10949, 10954, 10956, 10958, 11004, 
+11009, 11024, 11037, 11045, 11046, 11049, 11104, 11127, 11205, 
+11207, 11215, 11226, 11233, 11239, 11307, 11330, 11342, 11351, 
+11405, 11413, 11438, 11453, 11500, 11501, 11502, 11503, 11527, 
+11544, 11549, 11559, 11612, 11617, 11635, 11655, 11731, 11735,
+11746, 11800, 11814, 11828, 11832, 11841, 11909, 11926, 11937, 
+11940, 11947, 11952, 12005, 12044, 12113, 12209, 12230, 12258, 
+12309, 12327, 12341, 12413, 12433, 12440, 12447, 12530, 12600, 
+12617, 12640, 12700, 12706, 12727, 12840, 12851, 12851, 12937,
+13019, 13040, 13110, 13114, 13122, 13155, 13205, 13210, 13220, 
+13228, 13307, 13316, 13335, 13420, 13425, 13435, 13435, 13448, 
+13456, 13536, 13608, 13612, 13620, 13646, 13705, 13730, 13730, 
+13730, 13747, 13810, 13850, 13854, 13901, 13905, 13907, 13912,
+13920, 14000, 14010, 14025, 14152, 14208, 14230, 14344, 14400, 
+14455, 14509, 14552, 14652, 15009, 15026, 15242, 15406, 15409, 
+15528, 15549, 15644, 15758, 15837, 15916, 15926, 15948, 20055, 
+20416, 20520, 20600, 20732, 20748, 20916, 21149, 21714, 23256)
 ```
 
 Los datos están codificados como por seis números en el formato hmmss, donde h corresponde a las horas, mm a los minutos y ss a los segundos necesarios para completar la maratón. Antes de construir los histogramas es necesario convertir los tiempos anteriores almacenados en `maraton` a horas, para esto se utiliza el siguiente código.
@@ -145,13 +150,20 @@ A continuación se muestra el código para construir cuatro histogramas con 2, 4
 ```{r hist1, fig.cap='Histogramas para el tiempo en la media maratón de CONAVI. A: histograma con dos intervalos, B: histograma con cuatro intervalos, C: histograma con seis intervalos, C: histograma con 18 intervalos.', fig.asp=0.7, fig.width =7}
 par(mfrow=c(2,2))
 
-hist(x=Tiempos, breaks=2, main="", xlab="Tiempo (horas)", ylab="Frecuencias", las=1)
+hist(x=Tiempos, breaks=2, main="", xlab="Tiempo (horas)",
+     ylab="Frecuencias", las=1)
 mtext("(A)", side=1, line=4, font=1)
-hist(x=Tiempos, breaks=4, main="", xlab="Tiempo (horas)", ylab="Frecuencias", las=1)
+
+hist(x=Tiempos, breaks=4, main="", xlab="Tiempo (horas)",
+     ylab="Frecuencias", las=1)
 mtext("(B)", side=1, line=4, font=1)
-hist(x=Tiempos, breaks=8, main="", xlab="Tiempo (horas)", ylab="Frecuencias")
+
+hist(x=Tiempos, breaks=8, main="", xlab="Tiempo (horas)",
+     ylab="Frecuencias")
 mtext("(C)", side=1, line=4, font=1)
-hist(x=Tiempos, breaks=16, main="", xlab="Tiempo (horas)", ylab="Frecuencias")
+
+hist(x=Tiempos, breaks=16, main="", xlab="Tiempo (horas)",
+     ylab="Frecuencias")
 mtext("(D)", side=1, line=4, font=1)
 ```
 
@@ -212,6 +224,7 @@ El código para simular la muestra y crear el gráfico cuantil cuantil se muestr
 muestra <- rnorm(n=30, mean=10, sd=4)
 
 par(mfrow=c(1, 2))
+
 qqnorm(y=muestra)
 qqline(y=muestra)
 

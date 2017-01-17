@@ -113,11 +113,6 @@
 \let\code=\texttt
 
 
-
-
-
-
-
 \usepackage{booktabs}
 \usepackage{longtable}
 \usepackage[bf,singlelinecheck=off]{caption}
@@ -188,7 +183,7 @@
 \title{Gráficos con R}
 \author{Juan Carlos Correa Morales\\
 Freddy Hernández Barajas}
-\date{2016-12-16}
+\date{2017-01-17}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -248,16 +243,16 @@ La información de la sesión de \proglang{R} usada se muestra abajo:
 \end{Shaded}
 
 \begin{verbatim}
-## R version 3.3.1 (2016-06-21)
+## R version 3.3.2 (2016-10-31)
 ## Platform: x86_64-w64-mingw32/x64 (64-bit)
 ## Running under: Windows 7 x64 (build 7601) Service Pack 1
 ## 
 ## locale:
-## [1] LC_COLLATE=Spanish_Colombia.1252 
-## [2] LC_CTYPE=Spanish_Colombia.1252   
-## [3] LC_MONETARY=Spanish_Colombia.1252
-## [4] LC_NUMERIC=C                     
-## [5] LC_TIME=Spanish_Colombia.1252    
+## [1] LC_COLLATE=English_Australia.1252 
+## [2] LC_CTYPE=English_Australia.1252   
+## [3] LC_MONETARY=English_Australia.1252
+## [4] LC_NUMERIC=C                      
+## [5] LC_TIME=English_Australia.1252    
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets 
@@ -265,10 +260,10 @@ La información de la sesión de \proglang{R} usada se muestra abajo:
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] backports_1.0.4 bookdown_0.3    magrittr_1.5   
-##  [4] rprojroot_1.1   tools_3.3.1     htmltools_0.3.5
-##  [7] rstudioapi_0.6  yaml_2.1.14     Rcpp_0.12.6    
-## [10] stringi_1.1.1   rmarkdown_1.2   knitr_1.15.1   
-## [13] stringr_1.0.0   digest_0.6.10   evaluate_0.10
+##  [4] rprojroot_1.1   tools_3.3.2     htmltools_0.3.5
+##  [7] rstudioapi_0.6  yaml_2.1.14     Rcpp_0.12.8    
+## [10] stringi_1.1.2   rmarkdown_1.3   knitr_1.15.1   
+## [13] stringr_1.1.0   digest_0.6.11   evaluate_0.10
 \end{verbatim}
 
 Package names are in bold text (e.g., \textbf{rmarkdown}), and inline
@@ -1203,27 +1198,32 @@ de uso se muestran a continuación.
 
 
 Vamos a construir varios histogramas para los tiempos de 180 corredores
-de la media maratón de CONAVI. A continuación se muestra la forma de
-ingresar los 180 datos.
+de la media maratón de CONAVI realizada hace algunos años. A
+continuación se muestra la forma de ingresar los 180 datos.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{maraton <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}
-\DecValTok{10253}\NormalTok{, }\DecValTok{10302}\NormalTok{, }\DecValTok{10307}\NormalTok{, }\DecValTok{10309}\NormalTok{, }\DecValTok{10349}\NormalTok{, }\DecValTok{10353}\NormalTok{, }\DecValTok{10409}\NormalTok{, }\DecValTok{10442}\NormalTok{, }\DecValTok{10447}\NormalTok{, }\DecValTok{10452}\NormalTok{, }\DecValTok{10504}\NormalTok{, }\DecValTok{10517}\NormalTok{,}
-\DecValTok{10530}\NormalTok{, }\DecValTok{10540}\NormalTok{, }\DecValTok{10549}\NormalTok{, }\DecValTok{10549}\NormalTok{, }\DecValTok{10606}\NormalTok{, }\DecValTok{10612}\NormalTok{, }\DecValTok{10646}\NormalTok{, }\DecValTok{10648}\NormalTok{, }\DecValTok{10655}\NormalTok{, }\DecValTok{10707}\NormalTok{, }\DecValTok{10726}\NormalTok{, }\DecValTok{10731}\NormalTok{,}
-\DecValTok{10737}\NormalTok{, }\DecValTok{10743}\NormalTok{, }\DecValTok{10808}\NormalTok{, }\DecValTok{10833}\NormalTok{, }\DecValTok{10843}\NormalTok{, }\DecValTok{10920}\NormalTok{, }\DecValTok{10938}\NormalTok{, }\DecValTok{10949}\NormalTok{, }\DecValTok{10954}\NormalTok{, }\DecValTok{10956}\NormalTok{, }\DecValTok{10958}\NormalTok{, }\DecValTok{11004}\NormalTok{,}
-\DecValTok{11009}\NormalTok{, }\DecValTok{11024}\NormalTok{, }\DecValTok{11037}\NormalTok{, }\DecValTok{11045}\NormalTok{, }\DecValTok{11046}\NormalTok{, }\DecValTok{11049}\NormalTok{, }\DecValTok{11104}\NormalTok{, }\DecValTok{11127}\NormalTok{, }\DecValTok{11205}\NormalTok{, }\DecValTok{11207}\NormalTok{, }\DecValTok{11215}\NormalTok{, }\DecValTok{11226}\NormalTok{,}
-\DecValTok{11233}\NormalTok{, }\DecValTok{11239}\NormalTok{, }\DecValTok{11307}\NormalTok{, }\DecValTok{11330}\NormalTok{, }\DecValTok{11342}\NormalTok{, }\DecValTok{11351}\NormalTok{, }\DecValTok{11405}\NormalTok{, }\DecValTok{11413}\NormalTok{, }\DecValTok{11438}\NormalTok{, }\DecValTok{11453}\NormalTok{, }\DecValTok{11500}\NormalTok{, }\DecValTok{11501}\NormalTok{,}
-\DecValTok{11502}\NormalTok{, }\DecValTok{11503}\NormalTok{, }\DecValTok{11527}\NormalTok{, }\DecValTok{11544}\NormalTok{, }\DecValTok{11549}\NormalTok{, }\DecValTok{11559}\NormalTok{, }\DecValTok{11612}\NormalTok{, }\DecValTok{11617}\NormalTok{, }\DecValTok{11635}\NormalTok{, }\DecValTok{11655}\NormalTok{, }\DecValTok{11731}\NormalTok{, }\DecValTok{11735}\NormalTok{,}
-\DecValTok{11746}\NormalTok{, }\DecValTok{11800}\NormalTok{, }\DecValTok{11814}\NormalTok{, }\DecValTok{11828}\NormalTok{, }\DecValTok{11832}\NormalTok{, }\DecValTok{11841}\NormalTok{, }\DecValTok{11909}\NormalTok{, }\DecValTok{11926}\NormalTok{, }\DecValTok{11937}\NormalTok{, }\DecValTok{11940}\NormalTok{, }\DecValTok{11947}\NormalTok{, }\DecValTok{11952}\NormalTok{,}
-\DecValTok{12005}\NormalTok{, }\DecValTok{12044}\NormalTok{, }\DecValTok{12113}\NormalTok{, }\DecValTok{12209}\NormalTok{, }\DecValTok{12230}\NormalTok{, }\DecValTok{12258}\NormalTok{, }\DecValTok{12309}\NormalTok{, }\DecValTok{12327}\NormalTok{, }\DecValTok{12341}\NormalTok{, }\DecValTok{12413}\NormalTok{, }\DecValTok{12433}\NormalTok{, }\DecValTok{12440}\NormalTok{,}
-\DecValTok{12447}\NormalTok{, }\DecValTok{12530}\NormalTok{, }\DecValTok{12600}\NormalTok{, }\DecValTok{12617}\NormalTok{, }\DecValTok{12640}\NormalTok{, }\DecValTok{12700}\NormalTok{, }\DecValTok{12706}\NormalTok{, }\DecValTok{12727}\NormalTok{, }\DecValTok{12840}\NormalTok{, }\DecValTok{12851}\NormalTok{, }\DecValTok{12851}\NormalTok{, }\DecValTok{12937}\NormalTok{,}
-\DecValTok{13019}\NormalTok{, }\DecValTok{13040}\NormalTok{, }\DecValTok{13110}\NormalTok{, }\DecValTok{13114}\NormalTok{, }\DecValTok{13122}\NormalTok{, }\DecValTok{13155}\NormalTok{, }\DecValTok{13205}\NormalTok{, }\DecValTok{13210}\NormalTok{, }\DecValTok{13220}\NormalTok{, }\DecValTok{13228}\NormalTok{, }\DecValTok{13307}\NormalTok{, }\DecValTok{13316}\NormalTok{,}
-\DecValTok{13335}\NormalTok{, }\DecValTok{13420}\NormalTok{, }\DecValTok{13425}\NormalTok{, }\DecValTok{13435}\NormalTok{, }\DecValTok{13435}\NormalTok{, }\DecValTok{13448}\NormalTok{, }\DecValTok{13456}\NormalTok{, }\DecValTok{13536}\NormalTok{, }\DecValTok{13608}\NormalTok{, }\DecValTok{13612}\NormalTok{, }\DecValTok{13620}\NormalTok{, }\DecValTok{13646}\NormalTok{,}
-\DecValTok{13705}\NormalTok{, }\DecValTok{13730}\NormalTok{, }\DecValTok{13730}\NormalTok{, }\DecValTok{13730}\NormalTok{, }\DecValTok{13747}\NormalTok{, }\DecValTok{13810}\NormalTok{, }\DecValTok{13850}\NormalTok{, }\DecValTok{13854}\NormalTok{, }\DecValTok{13901}\NormalTok{, }\DecValTok{13905}\NormalTok{, }\DecValTok{13907}\NormalTok{, }\DecValTok{13912}\NormalTok{,}
-\DecValTok{13920}\NormalTok{, }\DecValTok{14000}\NormalTok{, }\DecValTok{14010}\NormalTok{, }\DecValTok{14025}\NormalTok{, }\DecValTok{14152}\NormalTok{, }\DecValTok{14208}\NormalTok{, }\DecValTok{14230}\NormalTok{, }\DecValTok{14344}\NormalTok{, }\DecValTok{14400}\NormalTok{, }\DecValTok{14455}\NormalTok{, }\DecValTok{14509}\NormalTok{, }\DecValTok{14552}\NormalTok{,}
-\DecValTok{14652}\NormalTok{, }\DecValTok{15009}\NormalTok{, }\DecValTok{15026}\NormalTok{, }\DecValTok{15242}\NormalTok{, }\DecValTok{15406}\NormalTok{, }\DecValTok{15409}\NormalTok{, }\DecValTok{15528}\NormalTok{, }\DecValTok{15549}\NormalTok{, }\DecValTok{15644}\NormalTok{, }\DecValTok{15758}\NormalTok{, }\DecValTok{15837}\NormalTok{, }\DecValTok{15916}\NormalTok{,}
-\DecValTok{15926}\NormalTok{, }\DecValTok{15948}\NormalTok{, }\DecValTok{20055}\NormalTok{, }\DecValTok{20416}\NormalTok{, }\DecValTok{20520}\NormalTok{, }\DecValTok{20600}\NormalTok{, }\DecValTok{20732}\NormalTok{, }\DecValTok{20748}\NormalTok{, }\DecValTok{20916}\NormalTok{, }\DecValTok{21149}\NormalTok{, }\DecValTok{21714}\NormalTok{, }\DecValTok{23256}\NormalTok{)}
+\DecValTok{10253}\NormalTok{, }\DecValTok{10302}\NormalTok{, }\DecValTok{10307}\NormalTok{, }\DecValTok{10309}\NormalTok{, }\DecValTok{10349}\NormalTok{, }\DecValTok{10353}\NormalTok{, }\DecValTok{10409}\NormalTok{, }\DecValTok{10442}\NormalTok{, }\DecValTok{10447}\NormalTok{, }
+\DecValTok{10452}\NormalTok{, }\DecValTok{10504}\NormalTok{, }\DecValTok{10517}\NormalTok{, }\DecValTok{10530}\NormalTok{, }\DecValTok{10540}\NormalTok{, }\DecValTok{10549}\NormalTok{, }\DecValTok{10549}\NormalTok{, }\DecValTok{10606}\NormalTok{, }\DecValTok{10612}\NormalTok{, }
+\DecValTok{10646}\NormalTok{, }\DecValTok{10648}\NormalTok{, }\DecValTok{10655}\NormalTok{, }\DecValTok{10707}\NormalTok{, }\DecValTok{10726}\NormalTok{, }\DecValTok{10731}\NormalTok{, }\DecValTok{10737}\NormalTok{, }\DecValTok{10743}\NormalTok{, }\DecValTok{10808}\NormalTok{, }
+\DecValTok{10833}\NormalTok{, }\DecValTok{10843}\NormalTok{, }\DecValTok{10920}\NormalTok{, }\DecValTok{10938}\NormalTok{, }\DecValTok{10949}\NormalTok{, }\DecValTok{10954}\NormalTok{, }\DecValTok{10956}\NormalTok{, }\DecValTok{10958}\NormalTok{, }\DecValTok{11004}\NormalTok{, }
+\DecValTok{11009}\NormalTok{, }\DecValTok{11024}\NormalTok{, }\DecValTok{11037}\NormalTok{, }\DecValTok{11045}\NormalTok{, }\DecValTok{11046}\NormalTok{, }\DecValTok{11049}\NormalTok{, }\DecValTok{11104}\NormalTok{, }\DecValTok{11127}\NormalTok{, }\DecValTok{11205}\NormalTok{, }
+\DecValTok{11207}\NormalTok{, }\DecValTok{11215}\NormalTok{, }\DecValTok{11226}\NormalTok{, }\DecValTok{11233}\NormalTok{, }\DecValTok{11239}\NormalTok{, }\DecValTok{11307}\NormalTok{, }\DecValTok{11330}\NormalTok{, }\DecValTok{11342}\NormalTok{, }\DecValTok{11351}\NormalTok{, }
+\DecValTok{11405}\NormalTok{, }\DecValTok{11413}\NormalTok{, }\DecValTok{11438}\NormalTok{, }\DecValTok{11453}\NormalTok{, }\DecValTok{11500}\NormalTok{, }\DecValTok{11501}\NormalTok{, }\DecValTok{11502}\NormalTok{, }\DecValTok{11503}\NormalTok{, }\DecValTok{11527}\NormalTok{, }
+\DecValTok{11544}\NormalTok{, }\DecValTok{11549}\NormalTok{, }\DecValTok{11559}\NormalTok{, }\DecValTok{11612}\NormalTok{, }\DecValTok{11617}\NormalTok{, }\DecValTok{11635}\NormalTok{, }\DecValTok{11655}\NormalTok{, }\DecValTok{11731}\NormalTok{, }\DecValTok{11735}\NormalTok{,}
+\DecValTok{11746}\NormalTok{, }\DecValTok{11800}\NormalTok{, }\DecValTok{11814}\NormalTok{, }\DecValTok{11828}\NormalTok{, }\DecValTok{11832}\NormalTok{, }\DecValTok{11841}\NormalTok{, }\DecValTok{11909}\NormalTok{, }\DecValTok{11926}\NormalTok{, }\DecValTok{11937}\NormalTok{, }
+\DecValTok{11940}\NormalTok{, }\DecValTok{11947}\NormalTok{, }\DecValTok{11952}\NormalTok{, }\DecValTok{12005}\NormalTok{, }\DecValTok{12044}\NormalTok{, }\DecValTok{12113}\NormalTok{, }\DecValTok{12209}\NormalTok{, }\DecValTok{12230}\NormalTok{, }\DecValTok{12258}\NormalTok{, }
+\DecValTok{12309}\NormalTok{, }\DecValTok{12327}\NormalTok{, }\DecValTok{12341}\NormalTok{, }\DecValTok{12413}\NormalTok{, }\DecValTok{12433}\NormalTok{, }\DecValTok{12440}\NormalTok{, }\DecValTok{12447}\NormalTok{, }\DecValTok{12530}\NormalTok{, }\DecValTok{12600}\NormalTok{, }
+\DecValTok{12617}\NormalTok{, }\DecValTok{12640}\NormalTok{, }\DecValTok{12700}\NormalTok{, }\DecValTok{12706}\NormalTok{, }\DecValTok{12727}\NormalTok{, }\DecValTok{12840}\NormalTok{, }\DecValTok{12851}\NormalTok{, }\DecValTok{12851}\NormalTok{, }\DecValTok{12937}\NormalTok{,}
+\DecValTok{13019}\NormalTok{, }\DecValTok{13040}\NormalTok{, }\DecValTok{13110}\NormalTok{, }\DecValTok{13114}\NormalTok{, }\DecValTok{13122}\NormalTok{, }\DecValTok{13155}\NormalTok{, }\DecValTok{13205}\NormalTok{, }\DecValTok{13210}\NormalTok{, }\DecValTok{13220}\NormalTok{, }
+\DecValTok{13228}\NormalTok{, }\DecValTok{13307}\NormalTok{, }\DecValTok{13316}\NormalTok{, }\DecValTok{13335}\NormalTok{, }\DecValTok{13420}\NormalTok{, }\DecValTok{13425}\NormalTok{, }\DecValTok{13435}\NormalTok{, }\DecValTok{13435}\NormalTok{, }\DecValTok{13448}\NormalTok{, }
+\DecValTok{13456}\NormalTok{, }\DecValTok{13536}\NormalTok{, }\DecValTok{13608}\NormalTok{, }\DecValTok{13612}\NormalTok{, }\DecValTok{13620}\NormalTok{, }\DecValTok{13646}\NormalTok{, }\DecValTok{13705}\NormalTok{, }\DecValTok{13730}\NormalTok{, }\DecValTok{13730}\NormalTok{, }
+\DecValTok{13730}\NormalTok{, }\DecValTok{13747}\NormalTok{, }\DecValTok{13810}\NormalTok{, }\DecValTok{13850}\NormalTok{, }\DecValTok{13854}\NormalTok{, }\DecValTok{13901}\NormalTok{, }\DecValTok{13905}\NormalTok{, }\DecValTok{13907}\NormalTok{, }\DecValTok{13912}\NormalTok{,}
+\DecValTok{13920}\NormalTok{, }\DecValTok{14000}\NormalTok{, }\DecValTok{14010}\NormalTok{, }\DecValTok{14025}\NormalTok{, }\DecValTok{14152}\NormalTok{, }\DecValTok{14208}\NormalTok{, }\DecValTok{14230}\NormalTok{, }\DecValTok{14344}\NormalTok{, }\DecValTok{14400}\NormalTok{, }
+\DecValTok{14455}\NormalTok{, }\DecValTok{14509}\NormalTok{, }\DecValTok{14552}\NormalTok{, }\DecValTok{14652}\NormalTok{, }\DecValTok{15009}\NormalTok{, }\DecValTok{15026}\NormalTok{, }\DecValTok{15242}\NormalTok{, }\DecValTok{15406}\NormalTok{, }\DecValTok{15409}\NormalTok{, }
+\DecValTok{15528}\NormalTok{, }\DecValTok{15549}\NormalTok{, }\DecValTok{15644}\NormalTok{, }\DecValTok{15758}\NormalTok{, }\DecValTok{15837}\NormalTok{, }\DecValTok{15916}\NormalTok{, }\DecValTok{15926}\NormalTok{, }\DecValTok{15948}\NormalTok{, }\DecValTok{20055}\NormalTok{, }
+\DecValTok{20416}\NormalTok{, }\DecValTok{20520}\NormalTok{, }\DecValTok{20600}\NormalTok{, }\DecValTok{20732}\NormalTok{, }\DecValTok{20748}\NormalTok{, }\DecValTok{20916}\NormalTok{, }\DecValTok{21149}\NormalTok{, }\DecValTok{21714}\NormalTok{, }\DecValTok{23256}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1250,13 +1250,20 @@ con 2, 4, 8 y 16 intervalos para los tiempos a partir de la variable
 \begin{Highlighting}[]
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{))}
 
-\KeywordTok{hist}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Tiempos, }\DataTypeTok{breaks=}\DecValTok{2}\NormalTok{, }\DataTypeTok{main=}\StringTok{""}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"Tiempo (horas)"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Frecuencias"}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{)}
+\KeywordTok{hist}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Tiempos, }\DataTypeTok{breaks=}\DecValTok{2}\NormalTok{, }\DataTypeTok{main=}\StringTok{""}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"Tiempo (horas)"}\NormalTok{,}
+     \DataTypeTok{ylab=}\StringTok{"Frecuencias"}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{)}
 \KeywordTok{mtext}\NormalTok{(}\StringTok{"(A)"}\NormalTok{, }\DataTypeTok{side=}\DecValTok{1}\NormalTok{, }\DataTypeTok{line=}\DecValTok{4}\NormalTok{, }\DataTypeTok{font=}\DecValTok{1}\NormalTok{)}
-\KeywordTok{hist}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Tiempos, }\DataTypeTok{breaks=}\DecValTok{4}\NormalTok{, }\DataTypeTok{main=}\StringTok{""}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"Tiempo (horas)"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Frecuencias"}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{)}
+
+\KeywordTok{hist}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Tiempos, }\DataTypeTok{breaks=}\DecValTok{4}\NormalTok{, }\DataTypeTok{main=}\StringTok{""}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"Tiempo (horas)"}\NormalTok{,}
+     \DataTypeTok{ylab=}\StringTok{"Frecuencias"}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{)}
 \KeywordTok{mtext}\NormalTok{(}\StringTok{"(B)"}\NormalTok{, }\DataTypeTok{side=}\DecValTok{1}\NormalTok{, }\DataTypeTok{line=}\DecValTok{4}\NormalTok{, }\DataTypeTok{font=}\DecValTok{1}\NormalTok{)}
-\KeywordTok{hist}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Tiempos, }\DataTypeTok{breaks=}\DecValTok{8}\NormalTok{, }\DataTypeTok{main=}\StringTok{""}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"Tiempo (horas)"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Frecuencias"}\NormalTok{)}
+
+\KeywordTok{hist}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Tiempos, }\DataTypeTok{breaks=}\DecValTok{8}\NormalTok{, }\DataTypeTok{main=}\StringTok{""}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"Tiempo (horas)"}\NormalTok{,}
+     \DataTypeTok{ylab=}\StringTok{"Frecuencias"}\NormalTok{)}
 \KeywordTok{mtext}\NormalTok{(}\StringTok{"(C)"}\NormalTok{, }\DataTypeTok{side=}\DecValTok{1}\NormalTok{, }\DataTypeTok{line=}\DecValTok{4}\NormalTok{, }\DataTypeTok{font=}\DecValTok{1}\NormalTok{)}
-\KeywordTok{hist}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Tiempos, }\DataTypeTok{breaks=}\DecValTok{16}\NormalTok{, }\DataTypeTok{main=}\StringTok{""}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"Tiempo (horas)"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Frecuencias"}\NormalTok{)}
+
+\KeywordTok{hist}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Tiempos, }\DataTypeTok{breaks=}\DecValTok{16}\NormalTok{, }\DataTypeTok{main=}\StringTok{""}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"Tiempo (horas)"}\NormalTok{,}
+     \DataTypeTok{ylab=}\StringTok{"Frecuencias"}\NormalTok{)}
 \KeywordTok{mtext}\NormalTok{(}\StringTok{"(D)"}\NormalTok{, }\DataTypeTok{side=}\DecValTok{1}\NormalTok{, }\DataTypeTok{line=}\DecValTok{4}\NormalTok{, }\DataTypeTok{font=}\DecValTok{1}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -1379,6 +1386,7 @@ muestra a continuación.
 \NormalTok{muestra <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n=}\DecValTok{30}\NormalTok{, }\DataTypeTok{mean=}\DecValTok{10}\NormalTok{, }\DataTypeTok{sd=}\DecValTok{4}\NormalTok{)}
 
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+
 \KeywordTok{qqnorm}\NormalTok{(}\DataTypeTok{y=}\NormalTok{muestra)}
 \KeywordTok{qqline}\NormalTok{(}\DataTypeTok{y=}\NormalTok{muestra)}
 
@@ -1924,6 +1932,124 @@ de las perspectivas.
 
 \section{\texorpdfstring{Función \texttt{pairs}
 \index{pairs}}{Función pairs }}\label{funcion-pairs}
+
+Las matrices de dispersión obtenidas con la función \texttt{pairs}
+proporcionan un método simple de presentar las relaciones entre pares de
+variables cuantitativas y son la versión múltiple de la función
+\texttt{plot}. Este gráfico consiste en una matriz donde cada entrada
+presenta un gráfico de dispersión sencillo. Un inconveniente es que si
+tenemos muchas variables el tamaño de cada entrada se reduce demasiado
+impidiendo ver con claridad las relaciones entre los pares de variables.
+La celda \((i,j)\) de una matriz de dispersión contiene el gráfico de
+dispersión de la columna \(i\) versus la columna \(j\) de la matriz de
+datos.
+
+La estructura de la función \texttt{pairs} con los argumentos más
+usuales se muestran a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pairs}\NormalTok{(x, labels, }\DataTypeTok{panel =} \NormalTok{points, ...,}
+      \DataTypeTok{horInd =} \DecValTok{1}\NormalTok{:nc, }\DataTypeTok{verInd =} \DecValTok{1}\NormalTok{:nc,}
+      \DataTypeTok{lower.panel =} \NormalTok{panel, }\DataTypeTok{upper.panel =} \NormalTok{panel,}
+      \DataTypeTok{diag.panel =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{text.panel =} \NormalTok{textPanel,}
+      \DataTypeTok{label.pos =} \FloatTok{0.5} \NormalTok{+}\StringTok{ }\NormalTok{has.diag/}\DecValTok{3}\NormalTok{, }\DataTypeTok{line.main =} \DecValTok{3}\NormalTok{,}
+      \DataTypeTok{cex.labels =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{font.labels =} \DecValTok{1}\NormalTok{,}
+      \DataTypeTok{row1attop =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{gap =} \DecValTok{1}\NormalTok{, }\DataTypeTok{log =} \StringTok{""}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función \texttt{pairs} son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: matriz o marco de datos con la información de las
+  variables cuantitativas.
+\item
+  \texttt{labels}: Un vector para identificar los nombres de las
+  columnas, por defecto se usan los nombres de columnas del objeto
+  \texttt{x}.
+\item
+  \texttt{panel}: Para especificar la función \texttt{function(x,y,...)}
+  a ser usada para determinar el contenido de los páneles. Por defecto
+  es \texttt{points}, indicando que se graficarán los puntos de los
+  pares de datos. También es posible utilizar aquí otras funciones
+  prediseñadas.
+\item
+  \texttt{...}: Indica que es posible agregar otros parámetros gráficos,
+  tales como pch y col, con los cuales puede especificarse un vector de
+  símbolos y colores a ser usados en los scatterplots.
+\item
+  \texttt{lower.panel,\ upper.panel}: Para especificar funciones por
+  separado a ser empleadas en los paneles abajo y arriba de la diagonal.
+\item
+  \texttt{diag.panel}: Es opcional. Permite que una función: function(x,
+  \ldots{}) sea empleada para los paneles de la diagonal.
+\item
+  \texttt{text.panel}: Es opcional. Permite que una función: function(x,
+  y, labels, cex, font, \ldots{}) sea aplicada a los paneles de la
+  diagonal.
+\item
+  \texttt{label.pos}: Para especificar la posición \(y\) de las
+  etiquetas en el text panel.
+\item
+  \texttt{cex.labels,\ font.labels}: Parámetros para la expansión de
+  caracteres y fuentes a usar en las etiquetas de las variables.
+\item
+  \texttt{row1attop}: Parámetro lógico con el cual se especifica si el
+  gráfico para especificar si el diseño lucirá como una matriz con su
+  primera fila en la parte superior o como un gráfico con fila uno en la
+  base. Por defecto es lo primero.
+\end{itemize}
+
+\subsection*{Ejemplo}\label{ejemplo-12}
+
+
+Dibujar una matriz de dispersión para las variables precio, área, número
+de alcobas y número de baños de la base de datos sobre apartamentos en
+Medellín.
+
+A continuación se muestra el código usado para crear el gráfico
+solicitado. El objeto \texttt{datos} corresponde a la base de datos
+completa mientras que \texttt{datos.num} es el marco de datos sólo con
+las variables de interés precio, área, número de alcobas y número de
+baños.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015'}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
+\NormalTok{datos.num <-}\StringTok{ }\NormalTok{datos[, }\KeywordTok{c}\NormalTok{(}\StringTok{'precio'}\NormalTok{, }\StringTok{'mt2'}\NormalTok{, }\StringTok{'alcobas'}\NormalTok{, }\StringTok{'banos'}\NormalTok{)]}
+
+\KeywordTok{pairs}\NormalTok{(datos.num, }\DataTypeTok{lower.panel=}\OtherTok{NULL}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/ex1pairs-1.pdf}
+\caption{\label{fig:ex1pairs}Matriz de dispersión para las variables precio,
+área, número de alcobas y número de baños de la base de datos sobre
+apartamentos en Medellín.}
+\end{figure}
+
+En la Figura \ref{fig:ex1pairs} se muestra la matriz de dispersión para
+las variables del marco de datos \texttt{datos.num}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{pairs}\NormalTok{(datos.num, }
+      \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{'Precio'}\NormalTok{, }\StringTok{'Área'}\NormalTok{, }\StringTok{'Num alcobas'}\NormalTok{, }\StringTok{'Num baños'}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/ex2pairs-1.pdf}
+\caption{\label{fig:ex2pairs}Matriz de dispersión modificando los parámetros
+adicionales de la función pairs.}
+\end{figure}
 
 \section{\texorpdfstring{Función \texttt{contour} \index{contour}
 \index{gráfico de contornos}}{Función contour  }}\label{funcion-contour}

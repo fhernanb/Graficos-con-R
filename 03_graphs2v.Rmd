@@ -144,6 +144,58 @@ En la Figura \@ref(fig:ex2persp) se presentan las 3 perspectivas para la densida
 
 
 ## Función `pairs` \index{pairs} 
+Las matrices de dispersión obtenidas con la función `pairs` proporcionan un método simple de presentar las relaciones entre pares de variables cuantitativas y son la versión múltiple de la función `plot`. Este gráfico consiste en una matriz donde cada entrada presenta un gráfico de dispersión sencillo. Un inconveniente es que si tenemos muchas variables el tamaño de cada entrada se reduce demasiado impidiendo ver con claridad las relaciones entre los pares de variables. La celda $(i,j)$ de una matriz de dispersión contiene el gráfico de dispersión de la columna $i$ versus la columna $j$ de la matriz de datos.
+
+
+
+La estructura de la función `pairs` con los argumentos más usuales se muestran a continuación.
+
+```{r, eval=F}
+pairs(x, labels, panel = points, ...,
+      horInd = 1:nc, verInd = 1:nc,
+      lower.panel = panel, upper.panel = panel,
+      diag.panel = NULL, text.panel = textPanel,
+      label.pos = 0.5 + has.diag/3, line.main = 3,
+      cex.labels = NULL, font.labels = 1,
+      row1attop = TRUE, gap = 1, log = "")
+```
+
+Los argumentos de la función `pairs` son:
+
+- `x`: matriz o marco de datos con la información de las variables cuantitativas.
+- `labels`: Un vector para identificar los nombres de las columnas, por defecto se usan los nombres de columnas del objeto `x`.
+- `panel`: Para especificar la función `function(x,y,...)` a ser usada para determinar el contenido de los páneles. Por defecto es `points`, indicando que se graficarán los puntos de los pares de datos. También es posible utilizar aquí otras funciones prediseñadas.
+- `...`: Indica que es posible agregar otros parámetros gráficos, tales como pch y col, con los cuales puede especificarse un vector de símbolos y colores a ser usados en los scatterplots.
+- `lower.panel, upper.panel`: Para especificar funciones por separado a ser empleadas en los paneles abajo y arriba de la diagonal.
+- `diag.panel`: Es opcional. Permite que una función: function(x, ...) sea empleada para los paneles de la diagonal.
+- `text.panel`: Es opcional.  Permite que una función: function(x, y, labels, cex, font, ...) sea aplicada a los paneles de la diagonal.
+- `label.pos`: Para especificar la posición $y$ de las etiquetas en el text panel.
+- `cex.labels, font.labels`: Parámetros para la expansión de caracteres y fuentes a usar en las etiquetas de las variables.
+- `row1attop`: Parámetro lógico con el cual se especifica si el gráfico para especificar si el diseño lucirá como una matriz con su primera fila en la parte superior o como un gráfico con fila uno en la base.  Por defecto es lo primero.
+
+
+### Ejemplo {-}
+Dibujar una matriz de dispersión para las variables precio, área, número de alcobas y número de baños de la base de datos sobre apartamentos en Medellín.
+
+A continuación se muestra el código usado para crear el gráfico solicitado. El objeto `datos` corresponde a la base de datos completa mientras que `datos.num` es el marco de datos sólo con las variables de interés precio, área, número de alcobas y número de baños.
+
+```{r ex1pairs, fig.cap='Matriz de dispersión para las variables precio, área, número de alcobas y número de baños de la base de datos sobre apartamentos en Medellín.', fig.asp=0.8, fig.width=6}
+url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015'
+datos <- read.table(file=url, header=T)
+datos.num <- datos[, c('precio', 'mt2', 'alcobas', 'banos')]
+
+pairs(datos.num, lower.panel=NULL)
+```
+
+En la Figura \@ref(fig:ex1pairs) se muestra la matriz de dispersión para las variables del marco de datos `datos.num`.
+
+
+```{r ex2pairs, fig.cap='Matriz de dispersión modificando los parámetros adicionales de la función pairs.', fig.asp=0.8, fig.width=6}
+pairs(datos.num, 
+      labels=c('Precio', 'Área', 'Num alcobas', 'Num baños'))
+```
+
+
 ## Función `contour` \index{contour} \index{gráfico de contornos}
 
 

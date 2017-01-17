@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Gráficos con R</title>
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+  <meta name="description" content="A book example for a Chapman &amp; Hall book.">
+  <meta name="generator" content="bookdown 0.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Gráficos con R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A book example for a Chapman &amp; Hall book." />
+  <meta name="github-repo" content="yihui/bookdown-crc" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Gráficos con R" />
+  
+  <meta name="twitter:description" content="A book example for a Chapman &amp; Hall book." />
+  
+
+
+
+<meta name="date" content="2017-01-16">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="graficos-para-una-variable.html">
+<link rel="next" href="generate-a-bibtex-database-automatically-for-some-r-packages.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Graficos con R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> install the packages needed by this book; you fill out c(), e.g. c(‘ggplot2’, ‘dplyr’)</a></li>
+<li class="chapter" data-level="" data-path="sobre-los-autores.html"><a href="sobre-los-autores.html"><i class="fa fa-check"></i>Sobre los autores</a></li>
+<li class="chapter" data-level="2" data-path="introduccion.html"><a href="introduccion.html"><i class="fa fa-check"></i><b>2</b> Introducción</a></li>
+<li class="chapter" data-level="3" data-path="graficos-para-una-variable.html"><a href="graficos-para-una-variable.html"><i class="fa fa-check"></i><b>3</b> Gráficos para una variable</a></li>
+<li class="chapter" data-level="4" data-path="graficos-para-varias-variables.html"><a href="graficos-para-varias-variables.html"><i class="fa fa-check"></i><b>4</b> Gráficos para varias variables</a><ul>
+<li class="chapter" data-level="4.1" data-path="graficos-para-varias-variables.html"><a href="graficos-para-varias-variables.html#funcion-plot"><i class="fa fa-check"></i><b>4.1</b> Función <code>plot</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables.html"><a href="graficos-para-varias-variables.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables.html"><a href="graficos-para-varias-variables.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="graficos-para-varias-variables.html"><a href="graficos-para-varias-variables.html#funcion-persp"><i class="fa fa-check"></i><b>4.2</b> Función <code>persp</code> </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables.html"><a href="graficos-para-varias-variables.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables.html"><a href="graficos-para-varias-variables.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="graficos-para-varias-variables.html"><a href="graficos-para-varias-variables.html#funcion-pairs"><i class="fa fa-check"></i><b>4.3</b> Función <code>pairs</code> </a></li>
+<li class="chapter" data-level="4.4" data-path="graficos-para-varias-variables.html"><a href="graficos-para-varias-variables.html#funcion-contour"><i class="fa fa-check"></i><b>4.4</b> Función <code>contour</code>  </a></li>
+</ul></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="generate-a-bibtex-database-automatically-for-some-r-packages.html"><a href="generate-a-bibtex-database-automatically-for-some-r-packages.html"><i class="fa fa-check"></i><b>A</b> generate a BibTeX database automatically for some R packages</a></li>
+<li class="divider"></li>
+<li><a href="https://bookdown.org" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Gráficos con R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="graficos-para-varias-variables" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Gráficos para varias variables</h1>
+<p>En este capítulo se presentan funciones para la creación de gráficos que involucran varias variables.</p>
+<div id="funcion-plot" class="section level2">
+<h2><span class="header-section-number">4.1</span> Función <code>plot</code>  </h2>
+<p>Los gráficos de dispersión son muy útiles porque permiten ver la relación que existe entre dos variables cuantitativas, la función <code>plot</code> permite crear este tipo de gráficos. La estructura de la función <code>plot</code> con los argumentos más usuales se muestran a continuación</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(x, y, type, main, sub, xlab, ylab)</code></pre></div>
+<p>Los argumentos de la función <code>plot</code> son:</p>
+<ul>
+<li><code>x</code>: vector numérico con las coordenadas del eje horizontal.</li>
+<li><code>y</code>: vector numérico con las coordenadas del eje vertical</li>
+<li><code>type</code>: tipo de gráfico a dibujar. Las opciones son:
+<ul>
+<li><code>'p'</code> para obtener puntos, esta es la opción por defecto.</li>
+<li><code>'l'</code> para obtener líneas.</li>
+<li><code>'b'</code> para obtener los puntos y líneas que unen los puntos.</li>
+<li><code>'c'</code> para obtener sólo las líneas y dejando los espacios donde estaban los puntos obtenidos con la opción <code>'b'</code>.</li>
+<li><code>'o'</code> para obtener los puntos y lineas superpuestas.</li>
+<li><code>'h'</code> para obtener líneas verticales desde el origen hasta el valor <span class="math inline">\(y_i\)</span> de cada punto, similar a un histograma.</li>
+<li><code>'s'</code> para obtener escalones.</li>
+<li><code>'S'</code> similar al anterior.</li>
+<li><code>'n'</code> para que no dibuje.</li>
+</ul></li>
+<li><code>...</code>: otros parámetros gráficos que pueden ser pasados como argumentos para <code>plot</code>.</li>
+</ul>
+<div id="ejemplo" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Crear 16 parejas de puntos tales que <span class="math inline">\(x=-5, -4, \ldots, 9, 10\)</span> con <span class="math inline">\(y=-10+(x-3)^2\)</span>, dibujar los nueve diagramas de dispersión de <span class="math inline">\(y\)</span> contra <span class="math inline">\(x\)</span> usando todos los valores posibles para el parámetro <code>type</code>.</p>
+<p>A continuación se muestra el código para crear las 16 parejas de <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>. Los nueve diagramas de dispersión se observan en la Figura <a href="graficos-para-varias-variables.html#fig:ex1plot">4.1</a>, de esta figura se observa claramente el efecto que tiene el parámetro <code>type</code> en la construcción del diagrama de dispersión.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span>-<span class="dv">5</span>:<span class="dv">10</span>
+y &lt;-<span class="st"> </span>-<span class="dv">10</span> +<span class="st"> </span>(x<span class="dv">-3</span>)^<span class="dv">2</span>
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>))
+<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;p&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;p&#39;&quot;</span>)
+<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;l&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;l&#39;&quot;</span>)
+<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;b&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;b&#39;&quot;</span>)
+<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;c&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;c&#39;&quot;</span>)
+<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;o&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;o&#39;&quot;</span>)
+<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;h&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;h&#39;&quot;</span>)
+<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;s&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;s&#39;&quot;</span>)
+<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;S&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;S&#39;&quot;</span>)
+<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;n&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;n&#39;&quot;</span>)</code></pre></div>
+<div class="figure"><span id="fig:ex1plot"></span>
+<img src="Graficos_con_R_files/figure-html/ex1plot-1.png" alt="Efecto del parámetro `type` en la función `plot`." width="480" />
+<p class="caption">
+FIGURE 4.1: Efecto del parámetro <code>type</code> en la función <code>plot</code>.
+</p>
+</div>
+</div>
+<div id="ejemplo-1" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Como ilustración vamos a crear un diagrama de dispersión entre el precio de apartamentos usados en la ciudad de Medellín y el área de los apartamentos. El código necesario para cargar la base de datos y construir el diagrama de dispersión se muestra a continuación.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">url &lt;-<span class="st"> &#39;https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015&#39;</span>
+datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)
+
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
+<span class="kw">plot</span>(<span class="dt">x=</span>datos$mt2, <span class="dt">y=</span>datos$precio)
+<span class="kw">plot</span>(<span class="dt">x=</span>datos$mt2, <span class="dt">y=</span>datos$precio, <span class="dt">pch=</span><span class="st">&#39;.&#39;</span>,
+     <span class="dt">xlab=</span><span class="st">&#39;Área del apartamento (m2)&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Precio (millones de pesos)&#39;</span>)</code></pre></div>
+<div class="figure"><span id="fig:ex2plot"></span>
+<img src="Graficos_con_R_files/figure-html/ex2plot-1.png" alt="Diagrama de dispersión del precio del apartamento versus área del apartamento. A la izquierda el diagrama de dispersión sin editar y a la derecha el diagrama de dispersión mejorado" width="576" />
+<p class="caption">
+FIGURE 4.2: Diagrama de dispersión del precio del apartamento versus área del apartamento. A la izquierda el diagrama de dispersión sin editar y a la derecha el diagrama de dispersión mejorado
+</p>
+</div>
+<p>En la Figura <a href="graficos-para-varias-variables.html#fig:ex2plot">4.2</a> se presenta el diagrama de dispersión entre precio y área de los apartamentos, de este diagrama se observa claramente que a medida que los apartamentos tienen mayor área el precio promedio y la variabilidad del precio aumentan. Para el diagrama de dispersión de la derecha se usó el parámetro <code>pch='.'</code> con el objetivo de obtener pequeños puntos que representen cada apartamento y que no se traslapen debido a que se tienen 694 observaciones en la base de datos.</p>
+</div>
+</div>
+<div id="funcion-persp" class="section level2">
+<h2><span class="header-section-number">4.2</span> Función <code>persp</code> </h2>
+<p>La función <code>persp</code> dibuja superfices en tres dimensiones y es posible rotar la superficie para obtener una perpectiva apropiada. La estructura de la función <code>persp</code> con los argumentos más usuales se muestran a continuación.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">persp</span>(x, y, z, main, sub, theta, phi, r, col, border, box, axes, nticks)</code></pre></div>
+<p>Los argumentos de la función <code>plot</code> son:</p>
+<ul>
+<li><code>x</code>: vector numérico con los valores de <span class="math inline">\(x\)</span> donde fue evaluada la función o superficie.</li>
+<li><code>y</code>: vector numérico con los valores de <span class="math inline">\(y\)</span> donde fue evaluada la función o superficie.</li>
+<li><code>z</code>: matriz que contiene las alturas <span class="math inline">\(z\)</span> de la supercifie para cada combinación de <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>.</li>
+<li><code>main</code>: vector numérico con las coordenadas del eje vertical.</li>
+<li><code>sub</code>: vector numérico con las coordenadas del eje vertical.</li>
+<li><code>theta, phi</code>: ángulo para la visión de la superficie, <code>theta</code> para la dirección azimutal y <code>phi</code> para latitud. Ver Figura <a href="graficos-para-varias-variables.html#fig:globo">4.3</a> para una ilustración de los ángulos.</li>
+<li><code>r</code>: distancia entre el centro de la caja de dibujo al punto de vista.</li>
+<li><code>col</code>: color de la superficie.</li>
+<li><code>border</code>: color para el borde de la superficie.</li>
+<li><code>box</code>: valor lógico para indicar si se quiere dibujar la caja que contiene la superficie, por defecto es <code>TRUE</code>.</li>
+<li><code>axes</code>: valor lógico para indicar si se desean marcas en los ejes y nombres de los ejes, por defecto es <code>TRUE</code>. Si <code>box='FALSE'</code> no aparecen marcas ni nombres de los ejes.</li>
+<li><code>expand</code>: factor de expansión aplicado a los valores en el eje <code>z</code>.</li>
+<li><code>ticktype</code>: tipo de marcas a colocar en los ejes, <code>simple</code> no dibuja nada y <code>detailed</code> coloca números a los ejes.</li>
+<li><code>nticks</code>: número aproximado de marcas en los ejes.</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:globo"></span>
+<img src="images/IC412528.png" alt="Ilustración de los angulos theta y phi para la función persp. Figura tomada de https://i-msdn.sec.s-msft.com/dynimg/IC412528.png" width="25%" />
+<p class="caption">
+FIGURE 4.3: Ilustración de los angulos theta y phi para la función persp. Figura tomada de <a href="https://i-msdn.sec.s-msft.com/dynimg/IC412528.png" class="uri">https://i-msdn.sec.s-msft.com/dynimg/IC412528.png</a>
+</p>
+</div>
+<div id="ejemplo-2" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Dibujar la superficie asociada a la función <span class="math inline">\(f(x, y)=sen(x^2+y^2)\)</span> para <span class="math inline">\(-2 \leq x \leq2\)</span> y <span class="math inline">\(-2 \leq y \leq2\)</span>. Usar 4 combinaciones de los parámetros <code>theta</code> y <code>phi</code> para obtener un buen punto de vista de la superficie.</p>
+<p>Lo primero que se debe hacer es crear la función <span class="math inline">\(f(x, y)\)</span> la cual se va a llamar <code>fun</code>. Luego se definen los vectores <code>x</code> e <code>y</code> tomando por ejemplo 25 puntos equiespaciados en el intervalo <span class="math inline">\([-2, 2]\)</span>. Luego se usa la función <code>outer</code> para crear la rejilla o matriz que contiene los valores de <span class="math inline">\(f(x, y)\)</span> para cada combinación de <code>x</code> e <code>y</code>, los resultados se almacenan en el objeto <code>z</code>. Por último se dibujan 4 perspectivas de la función variando los parámetros <code>theta</code> y <code>phi</code> de la función <code>persp</code>. A continuación el código utilizado.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fun &lt;-<span class="st"> </span>function(x, y)   <span class="kw">sin</span>(x^<span class="dv">2</span> +<span class="st"> </span>y^<span class="dv">2</span>)
+x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span>-<span class="dv">2</span>, <span class="dt">to=</span><span class="dv">2</span>, <span class="dt">length.out=</span><span class="dv">25</span>)
+y &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span>-<span class="dv">2</span>, <span class="dt">to=</span><span class="dv">2</span>, <span class="dt">length.out=</span><span class="dv">25</span>)
+z &lt;-<span class="st"> </span><span class="kw">outer</span>(x, y, fun)
+
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>))
+<span class="kw">persp</span>(x, y, z, <span class="dt">zlim=</span><span class="kw">c</span>(-<span class="dv">1</span>, <span class="fl">1.5</span>), <span class="dt">theta=</span><span class="dv">0</span>, <span class="dt">phi=</span><span class="dv">0</span>, <span class="dt">col=</span><span class="st">&#39;aquamarine&#39;</span>,
+      <span class="dt">main=</span><span class="st">&#39;(A) theta=0, phi=0&#39;</span>)
+<span class="kw">persp</span>(x, y, z, <span class="dt">zlim=</span><span class="kw">c</span>(-<span class="dv">1</span>, <span class="fl">1.5</span>), <span class="dt">theta=</span><span class="dv">15</span>, <span class="dt">phi=</span><span class="dv">15</span>, <span class="dt">col=</span><span class="st">&#39;lightpink&#39;</span>,
+      <span class="dt">main=</span><span class="st">&#39;(B) theta=15, phi=15&#39;</span>)
+<span class="kw">persp</span>(x, y, z, <span class="dt">zlim=</span><span class="kw">c</span>(-<span class="dv">1</span>, <span class="fl">1.5</span>), <span class="dt">theta=</span><span class="dv">45</span>, <span class="dt">phi=</span><span class="dv">30</span>, <span class="dt">col=</span><span class="st">&#39;yellow1&#39;</span>,
+      <span class="dt">main=</span><span class="st">&#39;(c) theta=45, phi=30&#39;</span>)
+<span class="kw">persp</span>(x, y, z, <span class="dt">zlim=</span><span class="kw">c</span>(-<span class="dv">1</span>, <span class="fl">1.5</span>), <span class="dt">theta=</span><span class="dv">60</span>, <span class="dt">phi=</span><span class="dv">50</span>, <span class="dt">col=</span><span class="st">&#39;lightblue&#39;</span>,
+      <span class="dt">main=</span><span class="st">&#39;(D) theta=60, phi=50&#39;</span>)</code></pre></div>
+<div class="figure"><span id="fig:ex1persp"></span>
+<img src="Graficos_con_R_files/figure-html/ex1persp-1.png" alt="Superficie generada con `persp` y diferentes valores de theta y phi." width="1248" />
+<p class="caption">
+FIGURE 4.4: Superficie generada con <code>persp</code> y diferentes valores de theta y phi.
+</p>
+</div>
+<p>En la Figura <a href="graficos-para-varias-variables.html#fig:ex1persp">4.4</a> se presentan las 4 perspectivas de la función <span class="math inline">\(f(x, y)=sen(x^2+y^2)\)</span>. De los 4 páneles se nota que (C) y (D) muestran mejor la superficie de interés.</p>
+<p>Al aumentar el valor del parámetro <code>length.out</code> en la creación de los vectores <code>x</code> e <code>y</code> se obtendrá una rejilla más tupida, se recomienda modificar este valor para obtener una superficie apropiada.</p>
+</div>
+<div id="ejemplo-3" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Dibujar la superficie de una distribución normal bivariada con vector de medias <span class="math inline">\(\boldsymbol{\mu}=(5, 12)^\top\)</span>, varianzas unitarias y covarianza con valor de -0.8. Explorar el efecto de los parámetros <code>ticktype</code>, <code>nticks</code>, <code>expand</code>, <code>axes</code> y <code>box</code>.</p>
+<p>Primero se define el vector de medias y la matriz de varianzas y covarianzas, luego se carga el paquete <code>mvtnorm</code> que contiene la función <code>dmvnorm</code> que calcula la densidad dado el vector de medias y la matriz de varianzas y covarianzas. Se construye la función <code>fun</code> y se vectoriza para luego obtener las alturas de la superficie con la ayuda de <code>outer</code>. Por último se dibujan tres perspectivas diferentes para la densidad modificando los parámetros <code>ticktype</code>, <code>nticks</code>, <code>expand</code>, <code>axes</code> y <code>box</code>, a continuación el código usado.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">media &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">12</span>)
+varianza &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, -<span class="fl">0.8</span>, -<span class="fl">0.8</span>, <span class="dv">1</span>), <span class="dt">ncol=</span><span class="dv">2</span>)
+
+<span class="kw">require</span>(mvtnorm)
+fun &lt;-<span class="st"> </span>function(x, y) <span class="kw">dmvnorm</span>(<span class="kw">c</span>(x, y), <span class="dt">mean=</span>media, <span class="dt">sigma=</span>varianza)
+fun &lt;-<span class="st"> </span><span class="kw">Vectorize</span>(fun)
+
+x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">2</span>, <span class="dt">to=</span><span class="dv">8</span>, <span class="dt">length.out=</span><span class="dv">30</span>)
+y &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">9</span>, <span class="dt">to=</span><span class="dv">15</span>, <span class="dt">length.out=</span><span class="dv">30</span>)
+z &lt;-<span class="st"> </span><span class="kw">outer</span>(x, y, fun)
+
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>))
+<span class="kw">persp</span>(x, y, z, <span class="dt">theta=</span><span class="dv">30</span>, <span class="dt">phi=</span><span class="dv">30</span>, <span class="dt">ticktype =</span> <span class="st">&quot;detailed&quot;</span>, <span class="dt">nticks=</span><span class="dv">4</span>)
+<span class="kw">persp</span>(x, y, z, <span class="dt">theta=</span><span class="dv">30</span>, <span class="dt">phi=</span><span class="dv">30</span>, <span class="dt">col=</span><span class="st">&#39;salmon1&#39;</span>, <span class="dt">expand=</span><span class="fl">0.5</span>, <span class="dt">axes=</span><span class="ot">FALSE</span>)
+<span class="kw">persp</span>(x, y, z, <span class="dt">theta=</span><span class="dv">30</span>, <span class="dt">phi=</span><span class="dv">30</span>, <span class="dt">col=</span><span class="st">&#39;springgreen1&#39;</span>, <span class="dt">expand=</span><span class="fl">0.2</span>, <span class="dt">box=</span><span class="ot">FALSE</span>)</code></pre></div>
+<div class="figure"><span id="fig:ex2persp"></span>
+<img src="Graficos_con_R_files/figure-html/ex2persp-1.png" alt="Distribución normal bivariada." width="1344" />
+<p class="caption">
+FIGURE 4.5: Distribución normal bivariada.
+</p>
+</div>
+<p>En la Figura <a href="graficos-para-varias-variables.html#fig:ex2persp">4.5</a> se presentan las 3 perspectivas para la densidad. Note los efectos que <code>ticktype</code>, <code>nticks</code>, <code>expand</code>, <code>axes</code> y <code>box</code> tienen sobre los dibujos de las perspectivas.</p>
+</div>
+</div>
+<div id="funcion-pairs" class="section level2">
+<h2><span class="header-section-number">4.3</span> Función <code>pairs</code> </h2>
+<p>Las matrices de dispersión proporcionan un método simple de presentar las relaciones entre pares de variables, y es la versión múltiple de {plot()}. Consiste en una matriz donde cada entrada presenta un gráfico de dispersión sencillo. Un inconveniente es que si tenemos muchas variables el tamaño de cada entrada se reduce demasiado impidiendo ver con claridad las relaciones entre los pares de variables.\ La celda <span class="math inline">\((i,j)\)</span> de una matriz de dispersión contiene el scatterplot de la columna <span class="math inline">\(i\)</span> versus la columna <span class="math inline">\(j\)</span> de la matriz de datos. Este gráfico puede obtenerse mediante:</p>
+</div>
+<div id="funcion-contour" class="section level2">
+<h2><span class="header-section-number">4.4</span> Función <code>contour</code>  </h2>
+
+</div>
+</div>
+
+
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="graficos-para-una-variable.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="generate-a-bibtex-database-automatically-for-some-r-packages.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/yihui/bookdown-crc/edit/master/03_graphs2v.Rmd",
+"text": "Edit"
+},
+"download": ["Graficos_con_R.pdf", "Graficos_con_R.epub"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -39,7 +39,7 @@ Este libro es importante porque ...
 
 ## Estructura del libro {-}
 
-Chapters \@ref(introduction) introduces a new topic, and ...
+En el capítulo \@ref(Introducción) se presenta una introducción breve de \proglang{R}, sus orígenes, la instalación, tipos de objetos y una guía de estilo para escribir en \proglang{R}.
 
 ## Software information and conventions {-}
 
@@ -53,7 +53,7 @@ Package names are in bold text (e.g., **rmarkdown**), and inline code and filena
 
 ## Agradecimientos {-}
 
-Agradecemos a ...
+Agradecemos a nuestros estudiantes, profesores y colegas que han leído el manuscrito y se han tomado el trabajo de escribirnos dándonos sus sugerencias y comentarios para mejorar continuamente este material.
 
 ```{block2, type='flushright', html.tag='p'}
 Juan Carlos Correa Morales  
