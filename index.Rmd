@@ -31,7 +31,7 @@ lapply(c(), function(pkg) {
 
 # Prefacio {-}
 
-Este libro fue creado con la intención de ...
+Este libro fue creado con la intención de ayudar a los estudiantes de pregrado, especialización, maestría e investigadores a crear gráficos estadísticos con las herramientas básicas de \proglang{R}. Como complemento, recomendamos a los lectores el libro @hernandez_usuga que muestra cómo usar \proglang{R} para realizar diversos procedimiento estadísticos.
 
 ## ¿Por qué leer este libro? {-}
 
@@ -43,20 +43,35 @@ En el capítulo \@ref(Introducción) se presenta una introducción breve de \pro
 
 ## Software information and conventions {-}
 
-Para realizar este libro usamos los paquetes **knitr**\index{knitr} [@xie2015] y **bookdown**\index{bookdown} [@R-bookdown]. La información de la sesión de \proglang{R} usada se muestra abajo:
-
-```{r}
-sessionInfo()
-```
+Para realizar este libro usamos los paquetes **knitr**\index{knitr} [@xie2015] y **bookdown**\index{bookdown} [@R-bookdown].
 
 Package names are in bold text (e.g., **rmarkdown**), and inline code and filenames are formatted in a typewriter font (e.g., `knitr::knit('foo.Rmd')`). Function names are followed by parentheses (e.g., `bookdown::render_book()`).
+
+En todo el libro se presentarán códigos que el lector puede copiar y pegar en su consola de \proglang{R} para obtener los mismos resultados aquí presentados. Los códigos se destacan en una caja de color beis (o beige) similar a la mostrada a continuación.
+
+```{r, eval=F}
+4 + 6
+a <- c(1, 5, 6)
+5 * a
+1:10
+```
+
+Los resultados o salidas obtenidos de cualquier código se destacan con dos símbolos de númeral (`##`) al inicio de cada línea o renglón, esto quiere decir que todo lo que inicie con `##` son resultados obtenidos y __NO__ los debe copiar. Abajo se muestran los resultados obtenidos luego de correr el código anterior.
+
+```{r, echo=F}
+4 + 6
+a <- c(1, 5, 6)
+5 * a
+1:10
+```
 
 ## Agradecimientos {-}
 
 Agradecemos a nuestros estudiantes, profesores y colegas que han leído el manuscrito y se han tomado el trabajo de escribirnos dándonos sus sugerencias y comentarios para mejorar continuamente este material.
 
 ```{block2, type='flushright', html.tag='p'}
-Juan Carlos Correa Morales  
+Juan Carlos Correa Morales 
+
 Freddy Hernández Barajas
 ```
 

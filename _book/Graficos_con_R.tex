@@ -183,7 +183,7 @@
 \title{Gráficos con R}
 \author{Juan Carlos Correa Morales\\
 Freddy Hernández Barajas}
-\date{2017-01-17}
+\date{2017-01-19}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -216,7 +216,12 @@ Gracias a Dios por todo lo que me ha dado.
 \chapter*{Prefacio}\label{prefacio}
 
 
-Este libro fue creado con la intención de \ldots{}
+Este libro fue creado con la intención de ayudar a los estudiantes de
+pregrado, especialización, maestría e investigadores a crear gráficos
+estadísticos con las herramientas básicas de \proglang{R}. Como
+complemento, recomendamos a los lectores el libro
+\citet{hernandez_usuga} que muestra cómo usar \proglang{R} para realizar
+diversos procedimiento estadísticos.
 
 \section*{¿Por qué leer este libro?}\label{por-que-leer-este-libro}
 
@@ -236,43 +241,44 @@ conventions}\label{software-information-and-conventions}
 
 Para realizar este libro usamos los paquetes \textbf{knitr}\index{knitr}
 \citep{xie2015} y \textbf{bookdown}\index{bookdown} \citep{R-bookdown}.
-La información de la sesión de \proglang{R} usada se muestra abajo:
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{sessionInfo}\NormalTok{()}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## R version 3.3.2 (2016-10-31)
-## Platform: x86_64-w64-mingw32/x64 (64-bit)
-## Running under: Windows 7 x64 (build 7601) Service Pack 1
-## 
-## locale:
-## [1] LC_COLLATE=English_Australia.1252 
-## [2] LC_CTYPE=English_Australia.1252   
-## [3] LC_MONETARY=English_Australia.1252
-## [4] LC_NUMERIC=C                      
-## [5] LC_TIME=English_Australia.1252    
-## 
-## attached base packages:
-## [1] stats     graphics  grDevices utils     datasets 
-## [6] methods   base     
-## 
-## loaded via a namespace (and not attached):
-##  [1] backports_1.0.4 bookdown_0.3    magrittr_1.5   
-##  [4] rprojroot_1.1   tools_3.3.2     htmltools_0.3.5
-##  [7] rstudioapi_0.6  yaml_2.1.14     Rcpp_0.12.8    
-## [10] stringi_1.1.2   rmarkdown_1.3   knitr_1.15.1   
-## [13] stringr_1.1.0   digest_0.6.11   evaluate_0.10
-\end{verbatim}
 
 Package names are in bold text (e.g., \textbf{rmarkdown}), and inline
 code and filenames are formatted in a typewriter font (e.g.,
 \texttt{knitr::knit(\textquotesingle{}foo.Rmd\textquotesingle{})}).
 Function names are followed by parentheses (e.g.,
 \texttt{bookdown::render\_book()}).
+
+En todo el libro se presentarán códigos que el lector puede copiar y
+pegar en su consola de \proglang{R} para obtener los mismos resultados
+aquí presentados. Los códigos se destacan en una caja de color beis (o
+beige) similar a la mostrada a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DecValTok{4} \NormalTok{+}\StringTok{ }\DecValTok{6}
+\NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{)}
+\DecValTok{5} \NormalTok{*}\StringTok{ }\NormalTok{a}
+\DecValTok{1}\NormalTok{:}\DecValTok{10}
+\end{Highlighting}
+\end{Shaded}
+
+Los resultados o salidas obtenidos de cualquier código se destacan con
+dos símbolos de númeral (\texttt{\#\#}) al inicio de cada línea o
+renglón, esto quiere decir que todo lo que inicie con \texttt{\#\#} son
+resultados obtenidos y \textbf{NO} los debe copiar. Abajo se muestran
+los resultados obtenidos luego de correr el código anterior.
+
+\begin{verbatim}
+## [1] 10
+\end{verbatim}
+
+\begin{verbatim}
+## [1]  5 25 30
+\end{verbatim}
+
+\begin{verbatim}
+##  [1]  1  2  3  4  5  6  7  8  9 10
+\end{verbatim}
 
 \section*{Agradecimientos}\label{agradecimientos}
 
@@ -282,7 +288,8 @@ el manuscrito y se han tomado el trabajo de escribirnos dándonos sus
 sugerencias y comentarios para mejorar continuamente este material.
 
 \BeginKnitrBlock{flushright}
-Juan Carlos Correa Morales\\
+Juan Carlos Correa Morales
+
 Freddy Hernández Barajas
 \EndKnitrBlock{flushright}
 
@@ -348,7 +355,7 @@ exhaustiva de los sitios más populares relacionados con \proglang{R}:
 
 }
 
-\caption{Robert Gentleman (izquierda) y Ross Ihaka (derecha) creadores de R.}\label{fig:unnamed-chunk-3}
+\caption{Robert Gentleman (izquierda) y Ross Ihaka (derecha) creadores de R.}\label{fig:unnamed-chunk-4}
 \end{figure}
 
 \section{Descarga e instalación} \label{sec:descarga}
