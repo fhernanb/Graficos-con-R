@@ -51,6 +51,18 @@ text(x=xx, y=tabla1, pos=3, cex=0.8, col="red",
 
 En la Figura \@ref(fig:barra2) se muestra el diagrama de barras modificado. Note que si no se hubiese usado `ylim=c(0, 0.45)` al dibujar el diagrama, la marca sobre la última barra no se podría ver.
 
+### Ejemplo {-}
+Bla bla
 
+```{r}
+tabla2 <- with(datos, table(balcon, parqueadero))
+tabla2
+```
+
+```{r}
+par(mfrow=c(2, 2))
+barplot(tabla2)
+barplot(tabla2, beside=TRUE)
+```
 
 

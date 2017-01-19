@@ -198,7 +198,8 @@ Freddy Hernández Barajas}
 
 \begin{center}
 
-Gracias a Dios por todo lo que me ha dado.
+
+Gracias a Dios por todo lo que me ha dado!
 
 %\includegraphics{images/dedication.pdf}
 \end{center}
@@ -1766,6 +1767,35 @@ En la Figura \ref{fig:barra2} se muestra el diagrama de barras
 modificado. Note que si no se hubiese usado \texttt{ylim=c(0,\ 0.45)} al
 dibujar el diagrama, la marca sobre la última barra no se podría ver.
 
+\subsection*{Ejemplo}\label{ejemplo-9}
+
+
+Bla bla
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tabla2 <-}\StringTok{ }\KeywordTok{with}\NormalTok{(datos, }\KeywordTok{table}\NormalTok{(balcon, parqueadero))}
+\NormalTok{tabla2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       parqueadero
+## balcon  no  si
+##     no  51 134
+##     si  75 434
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{barplot}\NormalTok{(tabla2)}
+\KeywordTok{barplot}\NormalTok{(tabla2, }\DataTypeTok{beside=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Graficos_con_R_files/figure-latex/unnamed-chunk-33-1.pdf}
+
 \chapter{Gráficos para varias
 variables}\label{graficos-para-varias-variables}
 
@@ -1832,7 +1862,7 @@ Los argumentos de la función \texttt{plot} son:
   argumentos para \texttt{plot}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-9}
+\subsection*{Ejemplo}\label{ejemplo-10}
 
 
 Crear 16 parejas de puntos tales que \(x=-5, -4, \ldots, 9, 10\) con
@@ -1870,7 +1900,7 @@ dispersión.
 \texttt{plot}.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-10}
+\subsection*{Ejemplo}\label{ejemplo-11}
 
 
 Como ilustración vamos a crear un diagrama de dispersión entre el precio
@@ -1977,7 +2007,7 @@ Los argumentos de la función \texttt{plot} son:
 \caption{Ilustración de los angulos theta y phi para la función persp. Figura tomada de https://i-msdn.sec.s-msft.com/dynimg/IC412528.png}\label{fig:globo}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-11}
+\subsection*{Ejemplo}\label{ejemplo-12}
 
 
 Dibujar la superficie asociada a la función \(f(x, y)=sen(x^2+y^2)\)
@@ -2030,7 +2060,7 @@ los vectores \texttt{x} e \texttt{y} se obtendrá una rejilla más tupida,
 se recomienda modificar este valor para obtener una superficie
 apropiada.
 
-\subsection*{Ejemplo}\label{ejemplo-12}
+\subsection*{Ejemplo}\label{ejemplo-13}
 
 
 Dibujar la superficie de una distribución normal bivariada con vector de
@@ -2167,7 +2197,7 @@ Los argumentos de la función \texttt{pairs} son:
   base. Por defecto es lo primero.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-13}
+\subsection*{Ejemplo}\label{ejemplo-14}
 
 
 Dibujar una matriz de dispersión para las variables precio, área, número
@@ -2201,7 +2231,7 @@ apartamentos en Medellín.}
 En la Figura \ref{fig:ex1pairs} se muestra la matriz de dispersión para
 las variables del marco de datos \texttt{datos.num}.
 
-\subsection*{Ejemplo}\label{ejemplo-14}
+\subsection*{Ejemplo}\label{ejemplo-15}
 
 
 Volver a construir la Figura \ref{fig:ex1pairs} editando los nombres de
@@ -2229,7 +2259,7 @@ la nueva matriz de dispersión.
 adicionales de la función pairs.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-15}
+\subsection*{Ejemplo}\label{ejemplo-16}
 
 
 Construir una matriz de dispersión con las variables precio, área y
@@ -2275,7 +2305,7 @@ solicitada, los puntos rojos representan los apartamento sin parqueadero
 mientras que los puntos verdes son los apartamento que si tienen
 parqueadero.
 
-\subsection*{Ejemplo}\label{ejemplo-16}
+\subsection*{Ejemplo}\label{ejemplo-17}
 
 
 ¿Es posible agregar una leyenda a una matriz de dispersión?
@@ -2304,7 +2334,7 @@ A continuación se muestra el código para el ejemplo y en la Figura
 \caption{\label{fig:expairs}Matriz de dispersión con leyenda.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-17}
+\subsection*{Ejemplo}\label{ejemplo-18}
 
 
 ¿Es posible modificar el contenido de los páneles de una matriz de
