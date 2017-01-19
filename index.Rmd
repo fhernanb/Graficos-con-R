@@ -39,7 +39,7 @@ Este libro es importante porque ...
 
 ## Estructura del libro {-}
 
-En el capítulo \@ref(Introducción) se presenta una introducción breve de \proglang{R}, sus orígenes, la instalación, tipos de objetos y una guía de estilo para escribir en \proglang{R}.
+En el capítulo \@ref(intro) se presenta una introducción breve de \proglang{R}, sus orígenes, la instalación, tipos de objetos y una guía de estilo para escribir en \proglang{R}.
 
 ## Software information and conventions {-}
 

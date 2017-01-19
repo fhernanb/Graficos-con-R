@@ -1,0 +1,56 @@
+# Gráficos para una variable cualitativa
+
+En este capítulo se presentan funciones para la creación de gráficos con una sola variable cualitativa.
+
+
+## Función `barplot` \index{gráfico de barras} \index{barplot}
+Los gráficos de barras son útiles para representar las frecuencias absolutas o relativas asociadas a los niveles de una variable cualitativa.
+
+La función `barplot` se usa para obtener un gráfico de barras. La estructura de la función `barplot` con los argumentos más comunes de uso se muestra a continuación.
+
+```{r, eval=F}
+barplot(height, )
+```
+Los argumentos de la función `barplot` son:
+
+- `height`: vector o matriz con la información de las frecuencias absolutas o relativas.
+
+
+### Ejemplo {-}
+Suponga que queremos construir un diagrama de barras para las frecuencias relativas para la variable estrato socioeconómico del apartamento de la base de datos sobre apartamentos usados en Medellín.
+
+A continuación se muestra el código necesario para cargar la base de datos `aptos2015`. Antes de construir el diagrama de barras solicitado es necesario construir la tabla de frecuencias para la variable estrato, para esto se usa la función `table` y los resultados se almacenan en el objeto `tabla1` que contiene las frecuencias __absolutas__. Para obtener las frecuencias __relativas__ se usa luego la función `prop.table` sobre el objeto `tabla1`.
+
+```{r}
+url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015'
+datos <- read.table(file=url, header=T)
+tabla1 <- table(datos$estrato)
+tabla1 <- prop.table(tabla1)
+tabla1
+```
+
+Una vez se tiene el objeto con la información de las frecuencias relativas se puede dibujar el diagrama de barras usando el siguiente código.
+
+```{r barra1, fig.cap='Diagrama de barras para el estrato socioeconómico de los apartamentos usados.', fig.asp=0.6, fig.width =7}
+barplot(tabla1, xlab='Estrato socioeconómico',
+        ylab='Frecuencia relativa', las=1)
+```
+
+En la Figura \@ref(fig:barra1) se presenta el diagrama de barras solicitado. Se observa que hay pocos apartamentos (1.15%) pertenecientes al estrato dos, los estratos tres, cuatro y cinco aportan porcentajes similares a la base de datos y que el estrato 6 es el que más apartamentos aporta a la base de datos, 34.87%.
+
+Algunas veces se acostumbra a colocar las frecuencias relativas sobre la parte superior de las barras para facilitar la lectura. A continuación se presenta el código para replicar la Figura \@ref(fig:barra1) con las frecuencias relativas. Lo primero que se hace es dibujar el diagrama de barras y almacenar la información de él en el objeto `xx` para luego poder usar la ubicación de cada una de las barras. Note que se agregó también `ylim=c(0, 0.45)` para conseguir una ampliación del eje vertical, esto para lograr que se vea el número sobre la barra del estrato 6. Luego se usa la función `text` para incluir un texto en las coordenadas `x=xx` y `y=tabla1`, el parámetro `pos=3` coloca el texto en la parte superior de las coordenadas y el parámetro `label` sirve para indicar lo que se desea escribir en las coordenadas indicadas, en este caso son las frecuencias relativas almacenadas en `tabla1`.
+
+```{r barra2, fig.cap='Diagrama de barras para el estrato socioeconómico de los apartamentos usados con las frecuencias relativas sobre las barras.', fig.asp=0.6, fig.width =7}
+xx <- barplot(tabla1, ylim=c(0, 0.45), col=gray(0.9),
+              xlab='Estrato socioeconómico',
+              ylab='Frecuencia relativa', las=1)
+
+text(x=xx, y=tabla1, pos=3, cex=0.8, col="red",
+     label=round(tabla1, 4))
+```
+
+En la Figura \@ref(fig:barra2) se muestra el diagrama de barras modificado. Note que si no se hubiese usado `ylim=c(0, 0.45)` al dibujar el diagrama, la marca sobre la última barra no se podría ver.
+
+
+
+

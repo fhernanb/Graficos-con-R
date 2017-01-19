@@ -1,11 +1,6 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
-# Gráficos para una variable
+# Gráficos para una variable cuantitativa
 
-En este capítulo se presentan funciones para la creación de gráficos con una sola variable.
+En este capítulo se presentan funciones para la creación de gráficos con una sola variable cuantitativa.
 
 ## Función `stem`
 
@@ -331,8 +326,6 @@ legend('topright', legend=c('Hombres', 'Mujeres'), bty='n',
 ```
 
 En el panel izquierdo de la Figura \@ref(fig:density3) se muestra la densidad para la variable peso, de esta figura se observa que tiene dos sectores de mayor densidad, alrededor de 50 kg y alrededor de 80 kg. En el panel izquierdo están la densidades del peso corporal para hombres y mujeres, aquí se observa claramente la diferencia entre los pesos de hombres y mujeres.
-
-
 
 
 
