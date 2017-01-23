@@ -1770,37 +1770,142 @@ dibujar el diagrama, la marca sobre la última barra no se podría ver.
 \subsection*{Ejemplo}\label{ejemplo-9}
 
 
-Bla bla
+Suponga que queremos construir un diagrama de barras para comparar la
+variable presencia de parqueadero con el estrato socioeconómico en la
+base de datos sobre apartamentos usados en Medellín.
+
+La función \texttt{barplot} también puede ser usada para representar una
+tabla de frecuencia con dos variables. Para obtener la tabla de
+frecuencia para relacionar parqueadero con estrato se usa el siguiente
+código.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{tabla2 <-}\StringTok{ }\KeywordTok{table}\NormalTok{(datos$balcon, datos$parqueadero)}
+\NormalTok{tabla2 <-}\StringTok{ }\KeywordTok{table}\NormalTok{(datos$parqueadero, datos$estrato)}
 \NormalTok{tabla2}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
 ##     
-##       no  si
-##   no  51 134
-##   si  75 434
+##        2   3   4   5   6
+##   no   5  88  24   8   1
+##   si   3  73 114 137 241
 \end{verbatim}
+
+El anterior resultado es la tabla de contingencia entre las variables
+parqueadero y estrato, de esta tabla vemos que para estratos superiores
+el número de apartamentos que si tienen parqueadero es mayor que los
+apartamentos sin parqueadero. La tabla anterior se puede representar
+gráficamente usando el siguiente código.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
 \KeywordTok{barplot}\NormalTok{(tabla2)}
-\KeywordTok{barplot}\NormalTok{(tabla2, }\DataTypeTok{beside=}\OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/barra3-1.pdf}
-\caption{\label{fig:barra3}Diagrama de barras para el estrato socioeconómico
-de los apartamentos usados con las frecuencias relativas sobre las
-barras.}
+\caption{\label{fig:barra3}Diagrama I de barras la relación entre
+parqueadero y estrato.}
 \end{figure}
+
+En la Figura \ref{fig:barra3} se muestra el gráfico de barras sin
+editar, el color negro representa la frecuencia de los apartamentos sin
+parqueadero (no) y el color gris representa los apartamentos con
+parqueadero (si), las barras están una encima de la otra y la
+comparación no es tan clara como debería. Para mejorar la comparación se
+usa el parámetro \texttt{besides=TRUE}, a continuación el código
+utilizado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{barplot}\NormalTok{(tabla2, }\DataTypeTok{beside=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/barra4-1.pdf}
+\caption{\label{fig:barra4}Diagrama II de barras la relación entre
+parqueadero y estrato.}
+\end{figure}
+
+En la Figura \ref{fig:barra4} está el gráfico de barras obtenido
+agregando \texttt{besides=TRUE} para que las barras se ubiquen una junto
+a la otra. Este gráfico se puede mejorar aún más colocando una leyenda
+para identificar las barras, nombrando los ejes y usando otros colores,
+a continuación el código utilizado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{barplot}\NormalTok{(tabla2, }\DataTypeTok{beside =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }
+        \DataTypeTok{xlab=}\StringTok{'Estrato'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Frecuencia'}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"lightblue"}\NormalTok{, }\StringTok{"mistyrose"}\NormalTok{),}
+        \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{250}\NormalTok{))}
+\KeywordTok{legend}\NormalTok{(}\StringTok{'topleft'}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{rownames}\NormalTok{(tabla2), }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{,}
+       \DataTypeTok{fill=}\KeywordTok{c}\NormalTok{(}\StringTok{"lightblue"}\NormalTok{, }\StringTok{"mistyrose"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/barra5-1.pdf}
+\caption{\label{fig:barra5}Relación entre la presencia de parqueadero y el
+estrato socioeconómico.}
+\end{figure}
+
+En la Figura \ref{fig:barra5} se observa el gráfico de barras
+solicitado, se observa claramente que en los estratos 4, 5 y 6
+predominan los aparatamentos con parqueadero.
+
+Es posible construir una tabla de contingencia de frecuencia relativa
+para ver cómo es el comportamiento de tener o no parquedadero dentro de
+cada estrato, el siguiente código construye la \texttt{tabla3} con la
+información necesaria.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tabla3 <-}\StringTok{ }\KeywordTok{prop.table}\NormalTok{(tabla2, }\DataTypeTok{margin=}\DecValTok{2}\NormalTok{)}
+\NormalTok{tabla3}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     
+##             2        3        4        5        6
+##   no 0.625000 0.546584 0.173913 0.055172 0.004132
+##   si 0.375000 0.453416 0.826087 0.944828 0.995868
+\end{verbatim}
+
+De la anterior tabla se ve que el porcentaje de apartamentos con
+parqueadero supera enormemente el los apartamentos sin parqueadero para
+los estratos 6, 5 y 4. El código para generar un gráfico asociado a la
+\texttt{tabla3} se muestra a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{barplot}\NormalTok{(tabla3, }
+        \DataTypeTok{beside =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }
+        \DataTypeTok{xlab=}\StringTok{'Estrato'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Frecuencia relativa'}\NormalTok{,}
+        \DataTypeTok{col =} \KeywordTok{c}\NormalTok{(}\StringTok{"lightblue"}\NormalTok{, }\StringTok{"mistyrose"}\NormalTok{),}
+        \DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+\KeywordTok{legend}\NormalTok{(}\StringTok{'topleft'}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{rownames}\NormalTok{(tabla2), }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{,}
+       \DataTypeTok{fill=}\KeywordTok{c}\NormalTok{(}\StringTok{"lightblue"}\NormalTok{, }\StringTok{"mistyrose"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/barra6-1.pdf}
+\caption{\label{fig:barra6}Relación entre la presencia de parqueadero y el
+estrato socioeconómico.}
+\end{figure}
+
+¿Cuáles son las ventajas y/o desventajas de las figuras \ref{fig:barra5}
+y \ref{fig:barra6} al ser presentadas en un informe?
 
 \chapter{Gráficos para varias
 variables}\label{graficos-para-varias-variables}

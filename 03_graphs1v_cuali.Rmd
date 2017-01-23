@@ -52,17 +52,67 @@ text(x=xx, y=tabla1, pos=3, cex=0.8, col="red",
 En la Figura \@ref(fig:barra2) se muestra el diagrama de barras modificado. Note que si no se hubiese usado `ylim=c(0, 0.45)` al dibujar el diagrama, la marca sobre la última barra no se podría ver.
 
 ### Ejemplo {-}
-Bla bla
+Suponga que queremos construir un diagrama de barras para comparar la variable presencia de parqueadero con el estrato socioeconómico en la base de datos sobre apartamentos usados en Medellín.
+
+La función `barplot` también puede ser usada para representar una tabla de frecuencia con dos variables. Para obtener la tabla de frecuencia para relacionar parqueadero con estrato se usa el siguiente código.
 
 ```{r}
-tabla2 <- table(datos$balcon, datos$parqueadero)
+tabla2 <- table(datos$parqueadero, datos$estrato)
 tabla2
 ```
 
-```{r barra3, fig.cap='Diagrama de barras para el estrato socioeconómico de los apartamentos usados con las frecuencias relativas sobre las barras.', fig.asp=0.6, fig.width =7}
-par(mfrow=c(1, 2))
+El anterior resultado es la tabla de contingencia entre las variables parqueadero y estrato, de esta tabla vemos que para estratos superiores el número de apartamentos que si tienen parqueadero es mayor que los apartamentos sin parqueadero. La tabla anterior se puede representar gráficamente usando el siguiente código.
+
+```{r barra3, fig.cap='Diagrama I de barras la relación entre parqueadero y estrato.', fig.asp=0.6, fig.width =7}
 barplot(tabla2)
+```
+
+En la Figura \@ref(fig:barra3) se muestra el gráfico de barras sin editar, el color negro representa la frecuencia de los apartamentos sin parqueadero (no) y el color gris representa los apartamentos con parqueadero (si), las barras están una encima de la otra y la comparación no es tan clara como debería. Para mejorar la comparación se usa el parámetro `besides=TRUE`, a continuación el código utilizado.
+
+```{r barra4, fig.cap='Diagrama II de barras la relación entre parqueadero y estrato.', fig.asp=0.6, fig.width =7}
 barplot(tabla2, beside=TRUE)
 ```
+
+En la Figura \@ref(fig:barra4) está el gráfico de barras obtenido agregando `besides=TRUE` para que las barras se ubiquen una junto a la otra. Este gráfico se puede mejorar aún más colocando una leyenda para identificar las barras, nombrando los ejes y usando otros colores, a continuación el código utilizado.
+
+```{r barra5, fig.cap='Relación entre la presencia de parqueadero y el estrato socioeconómico.', fig.asp=0.6, fig.width =7}
+barplot(tabla2, beside = TRUE, las=1, 
+        xlab='Estrato', ylab='Frecuencia',
+        col = c("lightblue", "mistyrose"),
+        ylim = c(0, 250))
+legend('topleft', legend=rownames(tabla2), bty='n',
+       fill=c("lightblue", "mistyrose"))
+```
+
+En la Figura \@ref(fig:barra5) se observa el gráfico de barras solicitado, se observa claramente que en los estratos 4, 5 y 6 predominan los aparatamentos con parqueadero.
+
+Es posible construir una tabla de contingencia de frecuencia relativa para ver cómo es el comportamiento de tener o no parquedadero dentro de cada estrato, el siguiente código construye la `tabla3` con la información necesaria.
+
+```{r}
+tabla3 <- prop.table(tabla2, margin=2)
+tabla3
+```
+
+De la anterior tabla se ve que el porcentaje de apartamentos con parqueadero supera enormemente el los apartamentos sin parqueadero para los estratos 6, 5 y 4. El código para generar un gráfico asociado a la `tabla3` se muestra a continuación.
+
+```{r barra6, fig.cap='Relación entre la presencia de parqueadero y el estrato socioeconómico.', fig.asp=0.6, fig.width =7}
+barplot(tabla3, 
+        beside = TRUE, las=1, 
+        xlab='Estrato', ylab='Frecuencia relativa',
+        col = c("lightblue", "mistyrose"),
+        ylim = c(0, 1))
+legend('topleft', legend=rownames(tabla2), bty='n',
+       fill=c("lightblue", "mistyrose"))
+```
+
+¿Cuáles son las ventajas y/o desventajas de las figuras \@ref(fig:barra5) y \@ref(fig:barra6) al ser presentadas en un informe?
+
+
+
+
+
+
+
+
 
 
