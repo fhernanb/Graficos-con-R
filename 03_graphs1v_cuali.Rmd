@@ -55,12 +55,12 @@ En la Figura \@ref(fig:barra2) se muestra el diagrama de barras modificado. Note
 Bla bla
 
 ```{r}
-tabla2 <- with(datos, table(balcon, parqueadero))
+tabla2 <- table(datos$balcon, datos$parqueadero)
 tabla2
 ```
 
-```{r}
-par(mfrow=c(2, 2))
+```{r barra3, fig.cap='Diagrama de barras para el estrato socioeconómico de los apartamentos usados con las frecuencias relativas sobre las barras.', fig.asp=0.6, fig.width =7}
+par(mfrow=c(1, 2))
 barplot(tabla2)
 barplot(tabla2, beside=TRUE)
 ```

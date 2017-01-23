@@ -183,7 +183,7 @@
 \title{Gráficos con R}
 \author{Juan Carlos Correa Morales\\
 Freddy Hernández Barajas}
-\date{2017-01-19}
+\date{2017-01-23}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -1774,27 +1774,33 @@ Bla bla
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{tabla2 <-}\StringTok{ }\KeywordTok{with}\NormalTok{(datos, }\KeywordTok{table}\NormalTok{(balcon, parqueadero))}
+\NormalTok{tabla2 <-}\StringTok{ }\KeywordTok{table}\NormalTok{(datos$balcon, datos$parqueadero)}
 \NormalTok{tabla2}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##       parqueadero
-## balcon  no  si
-##     no  51 134
-##     si  75 434
+##     
+##       no  si
+##   no  51 134
+##   si  75 434
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
 \KeywordTok{barplot}\NormalTok{(tabla2)}
 \KeywordTok{barplot}\NormalTok{(tabla2, }\DataTypeTok{beside=}\OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Graficos_con_R_files/figure-latex/unnamed-chunk-33-1.pdf}
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/barra3-1.pdf}
+\caption{\label{fig:barra3}Diagrama de barras para el estrato socioeconómico
+de los apartamentos usados con las frecuencias relativas sobre las
+barras.}
+\end{figure}
 
 \chapter{Gráficos para varias
 variables}\label{graficos-para-varias-variables}
