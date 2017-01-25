@@ -1,0 +1,6 @@
+# Función `par`
+
+En este capítulo se presentan funciones para la creación de gráficos que involucran varias variables.
+
+## Función `par` \index{par}
+
