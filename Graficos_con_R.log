@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210 64-bit) (preloaded format=xelatex 2017.1.16)  25 JAN 2017 08:29
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210 64-bit) (preloaded format=xelatex 2017.1.16)  25 JAN 2017 08:45
 entering extended mode
 **./Graficos_con_R.tex
 (Graficos_con_R.tex
@@ -1166,7 +1166,10 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [3
 
-])
+]
+LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 39.
+)
 \tf@toc=\write6
 \openout6 = `Graficos_con_R.toc'.
 
@@ -1396,8 +1399,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
-LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 260.
 LaTeX Info: Redefining \. on input line 297.
 LaTeX Info: Redefining \% on input line 297.
 [10]
@@ -2146,49 +2147,48 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [56
 
 ]
-Underfull \vbox (badness 10000) detected at line 2665
+Underfull \vbox (badness 10000) detected at line 2660
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 2665
+Overfull \hbox (336.25pt too wide) detected at line 2660
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2665
+Underfull \vbox (badness 10000) detected at line 2660
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 2665
+Overfull \hbox (336.25pt too wide) detected at line 2660
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2665
+Underfull \vbox (badness 10000) detected at line 2660
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 2665
+Overfull \hbox (336.25pt too wide) detected at line 2660
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2665
+Underfull \vbox (badness 10000) detected at line 2660
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 2665
+Overfull \hbox (336.25pt too wide) detected at line 2660
 []
  []
 
-Apéndice A.
-(Graficos_con_R.bbl
+Capítulo 5.
+
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
 [57
-
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2230,52 +2230,96 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [58
 
 ]
-Underfull \vbox (badness 10000) detected at line 1
+Underfull \vbox (badness 10000) detected at line 2669
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1
+Overfull \hbox (336.25pt too wide) detected at line 2669
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1
+Underfull \vbox (badness 10000) detected at line 2669
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1
+Overfull \hbox (336.25pt too wide) detected at line 2669
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1
+Underfull \vbox (badness 10000) detected at line 2669
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1
+Overfull \hbox (336.25pt too wide) detected at line 2669
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1
+Underfull \vbox (badness 10000) detected at line 2669
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1
+Overfull \hbox (336.25pt too wide) detected at line 2669
 []
  []
 
+Capítulo 6.
 
-Underfull \hbox (badness 10000) detected at line 1
-[]
- []
-
-)
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
 [59
+
+]
+LaTeX Info: Redefining \. on input line 2712.
+LaTeX Info: Redefining \% on input line 2712.
+[60]
+Underfull \vbox (badness 10000) detected at line 2712
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 2712
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 2712
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 2712
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 2712
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 2712
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 2712
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 2712
+[]
+ []
+
+Capítulo 7.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[61
+
 
 ]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2314,7 +2358,178 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[60
+[62
+
+]
+Underfull \vbox (badness 10000) detected at line 2733
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 2733
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 2733
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 2733
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 2733
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 2733
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 2733
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 2733
+[]
+ []
+
+Apéndice A.
+(Graficos_con_R.bbl
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[63
+
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[64
+
+]
+Underfull \vbox (badness 10000) detected at line 1
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 1
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 1
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 1
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 1
+[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 1
+[]
+ []
+
+)
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[65
+
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (336.25pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[66
 
 ] (Graficos_con_R.ind
 Underfull \hbox (badness 10000) detected at line 1
@@ -2330,32 +2545,31 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[61
-
+[67
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2677.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2677.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2745.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2745.
 (Graficos_con_R.aux
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
 LaTeX Info: Redefining \. on input line 28.
 LaTeX Info: Redefining \% on input line 28.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2677.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2677.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 2745.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 2745.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 27649 strings out of 428408
- 479129 string characters out of 3160621
- 550782 words of memory out of 3000000
- 30717 multiletter control sequences out of 15000+200000
- 35247 words of font info for 73 fonts, out of 3000000 for 9000
+ 27676 strings out of 428408
+ 479585 string characters out of 3160621
+ 555380 words of memory out of 3000000
+ 30742 multiletter control sequences out of 15000+200000
+ 35255 words of font info for 74 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  53i,8n,92p,10414b,651s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Graficos_con_R.pdf (73 pages).
+Output written on Graficos_con_R.pdf (79 pages).
