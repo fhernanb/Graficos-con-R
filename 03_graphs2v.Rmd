@@ -1,4 +1,4 @@
-# Gráficos para varias variables
+# Gráficos para varias variables cuantitativas
 
 En este capítulo se presentan funciones para la creación de gráficos que involucran varias variables.
 
@@ -301,5 +301,6 @@ pairs(datos.num,
 
 
 ## Función `contour` \index{contour} \index{gráfico de contornos}
+
 
 
