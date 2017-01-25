@@ -183,7 +183,7 @@
 \title{Gráficos con R}
 \author{Juan Carlos Correa Morales\\
 Freddy Hernández Barajas}
-\date{2017-01-23}
+\date{2017-01-25}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -1643,8 +1643,8 @@ hombres y mujeres.
 \chapter{Gráficos para una variable
 cualitativa}\label{graficos-para-una-variable-cualitativa}
 
-En este capítulo se presentan funciones para la creación de gráficos con
-una sola variable cualitativa.
+En este capítulo se presentan funciones para la creación de gráficos
+para variables cualitativas.
 
 \section{\texorpdfstring{Función \texttt{barplot}
 \index{gráfico de barras}
@@ -1652,15 +1652,13 @@ una sola variable cualitativa.
 
 Los gráficos de barras son útiles para representar las frecuencias
 absolutas o relativas asociadas a los niveles de una variable
-cualitativa.
-
-La función \texttt{barplot} se usa para obtener un gráfico de barras. La
-estructura de la función \texttt{barplot} con los argumentos más comunes
-de uso se muestra a continuación.
+cualitativa y la función \texttt{barplot} se usa para obtener un gráfico
+de barras. La estructura de la función \texttt{barplot} con los
+argumentos más comunes de uso se muestra a continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{barplot}\NormalTok{(height, )}
+\KeywordTok{barplot}\NormalTok{(height, beside, horiz)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1672,15 +1670,22 @@ Los argumentos de la función \texttt{barplot} son:
   \texttt{height}: vector o matriz con la información de las frecuencias
   absolutas o relativas.
 \item
-  \texttt{besides}: valor lógico para indicar si las barras deben estar
+  \texttt{beside}: valor lógico para indicar si las barras deben estar
   al lado cuando la información ingresada es una matriz.
+\item
+  \texttt{horiz}: valor lógico para indicar si el diagrama de barras
+  debe ser horizontal, por defecto es \texttt{FALSE}.
 \end{itemize}
+
+La función \texttt{barplot} tiene otros parámetros que pueden ser
+consultados en la ayuda de la función por medio de la instrucción
+\texttt{?barplot}.
 
 \subsection*{Ejemplo}\label{ejemplo-8}
 
 
 Suponga que queremos construir un diagrama de barras para las
-frecuencias relativas para la variable estrato socioeconómico del
+frecuencias relativas de la variable estrato socioeconómico del
 apartamento de la base de datos sobre apartamentos usados en Medellín.
 
 A continuación se muestra el código necesario para cargar la base de
@@ -1910,6 +1915,63 @@ estrato socioeconómico.}
 ¿Cuáles son las ventajas y/o desventajas de las figuras \ref{fig:barra5}
 y \ref{fig:barra6} al ser presentadas en un informe?
 
+\section{\texorpdfstring{Función \texttt{pie} \index{gráfico de pastel}
+\index{pie}}{Función pie  }}\label{funcion-pie}
+
+En \proglang{R} es posible construir gráficos de pastel para representar
+una tabla de frecuencia relativa o absoluta, sin embargo este tipo de
+gráficos no es recomendable y en la ayuda de la función se hace la
+siguiente advertencia: ``\emph{Pie charts are a very bad way of
+displaying information. The eye is good at judging linear measures and
+bad at judging relative areas. A bar chart or dot chart is a preferable
+way of displaying this type of data}''.
+
+La estructura de la función \texttt{pie} con los argumentos más comunes
+de uso se muestra a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{barplot}\NormalTok{(x, labels)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función \texttt{pie} son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: vector con elementos no negativos que representan las
+  frecuencias de los niveles de la variable cualitativa.
+\item
+  \texttt{labels}: vector con los nombres a colocar en cada parte del
+  pastel, por defecto se usan los nombres del vector \texttt{x}.
+\end{itemize}
+
+\subsection*{Ejemplo}\label{ejemplo-10}
+
+
+Dibujar un gráfico de pastel para las frecuencias relativas de la
+variable estrato socioeconómico del apartamento de la base de datos
+sobre apartamentos usados en Medellín.
+
+La \texttt{tabla1} construída en el primer ejemplo de \texttt{barplot}
+se utiliza para construir el gráfico solicitado. Abajo el código
+necesario para construir el gráfico.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{nombres <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(}\StringTok{'Estrato '}\NormalTok{, }\DecValTok{2}\NormalTok{:}\DecValTok{6}\NormalTok{)}
+\KeywordTok{pie}\NormalTok{(}\DataTypeTok{x=}\NormalTok{tabla1, }\DataTypeTok{labels=}\NormalTok{nombres)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/pie-1.pdf}
+\caption{\label{fig:pie}Gráfico de pastel para las frecuencias relativas del
+estrato socioeconómico}
+\end{figure}
+
 \chapter{Gráficos para varias
 variables}\label{graficos-para-varias-variables}
 
@@ -1976,7 +2038,7 @@ Los argumentos de la función \texttt{plot} son:
   argumentos para \texttt{plot}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-10}
+\subsection*{Ejemplo}\label{ejemplo-11}
 
 
 Crear 16 parejas de puntos tales que \(x=-5, -4, \ldots, 9, 10\) con
@@ -2014,7 +2076,7 @@ dispersión.
 \texttt{plot}.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-11}
+\subsection*{Ejemplo}\label{ejemplo-12}
 
 
 Como ilustración vamos a crear un diagrama de dispersión entre el precio
@@ -2121,7 +2183,7 @@ Los argumentos de la función \texttt{plot} son:
 \caption{Ilustración de los angulos theta y phi para la función persp. Figura tomada de https://i-msdn.sec.s-msft.com/dynimg/IC412528.png}\label{fig:globo}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-12}
+\subsection*{Ejemplo}\label{ejemplo-13}
 
 
 Dibujar la superficie asociada a la función \(f(x, y)=sen(x^2+y^2)\)
@@ -2174,7 +2236,7 @@ los vectores \texttt{x} e \texttt{y} se obtendrá una rejilla más tupida,
 se recomienda modificar este valor para obtener una superficie
 apropiada.
 
-\subsection*{Ejemplo}\label{ejemplo-13}
+\subsection*{Ejemplo}\label{ejemplo-14}
 
 
 Dibujar la superficie de una distribución normal bivariada con vector de
@@ -2311,7 +2373,7 @@ Los argumentos de la función \texttt{pairs} son:
   base. Por defecto es lo primero.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-14}
+\subsection*{Ejemplo}\label{ejemplo-15}
 
 
 Dibujar una matriz de dispersión para las variables precio, área, número
@@ -2345,7 +2407,7 @@ apartamentos en Medellín.}
 En la Figura \ref{fig:ex1pairs} se muestra la matriz de dispersión para
 las variables del marco de datos \texttt{datos.num}.
 
-\subsection*{Ejemplo}\label{ejemplo-15}
+\subsection*{Ejemplo}\label{ejemplo-16}
 
 
 Volver a construir la Figura \ref{fig:ex1pairs} editando los nombres de
@@ -2373,7 +2435,7 @@ la nueva matriz de dispersión.
 adicionales de la función pairs.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-16}
+\subsection*{Ejemplo}\label{ejemplo-17}
 
 
 Construir una matriz de dispersión con las variables precio, área y
@@ -2419,7 +2481,7 @@ solicitada, los puntos rojos representan los apartamento sin parqueadero
 mientras que los puntos verdes son los apartamento que si tienen
 parqueadero.
 
-\subsection*{Ejemplo}\label{ejemplo-17}
+\subsection*{Ejemplo}\label{ejemplo-18}
 
 
 ¿Es posible agregar una leyenda a una matriz de dispersión?
@@ -2448,7 +2510,7 @@ A continuación se muestra el código para el ejemplo y en la Figura
 \caption{\label{fig:expairs}Matriz de dispersión con leyenda.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-18}
+\subsection*{Ejemplo}\label{ejemplo-19}
 
 
 ¿Es posible modificar el contenido de los páneles de una matriz de

@@ -1,24 +1,24 @@
 # Gráficos para una variable cualitativa
 
-En este capítulo se presentan funciones para la creación de gráficos con una sola variable cualitativa.
+En este capítulo se presentan funciones para la creación de gráficos para variables cualitativas.
 
 
 ## Función `barplot` \index{gráfico de barras} \index{barplot}
-Los gráficos de barras son útiles para representar las frecuencias absolutas o relativas asociadas a los niveles de una variable cualitativa.
-
-La función `barplot` se usa para obtener un gráfico de barras. La estructura de la función `barplot` con los argumentos más comunes de uso se muestra a continuación.
+Los gráficos de barras son útiles para representar las frecuencias absolutas o relativas asociadas a los niveles de una variable cualitativa y la función `barplot` se usa para obtener un gráfico de barras. La estructura de la función `barplot` con los argumentos más comunes de uso se muestra a continuación.
 
 ```{r, eval=F}
-barplot(height, )
+barplot(height, beside, horiz)
 ```
 Los argumentos de la función `barplot` son:
 
 - `height`: vector o matriz con la información de las frecuencias absolutas o relativas.
-- `besides`: valor lógico para indicar si las barras deben estar al lado cuando la información ingresada es una matriz.
+- `beside`: valor lógico para indicar si las barras deben estar al lado cuando la información ingresada es una matriz.
+- `horiz`: valor lógico para indicar si el diagrama de barras debe ser horizontal, por defecto es `FALSE`.
 
+La función `barplot` tiene otros parámetros que pueden ser consultados en la ayuda de la función por medio de la instrucción `?barplot`.
 
 ### Ejemplo {-}
-Suponga que queremos construir un diagrama de barras para las frecuencias relativas para la variable estrato socioeconómico del apartamento de la base de datos sobre apartamentos usados en Medellín.
+Suponga que queremos construir un diagrama de barras para las frecuencias relativas de la variable estrato socioeconómico del apartamento de la base de datos sobre apartamentos usados en Medellín.
 
 A continuación se muestra el código necesario para cargar la base de datos `aptos2015`. Antes de construir el diagrama de barras solicitado es necesario construir la tabla de frecuencias para la variable estrato, para esto se usa la función `table` y los resultados se almacenan en el objeto `tabla1` que contiene las frecuencias __absolutas__. Para obtener las frecuencias __relativas__ se usa luego la función `prop.table` sobre el objeto `tabla1`.
 
@@ -109,9 +109,28 @@ legend('topleft', legend=rownames(tabla2), bty='n',
 ¿Cuáles son las ventajas y/o desventajas de las figuras \@ref(fig:barra5) y \@ref(fig:barra6) al ser presentadas en un informe?
 
 
+## Función `pie` \index{gráfico de pastel} \index{pie}
+En \proglang{R} es posible construir gráficos de pastel para representar una tabla de frecuencia relativa o absoluta, sin embargo este tipo de gráficos no es recomendable y en la ayuda de la función se hace la siguiente advertencia: "_Pie charts are a very bad way of displaying information. The eye is good at judging linear measures and bad at judging relative areas. A bar chart or dot chart is a preferable way of displaying this type of data_".
 
+La estructura de la función `pie` con los argumentos más comunes de uso se muestra a continuación.
 
+```{r, eval=F}
+barplot(x, labels)
+```
+Los argumentos de la función `pie` son:
 
+- `x`: vector con elementos no negativos que representan las frecuencias de los niveles de la variable cualitativa.
+- `labels`: vector con los nombres a colocar en cada parte del pastel, por defecto se usan los nombres del vector `x`.
+
+### Ejemplo {-}
+Dibujar un gráfico de pastel para las frecuencias relativas de la variable estrato socioeconómico del apartamento de la base de datos sobre apartamentos usados en Medellín.
+
+La `tabla1` construída en el primer ejemplo de `barplot` se utiliza para construir el gráfico solicitado. Abajo el código necesario para construir el gráfico.
+
+```{r pie, fig.cap='Gráfico de pastel para las frecuencias relativas del estrato socioeconómico', fig.asp=0.6, fig.width =7}
+nombres <- paste('Estrato ', 2:6)
+pie(x=tabla1, labels=nombres)
+```
 
 
 
