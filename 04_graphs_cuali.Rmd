@@ -87,7 +87,7 @@ legend('topleft', legend=rownames(tabla2), bty='n',
 
 En la Figura \@ref(fig:barra5) se observa el gráfico de barras solicitado, se observa claramente que en los estratos 4, 5 y 6 predominan los aparatamentos con parqueadero.
 
-Es posible construir una tabla de contingencia de frecuencia relativa para ver cómo es el comportamiento de tener o no parquedadero dentro de cada estrato, el siguiente código construye la `tabla3` con la información necesaria.
+Es posible construir una tabla de contingencia de frecuencia relativa para ver cómo es el comportamiento de tener o no parquedadero dentro de cada estrato, el siguiente código construye la `tabla3` con la información necesaria. La función `prop.table` permite obtener la tabla de frecuencias __relativas__ a partir de una tabla de frecuencias absolutas, el parámetro `margin` sirve para indicar si las frecuencias __relativas__ se deben obtener por fila (`margin=1`) o por columnas (`margin=2`).
 
 ```{r}
 tabla3 <- prop.table(tabla2, margin=2)
@@ -129,10 +129,21 @@ La `tabla1` construída en el primer ejemplo de `barplot` se utiliza para constr
 
 ```{r pie, fig.cap='Gráfico de pastel para las frecuencias relativas del estrato socioeconómico', fig.asp=0.6, fig.width =7}
 nombres <- paste('Estrato ', 2:6)
-pie(x=tabla1, labels=nombres)
+pie(x=tabla1, labels=nombres, 
+    main='Gráficos de pastel NO recomendados')
 ```
 
+La Figura \@ref(fig:pie) presenta el gráfico de pastel construído con la instrucción anterior.
 
+## EJERCICIOS {-}
+Use funciones o procedimientos (varias líneas) de \proglang{R} para responder cada una de las siguientes preguntas.
 
+Todas las preguntas siguientes están relacionadas con la base de datos sobre [apartamentos](https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015) usados en la ciudad de Medellín.
+
+1. Construya un diagrama de barras para representar las frecuencias ABSOLUTAS de la variable ubicación. 
+2. Vuelva a construir el mismo diagrama de barras anterior pero de forma horizontal y agregando números de color azul para indicar las frecuencias.
+3. Construya una tabla de dos vías para las variables ubicación y parqueadero.
+4. Construya una tabla de frecuencias relativas para ver cómo se comporta la variable parqueadero dentro de cada ubicación.
+5. Dibuje un diagrama de barras para la tabla de frecuencias del punto anterior.
 
 
