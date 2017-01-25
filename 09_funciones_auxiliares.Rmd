@@ -1,0 +1,29 @@
+# Funciones auxiliares
+
+En este capítulo se presentan funciones auxiliares que son útiles para complementar los gráficos generados en \proglang{R}.
+
+## Función `abline` \index{abline}
+La función `abline` sirve para ...
+
+## Función `legend` \index{legend} \index{leyendas}
+
+## Función `text` \index{text} \index{texto}
+
+## Función `lines` \index{lines} \index{líneas}
+
+## Función `points` \index{points} \index{puntos}
+
+## Función `identify` \index{identify} \index{identificador}
+
+## Función `locator` \index{locator} 
+
+## Función `axes` \index{axes} \index{ejes}
+
+## Función `title` \index{title} \index{títulos}
+
+## Función `mtext` \index{mtext} 
+
+## Función `curve` \index{curve} \index{curve}
+
+## Función `rug` \index{rug} 
+
