@@ -2631,17 +2631,20 @@ y \ref{fig:barra6} al ser presentadas en un informe?
 En \proglang{R} es posible construir gráficos de pastel para representar
 una tabla de frecuencia relativa o absoluta, sin embargo este tipo de
 gráficos no es recomendable y en la ayuda de la función se hace la
-siguiente advertencia: ``\emph{Pie charts are a very bad way of
-displaying information. The eye is good at judging linear measures and
-bad at judging relative areas. A bar chart or dot chart is a preferable
-way of displaying this type of data}''.
+siguiente advertencia:
+
+\BeginKnitrBlock{rmdwarning}
+Pie charts are a very bad way of displaying information. The eye is good
+at judging linear measures and bad at judging relative areas. A bar
+chart or dot chart is a preferable way of displaying this type of data.
+\EndKnitrBlock{rmdwarning}
 
 La estructura de la función \texttt{pie} con los argumentos más comunes
 de uso se muestra a continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{barplot}\NormalTok{(x, labels)}
+\KeywordTok{pie}\NormalTok{(x, labels)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2672,7 +2675,7 @@ necesario para construir el gráfico.
 \begin{Highlighting}[]
 \NormalTok{nombres <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(}\StringTok{'Estrato '}\NormalTok{, }\DecValTok{2}\NormalTok{:}\DecValTok{6}\NormalTok{)}
 \KeywordTok{pie}\NormalTok{(}\DataTypeTok{x=}\NormalTok{tabla1, }\DataTypeTok{labels=}\NormalTok{nombres, }
-    \DataTypeTok{main=}\StringTok{'Gráficos de pastel NO recomendados'}\NormalTok{)}
+    \DataTypeTok{main=}\StringTok{'Gráfico de pastel NO recomendado!!!'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2680,7 +2683,7 @@ necesario para construir el gráfico.
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/pie-1.pdf}
 \caption{\label{fig:pie}Gráfico de pastel para las frecuencias relativas del
-estrato socioeconómico}
+estrato socioeconómico.}
 \end{figure}
 
 La Figura \ref{fig:pie} presenta el gráfico de pastel construído con la

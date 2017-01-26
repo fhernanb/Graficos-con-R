@@ -110,12 +110,16 @@ legend('topleft', legend=rownames(tabla2), bty='n',
 
 
 ## Función `pie` \index{gráfico de pastel} \index{pie}
-En \proglang{R} es posible construir gráficos de pastel para representar una tabla de frecuencia relativa o absoluta, sin embargo este tipo de gráficos no es recomendable y en la ayuda de la función se hace la siguiente advertencia: "_Pie charts are a very bad way of displaying information. The eye is good at judging linear measures and bad at judging relative areas. A bar chart or dot chart is a preferable way of displaying this type of data_".
+En \proglang{R} es posible construir gráficos de pastel para representar una tabla de frecuencia relativa o absoluta, sin embargo este tipo de gráficos no es recomendable y en la ayuda de la función se hace la siguiente advertencia:
+
+```{block2, type='rmdwarning'}
+Pie charts are a very bad way of displaying information. The eye is good at judging linear measures and bad at judging relative areas. A bar chart or dot chart is a preferable way of displaying this type of data.
+```
 
 La estructura de la función `pie` con los argumentos más comunes de uso se muestra a continuación.
 
 ```{r, eval=F}
-barplot(x, labels)
+pie(x, labels)
 ```
 Los argumentos de la función `pie` son:
 
@@ -127,10 +131,10 @@ Dibujar un gráfico de pastel para las frecuencias relativas de la variable estr
 
 La `tabla1` construída en el primer ejemplo de `barplot` se utiliza para construir el gráfico solicitado. Abajo el código necesario para construir el gráfico.
 
-```{r pie, fig.cap='Gráfico de pastel para las frecuencias relativas del estrato socioeconómico', fig.asp=0.6, fig.width =7}
+```{r pie, fig.cap='Gráfico de pastel para las frecuencias relativas del estrato socioeconómico.', fig.asp=0.6, fig.width =7}
 nombres <- paste('Estrato ', 2:6)
 pie(x=tabla1, labels=nombres, 
-    main='Gráficos de pastel NO recomendados')
+    main='Gráfico de pastel NO recomendado!!!')
 ```
 
 La Figura \@ref(fig:pie) presenta el gráfico de pastel construído con la instrucción anterior.
