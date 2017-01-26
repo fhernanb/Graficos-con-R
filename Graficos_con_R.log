@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9) (preloaded format=xelatex 2016.8.6)  26 JAN 2017 17:35
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9) (preloaded format=xelatex 2016.8.6)  26 JAN 2017 17:52
 entering extended mode
 **./Graficos_con_R.tex
 (Graficos_con_R.tex
@@ -1604,10 +1604,10 @@ LaTeX Info: Redefining \% on input line 515.
 LaTeX Info: Redefining \. on input line 538.
 LaTeX Info: Redefining \% on input line 538.
 [4]
-File: images/important.png Graphic file (type QTm)
-<use  "images/important.png" >
-File: images/important.png Graphic file (type QTm)
-<use  "images/important.png" >
+File: images/warning.png Graphic file (type QTm)
+<use  "images/warning.png" >
+File: images/note.png Graphic file (type QTm)
+<use  "images/note.png" >
 LaTeX Info: Redefining \. on input line 591.
 LaTeX Info: Redefining \% on input line 591.
 [5]
@@ -2612,10 +2612,10 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 27604 strings out of 428409
- 478197 string characters out of 3159523
+ 27602 strings out of 428409
+ 478164 string characters out of 3159523
  554325 words of memory out of 3000000
- 30666 multiletter control sequences out of 15000+200000
+ 30665 multiletter control sequences out of 15000+200000
  35255 words of font info for 74 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  53i,8n,92p,10414b,651s stack positions out of 5000i,500n,10000p,200000b,50000s

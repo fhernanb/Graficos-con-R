@@ -74,11 +74,11 @@ comic.fav <- c(NA, 'Superman', 'Batman', NA, 'Batman')
 
 El vector `edad` es un vector cuantitativo y contiene las edades de las 5 personas. En la cuarta posición del vector se colocó el símbolo `NA` que significa \textit{Not Available} debido a que no se registró la edad para esa persona. Al hacer una asignación se acostumbra a dejar un espacio antes y después del operador `<-` de asignación. El segundo vector es llamado `deporte` y es un vector lógico que almacena las respuestas a la pregunta de si la persona practica deporte, nuevamente aquí hay un `NA` para la tercera persona. El último vector `comic.fav` contiene la información del cómic favorito de cada persona, como esta variable es cualitativa es necesario usar las comillas `' '` para encerrar las respuestas.
 
-```{block2, type='rmdimportant'}
-Cuando se usa `NA` para representar una información \textit{Not Available} NO SE DEBE usar las comillas.
+```{block2, type='rmdwarning'}
+Cuando se usa `NA` para representar una información \textit{Not Available} no se deben usar comillas.
 ```
 
-```{block2, type='rmdimportant'}
+```{block2, type='rmdnote'}
 Es posible usar comillas sencillas `'foo'` o comillas dobles `"foo"` para ingresar valores de una variable cualitativa.
 ```
 
