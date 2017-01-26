@@ -72,9 +72,15 @@ deporte <- c(TRUE, TRUE, NA, FALSE, TRUE)
 comic.fav <- c(NA, 'Superman', 'Batman', NA, 'Batman')
 ```
 
-El vector `edad` es un vector cuantitativo y contiene las edades de las 5 personas. En la cuarta posición del vector se colocó el símbolo `NA` que significa \textit{Not Available} debido a que no se registró la edad para esa persona. Al hacer una asignación se acostumbra a dejar un espacio antes y después del operador `<-` de asignación. El segundo vector es llamado `deporte` y es un vector lógico que almacena las respuestas a la pregunta de si la persona practica deporte, nuevamente aquí hay un `NA` para la tercera persona. El último vector `comic.fav` contiene la información del cómic favorito de cada persona, como esta variable es cualitativa es necesario usar las comillas `' '` para encerrar las respuestas. Cuando se usa `NA` para representar una información \textit{Not Available} NO SE DEBEN usar las comillas `' '`.
+El vector `edad` es un vector cuantitativo y contiene las edades de las 5 personas. En la cuarta posición del vector se colocó el símbolo `NA` que significa \textit{Not Available} debido a que no se registró la edad para esa persona. Al hacer una asignación se acostumbra a dejar un espacio antes y después del operador `<-` de asignación. El segundo vector es llamado `deporte` y es un vector lógico que almacena las respuestas a la pregunta de si la persona practica deporte, nuevamente aquí hay un `NA` para la tercera persona. El último vector `comic.fav` contiene la información del cómic favorito de cada persona, como esta variable es cualitativa es necesario usar las comillas `' '` para encerrar las respuestas.
 
-Nota: es posible usar comillas sencillas `'foo'` o comillas dobles `"foo"` para ingresar valores de una variable cualitativa.
+```{block2, type='rmdimportant'}
+Cuando se usa `NA` para representar una información \textit{Not Available} NO SE DEBE usar las comillas.
+```
+
+```{block2, type='rmdimportant'}
+Es posible usar comillas sencillas `'foo'` o comillas dobles `"foo"` para ingresar valores de una variable cualitativa.
+```
 
 Si se desea ver lo que está almacenado en cada uno de estos vectores, se debe escribir en la consola de \proglang{R} el nombre de uno de los objetos y luego se presiona la tecla \textit{enter} o \textit{intro}, al realizar esto lo que se obtiene se muestra a continuación.
 

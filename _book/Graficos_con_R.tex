@@ -165,6 +165,43 @@
 
 \renewenvironment{Shaded}{\begin{kframe}}{\end{kframe}}
 
+%%%%%
+
+\newenvironment{rmdblock}[1]
+  {
+  \begin{itemize}
+  \renewcommand{\labelitemi}{
+    \raisebox{-.7\height}[0pt][0pt]{
+      {\setkeys{Gin}{width=3em,keepaspectratio}\includegraphics{images/#1}}
+    }
+  }
+  \setlength{\fboxsep}{1em}
+  \begin{kframe}
+  \item
+  }
+  {
+  \end{kframe}
+  \end{itemize}
+  }
+\newenvironment{rmdnote}
+  {\begin{rmdblock}{note}}
+  {\end{rmdblock}}
+\newenvironment{rmdcaution}
+  {\begin{rmdblock}{caution}}
+  {\end{rmdblock}}
+\newenvironment{rmdimportant}
+  {\begin{rmdblock}{important}}
+  {\end{rmdblock}}
+\newenvironment{rmdtip}
+  {\begin{rmdblock}{tip}}
+  {\end{rmdblock}}
+\newenvironment{rmdwarning}
+  {\begin{rmdblock}{warning}}
+  {\end{rmdblock}}
+
+
+%%%%%
+
 \usepackage{makeidx}
 \makeindex
 
@@ -183,7 +220,7 @@
 \title{Gráficos con R}
 \author{Juan Carlos Correa Morales\\
 Freddy Hernández Barajas}
-\date{2017-01-25}
+\date{2017-01-26}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -504,13 +541,19 @@ persona. El último vector \texttt{comic.fav} contiene la información del
 cómic favorito de cada persona, como esta variable es cualitativa es
 necesario usar las comillas
 \texttt{\textquotesingle{}\ \textquotesingle{}} para encerrar las
-respuestas. Cuando se usa \texttt{NA} para representar una información
+respuestas.
+
+\BeginKnitrBlock{rmdimportant}
+Cuando se usa \texttt{NA} para representar una información
 \textit{Not Available} NO SE DEBEN usar las comillas
 \texttt{\textquotesingle{}\ \textquotesingle{}}.
+\EndKnitrBlock{rmdimportant}
 
-Nota: es posible usar comillas sencillas
+\BeginKnitrBlock{rmdimportant}
+Es posible usar comillas sencillas
 \texttt{\textquotesingle{}foo\textquotesingle{}} o comillas dobles
 \texttt{"foo"} para ingresar valores de una variable cualitativa.
+\EndKnitrBlock{rmdimportant}
 
 Si se desea ver lo que está almacenado en cada uno de estos vectores, se
 debe escribir en la consola de \proglang{R} el nombre de uno de los
