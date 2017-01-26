@@ -65,6 +65,21 @@ a <- c(1, 5, 6)
 1:10
 ```
 
+## Bloques informativos {-}
+En varias partes del libro usaremos bloques informativos para resaltar algún aspecto importante. Abajo se encuentra un ejemplo de los bloques y su significado.
+
+```{block2, type='rmdnote'}
+Este bloque sirve para una nota aclaratoria.
+```
+
+```{block2, type='rmdtip'}
+Este bloque sirve para una sugerencia.
+```
+
+```{block2, type='rmdwarning'}
+Este bloque sirve para una advertencia.
+```
+
 ## Agradecimientos {-}
 
 Agradecemos a nuestros estudiantes, profesores y colegas que han leído el manuscrito y se han tomado el trabajo de escribirnos dándonos sus sugerencias y comentarios para mejorar continuamente este material.
