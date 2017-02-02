@@ -2,7 +2,7 @@
 
 En este capítulo se presentan funciones para la creación de gráficos con una sola variable cuantitativa.
 
-## Función `stem`
+## Función `stem` \index{stem} \index{tallo y hoja}
 
 Nos permite obtener el gráfico llamado de tallo y hoja debido a su apariencia. Este gráfico fue propuesto por Tukey (1977) y a pesar de no ser un gráfico para presentación definitiva se utiliza a la vez que el analista recoge la información para ver rápidamente la distribución de los datos.
 
@@ -39,8 +39,8 @@ stem(datos$altura)
 
 De este gráfico sencillo se puede ver que la variable presenta una mayor frecuencia para alturas ente 170 y 179 cm y que no tiene una distribución simétrica.
 
-## Función `boxplot` {-}
-La función `boxplot` sirve para crear un diagrama de cajas y bigote \index{boxplot} para una variable cuantitativa. La estructura de la función `boxplot` con los argumentos más comunes de uso se muestran a continuación.
+## Función `boxplot` \index{boxplot}
+La función `boxplot` sirve para crear un diagrama de cajas y bigote para una variable cuantitativa. La estructura de la función `boxplot` con los argumentos más comunes de uso se muestran a continuación.
 
 ```{r, eval=F}
 boxplot(x, formula, data, subset, na.action,
