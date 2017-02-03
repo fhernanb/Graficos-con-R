@@ -220,7 +220,7 @@
 \title{Gráficos con R}
 \author{Juan Carlos Correa Morales\\
 Freddy Hernández Barajas}
-\date{2017-02-02}
+\date{2017-02-03}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -413,7 +413,7 @@ exhaustiva de los sitios más populares relacionados con \proglang{R}:
 
 \begin{figure}
 
-{\centering \includegraphics[width=2.4in]{images/Robert_Roos} 
+{\centering \includegraphics{images/Robert_Roos} 
 
 }
 
@@ -431,7 +431,7 @@ sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics[width=4.54in]{images/cran} 
+{\centering \includegraphics{images/cran} 
 
 }
 
@@ -449,7 +449,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=5.31in]{images/instalacion1} 
+{\centering \includegraphics{images/instalacion1} 
 
 }
 
@@ -468,7 +468,7 @@ opciones que vienen por defecto.
 
 \begin{figure}
 
-{\centering \includegraphics[width=2.54in]{images/instalacion2} 
+{\centering \includegraphics{images/instalacion2} 
 
 }
 
@@ -489,7 +489,7 @@ apariencia del acceso directo para ingresar a \proglang{R}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=1.14in]{images/rlogo} 
+{\centering \includegraphics{images/rlogo} 
 
 }
 
@@ -507,7 +507,7 @@ consola, para hacer esto se deben explorar las opciones de
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
+{\centering \includegraphics{images/Rpantallazo} 
 
 }
 
@@ -2724,11 +2724,76 @@ usados en la ciudad de Medellín.
 \chapter{\texorpdfstring{Función
 \texttt{par}}{Función par}}\label{funcion-par}
 
-En este capítulo se presentan funciones para la creación de gráficos que
-involucran varias variables.
+En este capítulo se presentan las posibilidades que ofrece la función
+\texttt{par} para la elaboración de gráficos. La función \texttt{par}
+tiene 72 parámetros y a continuación se muestran.
 
-\section{\texorpdfstring{Función \texttt{par}
-\index{par}}{Función par }}\label{funcion-par-1}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(xlog, ylog, adj, ann, ask, bg, bty, cex, cex.axis, cex.lab,}
+    \NormalTok{cex.main, cex.sub, cin, col, col.axis, col.lab, col.main,}
+    \NormalTok{col.sub, cra, crt, csi, cxy, din, err, family, fg, fig, fin,}
+    \NormalTok{font, font.axis, font.lab, font.main, font.sub, lab, las, }
+    \NormalTok{lend, lheight, ljoin, lmitre, lty, lwd, mai, mar, mex, mfcol,}
+    \NormalTok{mfg, mfrow, mgp, mkh, new, oma, omd, omi, page, pch, pin, }
+    \NormalTok{plt, ps, pty, smo, srt, tck, tcl, usr, xaxp, xaxs, xaxt, xpd, }
+    \NormalTok{yaxp, yaxs, yaxt, ylbias)}
+\end{Highlighting}
+\end{Shaded}
+
+Para conocer los valores que tienen por defecto cada uno de estos
+parámetros se puede utilizar el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+Al ejecutar el código anterior se obtendrá una lista con 72 objetos en
+la cual se tendrán los valores que cada uno de los parámetros asume
+inicialmente en una sesión de \proglang{R}. Luego de modificar uno o
+alguno de los parámetros de la función \texttt{par}, todos los gráficos
+que se construyan de ahí en adelante estarán afectados por el cambio
+realizado.
+
+\BeginKnitrBlock{rmdnote}
+Una buena práctica es crear una copia del objeto \texttt{par} con otro
+nombre para luego recuperar la configuración inicial.
+\EndKnitrBlock{rmdnote}
+
+La utilidad de cada uno de los parámetros para personalizar los gráficos
+se mostrará por medio de ejemplos.
+
+\section{\texorpdfstring{Parámetro \texttt{bg} \index{color del fondo}
+\index{bg}}{Parámetro bg  }}\label{parametro-bg}
+
+Este parámetro sirve para modficar el color del fondo donde se va a
+dibujar.
+
+\subsection*{Ejemplo}\label{ejemplo-20}
+
+
+Dibujar la densidad de una normal estándar usando un color verde para el
+fondo.
+
+A continuación el código necesario para modficar el color del fondo. En
+esta
+\href{http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf}{página} se
+puede encontrar una paleta de colores disponibles en \proglang{R}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{bg=}\StringTok{'darkseagreen1'}\NormalTok{)}
+\KeywordTok{curve}\NormalTok{(dnorm, }\DataTypeTok{lwd=}\DecValTok{6}\NormalTok{, }\DataTypeTok{col=}\StringTok{'blue'}\NormalTok{, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/par1-1.pdf}
+\caption{\label{fig:par1}Densidad de una normal estándar.}
+\end{figure}
 
 \chapter{Funciones auxiliares}\label{funciones-auxiliares}
 

@@ -1,6 +1,54 @@
 # Función `par`
 
-En este capítulo se presentan funciones para la creación de gráficos que involucran varias variables.
+En este capítulo se presentan las posibilidades que ofrece la función `par` para la elaboración de gráficos. La función `par` tiene `r length(par())` parámetros y a continuación se muestran.
 
-## Función `par` \index{par}
+```{r, eval=F}
+par(xlog, ylog, adj, ann, ask, bg, bty, cex, cex.axis, cex.lab,
+    cex.main, cex.sub, cin, col, col.axis, col.lab, col.main,
+    col.sub, cra, crt, csi, cxy, din, err, family, fg, fig, fin,
+    font, font.axis, font.lab, font.main, font.sub, lab, las, 
+    lend, lheight, ljoin, lmitre, lty, lwd, mai, mar, mex, mfcol,
+    mfg, mfrow, mgp, mkh, new, oma, omd, omi, page, pch, pin, 
+    plt, ps, pty, smo, srt, tck, tcl, usr, xaxp, xaxs, xaxt, xpd, 
+    yaxp, yaxs, yaxt, ylbias)
+```
+
+Para conocer los valores que tienen por defecto cada uno de estos parámetros se puede utilizar el siguiente código.
+
+```{r, eval=F}
+par()
+```
+
+Al ejecutar el código anterior se obtendrá una lista con `r length(par())` objetos en la cual se tendrán los valores que cada uno de los parámetros asume inicialmente en una sesión de \proglang{R}. Luego de modificar uno o alguno de los parámetros de la función `par`, todos los gráficos que se construyan de ahí en adelante estarán afectados por el cambio realizado.
+
+```{block2, type='rmdnote'}
+Una buena práctica es crear una copia del objeto `par` con otro nombre para luego recuperar la configuración inicial.
+```
+
+A continuación vamos a crear una copia de `par()` llamada `opar` para recuperar los valores iniciales.
+```{r}
+opar <- par()  # opar es el Original objeto PAR
+```
+
+
+La utilidad de cada uno de los parámetros para personalizar los gráficos se mostrará por medio de ejemplos.
+
+
+## Parámetro `bg` \index{color del fondo} \index{bg}
+Este parámetro sirve para modficar el color del fondo donde se va a dibujar.
+
+### Ejemplo {-}
+Dibujar la densidad de una normal estándar usando un color verde para el fondo.
+
+A continuación el código necesario para modficar el color del fondo. En esta [página](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf) se puede encontrar una paleta de colores disponibles en \proglang{R}.
+
+```{r par1, fig.cap='Densidad de una normal estándar.', fig.asp=0.8, fig.width=4}
+par(bg='darkseagreen1')
+curve(dnorm, lwd=6, col='blue', xlim=c(-4, 4))
+par(opar)  # para retornar a los valores originales
+```
+
+## Parámetro `bty` \index{tipo de caja} \index{bty}
+Este parámetro sirve para modficar el color del fondo donde se va a dibujar.
+
 
