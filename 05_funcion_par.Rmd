@@ -22,33 +22,67 @@ par()
 Al ejecutar el código anterior se obtendrá una lista con `r length(par())` objetos en la cual se tendrán los valores que cada uno de los parámetros asume inicialmente en una sesión de \proglang{R}. Luego de modificar uno o alguno de los parámetros de la función `par`, todos los gráficos que se construyan de ahí en adelante estarán afectados por el cambio realizado.
 
 ```{block2, type='rmdnote'}
-Una buena práctica es crear una copia del objeto `par` con otro nombre para luego recuperar la configuración inicial.
+Una buena práctica para retornar a los valores iniciales del objeto `par()` es cerrar la ventana gráfica.
 ```
-
-A continuación vamos a crear una copia de `par()` llamada `opar` para recuperar los valores iniciales.
-```{r}
-opar <- par()  # opar es el Original objeto PAR
-```
-
 
 La utilidad de cada uno de los parámetros para personalizar los gráficos se mostrará por medio de ejemplos.
 
-
 ## Parámetro `bg` \index{color del fondo} \index{bg}
-Este parámetro sirve para modficar el color del fondo donde se va a dibujar.
+Este parámetro sirve para modificar el color del fondo donde se va a dibujar.
 
 ### Ejemplo {-}
 Dibujar la densidad de una normal estándar usando un color verde para el fondo.
 
 A continuación el código necesario para modficar el color del fondo. En esta [página](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf) se puede encontrar una paleta de colores disponibles en \proglang{R}.
 
-```{r par1, fig.cap='Densidad de una normal estándar.', fig.asp=0.8, fig.width=4}
+```{r par1, fig.cap='Efecto del parámetro `bg`.', fig.asp=0.8, fig.width=4}
 par(bg='darkseagreen1')
 curve(dnorm, lwd=6, col='blue', xlim=c(-4, 4))
-par(opar)  # para retornar a los valores originales
 ```
 
+## Parámetro `mfrow` \index{partición ventana gráfica} \index{mfrow}
+Este parámetro sirve para dividir la ventana gráfica en forma de matriz para almacenar en cada celda un gráfico diferente. La forma para modificar este parámetro es `mfrow=c(nf, nc)`, donde `nf` es el número de filas y `nc` el número de columnas en las cuales se va a dividir la ventana gráfica.
+
+### Ejemplo {-}
+Dibujar la distribución de probabilidad para una distribución Poisson con $\lambda=1, 2.5, 10, 20$.
+
+Para
+
+```{r mfrow, fig.cap='Efecto del parámetro `mfrow`.', fig.asp=0.8, fig.width=7}
+par(mfrow=c(2, 2))
+
+lambdas <- c(1, 3, 7, 15)
+
+for (i in 1:4) {
+  plot(dpois(x=0:30, lambda=lambdas[i]), lwd=3,
+       type='h', xlab='x', ylab='Probabilidad')
+  title(expression(lambda == 4))
+} 
+```
+
+
 ## Parámetro `bty` \index{tipo de caja} \index{bty}
-Este parámetro sirve para modficar el color del fondo donde se va a dibujar.
+Este parámetro sirve para modficar la caja alrededor del gráfico construído. Los posibles valores para este parámetro son: `'o'` valor por defecto para obtener la caja usual; se pueden usar también los símboloes `'l'`, `'7'`, `'c'`, `'u'` o `']'`, el resultado será una caja con la forma del símbolo; se puede usar `'n'` para suprimir la caja.
+
+### Ejemplo {-}
+Dibujar la densidad de una $\chi^2_5$ modificando el parámetro `bty` de `par`.
+
+A continuación el código para dibujar la misma densidad 4 veces modificando el valor para `bty`. En la Figura \@ref(fig:par2) se muestra el efecto que tienen los valores elegidos. Observe que, además de los ejes, hay una caja cuya forma depende el valor seleccionado, cuando `bty='u'` el resultado es una caja con esa misma forma.
+
+```{r par2, fig.cap='Efecto del parámetro `bty`.', fig.asp=0.9, fig.width=5}
+par(bty='n', mfrow=c(2, 2))
+curve(dchisq(x, df=5), xlim=c(0, 20))
+title("Usando bty='n'")
+par(bty='o')
+curve(dchisq(x, df=5), xlim=c(0, 20))
+title("Usando bty='o'")
+par(bty='u')
+curve(dchisq(x, df=5), xlim=c(0, 20))
+title("Usando bty='u'")
+par(bty='l')
+curve(dchisq(x, df=5), xlim=c(0, 20))
+title("Usando bty='l'")
+```
+
 
 

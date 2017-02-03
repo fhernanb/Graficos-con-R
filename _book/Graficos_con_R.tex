@@ -2758,8 +2758,8 @@ que se construyan de ahí en adelante estarán afectados por el cambio
 realizado.
 
 \BeginKnitrBlock{rmdnote}
-Una buena práctica es crear una copia del objeto \texttt{par} con otro
-nombre para luego recuperar la configuración inicial.
+Una buena práctica para retornar a los valores iniciales del objeto
+\texttt{par()} es cerrar la ventana gráfica.
 \EndKnitrBlock{rmdnote}
 
 La utilidad de cada uno de los parámetros para personalizar los gráficos
@@ -2768,7 +2768,7 @@ se mostrará por medio de ejemplos.
 \section{\texorpdfstring{Parámetro \texttt{bg} \index{color del fondo}
 \index{bg}}{Parámetro bg  }}\label{parametro-bg}
 
-Este parámetro sirve para modficar el color del fondo donde se va a
+Este parámetro sirve para modificar el color del fondo donde se va a
 dibujar.
 
 \subsection*{Ejemplo}\label{ejemplo-20}
@@ -2792,7 +2792,96 @@ puede encontrar una paleta de colores disponibles en \proglang{R}.
 \begin{figure}[htbp]
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/par1-1.pdf}
-\caption{\label{fig:par1}Densidad de una normal estándar.}
+\caption{\label{fig:par1}Efecto del parámetro \texttt{bg}.}
+\end{figure}
+
+\section{\texorpdfstring{Parámetro \texttt{mfrow}
+\index{partición ventana gráfica}
+\index{mfrow}}{Parámetro mfrow  }}\label{parametro-mfrow}
+
+Este parámetro sirve para dividir la ventana gráfica en forma de matriz
+para almacenar en cada celda un gráfico diferente. La forma para
+modificar este parámetro es \texttt{mfrow=c(nf,\ nc)}, donde \texttt{nf}
+es el número de filas y \texttt{nc} el número de columnas en las cuales
+se va a dividir la ventana gráfica.
+
+\subsection*{Ejemplo}\label{ejemplo-21}
+
+
+Dibujar la distribución de probabilidad para una distribución Poisson
+con \(\lambda=1, 2.5, 10, 20\).
+
+Para
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+
+\NormalTok{lambdas <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{15}\NormalTok{)}
+
+\NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\DecValTok{4}\NormalTok{) \{}
+  \KeywordTok{plot}\NormalTok{(}\KeywordTok{dpois}\NormalTok{(}\DataTypeTok{x=}\DecValTok{0}\NormalTok{:}\DecValTok{30}\NormalTok{, }\DataTypeTok{lambda=}\NormalTok{lambdas[i]), }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{,}
+       \DataTypeTok{type=}\StringTok{'h'}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{'x'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Probabilidad'}\NormalTok{)}
+  \KeywordTok{title}\NormalTok{(}\KeywordTok{expression}\NormalTok{(lambda ==}\StringTok{ }\DecValTok{4}\NormalTok{))}
+\NormalTok{\} }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/mfrow-1.pdf}
+\caption{\label{fig:mfrow}Efecto del parámetro \texttt{mfrow}.}
+\end{figure}
+
+\section{\texorpdfstring{Parámetro \texttt{bty} \index{tipo de caja}
+\index{bty}}{Parámetro bty  }}\label{parametro-bty}
+
+Este parámetro sirve para modficar la caja alrededor del gráfico
+construído. Los posibles valores para este parámetro son:
+\texttt{\textquotesingle{}o\textquotesingle{}} valor por defecto para
+obtener la caja usual; se pueden usar también los símboloes
+\texttt{\textquotesingle{}l\textquotesingle{}},
+\texttt{\textquotesingle{}7\textquotesingle{}},
+\texttt{\textquotesingle{}c\textquotesingle{}},
+\texttt{\textquotesingle{}u\textquotesingle{}} o
+\texttt{\textquotesingle{}{]}\textquotesingle{}}, el resultado será una
+caja con la forma del símbolo; se puede usar
+\texttt{\textquotesingle{}n\textquotesingle{}} para suprimir la caja.
+
+\subsection*{Ejemplo}\label{ejemplo-22}
+
+
+Dibujar la densidad de una \(\chi^2_5\) modificando el parámetro
+\texttt{bty} de \texttt{par}.
+
+A continuación el código para dibujar la misma densidad 4 veces
+modificando el valor para \texttt{bty}. En la Figura \ref{fig:par2} se
+muestra el efecto que tienen los valores elegidos. Observe que, además
+de los ejes, hay una caja cuya forma depende el valor seleccionado,
+cuando \texttt{bty=\textquotesingle{}u\textquotesingle{}} el resultado
+es una caja con esa misma forma.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{, }\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{curve}\NormalTok{(}\KeywordTok{dchisq}\NormalTok{(x, }\DataTypeTok{df=}\DecValTok{5}\NormalTok{), }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{20}\NormalTok{))}
+\KeywordTok{title}\NormalTok{(}\StringTok{"Usando bty='n'"}\NormalTok{)}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{bty=}\StringTok{'o'}\NormalTok{)}
+\KeywordTok{curve}\NormalTok{(}\KeywordTok{dchisq}\NormalTok{(x, }\DataTypeTok{df=}\DecValTok{5}\NormalTok{), }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{20}\NormalTok{))}
+\KeywordTok{title}\NormalTok{(}\StringTok{"Usando bty='o'"}\NormalTok{)}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{bty=}\StringTok{'u'}\NormalTok{)}
+\KeywordTok{curve}\NormalTok{(}\KeywordTok{dchisq}\NormalTok{(x, }\DataTypeTok{df=}\DecValTok{5}\NormalTok{), }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{20}\NormalTok{))}
+\KeywordTok{title}\NormalTok{(}\StringTok{"Usando bty='u'"}\NormalTok{)}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{bty=}\StringTok{'l'}\NormalTok{)}
+\KeywordTok{curve}\NormalTok{(}\KeywordTok{dchisq}\NormalTok{(x, }\DataTypeTok{df=}\DecValTok{5}\NormalTok{), }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{20}\NormalTok{))}
+\KeywordTok{title}\NormalTok{(}\StringTok{"Usando bty='l'"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/par2-1.pdf}
+\caption{\label{fig:par2}Efecto del parámetro \texttt{bty}.}
 \end{figure}
 
 \chapter{Funciones auxiliares}\label{funciones-auxiliares}
