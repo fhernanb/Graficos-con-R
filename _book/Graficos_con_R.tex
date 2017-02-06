@@ -220,7 +220,7 @@
 \title{Gráficos con R}
 \author{Juan Carlos Correa Morales\\
 Freddy Hernández Barajas}
-\date{2017-02-03}
+\date{2017-02-06}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -2765,13 +2765,99 @@ Una buena práctica para retornar a los valores iniciales del objeto
 La utilidad de cada uno de los parámetros para personalizar los gráficos
 se mostrará por medio de ejemplos.
 
+\section{\texorpdfstring{Parámetro \texttt{ann}
+\index{nombre de los ejes}
+\index{ann}}{Parámetro ann  }}\label{parametro-ann}
+
+Este parámetro sirve para indicar si se quiere un gráfico con nombres en
+los ejes y título principal, por defecto asume el valor \texttt{TRUE}.
+
+\subsection*{Ejemplo}\label{ejemplo-20}
+
+
+Dibujar la densidad para una distribución \(\chi^2_1\) usando
+\texttt{ann=FALSE} dentro de la función \texttt{par}.
+
+El código necesario para obtener la figura se muestra a continuación.
+Note que a pesar de haber solicitado título principal y nombres de los
+ejes, éstos no aparecen en el resultado final. En la Figura
+\ref{fig:ann} se muestra el gráfico solicitado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{ann=}\OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{curve}\NormalTok{(}\KeywordTok{dchisq}\NormalTok{(x, }\DataTypeTok{df=}\DecValTok{1}\NormalTok{), }\DataTypeTok{col=}\StringTok{'salmon1'}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{,}
+      \DataTypeTok{main=}\StringTok{'Chi cuadrada'}\NormalTok{,}
+      \DataTypeTok{xlab=}\StringTok{'x'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/ann-1.pdf}
+\caption{\label{fig:ann}Efecto del parámetro \texttt{ann}.}
+\end{figure}
+
+\BeginKnitrBlock{rmdnote}
+La opción \texttt{ann=FALSE} es muy útil para gráficos sin nombres en
+los ejes y sin título principal. Esta opción evita el uso de
+\texttt{xlab=\textquotesingle{}\textquotesingle{},\ ylab=\textquotesingle{}\textquotesingle{},\ main=\textquotesingle{}\textquotesingle{}}
+dentro de las funciones gráfica.
+\EndKnitrBlock{rmdnote}
+
+\section{\texorpdfstring{Parámetro \texttt{adj}
+\index{justitificación del texto}
+\index{adj}}{Parámetro adj  }}\label{parametro-adj}
+
+Este parámetro sirve para modificar la justificación del texto cuando se
+usan las funciones \texttt{text}, \texttt{mtext} y \texttt{title}. Su
+valor por defecto es 0.5 que indica que el texto debe quedar centrado en
+las coordenadas x e y indicadas, un valor de 0 significa justificación a
+izquierda mientras que 1 significa justificación a derecha.
+
+\subsection*{Ejemplo}\label{ejemplo-21}
+
+
+Dibujar un gráfico vacío, ubicar las palabra \emph{hola mi mundo}
+horizontalmente en el gráfico y explorar el efecto del parámetro
+\texttt{adj}.
+
+El código necesario para obtener lo solicitado se muestra a
+continuación. Observando la Figura \ref{fig:adj} se nota claramente que
+cuando \texttt{adj=0.5} la palabra queda centrada mientras que con otros
+valores cambia la justificación del texto.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\OtherTok{NULL}\NormalTok{, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.6}\NormalTok{), }\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{adj=}\DecValTok{0}\NormalTok{)  }\CommentTok{# Para justificar a izquierda}
+\KeywordTok{text}\NormalTok{(}\DataTypeTok{x=}\FloatTok{0.1}\NormalTok{, }\DataTypeTok{y=}\FloatTok{0.6}\NormalTok{, }\StringTok{'hola'}\NormalTok{, }\DataTypeTok{cex=}\DecValTok{3}\NormalTok{)}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{adj=}\FloatTok{0.5}\NormalTok{)  }\CommentTok{# Para justificar centrado}
+\KeywordTok{text}\NormalTok{(}\DataTypeTok{x=}\FloatTok{0.3}\NormalTok{, }\DataTypeTok{y=}\FloatTok{0.6}\NormalTok{, }\StringTok{'mi'}\NormalTok{, }\DataTypeTok{cex=}\DecValTok{3}\NormalTok{)}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{adj=}\DecValTok{1}\NormalTok{)  }\CommentTok{# Para justificar a derecha}
+\KeywordTok{text}\NormalTok{(}\DataTypeTok{x=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{y=}\FloatTok{0.6}\NormalTok{, }\StringTok{'mundo'}\NormalTok{, }\DataTypeTok{cex=}\DecValTok{3}\NormalTok{)}
+
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{h=}\FloatTok{0.6}\NormalTok{, }\DataTypeTok{v=}\KeywordTok{c}\NormalTok{(}\FloatTok{0.1}\NormalTok{, }\FloatTok{0.3}\NormalTok{, }\FloatTok{0.5}\NormalTok{),}
+       \DataTypeTok{lty=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{'deepskyblue3'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/adj-1.pdf}
+\caption{\label{fig:adj}Efecto del parámetro \texttt{adj}.}
+\end{figure}
+
 \section{\texorpdfstring{Parámetro \texttt{bg} \index{color del fondo}
 \index{bg}}{Parámetro bg  }}\label{parametro-bg}
 
 Este parámetro sirve para modificar el color del fondo donde se va a
 dibujar.
 
-\subsection*{Ejemplo}\label{ejemplo-20}
+\subsection*{Ejemplo}\label{ejemplo-22}
 
 
 Dibujar la densidad de una normal estándar usando un color verde para el
@@ -2805,13 +2891,21 @@ modificar este parámetro es \texttt{mfrow=c(nf,\ nc)}, donde \texttt{nf}
 es el número de filas y \texttt{nc} el número de columnas en las cuales
 se va a dividir la ventana gráfica.
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-23}
 
 
 Dibujar la distribución de probabilidad para una distribución Poisson
-con \(\lambda=1, 2.5, 10, 20\).
+con \(\lambda=1, 3, 7, 15\).
 
-Para
+Note que el objetivo es repetir el mismo gráfico para 4 valores
+diferentes del paramétro \(\lambda\), por lo tanto se escribirá una sola
+vez el código de interés pero se repetirá automáticamente 4 veces para
+cada valor de \(\lambda\). Para construir el gráfico solicitado
+iniciamos partiendo la ventana gráfica en una matriz de \(2 \times 2\)
+usando \texttt{par(mfrow=c(2,\ 2))}. Luego se construye el vector
+\texttt{lambdas} con los valores de \(\lambda\) y por último se coloca
+el \texttt{plot} de interés dentro de una sentencia \texttt{for}. Abajo
+el código utilizado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2820,9 +2914,9 @@ Para
 \NormalTok{lambdas <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{15}\NormalTok{)}
 
 \NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\DecValTok{4}\NormalTok{) \{}
-  \KeywordTok{plot}\NormalTok{(}\KeywordTok{dpois}\NormalTok{(}\DataTypeTok{x=}\DecValTok{0}\NormalTok{:}\DecValTok{30}\NormalTok{, }\DataTypeTok{lambda=}\NormalTok{lambdas[i]), }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{,}
+  \KeywordTok{plot}\NormalTok{(}\KeywordTok{dpois}\NormalTok{(}\DataTypeTok{x=}\DecValTok{0}\NormalTok{:}\DecValTok{30}\NormalTok{, }\DataTypeTok{lambda=}\NormalTok{lambdas[i]), }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{,}
        \DataTypeTok{type=}\StringTok{'h'}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{'x'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Probabilidad'}\NormalTok{)}
-  \KeywordTok{title}\NormalTok{(}\KeywordTok{expression}\NormalTok{(lambda ==}\StringTok{ }\DecValTok{4}\NormalTok{))}
+  \KeywordTok{title}\NormalTok{(}\KeywordTok{bquote}\NormalTok{(~}\StringTok{ }\NormalTok{lambda ==}\StringTok{ }\NormalTok{.(lambdas[i])))}
 \NormalTok{\} }
 \end{Highlighting}
 \end{Shaded}
@@ -2832,6 +2926,14 @@ Para
 \includegraphics{Graficos_con_R_files/figure-latex/mfrow-1.pdf}
 \caption{\label{fig:mfrow}Efecto del parámetro \texttt{mfrow}.}
 \end{figure}
+
+En la Figura \ref{fig:mfrow} se muestra la distribución de probabilidad
+para cada uno de los 4 valores de \(\lambda\) en la misma figura.
+
+\BeginKnitrBlock{rmdnote}
+La función \texttt{bquote} sirve para construir mensajes que sean una
+mezcla de texto, expresiones matemáticas y valores de un objeto.
+\EndKnitrBlock{rmdnote}
 
 \section{\texorpdfstring{Parámetro \texttt{bty} \index{tipo de caja}
 \index{bty}}{Parámetro bty  }}\label{parametro-bty}
@@ -2848,7 +2950,7 @@ obtener la caja usual; se pueden usar también los símboloes
 caja con la forma del símbolo; se puede usar
 \texttt{\textquotesingle{}n\textquotesingle{}} para suprimir la caja.
 
-\subsection*{Ejemplo}\label{ejemplo-22}
+\subsection*{Ejemplo}\label{ejemplo-24}
 
 
 Dibujar la densidad de una \(\chi^2_5\) modificando el parámetro

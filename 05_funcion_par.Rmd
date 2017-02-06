@@ -27,6 +27,50 @@ Una buena práctica para retornar a los valores iniciales del objeto `par()` es 
 
 La utilidad de cada uno de los parámetros para personalizar los gráficos se mostrará por medio de ejemplos.
 
+## Parámetro `ann` \index{nombre de los ejes} \index{ann}
+Este parámetro sirve para indicar si se quiere un gráfico con nombres en los ejes y título principal, por defecto asume el valor `TRUE`.
+
+### Ejemplo {-}
+Dibujar la densidad para una distribución $\chi^2_1$  usando `ann=FALSE` dentro de la función `par`.
+
+El código necesario para obtener la figura se muestra a continuación. Note que a pesar de haber solicitado título principal y nombres de los ejes, éstos no aparecen en el resultado final. En la Figura \@ref(fig:ann) se muestra el gráfico solicitado.
+
+```{r ann, fig.cap='Efecto del parámetro `ann`.', fig.asp=0.8, fig.width=4}
+par(ann=FALSE)
+curve(dchisq(x, df=1), col='salmon1', lwd=4,
+      main='Chi cuadrada',
+      xlab='x', ylab='Densidad')
+```
+
+```{block2, type='rmdnote'}
+La opción `ann=FALSE` es muy útil para gráficos sin nombres en los ejes y sin título principal. Esta opción evita el uso de `xlab='', ylab='', main=''` dentro de las funciones gráfica.
+```
+
+## Parámetro `adj` \index{justitificación del texto} \index{adj}
+Este parámetro sirve para modificar la justificación del texto cuando se usan las funciones `text`, `mtext` y `title`. Su valor por defecto es 0.5 que indica que el texto debe quedar centrado en las coordenadas x e y indicadas, un valor de 0 significa justificación a izquierda mientras que 1 significa justificación a derecha.
+
+
+### Ejemplo {-}
+Dibujar un gráfico vacío, ubicar las palabra _hola mi mundo_ horizontalmente en el gráfico y explorar el efecto del parámetro `adj`.
+
+El código necesario para obtener lo solicitado se muestra a continuación. Observando la Figura \@ref(fig:adj) se nota claramente que cuando `adj=0.5` la palabra queda centrada mientras que con otros valores cambia la justificación del texto.
+
+```{r adj, fig.cap='Efecto del parámetro `adj`.', fig.asp=0.6, fig.width=8}
+plot(NULL, xlim=c(0, 0.6), ylim=c(0, 1))
+
+par(adj=0)  # Para justificar a izquierda
+text(x=0.1, y=0.6, 'hola', cex=3)
+
+par(adj=0.5)  # Para justificar centrado
+text(x=0.3, y=0.6, 'mi', cex=3)
+
+par(adj=1)  # Para justificar a derecha
+text(x=0.5, y=0.6, 'mundo', cex=3)
+
+abline(h=0.6, v=c(0.1, 0.3, 0.5),
+       lty=3, col='deepskyblue3')
+```
+
 ## Parámetro `bg` \index{color del fondo} \index{bg}
 Este parámetro sirve para modificar el color del fondo donde se va a dibujar.
 
@@ -44,9 +88,9 @@ curve(dnorm, lwd=6, col='blue', xlim=c(-4, 4))
 Este parámetro sirve para dividir la ventana gráfica en forma de matriz para almacenar en cada celda un gráfico diferente. La forma para modificar este parámetro es `mfrow=c(nf, nc)`, donde `nf` es el número de filas y `nc` el número de columnas en las cuales se va a dividir la ventana gráfica.
 
 ### Ejemplo {-}
-Dibujar la distribución de probabilidad para una distribución Poisson con $\lambda=1, 2.5, 10, 20$.
+Dibujar la distribución de probabilidad para una distribución Poisson con $\lambda=1, 3, 7, 15$.
 
-Para
+Note que el objetivo es repetir el mismo gráfico para 4 valores diferentes del paramétro $\lambda$, por lo tanto se escribirá una sola vez el código de interés pero se repetirá automáticamente 4 veces para cada valor de $\lambda$. Para construir el gráfico solicitado iniciamos partiendo la ventana gráfica en una matriz de $2 \times 2$ usando `par(mfrow=c(2, 2))`. Luego se construye el vector `lambdas` con los valores de $\lambda$ y por último se coloca el `plot` de interés dentro de una sentencia `for`. Abajo el código utilizado. 
 
 ```{r mfrow, fig.cap='Efecto del parámetro `mfrow`.', fig.asp=0.8, fig.width=7}
 par(mfrow=c(2, 2))
@@ -54,12 +98,17 @@ par(mfrow=c(2, 2))
 lambdas <- c(1, 3, 7, 15)
 
 for (i in 1:4) {
-  plot(dpois(x=0:30, lambda=lambdas[i]), lwd=3,
+  plot(dpois(x=0:30, lambda=lambdas[i]), lwd=4,
        type='h', xlab='x', ylab='Probabilidad')
-  title(expression(lambda == 4))
+  title(bquote(~ lambda == .(lambdas[i])))
 } 
 ```
 
+En la Figura \@ref(fig:mfrow) se muestra la distribución de probabilidad para cada uno de los 4 valores de $\lambda$ en la misma figura.
+
+```{block2, type='rmdnote'}
+La función `bquote` sirve para construir mensajes que sean una mezcla de texto, expresiones matemáticas y valores de un objeto.
+```
 
 ## Parámetro `bty` \index{tipo de caja} \index{bty}
 Este parámetro sirve para modficar la caja alrededor del gráfico construído. Los posibles valores para este parámetro son: `'o'` valor por defecto para obtener la caja usual; se pueden usar también los símboloes `'l'`, `'7'`, `'c'`, `'u'` o `']'`, el resultado será una caja con la forma del símbolo; se puede usar `'n'` para suprimir la caja.
