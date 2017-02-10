@@ -33,7 +33,7 @@ Este parámetro sirve para indicar si se quiere un gráfico con nombres en los e
 ### Ejemplo {-}
 Dibujar la densidad para una distribución $\chi^2_1$  usando `ann=FALSE` dentro de la función `par`.
 
-El código necesario para obtener la figura se muestra a continuación. Note que a pesar de haber solicitado título principal y nombres de los ejes, éstos no aparecen en el resultado final. En la Figura \@ref(fig:ann) se muestra el gráfico solicitado.
+El código necesario para obtener la figura se muestra a continuación. Note que a pesar de haber solicitado título principal y nombres de los ejes, éstos no aparecen en el resultado final porque se usó antes `par(ann=FALSE)`. En la Figura \@ref(fig:ann) se muestra el gráfico solicitado.
 
 ```{r ann, fig.cap='Efecto del parámetro `ann`.', fig.asp=0.8, fig.width=4}
 par(ann=FALSE)
@@ -43,7 +43,7 @@ curve(dchisq(x, df=1), col='salmon1', lwd=4,
 ```
 
 ```{block2, type='rmdnote'}
-La opción `ann=FALSE` es muy útil para gráficos sin nombres en los ejes y sin título principal. Esta opción evita el uso de `xlab='', ylab='', main=''` dentro de las funciones gráfica.
+La opción `ann=FALSE` es muy útil para gráficos sin nombres en los ejes y sin título principal. Esta opción evita el uso de `xlab='', ylab='', main=''` dentro de las funciones gráficas.
 ```
 
 ## Parámetro `adj` \index{justitificación del texto} \index{adj}
@@ -53,7 +53,7 @@ Este parámetro sirve para modificar la justificación del texto cuando se usan 
 ### Ejemplo {-}
 Dibujar un gráfico vacío, ubicar las palabra _hola mi mundo_ horizontalmente en el gráfico y explorar el efecto del parámetro `adj`.
 
-El código necesario para obtener lo solicitado se muestra a continuación. Observando la Figura \@ref(fig:adj) se nota claramente que cuando `adj=0.5` la palabra queda centrada mientras que con otros valores cambia la justificación del texto.
+El código necesario para obtener lo solicitado se muestra a continuación. Se agregaron líneas a trazos de color azul para indicar el sitio exacto donde se quería el texto. Observando la Figura \@ref(fig:adj) se nota claramente que cuando `adj=0.5` la palabra queda centrada mientras que con otros valores cambia la justificación del texto.
 
 ```{r adj, fig.cap='Efecto del parámetro `adj`.', fig.asp=0.6, fig.width=8}
 plot(NULL, xlim=c(0, 0.6), ylim=c(0, 1))
@@ -77,9 +77,9 @@ Este parámetro sirve para modificar el color del fondo donde se va a dibujar.
 ### Ejemplo {-}
 Dibujar la densidad de una normal estándar usando un color verde para el fondo.
 
-A continuación el código necesario para modficar el color del fondo. En esta [página](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf) se puede encontrar una paleta de colores disponibles en \proglang{R}.
+A continuación el código necesario para modficar el color del fondo. En esta [página](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf) se puede encontrar una paleta de colores disponibles en \proglang{R}. En la Figura \@ref(fig:bg) se muestra el resultado, el color de fondo está por toda la ventana gráfica.
 
-```{r par1, fig.cap='Efecto del parámetro `bg`.', fig.asp=0.8, fig.width=4}
+```{r bg, fig.cap='Efecto del parámetro `bg`.', fig.asp=0.8, fig.width=4}
 par(bg='darkseagreen1')
 curve(dnorm, lwd=6, col='blue', xlim=c(-4, 4))
 ```
@@ -132,6 +132,44 @@ par(bty='l')
 curve(dchisq(x, df=5), xlim=c(0, 20))
 title("Usando bty='l'")
 ```
+
+## Parámetro `cex` \index{tamaño de símbolos} \index{cex}
+Este parámetro sirve para modificar el tamaño de los símbolos, nombres de los ejes, marcas de los ejes y títulos. El valor por defecto es `cex=1`, valores mayores a uno generan gráficos con símbolos, títulos y marcas grandes, incluso desproporcionados; valores pequeños de este parámetro permiten obtener mejores figuras. A continuación un ejemplo para ver el efecto que tiene este parámetro sobre las figuras obtenidas.
+
+### Ejemplo {-}
+Hacer un gráfico de dispersión sencillo para explorar el efecto del parámetro `cex`.
+
+Se construirá un gráfico de dispersión dos veces, en la primera con parámetro `cex=1` y en la segunda ocasión usando `cex=0.6`. Abajo el código utilizado. En el pánel izquierdo de la Figura \@ref(fig:cex) está el diagrama de dispersión obtenido con `cex=1.4` mientras que el de la derecha fue obtenido con `cex=0.6`. Observe cómo se modificaron los nombres de los ejes, título principal, marcas de los ejes y tamaño del símbolo.
+
+```{r cex, fig.cap='Efecto del parámetro `cex`.', fig.asp=0.5, fig.width=8}
+x <- -3:3
+par(mfrow=c(1, 2), cex=1.4)
+plot(x=x, y=x, main='Usando cex=1.4')
+par(cex=0.6)
+plot(x=x, y=x, main='Usando cex=0.6')
+```
+
+El parámetro `cex` tiene un efecto importante en las figuras, se recomienda al usuario que cada vez que construya una figura explore diferentes opciones para obtener una figura que exprese la esencia de lo que desea comunicar.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

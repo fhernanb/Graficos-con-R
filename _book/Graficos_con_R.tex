@@ -220,7 +220,7 @@
 \title{Gráficos con R}
 \author{Juan Carlos Correa Morales\\
 Freddy Hernández Barajas}
-\date{2017-02-06}
+\date{2017-02-10}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -261,11 +261,6 @@ complemento, recomendamos a los lectores el libro
 \citet{hernandez_usuga} que muestra cómo usar \proglang{R} para realizar
 diversos procedimiento estadísticos.
 
-\section*{¿Por qué leer este libro?}\label{por-que-leer-este-libro}
-
-
-Este libro es importante porque \ldots{}
-
 \section*{Estructura del libro}\label{estructura-del-libro}
 
 
@@ -278,13 +273,9 @@ conventions}\label{software-information-and-conventions}
 
 
 Para realizar este libro usamos los paquetes \textbf{knitr}\index{knitr}
-\citep{xie2015} y \textbf{bookdown}\index{bookdown} \citep{R-bookdown}.
-
-Package names are in bold text (e.g., \textbf{rmarkdown}), and inline
-code and filenames are formatted in a typewriter font (e.g.,
-\texttt{knitr::knit(\textquotesingle{}foo.Rmd\textquotesingle{})}).
-Function names are followed by parentheses (e.g.,
-\texttt{bookdown::render\_book()}).
+\citep{xie2015} y \textbf{bookdown}\index{bookdown} \citep{R-bookdown}
+que permiten unir la ventajas de \LaTeX y \proglang{R} en un mismo
+archivo.
 
 En todo el libro se presentarán códigos que el lector puede copiar y
 pegar en su consola de \proglang{R} para obtener los mismos resultados
@@ -2780,8 +2771,9 @@ Dibujar la densidad para una distribución \(\chi^2_1\) usando
 
 El código necesario para obtener la figura se muestra a continuación.
 Note que a pesar de haber solicitado título principal y nombres de los
-ejes, éstos no aparecen en el resultado final. En la Figura
-\ref{fig:ann} se muestra el gráfico solicitado.
+ejes, éstos no aparecen en el resultado final porque se usó antes
+\texttt{par(ann=FALSE)}. En la Figura \ref{fig:ann} se muestra el
+gráfico solicitado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2802,7 +2794,7 @@ ejes, éstos no aparecen en el resultado final. En la Figura
 La opción \texttt{ann=FALSE} es muy útil para gráficos sin nombres en
 los ejes y sin título principal. Esta opción evita el uso de
 \texttt{xlab=\textquotesingle{}\textquotesingle{},\ ylab=\textquotesingle{}\textquotesingle{},\ main=\textquotesingle{}\textquotesingle{}}
-dentro de las funciones gráfica.
+dentro de las funciones gráficas.
 \EndKnitrBlock{rmdnote}
 
 \section{\texorpdfstring{Parámetro \texttt{adj}
@@ -2823,9 +2815,11 @@ horizontalmente en el gráfico y explorar el efecto del parámetro
 \texttt{adj}.
 
 El código necesario para obtener lo solicitado se muestra a
-continuación. Observando la Figura \ref{fig:adj} se nota claramente que
-cuando \texttt{adj=0.5} la palabra queda centrada mientras que con otros
-valores cambia la justificación del texto.
+continuación. Se agregaron líneas a trazos de color azul para indicar el
+sitio exacto donde se quería el texto. Observando la Figura
+\ref{fig:adj} se nota claramente que cuando \texttt{adj=0.5} la palabra
+queda centrada mientras que con otros valores cambia la justificación
+del texto.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2866,7 +2860,9 @@ fondo.
 A continuación el código necesario para modficar el color del fondo. En
 esta
 \href{http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf}{página} se
-puede encontrar una paleta de colores disponibles en \proglang{R}.
+puede encontrar una paleta de colores disponibles en \proglang{R}. En la
+Figura \ref{fig:bg} se muestra el resultado, el color de fondo está por
+toda la ventana gráfica.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2877,8 +2873,8 @@ puede encontrar una paleta de colores disponibles en \proglang{R}.
 
 \begin{figure}[htbp]
 \centering
-\includegraphics{Graficos_con_R_files/figure-latex/par1-1.pdf}
-\caption{\label{fig:par1}Efecto del parámetro \texttt{bg}.}
+\includegraphics{Graficos_con_R_files/figure-latex/bg-1.pdf}
+\caption{\label{fig:bg}Efecto del parámetro \texttt{bg}.}
 \end{figure}
 
 \section{\texorpdfstring{Parámetro \texttt{mfrow}
@@ -2986,6 +2982,53 @@ es una caja con esa misma forma.
 \caption{\label{fig:par2}Efecto del parámetro \texttt{bty}.}
 \end{figure}
 
+\section{\texorpdfstring{Parámetro \texttt{cex}
+\index{tamaño de símbolos}
+\index{cex}}{Parámetro cex  }}\label{parametro-cex}
+
+Este parámetro sirve para modificar el tamaño de los símbolos, nombres
+de los ejes, marcas de los ejes y títulos. El valor por defecto es
+\texttt{cex=1}, valores mayores a uno generan gráficos con símbolos,
+títulos y marcas grandes, incluso desproporcionados; valores pequeños de
+este parámetro permiten obtener mejores figuras. A continuación un
+ejemplo para ver el efecto que tiene este parámetro sobre las figuras
+obtenidas.
+
+\subsection*{Ejemplo}\label{ejemplo-25}
+
+
+Hacer un gráfico de dispersión sencillo para explorar el efecto del
+parámetro \texttt{cex}.
+
+Se construirá un gráfico de dispersión dos veces, en la primera con
+parámetro \texttt{cex=1} y en la segunda ocasión usando
+\texttt{cex=0.6}. Abajo el código utilizado. En el pánel izquierdo de la
+Figura \ref{fig:cex} está el diagrama de dispersión obtenido con
+\texttt{cex=1.4} mientras que el de la derecha fue obtenido con
+\texttt{cex=0.6}. Observe cómo se modificaron los nombres de los ejes,
+título principal, marcas de los ejes y tamaño del símbolo.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\NormalTok{-}\DecValTok{3}\NormalTok{:}\DecValTok{3}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{), }\DataTypeTok{cex=}\FloatTok{1.4}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{x, }\DataTypeTok{main=}\StringTok{'Usando cex=1.4'}\NormalTok{)}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{cex=}\FloatTok{0.6}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{x, }\DataTypeTok{main=}\StringTok{'Usando cex=0.6'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/cex-1.pdf}
+\caption{\label{fig:cex}Efecto del parámetro \texttt{cex}.}
+\end{figure}
+
+El parámetro \texttt{cex} tiene un efecto importante en las figuras, se
+recomienda al usuario que cada vez que construya una figura explore
+diferentes opciones para obtener una figura que exprese la esencia de lo
+que desea comunicar.
+
 \chapter{Funciones auxiliares}\label{funciones-auxiliares}
 
 En este capítulo se presentan funciones auxiliares que son útiles para
@@ -3057,7 +3100,7 @@ Let me explain them in this appendix.
 
 To know more about \textbf{bookdown}, see \url{https://bookdown.org}.
 
-\bibliography{packages,book}
+\bibliography{packages.bib,book.bib}
 
 \backmatter
 \printindex

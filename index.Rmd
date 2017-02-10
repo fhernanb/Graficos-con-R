@@ -33,19 +33,13 @@ lapply(c(), function(pkg) {
 
 Este libro fue creado con la intención de ayudar a los estudiantes de pregrado, especialización, maestría e investigadores a crear gráficos estadísticos con las herramientas básicas de \proglang{R}. Como complemento, recomendamos a los lectores el libro @hernandez_usuga que muestra cómo usar \proglang{R} para realizar diversos procedimiento estadísticos.
 
-## ¿Por qué leer este libro? {-}
-
-Este libro es importante porque ...
-
 ## Estructura del libro {-}
 
 En el capítulo \@ref(intro) se presenta una introducción breve de \proglang{R}, sus orígenes, la instalación, tipos de objetos y una guía de estilo para escribir en \proglang{R}.
 
 ## Software information and conventions {-}
 
-Para realizar este libro usamos los paquetes **knitr**\index{knitr} [@xie2015] y **bookdown**\index{bookdown} [@R-bookdown].
-
-Package names are in bold text (e.g., **rmarkdown**), and inline code and filenames are formatted in a typewriter font (e.g., `knitr::knit('foo.Rmd')`). Function names are followed by parentheses (e.g., `bookdown::render_book()`).
+Para realizar este libro usamos los paquetes **knitr**\index{knitr} [@xie2015] y **bookdown**\index{bookdown} [@R-bookdown] que permiten unir la ventajas de \LaTeX y \proglang{R} en un mismo archivo.
 
 En todo el libro se presentarán códigos que el lector puede copiar y pegar en su consola de \proglang{R} para obtener los mismos resultados aquí presentados. Los códigos se destacan en una caja de color beis (o beige) similar a la mostrada a continuación.
 
