@@ -145,14 +145,27 @@ Se construirá un gráfico de dispersión dos veces, en la primera con parámetr
 x <- -3:3
 par(mfrow=c(1, 2), cex=1.4)
 plot(x=x, y=x, main='Usando cex=1.4')
+
 par(cex=0.6)
 plot(x=x, y=x, main='Usando cex=0.6')
 ```
 
 El parámetro `cex` tiene un efecto importante en las figuras, se recomienda al usuario que cada vez que construya una figura explore diferentes opciones para obtener una figura que exprese la esencia de lo que desea comunicar.
 
+## Parámetro `cex.axis` \index{tamaño de los nombres en los ejes} \index{cex.axis}
 
+```{r}
+x <- -3:3
+par(mfrow=c(1, 2), cex.axis=1.4)
+plot(x=x, y=x,
+     xlab='Valores de x', ylab='Valores de y',
+     main='Usando cex.axis=1.4')
 
+par(cex.axis=0.6)
+plot(x=x, y=x,
+     xlab='Valores de x', ylab='Valores de y',
+     main='Usando cex.axis=0.6')
+```
 
 
 

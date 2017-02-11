@@ -220,7 +220,7 @@
 \title{Gráficos con R}
 \author{Juan Carlos Correa Morales\\
 Freddy Hernández Barajas}
-\date{2017-02-10}
+\date{2017-02-11}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -3013,6 +3013,7 @@ título principal, marcas de los ejes y tamaño del símbolo.
 \NormalTok{x <-}\StringTok{ }\NormalTok{-}\DecValTok{3}\NormalTok{:}\DecValTok{3}
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{), }\DataTypeTok{cex=}\FloatTok{1.4}\NormalTok{)}
 \KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{x, }\DataTypeTok{main=}\StringTok{'Usando cex=1.4'}\NormalTok{)}
+
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{cex=}\FloatTok{0.6}\NormalTok{)}
 \KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{x, }\DataTypeTok{main=}\StringTok{'Usando cex=0.6'}\NormalTok{)}
 \end{Highlighting}
@@ -3028,6 +3029,27 @@ El parámetro \texttt{cex} tiene un efecto importante en las figuras, se
 recomienda al usuario que cada vez que construya una figura explore
 diferentes opciones para obtener una figura que exprese la esencia de lo
 que desea comunicar.
+
+\section{\texorpdfstring{Parámetro \texttt{cex.axis}
+\index{tamaño de los nombres en los ejes}
+\index{cex.axis}}{Parámetro cex.axis  }}\label{parametro-cex.axis}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\NormalTok{-}\DecValTok{3}\NormalTok{:}\DecValTok{3}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{), }\DataTypeTok{cex.axis=}\FloatTok{1.4}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{x,}
+     \DataTypeTok{xlab=}\StringTok{'Valores de x'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Valores de y'}\NormalTok{,}
+     \DataTypeTok{main=}\StringTok{'Usando cex.axis=1.4'}\NormalTok{)}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{cex.axis=}\FloatTok{0.6}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{x,}
+     \DataTypeTok{xlab=}\StringTok{'Valores de x'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Valores de y'}\NormalTok{,}
+     \DataTypeTok{main=}\StringTok{'Usando cex.axis=0.6'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Graficos_con_R_files/figure-latex/unnamed-chunk-49-1.pdf}
 
 \chapter{Funciones auxiliares}\label{funciones-auxiliares}
 
