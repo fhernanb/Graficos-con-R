@@ -220,7 +220,7 @@
 \title{Gráficos con R}
 \author{Juan Carlos Correa Morales\\
 Freddy Hernández Barajas}
-\date{2017-02-11}
+\date{2017-02-12}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -3012,10 +3012,10 @@ título principal, marcas de los ejes y tamaño del símbolo.
 \begin{Highlighting}[]
 \NormalTok{x <-}\StringTok{ }\NormalTok{-}\DecValTok{3}\NormalTok{:}\DecValTok{3}
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{), }\DataTypeTok{cex=}\FloatTok{1.4}\NormalTok{)}
-\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{x, }\DataTypeTok{main=}\StringTok{'Usando cex=1.4'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{x, }\DataTypeTok{main=}\StringTok{'Usando }\CharTok{\textbackslash{}n}\StringTok{ cex=1.4'}\NormalTok{)}
 
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{cex=}\FloatTok{0.6}\NormalTok{)}
-\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{x, }\DataTypeTok{main=}\StringTok{'Usando cex=0.6'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{x, }\DataTypeTok{main=}\StringTok{'Usando }\CharTok{\textbackslash{}n}\StringTok{ cex=0.6'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3030,26 +3030,58 @@ recomienda al usuario que cada vez que construya una figura explore
 diferentes opciones para obtener una figura que exprese la esencia de lo
 que desea comunicar.
 
-\section{\texorpdfstring{Parámetro \texttt{cex.axis}
-\index{tamaño de los nombres en los ejes}
-\index{cex.axis}}{Parámetro cex.axis  }}\label{parametro-cex.axis}
+\section{\texorpdfstring{Parámetros \texttt{cex.axis}, \texttt{cex.lab},
+\texttt{cex.main} y \texttt{cex.sub} \index{cex.axis} \index{cex.lab}
+\index{cex.main}
+\index{cex.sub}}{Parámetros cex.axis, cex.lab, cex.main y cex.sub    }}\label{parametros-cex.axis-cex.lab-cex.main-y-cex.sub}
+
+Los parámetros \texttt{cex.axis}, \texttt{cex.lab}, \texttt{cex.main} y
+\texttt{cex.sub} sirven para modificar el tamaño de las marcas en los
+ejes, el tamaño de los nombres de los ejes, el tamaño del título
+principal y el tamaño del subtítulo respectivamente. El parámetro
+\texttt{cex} explicado en la sección anterior, modifica el tamaño de los
+anteriores elementos simultáneamente mientras que los parámetros
+explicados en esta sección modifican cada uno de los elementos por
+aparte.
+
+\subsection*{Ejemplo}\label{ejemplo-26}
+
+
+Hacer un gráfico cualquiera y modificar los parámetros
+\texttt{cex.axis}, \texttt{cex.lab}, \texttt{cex.main} y
+\texttt{cex.sub} de la función \texttt{par} con el objetivo de ver el
+efecto que ellos tiene sobre el gráfico.
+
+A continuación se construye un gráfico simple y se modifican todos los
+paramétros \texttt{cex.algo} para ver el efecto que ellos tienen sobre
+el gráfico resultante, abajo el código usado.
+
+En la Figura \ref{fig:cexs} se muestra el resultado. Observe que las
+marcas y números en los ejes quedaron grandes debido a que se usó
+\texttt{cex.axis=1.8}, los nombres que identifican los ejes casi no se
+ven porque se usó \texttt{cex.lab=0.3}. El título principal quedó muy
+pequeño debido a que \texttt{cex.main=0.7} mientras que el subtítulo
+quedó demasiado grande porque se usó \texttt{cex.sub=2}. Este ejemplo
+muestra que el usuario tiene todo el control para construir gráficos
+personalizados en \proglang{R}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{x <-}\StringTok{ }\NormalTok{-}\DecValTok{3}\NormalTok{:}\DecValTok{3}
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{), }\DataTypeTok{cex.axis=}\FloatTok{1.4}\NormalTok{)}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{cex.axis=}\FloatTok{1.8}\NormalTok{, }\DataTypeTok{cex.lab=}\FloatTok{0.3}\NormalTok{, }\DataTypeTok{cex.main=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{cex.sub=}\FloatTok{2.0}\NormalTok{)}
 \KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{x,}
      \DataTypeTok{xlab=}\StringTok{'Valores de x'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Valores de y'}\NormalTok{,}
-     \DataTypeTok{main=}\StringTok{'Usando cex.axis=1.4'}\NormalTok{)}
-
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{cex.axis=}\FloatTok{0.6}\NormalTok{)}
-\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{x,}
-     \DataTypeTok{xlab=}\StringTok{'Valores de x'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Valores de y'}\NormalTok{,}
-     \DataTypeTok{main=}\StringTok{'Usando cex.axis=0.6'}\NormalTok{)}
+     \DataTypeTok{main=}\StringTok{'Título principal'}\NormalTok{,}
+     \DataTypeTok{sub=}\StringTok{'Subtítulo'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{Graficos_con_R_files/figure-latex/unnamed-chunk-49-1.pdf}
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/cexs-1.pdf}
+\caption{\label{fig:cexs}Efecto de los parámetros \texttt{cex.axis},
+\texttt{cex.lab}, \texttt{cex.main} y \texttt{cex.sub}.}
+\end{figure}
 
 \chapter{Funciones auxiliares}\label{funciones-auxiliares}
 

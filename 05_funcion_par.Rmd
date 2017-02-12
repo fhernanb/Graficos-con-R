@@ -144,30 +144,32 @@ Se construirá un gráfico de dispersión dos veces, en la primera con parámetr
 ```{r cex, fig.cap='Efecto del parámetro `cex`.', fig.asp=0.5, fig.width=8}
 x <- -3:3
 par(mfrow=c(1, 2), cex=1.4)
-plot(x=x, y=x, main='Usando cex=1.4')
+plot(x=x, y=x, main='Usando \n cex=1.4')
 
 par(cex=0.6)
-plot(x=x, y=x, main='Usando cex=0.6')
+plot(x=x, y=x, main='Usando \n cex=0.6')
 ```
 
 El parámetro `cex` tiene un efecto importante en las figuras, se recomienda al usuario que cada vez que construya una figura explore diferentes opciones para obtener una figura que exprese la esencia de lo que desea comunicar.
 
-## Parámetro `cex.axis` \index{tamaño de los nombres en los ejes} \index{cex.axis}
+## Parámetros `cex.axis`, `cex.lab`, `cex.main` y `cex.sub` \index{cex.axis} \index{cex.lab} \index{cex.main} \index{cex.sub}
+Los parámetros `cex.axis`, `cex.lab`, `cex.main` y `cex.sub` sirven para modificar el tamaño de las marcas en los ejes, el tamaño de los nombres de los ejes, el tamaño del título principal y el tamaño del subtítulo respectivamente. El parámetro `cex` explicado en la sección anterior, modifica el tamaño de los anteriores elementos simultáneamente mientras que los parámetros explicados en esta sección modifican cada uno de los elementos por aparte.
 
-```{r}
+### Ejemplo {-}
+Hacer un gráfico cualquiera y modificar los parámetros `cex.axis`, `cex.lab`, `cex.main` y `cex.sub` de la función `par` con el objetivo de ver el efecto que ellos tiene sobre el gráfico.
+
+A continuación se construye un gráfico simple y se modifican todos los paramétros `cex.algo` para ver el efecto que ellos tienen sobre el gráfico resultante, abajo el código usado.
+
+En la Figura \@ref(fig:cexs) se muestra el resultado. Observe que las marcas y números en los ejes quedaron grandes debido a que se usó `cex.axis=1.8`, los nombres que identifican los ejes casi no se ven porque se usó `cex.lab=0.3`. El título principal quedó muy pequeño debido a que `cex.main=0.7` mientras que el subtítulo quedó demasiado grande porque se usó `cex.sub=2`. Este ejemplo muestra que el usuario tiene todo el control para construir gráficos personalizados en \proglang{R}.
+
+```{r cexs, fig.cap='Efecto de los parámetros `cex.axis`, `cex.lab`, `cex.main` y `cex.sub`.', fig.asp=0.7, fig.width=6}
 x <- -3:3
-par(mfrow=c(1, 2), cex.axis=1.4)
+par(cex.axis=1.8, cex.lab=0.3, cex.main=0.7, cex.sub=2.0)
 plot(x=x, y=x,
      xlab='Valores de x', ylab='Valores de y',
-     main='Usando cex.axis=1.4')
-
-par(cex.axis=0.6)
-plot(x=x, y=x,
-     xlab='Valores de x', ylab='Valores de y',
-     main='Usando cex.axis=0.6')
+     main='Título principal',
+     sub='Subtítulo')
 ```
-
-
 
 
 
