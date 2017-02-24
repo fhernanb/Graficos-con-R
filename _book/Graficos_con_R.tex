@@ -220,7 +220,7 @@
 \title{Gráficos con R}
 \author{Juan Carlos Correa Morales\\
 Freddy Hernández Barajas}
-\date{2017-02-12}
+\date{2017-02-23}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -3083,6 +3083,47 @@ personalizados en \proglang{R}.
 \texttt{cex.lab}, \texttt{cex.main} y \texttt{cex.sub}.}
 \end{figure}
 
+\section{\texorpdfstring{Parámetro \texttt{col}, \texttt{col.axis},
+\texttt{col.lab}, \texttt{col.main} y \texttt{col.sub} \index{color}
+\index{col}}{Parámetro col, col.axis, col.lab, col.main y col.sub  }}\label{parametro-col-col.axis-col.lab-col.main-y-col.sub}
+
+Estos parámetros sirven para definir el color a usar en los ejes, en los
+nombres de los ejes, en el título y en el subtítulo.
+
+\subsection*{Ejemplo}\label{ejemplo-27}
+
+
+Hacer un gráfico cualquiera y modificar los parámetros \texttt{col},
+\texttt{col.axis}, \texttt{col.lab}, \texttt{col.main} y
+\texttt{col.sub} de la función \texttt{par} con el objetivo de ver el
+efecto que ellos tiene sobre el gráfico.
+
+A continuación se construye un gráfico simple y se modifican todos los
+paramétros para ver el efecto que ellos tienen sobre el gráfico
+resultante, abajo el código usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{col=}\StringTok{'blue'}\NormalTok{, }\DataTypeTok{col.axis=}\StringTok{'red'}\NormalTok{, }\DataTypeTok{col.lab=}\StringTok{'orange'}\NormalTok{,}
+    \DataTypeTok{col.main=}\StringTok{'darkgreen'}\NormalTok{, }\DataTypeTok{col.sub=}\StringTok{'purple'}\NormalTok{, }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{10}\NormalTok{, }\DataTypeTok{pch=}\DecValTok{20}\NormalTok{, }\DataTypeTok{cex=}\DecValTok{2}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
+     \DataTypeTok{main=}\StringTok{'Título'}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{'Nombre eje X'}\NormalTok{,}
+     \DataTypeTok{ylab=}\StringTok{'Nombre eje Y'}\NormalTok{, }\DataTypeTok{sub=}\StringTok{'Subtítulo'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/cols-1.pdf}
+\caption{\label{fig:cols}Efecto de los parámetros \texttt{col},
+\texttt{col.axis}, \texttt{col.lab}, \texttt{col.main} y
+\texttt{col.sub}.}
+\end{figure}
+
+En la Figura \ref{fig:cols} se muestra el efecto de los parámetros
+\texttt{col}, \texttt{col.axis}, \texttt{col.lab}, \texttt{col.main} y
+\texttt{col.sub} de la función \texttt{par}.
+
 \chapter{Funciones auxiliares}\label{funciones-auxiliares}
 
 En este capítulo se presentan funciones auxiliares que son útiles para
@@ -3153,6 +3194,33 @@ Yeah! I have finished my book, but I have more to say about some topics.
 Let me explain them in this appendix.
 
 To know more about \textbf{bookdown}, see \url{https://bookdown.org}.
+
+\chapter{Extras}\label{extras}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{sample}\NormalTok{(}\DecValTok{0}\NormalTok{:}\DecValTok{7}\NormalTok{,}\DecValTok{10000}\NormalTok{,}
+                       \DataTypeTok{prob=}\KeywordTok{c}\NormalTok{(}\DecValTok{260}\NormalTok{, }\DecValTok{354}\NormalTok{, }\DecValTok{200}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{60}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{1}\NormalTok{),}
+                       \DataTypeTok{replace=}\NormalTok{T), }\DataTypeTok{ncol=}\DecValTok{20}\NormalTok{)}
+\NormalTok{medias<-}\KeywordTok{apply}\NormalTok{(datos, }\DecValTok{1}\NormalTok{, mean)}
+
+\KeywordTok{library}\NormalTok{(MASS)}
+\NormalTok{resu1 <-}\StringTok{ }\KeywordTok{fitdistr}\NormalTok{(}\DataTypeTok{x=}\NormalTok{medias, }\DataTypeTok{densfun=}\StringTok{'gamma'}\NormalTok{)$estimate}
+\NormalTok{resu1}
+
+\KeywordTok{hist}\NormalTok{(medias, }\DataTypeTok{col=}\StringTok{'yellow'}\NormalTok{, }\DataTypeTok{freq=}\NormalTok{F, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
+     \DataTypeTok{main=}\StringTok{'Distribución A priori Aproximada del Parámetro'}\NormalTok{,}
+     \DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{, }\DataTypeTok{xlab=}\KeywordTok{expression}\NormalTok{(lambda))}
+\NormalTok{xx <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DataTypeTok{length=}\DecValTok{100}\NormalTok{)}
+\NormalTok{yy <-}\StringTok{ }\KeywordTok{dgamma}\NormalTok{(xx, resu1[}\DecValTok{1}\NormalTok{], }\DataTypeTok{rate=}\NormalTok{resu1[}\DecValTok{2}\NormalTok{])}
+\KeywordTok{points}\NormalTok{(xx, yy, }\DataTypeTok{type=}\StringTok{'l'}\NormalTok{)}
+\KeywordTok{legend}\NormalTok{(}\FloatTok{1.8}\NormalTok{, }\FloatTok{1.2}\NormalTok{, }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{,}
+       \KeywordTok{c}\NormalTok{(}\KeywordTok{expression}\NormalTok{(alpha),}\KeywordTok{expression}\NormalTok{(beta)))}
+\KeywordTok{legend}\NormalTok{(}\FloatTok{1.87}\NormalTok{, }\FloatTok{1.2}\NormalTok{, }\KeywordTok{c}\NormalTok{(}\StringTok{'='}\NormalTok{,}\StringTok{'='}\NormalTok{), }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{)}
+\NormalTok{resu11 <-}\StringTok{ }\KeywordTok{format}\NormalTok{(resu1, }\DataTypeTok{digits=}\DecValTok{6}\NormalTok{) }\CommentTok{# Función format() }
+\KeywordTok{legend}\NormalTok{(}\FloatTok{1.91}\NormalTok{, }\FloatTok{1.2}\NormalTok{, resu11, }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 \bibliography{packages.bib,book.bib}
 

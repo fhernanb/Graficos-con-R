@@ -49,7 +49,6 @@ La opción `ann=FALSE` es muy útil para gráficos sin nombres en los ejes y sin
 ## Parámetro `adj` \index{justitificación del texto} \index{adj}
 Este parámetro sirve para modificar la justificación del texto cuando se usan las funciones `text`, `mtext` y `title`. Su valor por defecto es 0.5 que indica que el texto debe quedar centrado en las coordenadas x e y indicadas, un valor de 0 significa justificación a izquierda mientras que 1 significa justificación a derecha.
 
-
 ### Ejemplo {-}
 Dibujar un gráfico vacío, ubicar las palabra _hola mi mundo_ horizontalmente en el gráfico y explorar el efecto del parámetro `adj`.
 
@@ -171,9 +170,23 @@ plot(x=x, y=x,
      sub='Subtítulo')
 ```
 
+## Parámetro `col`, `col.axis`, `col.lab`, `col.main` y `col.sub` \index{color} \index{col}
+Estos parámetros sirven para definir el color a usar en los ejes, en los nombres de los ejes, en el título y en el subtítulo.
 
+### Ejemplo {-}
+Hacer un gráfico cualquiera y modificar los parámetros `col`, `col.axis`, `col.lab`, `col.main` y `col.sub` de la función `par` con el objetivo de ver el efecto que ellos tiene sobre el gráfico.
 
+A continuación se construye un gráfico simple y se modifican todos los paramétros para ver el efecto que ellos tienen sobre el gráfico resultante, abajo el código usado.
 
+```{r cols, fig.cap='Efecto de los parámetros `col`, `col.axis`, `col.lab`, `col.main` y `col.sub`.', fig.asp=1, fig.width=4}
+par(col='blue', col.axis='red', col.lab='orange',
+    col.main='darkgreen', col.sub='purple', bty='n')
+plot(1:10, pch=20, cex=2, las=1,
+     main='Título', xlab='Nombre eje X',
+     ylab='Nombre eje Y', sub='Subtítulo')
+```
+
+En la Figura \@ref(fig:cols) se muestra el efecto de los parámetros `col`, `col.axis`, `col.lab`, `col.main` y `col.sub` de la función `par`.
 
 
 
