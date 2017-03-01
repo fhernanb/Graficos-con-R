@@ -220,7 +220,7 @@
 \title{Gráficos con R}
 \author{Juan Carlos Correa Morales\\
 Freddy Hernández Barajas}
-\date{2017-02-23}
+\date{2017-03-01}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -1833,179 +1833,6 @@ dispersión de la derecha se usó el parámetro
 obtener pequeños puntos que representen cada apartamento y que no se
 traslapen debido a que se tienen 694 observaciones en la base de datos.
 
-\section{\texorpdfstring{Función \texttt{persp}
-\index{persp}}{Función persp }}\label{funcion-persp}
-
-La función \texttt{persp} dibuja superfices en tres dimensiones y es
-posible rotar la superficie para obtener una perpectiva apropiada. La
-estructura de la función \texttt{persp} con los argumentos más usuales
-se muestran a continuación.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{persp}\NormalTok{(x, y, z, main, sub, theta, phi, r, col, border, box, axes, nticks)}
-\end{Highlighting}
-\end{Shaded}
-
-Los argumentos de la función \texttt{plot} son:
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{x}: vector numérico con los valores de \(x\) donde fue
-  evaluada la función o superficie.
-\item
-  \texttt{y}: vector numérico con los valores de \(y\) donde fue
-  evaluada la función o superficie.
-\item
-  \texttt{z}: matriz que contiene las alturas \(z\) de la supercifie
-  para cada combinación de \(x\) e \(y\).
-\item
-  \texttt{main}: vector numérico con las coordenadas del eje vertical.
-\item
-  \texttt{sub}: vector numérico con las coordenadas del eje vertical.
-\item
-  \texttt{theta,\ phi}: ángulo para la visión de la superficie,
-  \texttt{theta} para la dirección azimutal y \texttt{phi} para latitud.
-  Ver Figura \ref{fig:globo} para una ilustración de los ángulos.
-\item
-  \texttt{r}: distancia entre el centro de la caja de dibujo al punto de
-  vista.
-\item
-  \texttt{col}: color de la superficie.
-\item
-  \texttt{border}: color para el borde de la superficie.
-\item
-  \texttt{box}: valor lógico para indicar si se quiere dibujar la caja
-  que contiene la superficie, por defecto es \texttt{TRUE}.
-\item
-  \texttt{axes}: valor lógico para indicar si se desean marcas en los
-  ejes y nombres de los ejes, por defecto es \texttt{TRUE}. Si
-  \texttt{box=\textquotesingle{}FALSE\textquotesingle{}} no aparecen
-  marcas ni nombres de los ejes.
-\item
-  \texttt{expand}: factor de expansión aplicado a los valores en el eje
-  \texttt{z}.
-\item
-  \texttt{ticktype}: tipo de marcas a colocar en los ejes,
-  \texttt{simple} no dibuja nada y \texttt{detailed} coloca números a
-  los ejes.
-\item
-  \texttt{nticks}: número aproximado de marcas en los ejes.
-\end{itemize}
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.25\linewidth]{images/IC412528} 
-
-}
-
-\caption{Ilustración de los angulos theta y phi para la función persp. Figura tomada de https://i-msdn.sec.s-msft.com/dynimg/IC412528.png}\label{fig:globo}
-\end{figure}
-
-\subsection*{Ejemplo}\label{ejemplo-10}
-
-
-Dibujar la superficie asociada a la función \(f(x, y)=sen(x^2+y^2)\)
-para \(-2 \leq x \leq2\) y \(-2 \leq y \leq2\). Usar 4 combinaciones de
-los parámetros \texttt{theta} y \texttt{phi} para obtener un buen punto
-de vista de la superficie.
-
-Lo primero que se debe hacer es crear la función \(f(x, y)\) la cual se
-va a llamar \texttt{fun}. Luego se definen los vectores \texttt{x} e
-\texttt{y} tomando por ejemplo 25 puntos equiespaciados en el intervalo
-\([-2, 2]\). Luego se usa la función \texttt{outer} para crear la
-rejilla o matriz que contiene los valores de \(f(x, y)\) para cada
-combinación de \texttt{x} e \texttt{y}, los resultados se almacenan en
-el objeto \texttt{z}. Por último se dibujan 4 perspectivas de la función
-variando los parámetros \texttt{theta} y \texttt{phi} de la función
-\texttt{persp}. A continuación el código utilizado.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{fun <-}\StringTok{ }\NormalTok{function(x, y)   }\KeywordTok{sin}\NormalTok{(x^}\DecValTok{2} \NormalTok{+}\StringTok{ }\NormalTok{y^}\DecValTok{2}\NormalTok{)}
-\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\NormalTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{2}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{25}\NormalTok{)}
-\NormalTok{y <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\NormalTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{2}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{25}\NormalTok{)}
-\NormalTok{z <-}\StringTok{ }\KeywordTok{outer}\NormalTok{(x, y, fun)}
-
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{), }\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{))}
-\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{0}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{0}\NormalTok{, }\DataTypeTok{col=}\StringTok{'aquamarine'}\NormalTok{,}
-      \DataTypeTok{main=}\StringTok{'(A) theta=0, phi=0'}\NormalTok{)}
-\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{15}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{15}\NormalTok{, }\DataTypeTok{col=}\StringTok{'lightpink'}\NormalTok{,}
-      \DataTypeTok{main=}\StringTok{'(B) theta=15, phi=15'}\NormalTok{)}
-\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{45}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{30}\NormalTok{, }\DataTypeTok{col=}\StringTok{'yellow1'}\NormalTok{,}
-      \DataTypeTok{main=}\StringTok{'(c) theta=45, phi=30'}\NormalTok{)}
-\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{60}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{50}\NormalTok{, }\DataTypeTok{col=}\StringTok{'lightblue'}\NormalTok{,}
-      \DataTypeTok{main=}\StringTok{'(D) theta=60, phi=50'}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{Graficos_con_R_files/figure-latex/ex1persp-1.pdf}
-\caption{\label{fig:ex1persp}Superficie generada con \texttt{persp} y
-diferentes valores de theta y phi.}
-\end{figure}
-
-En la Figura \ref{fig:ex1persp} se presentan las 4 perspectivas de la
-función \(f(x, y)=sen(x^2+y^2)\). De los 4 páneles se nota que (C) y (D)
-muestran mejor la superficie de interés.
-
-Al aumentar el valor del parámetro \texttt{length.out} en la creación de
-los vectores \texttt{x} e \texttt{y} se obtendrá una rejilla más tupida,
-se recomienda modificar este valor para obtener una superficie
-apropiada.
-
-\subsection*{Ejemplo}\label{ejemplo-11}
-
-
-Dibujar la superficie de una distribución normal bivariada con vector de
-medias \(\boldsymbol{\mu}=(5, 12)^\top\), varianzas unitarias y
-covarianza con valor de -0.8. Explorar el efecto de los parámetros
-\texttt{ticktype}, \texttt{nticks}, \texttt{expand}, \texttt{axes} y
-\texttt{box}.
-
-Primero se define el vector de medias y la matriz de varianzas y
-covarianzas, luego se carga el paquete \texttt{mvtnorm} que contiene la
-función \texttt{dmvnorm} que calcula la densidad dado el vector de
-medias y la matriz de varianzas y covarianzas. Se construye la función
-\texttt{fun} y se vectoriza para luego obtener las alturas de la
-superficie con la ayuda de \texttt{outer}. Por último se dibujan tres
-perspectivas diferentes para la densidad modificando los parámetros
-\texttt{ticktype}, \texttt{nticks}, \texttt{expand}, \texttt{axes} y
-\texttt{box}, a continuación el código usado.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{media <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{12}\NormalTok{)}
-\NormalTok{varianza <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, -}\FloatTok{0.8}\NormalTok{, -}\FloatTok{0.8}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DataTypeTok{ncol=}\DecValTok{2}\NormalTok{)}
-
-\KeywordTok{require}\NormalTok{(mvtnorm)}
-\NormalTok{fun <-}\StringTok{ }\NormalTok{function(x, y) }\KeywordTok{dmvnorm}\NormalTok{(}\KeywordTok{c}\NormalTok{(x, y), }\DataTypeTok{mean=}\NormalTok{media, }\DataTypeTok{sigma=}\NormalTok{varianza)}
-\NormalTok{fun <-}\StringTok{ }\KeywordTok{Vectorize}\NormalTok{(fun)}
-
-\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{8}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{30}\NormalTok{)}
-\NormalTok{y <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\DecValTok{9}\NormalTok{, }\DataTypeTok{to=}\DecValTok{15}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{30}\NormalTok{)}
-\NormalTok{z <-}\StringTok{ }\KeywordTok{outer}\NormalTok{(x, y, fun)}
-
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{), }\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{))}
-\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{theta=}\DecValTok{30}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{30}\NormalTok{, }\DataTypeTok{ticktype =} \StringTok{"detailed"}\NormalTok{, }\DataTypeTok{nticks=}\DecValTok{4}\NormalTok{)}
-\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{theta=}\DecValTok{30}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{30}\NormalTok{, }\DataTypeTok{col=}\StringTok{'salmon1'}\NormalTok{, }\DataTypeTok{expand=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{axes=}\OtherTok{FALSE}\NormalTok{)}
-\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{theta=}\DecValTok{30}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{30}\NormalTok{, }\DataTypeTok{col=}\StringTok{'springgreen1'}\NormalTok{, }\DataTypeTok{expand=}\FloatTok{0.2}\NormalTok{, }\DataTypeTok{box=}\OtherTok{FALSE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{Graficos_con_R_files/figure-latex/ex2persp-1.pdf}
-\caption{\label{fig:ex2persp}Distribución normal bivariada.}
-\end{figure}
-
-En la Figura \ref{fig:ex2persp} se presentan las 3 perspectivas para la
-densidad. Note los efectos que \texttt{ticktype}, \texttt{nticks},
-\texttt{expand}, \texttt{axes} y \texttt{box} tienen sobre los dibujos
-de las perspectivas.
-
 \section{\texorpdfstring{Función \texttt{pairs}
 \index{pairs}}{Función pairs }}\label{funcion-pairs}
 
@@ -2093,7 +1920,7 @@ Los argumentos de la función \texttt{pairs} son:
   base. Por defecto es lo primero.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-12}
+\subsection*{Ejemplo}\label{ejemplo-10}
 
 
 Dibujar una matriz de dispersión para las variables precio, área, número
@@ -2127,7 +1954,7 @@ apartamentos en Medellín.}
 En la Figura \ref{fig:ex1pairs} se muestra la matriz de dispersión para
 las variables del marco de datos \texttt{datos.num}.
 
-\subsection*{Ejemplo}\label{ejemplo-13}
+\subsection*{Ejemplo}\label{ejemplo-11}
 
 
 Volver a construir la Figura \ref{fig:ex1pairs} editando los nombres de
@@ -2155,7 +1982,7 @@ la nueva matriz de dispersión.
 adicionales de la función pairs.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-14}
+\subsection*{Ejemplo}\label{ejemplo-12}
 
 
 Construir una matriz de dispersión con las variables precio, área y
@@ -2201,7 +2028,7 @@ solicitada, los puntos rojos representan los apartamento sin parqueadero
 mientras que los puntos verdes son los apartamento que si tienen
 parqueadero.
 
-\subsection*{Ejemplo}\label{ejemplo-15}
+\subsection*{Ejemplo}\label{ejemplo-13}
 
 
 ¿Es posible agregar una leyenda a una matriz de dispersión?
@@ -2230,7 +2057,7 @@ A continuación se muestra el código para el ejemplo y en la Figura
 \caption{\label{fig:expairs}Matriz de dispersión con leyenda.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-16}
+\subsection*{Ejemplo}\label{ejemplo-14}
 
 
 ¿Es posible modificar el contenido de los páneles de una matriz de
@@ -2334,8 +2161,348 @@ la Figura \ref{fig:exmod2pairs} se muestra gráfico obtenido.
 panel.smooth.}
 \end{figure}
 
+\section{\texorpdfstring{Función \texttt{persp}
+\index{persp}}{Función persp }}\label{funcion-persp}
+
+La función \texttt{persp} dibuja superfices en tres dimensiones y es
+posible rotar la superficie para obtener una perpectiva apropiada. La
+estructura de la función \texttt{persp} con los argumentos más usuales
+se muestran a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{persp}\NormalTok{(x, y, z, main, sub, theta, phi, r, col,}
+      \NormalTok{border, box, axes, nticks)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función \texttt{plot} son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: vector numérico con los valores de \(x\) donde fue
+  evaluada la función o superficie.
+\item
+  \texttt{y}: vector numérico con los valores de \(y\) donde fue
+  evaluada la función o superficie.
+\item
+  \texttt{z}: matriz que contiene las alturas \(z\) de la supercifie
+  para cada combinación de \(x\) e \(y\).
+\item
+  \texttt{main}: vector numérico con las coordenadas del eje vertical.
+\item
+  \texttt{sub}: vector numérico con las coordenadas del eje vertical.
+\item
+  \texttt{theta,\ phi}: ángulo para la visión de la superficie,
+  \texttt{theta} para la dirección azimutal y \texttt{phi} para latitud.
+  Ver Figura \ref{fig:globo} para una ilustración de los ángulos.
+\item
+  \texttt{r}: distancia entre el centro de la caja de dibujo al punto de
+  vista.
+\item
+  \texttt{col}: color de la superficie.
+\item
+  \texttt{border}: color para el borde de la superficie.
+\item
+  \texttt{box}: valor lógico para indicar si se quiere dibujar la caja
+  que contiene la superficie, por defecto es \texttt{TRUE}.
+\item
+  \texttt{axes}: valor lógico para indicar si se desean marcas en los
+  ejes y nombres de los ejes, por defecto es \texttt{TRUE}. Si
+  \texttt{box=\textquotesingle{}FALSE\textquotesingle{}} no aparecen
+  marcas ni nombres de los ejes.
+\item
+  \texttt{expand}: factor de expansión aplicado a los valores en el eje
+  \texttt{z}.
+\item
+  \texttt{ticktype}: tipo de marcas a colocar en los ejes,
+  \texttt{simple} no dibuja nada y \texttt{detailed} coloca números a
+  los ejes.
+\item
+  \texttt{nticks}: número aproximado de marcas en los ejes.
+\end{itemize}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.25\linewidth]{images/IC412528} 
+
+}
+
+\caption{Ilustración de los angulos theta y phi para la función persp. Figura tomada de https://i-msdn.sec.s-msft.com/dynimg/IC412528.png}\label{fig:globo}
+\end{figure}
+
+\subsection*{Ejemplo}\label{ejemplo-15}
+
+
+Dibujar la superficie asociada a la función \(f(x, y)=sen(x^2+y^2)\)
+para \(-2 \leq x \leq2\) y \(-2 \leq y \leq2\). Usar 4 combinaciones de
+los parámetros \texttt{theta} y \texttt{phi} para obtener un buen punto
+de vista de la superficie.
+
+Lo primero que se debe hacer es crear la función \(f(x, y)\) la cual se
+va a llamar \texttt{fun}. Luego se definen los vectores \texttt{x} e
+\texttt{y} tomando por ejemplo 25 puntos equiespaciados en el intervalo
+\([-2, 2]\). Luego se usa la función \texttt{outer} para crear la
+rejilla o matriz que contiene los valores de \(f(x, y)\) para cada
+combinación de \texttt{x} e \texttt{y}, los resultados se almacenan en
+el objeto \texttt{z}. Por último se dibujan 4 perspectivas de la función
+variando los parámetros \texttt{theta} y \texttt{phi} de la función
+\texttt{persp}. A continuación el código utilizado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fun <-}\StringTok{ }\NormalTok{function(x, y)   }\KeywordTok{sin}\NormalTok{(x^}\DecValTok{2} \NormalTok{+}\StringTok{ }\NormalTok{y^}\DecValTok{2}\NormalTok{)}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\NormalTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{2}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{25}\NormalTok{)}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\NormalTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{2}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{25}\NormalTok{)}
+\NormalTok{z <-}\StringTok{ }\KeywordTok{outer}\NormalTok{(x, y, fun)}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{), }\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{0}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{0}\NormalTok{, }\DataTypeTok{col=}\StringTok{'aquamarine'}\NormalTok{,}
+      \DataTypeTok{main=}\StringTok{'(A) theta=0, phi=0'}\NormalTok{)}
+\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{15}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{15}\NormalTok{, }\DataTypeTok{col=}\StringTok{'lightpink'}\NormalTok{,}
+      \DataTypeTok{main=}\StringTok{'(B) theta=15, phi=15'}\NormalTok{)}
+\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{45}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{30}\NormalTok{, }\DataTypeTok{col=}\StringTok{'yellow1'}\NormalTok{,}
+      \DataTypeTok{main=}\StringTok{'(c) theta=45, phi=30'}\NormalTok{)}
+\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{60}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{50}\NormalTok{, }\DataTypeTok{col=}\StringTok{'lightblue'}\NormalTok{,}
+      \DataTypeTok{main=}\StringTok{'(D) theta=60, phi=50'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/ex1persp-1.pdf}
+\caption{\label{fig:ex1persp}Superficie generada con \texttt{persp} y
+diferentes valores de theta y phi.}
+\end{figure}
+
+En la Figura \ref{fig:ex1persp} se presentan las 4 perspectivas de la
+función \(f(x, y)=sen(x^2+y^2)\). De los 4 páneles se nota que (C) y (D)
+muestran mejor la superficie de interés.
+
+Al aumentar el valor del parámetro \texttt{length.out} en la creación de
+los vectores \texttt{x} e \texttt{y} se obtendrá una rejilla más tupida,
+se recomienda modificar este valor para obtener una superficie
+apropiada.
+
+\subsection*{Ejemplo}\label{ejemplo-16}
+
+
+Dibujar la superficie de una distribución normal bivariada con vector de
+medias \(\boldsymbol{\mu}=(5, 12)^\top\), varianzas unitarias y
+covarianza con valor de -0.8. Explorar el efecto de los parámetros
+\texttt{ticktype}, \texttt{nticks}, \texttt{expand}, \texttt{axes} y
+\texttt{box}.
+
+Primero se define el vector de medias y la matriz de varianzas y
+covarianzas, luego se carga el paquete \texttt{mvtnorm} que contiene la
+función \texttt{dmvnorm} que calcula la densidad dado el vector de
+medias y la matriz de varianzas y covarianzas. Se construye la función
+\texttt{fun} y se vectoriza para luego obtener las alturas de la
+superficie con la ayuda de \texttt{outer}. Por último se dibujan tres
+perspectivas diferentes para la densidad modificando los parámetros
+\texttt{ticktype}, \texttt{nticks}, \texttt{expand}, \texttt{axes} y
+\texttt{box}, a continuación el código usado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{media <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{12}\NormalTok{)}
+\NormalTok{varianza <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, -}\FloatTok{0.8}\NormalTok{, -}\FloatTok{0.8}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DataTypeTok{ncol=}\DecValTok{2}\NormalTok{)}
+
+\KeywordTok{require}\NormalTok{(mvtnorm)}
+\NormalTok{fun <-}\StringTok{ }\NormalTok{function(x, y) }\KeywordTok{dmvnorm}\NormalTok{(}\KeywordTok{c}\NormalTok{(x, y), }\DataTypeTok{mean=}\NormalTok{media, }\DataTypeTok{sigma=}\NormalTok{varianza)}
+\NormalTok{fun <-}\StringTok{ }\KeywordTok{Vectorize}\NormalTok{(fun)}
+
+\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{8}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{30}\NormalTok{)}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\DecValTok{9}\NormalTok{, }\DataTypeTok{to=}\DecValTok{15}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{30}\NormalTok{)}
+\NormalTok{z <-}\StringTok{ }\KeywordTok{outer}\NormalTok{(x, y, fun)}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{), }\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{))}
+\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{theta=}\DecValTok{30}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{30}\NormalTok{, }\DataTypeTok{ticktype =} \StringTok{"detailed"}\NormalTok{, }\DataTypeTok{nticks=}\DecValTok{4}\NormalTok{)}
+\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{theta=}\DecValTok{30}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{30}\NormalTok{, }\DataTypeTok{col=}\StringTok{'salmon1'}\NormalTok{, }\DataTypeTok{expand=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{axes=}\OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{theta=}\DecValTok{30}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{30}\NormalTok{, }\DataTypeTok{col=}\StringTok{'springgreen1'}\NormalTok{, }\DataTypeTok{expand=}\FloatTok{0.2}\NormalTok{, }\DataTypeTok{box=}\OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/ex2persp-1.pdf}
+\caption{\label{fig:ex2persp}Distribución normal bivariada.}
+\end{figure}
+
+En la Figura \ref{fig:ex2persp} se presentan las 3 perspectivas para la
+densidad. Note los efectos que \texttt{ticktype}, \texttt{nticks},
+\texttt{expand}, \texttt{axes} y \texttt{box} tienen sobre los dibujos
+de las perspectivas.
+
 \section{\texorpdfstring{Función \texttt{contour} \index{contour}
 \index{gráfico de contornos}}{Función contour  }}\label{funcion-contour}
+
+La función \texttt{contour} dibuja gráficos contornos. La estructura de
+la función \texttt{contour} con los argumentos más usuales se muestran a
+continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{contour}\NormalTok{(x, y, z,}
+        \NormalTok{xlim, ylim, zlim,}
+        \NormalTok{levels, }\DataTypeTok{nlevels=}\DecValTok{20}\NormalTok{, col)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x,\ y}: vectores numéricos en los cuales se evaluó la función
+  de interés para construir el objeto \texttt{z}. Ambos vectores deben
+  estar ordenados.
+\item
+  \texttt{z}: matriz con las alturas de la función de interés, por lo
+  general creada con la función \texttt{outer}.
+\item
+  \texttt{xlim,\ ylim,\ zlim}: límites de los ejes x, y e z
+  respectivamente.
+\item
+  \texttt{nlevels}: número aproximado de niveles o cortes en la
+  superficie a representar.
+\item
+  \texttt{col}: color a usar en las líneas de contornos.
+\end{itemize}
+
+La función \texttt{contour} tiene otros parámetros adicionales que el
+lector puede consultar en la ayuda usando \texttt{help(contour)}.
+
+\subsection*{Ejemplo}\label{ejemplo-17}
+
+
+Generar una muestra aleatoria de 50 observaciones de una distribución
+normal con parámetros \(\mu=170\) y \(\sigma^2=25\). Dibujar un gráfico
+de contornos para la superficie de log-verosimilitud.
+
+La muestra aleatoria se genera con el siguiente código.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n=}\DecValTok{50}\NormalTok{, }\DataTypeTok{mean=}\DecValTok{170}\NormalTok{, }\DataTypeTok{sd=}\DecValTok{5}\NormalTok{)  }\CommentTok{# sd es desviación}
+\end{Highlighting}
+\end{Shaded}
+
+Para dibujar los contornos solicitados se debe primero construir la
+función de log-verosimilitud llamada \texttt{ll}. A continuación el
+código para crear \texttt{ll}, mayores detalles de cómo construir
+funciones de log-verosimilitud se pueden consultar en
+\citet{hernandez_usuga}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ll <-}\StringTok{ }\NormalTok{function(a, b) }\KeywordTok{sum}\NormalTok{(}\KeywordTok{dnorm}\NormalTok{(}\DataTypeTok{x=}\NormalTok{y, }\DataTypeTok{mean=}\NormalTok{a, }\DataTypeTok{sd=}\NormalTok{b, }\DataTypeTok{log=}\OtherTok{TRUE}\NormalTok{))}
+\NormalTok{ll <-}\StringTok{ }\KeywordTok{Vectorize}\NormalTok{(ll)  }\CommentTok{# Para vectorizar la función}
+\end{Highlighting}
+\end{Shaded}
+
+Una vez construída la función \texttt{ll} se deben construir los
+vectores con las coordenadas horizontal y vertical donde se evalua la
+función \texttt{ll}. En el código mostrado abajo se tienen dos vectores
+\texttt{xx} e \texttt{yy} obtenidos como secuencias desde el menor valor
+hasta el mayor valor para cada uno de los parámetros \(\mu\) y
+\(\sigma\) de la distribución normal, el valor \texttt{by=0.5} indica el
+tamaño de paso de la secuencia. Luego se construye la matriz \texttt{zz}
+usando la función \texttt{outer} evaluando \texttt{ll} en \texttt{xx} e
+\texttt{yy}. Por último la función \texttt{contour} se aplica sobre los
+elementos \texttt{xx}, \texttt{yy} e \texttt{zz}. En la Figura
+\ref{fig:contour1} se muestra el gráfico de contornos con
+aproximadamente 50 niveles.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{xx <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\DecValTok{160}\NormalTok{, }\DataTypeTok{to=}\DecValTok{180}\NormalTok{, }\DataTypeTok{by=}\FloatTok{0.5}\NormalTok{)}
+\NormalTok{yy <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\DecValTok{3}\NormalTok{, }\DataTypeTok{to=}\DecValTok{7}\NormalTok{, }\DataTypeTok{by=}\FloatTok{0.5}\NormalTok{)}
+\NormalTok{zz <-}\StringTok{ }\KeywordTok{outer}\NormalTok{(}\DataTypeTok{X=}\NormalTok{xx, }\DataTypeTok{Y=}\NormalTok{yy, ll)}
+\KeywordTok{contour}\NormalTok{(}\DataTypeTok{x=}\NormalTok{xx, }\DataTypeTok{y=}\NormalTok{yy, }\DataTypeTok{z=}\NormalTok{zz, }\DataTypeTok{nlevels=}\DecValTok{50}\NormalTok{,}
+        \DataTypeTok{col=}\KeywordTok{gray}\NormalTok{(}\FloatTok{0.3}\NormalTok{), }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{lty=}\StringTok{'solid'}\NormalTok{,}
+        \DataTypeTok{xlab=}\KeywordTok{expression}\NormalTok{(mu), }\DataTypeTok{ylab=}\KeywordTok{expression}\NormalTok{(sigma))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/contour1-1.pdf}
+\caption{\label{fig:contour1}Gráfico de contornos para la función de
+log-verosimilitud para el ejemplo sobre normal.}
+\end{figure}
+
+\section{\texorpdfstring{Función \texttt{filled.contour}
+\index{filled.contour}
+\index{gráfico de nivel}}{Función filled.contour  }}\label{funcion-filled.contour}
+
+La función \texttt{filled.contour} dibuja una especie de gráficos
+contornos pero usando una paleta de colores. La estructura de la función
+\texttt{filled.contour} con los argumentos más usuales se muestran a
+continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{filled.contour}\NormalTok{(x, y, z,}
+               \NormalTok{xlim, ylim, zlim,}
+               \NormalTok{levels, }\DataTypeTok{nlevels=}\DecValTok{20}\NormalTok{,}
+               \DataTypeTok{color.palette=}\NormalTok{cm.colors, col)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x,\ y}: vectores numéricos en los cuales se evaluó la función
+  de interés para construir el objeto \texttt{z}. Ambos vectores deben
+  estar ordenados.
+\item
+  \texttt{z}: matriz con las alturas de la función de interés, por lo
+  general creada con la función \texttt{outer}.
+\item
+  \texttt{xlim,\ ylim,\ zlim}: límites de los ejes x, y e z
+  respectivamente.
+\item
+  \texttt{nlevels}: número aproximado de niveles o cortes en la
+  superficie a representar.
+\item
+  \texttt{color.palette}: paleta de colores a usar. Por defecto es
+  \texttt{cm.colors} pero el usuario puede elegir entre
+  \texttt{heat.colors}, \texttt{terrain.colors} o \texttt{topo.colors}.
+\end{itemize}
+
+La función \texttt{filled.contour} tiene otros parámetros adicionales
+que el lector puede consultar en la ayuda usando
+\texttt{help(filled.contour)}.
+
+\subsection*{Ejemplo}\label{ejemplo-18}
+
+
+Para la muestra aleatoria obtenida en el ejemplo anterior, dibujar un
+gráfico de nivel para la superficie de log-verosimilitud.
+
+Usando los objetos \texttt{xx}, \texttt{yy} e \texttt{zz} creados en el
+ejemplo anterior se puede construir el gráfico de niveles, a
+continuación el código utilizado. En la Figura \ref{fig:contour2} se
+muestra el gráfico de niveles con aproximadamente 20 niveles.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{filled.contour}\NormalTok{(}\DataTypeTok{x=}\NormalTok{xx, }\DataTypeTok{y=}\NormalTok{yy, }\DataTypeTok{z=}\NormalTok{zz, }\DataTypeTok{nlevels=}\DecValTok{20}\NormalTok{,}
+               \DataTypeTok{xlab=}\KeywordTok{expression}\NormalTok{(mu), }\DataTypeTok{ylab=}\KeywordTok{expression}\NormalTok{(sigma),}
+               \DataTypeTok{color =} \NormalTok{topo.colors)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/contour2-1.pdf}
+\caption{\label{fig:contour2}Gráfico de nivel para la función de
+log-verosimilitud para el ejemplo sobre normal.}
+\end{figure}
 
 \chapter{Gráficos para variables
 cualitativas}\label{graficos-para-variables-cualitativas}
@@ -2378,7 +2545,7 @@ La función \texttt{barplot} tiene otros parámetros que pueden ser
 consultados en la ayuda de la función por medio de la instrucción
 \texttt{?barplot}.
 
-\subsection*{Ejemplo}\label{ejemplo-17}
+\subsection*{Ejemplo}\label{ejemplo-19}
 
 
 Suponga que queremos construir un diagrama de barras para las
@@ -2472,7 +2639,7 @@ En la Figura \ref{fig:barra2} se muestra el diagrama de barras
 modificado. Note que si no se hubiese usado \texttt{ylim=c(0,\ 0.45)} al
 dibujar el diagrama, la marca sobre la última barra no se podría ver.
 
-\subsection*{Ejemplo}\label{ejemplo-18}
+\subsection*{Ejemplo}\label{ejemplo-20}
 
 
 Suponga que queremos construir un diagrama de barras para comparar la
@@ -2651,7 +2818,7 @@ Los argumentos de la función \texttt{pie} son:
   pastel, por defecto se usan los nombres del vector \texttt{x}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-19}
+\subsection*{Ejemplo}\label{ejemplo-21}
 
 
 Dibujar un gráfico de pastel para las frecuencias relativas de la
@@ -2763,7 +2930,7 @@ se mostrará por medio de ejemplos.
 Este parámetro sirve para indicar si se quiere un gráfico con nombres en
 los ejes y título principal, por defecto asume el valor \texttt{TRUE}.
 
-\subsection*{Ejemplo}\label{ejemplo-20}
+\subsection*{Ejemplo}\label{ejemplo-22}
 
 
 Dibujar la densidad para una distribución \(\chi^2_1\) usando
@@ -2807,7 +2974,7 @@ valor por defecto es 0.5 que indica que el texto debe quedar centrado en
 las coordenadas x e y indicadas, un valor de 0 significa justificación a
 izquierda mientras que 1 significa justificación a derecha.
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-23}
 
 
 Dibujar un gráfico vacío, ubicar las palabra \emph{hola mi mundo}
@@ -2851,7 +3018,7 @@ del texto.
 Este parámetro sirve para modificar el color del fondo donde se va a
 dibujar.
 
-\subsection*{Ejemplo}\label{ejemplo-22}
+\subsection*{Ejemplo}\label{ejemplo-24}
 
 
 Dibujar la densidad de una normal estándar usando un color verde para el
@@ -2887,7 +3054,7 @@ modificar este parámetro es \texttt{mfrow=c(nf,\ nc)}, donde \texttt{nf}
 es el número de filas y \texttt{nc} el número de columnas en las cuales
 se va a dividir la ventana gráfica.
 
-\subsection*{Ejemplo}\label{ejemplo-23}
+\subsection*{Ejemplo}\label{ejemplo-25}
 
 
 Dibujar la distribución de probabilidad para una distribución Poisson
@@ -2946,7 +3113,7 @@ obtener la caja usual; se pueden usar también los símboloes
 caja con la forma del símbolo; se puede usar
 \texttt{\textquotesingle{}n\textquotesingle{}} para suprimir la caja.
 
-\subsection*{Ejemplo}\label{ejemplo-24}
+\subsection*{Ejemplo}\label{ejemplo-26}
 
 
 Dibujar la densidad de una \(\chi^2_5\) modificando el parámetro
@@ -2994,7 +3161,7 @@ este parámetro permiten obtener mejores figuras. A continuación un
 ejemplo para ver el efecto que tiene este parámetro sobre las figuras
 obtenidas.
 
-\subsection*{Ejemplo}\label{ejemplo-25}
+\subsection*{Ejemplo}\label{ejemplo-27}
 
 
 Hacer un gráfico de dispersión sencillo para explorar el efecto del
@@ -3044,7 +3211,7 @@ anteriores elementos simultáneamente mientras que los parámetros
 explicados en esta sección modifican cada uno de los elementos por
 aparte.
 
-\subsection*{Ejemplo}\label{ejemplo-26}
+\subsection*{Ejemplo}\label{ejemplo-28}
 
 
 Hacer un gráfico cualquiera y modificar los parámetros
@@ -3090,7 +3257,7 @@ personalizados en \proglang{R}.
 Estos parámetros sirven para definir el color a usar en los ejes, en los
 nombres de los ejes, en el título y en el subtítulo.
 
-\subsection*{Ejemplo}\label{ejemplo-27}
+\subsection*{Ejemplo}\label{ejemplo-29}
 
 
 Hacer un gráfico cualquiera y modificar los parámetros \texttt{col},
@@ -3222,7 +3389,7 @@ To know more about \textbf{bookdown}, see \url{https://bookdown.org}.
 \end{Highlighting}
 \end{Shaded}
 
-\bibliography{packages.bib,book.bib}
+\bibliography{packages,book}
 
 \backmatter
 \printindex
