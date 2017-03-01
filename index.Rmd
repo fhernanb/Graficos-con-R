@@ -1,8 +1,8 @@
 --- 
 title: "Gráficos con R"
 author: |
-  | Juan Carlos Correa Morales
   | Freddy Hernández Barajas
+  | Juan Carlos Correa Morales
 date: "`r Sys.Date()`"
 documentclass: krantz
 fontsize: 10pt
@@ -79,8 +79,8 @@ Este bloque sirve para una advertencia.
 Agradecemos a nuestros estudiantes, profesores y colegas que han leído el manuscrito y se han tomado el trabajo de escribirnos dándonos sus sugerencias y comentarios para mejorar continuamente este material.
 
 ```{block2, type='flushright', html.tag='p'}
-Juan Carlos Correa Morales 
-
 Freddy Hernández Barajas
+
+Juan Carlos Correa Morales
 ```
 
