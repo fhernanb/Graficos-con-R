@@ -61,88 +61,6 @@ plot(x=datos$mt2, y=datos$precio, pch='.',
 
 En la Figura \@ref(fig:ex2plot) se presenta el diagrama de dispersión entre precio y área de los apartamentos, de este diagrama se observa claramente que a medida que los apartamentos tienen mayor área el precio promedio y la variabilidad del precio aumentan. Para el diagrama de dispersión de la derecha se usó el parámetro `pch='.'` con el objetivo de obtener pequeños puntos que representen cada apartamento y que no se traslapen debido a que se tienen `r nrow(datos)` observaciones en la base de datos.
 
-## Función `persp` \index{persp}
-La función `persp` dibuja superfices en tres dimensiones y es posible rotar la superficie para obtener una perpectiva apropiada. La estructura de la función `persp` con los argumentos más usuales se muestran a continuación.
-
-```{r, eval=F}
-persp(x, y, z, main, sub, theta, phi, r, col, border, box, axes, nticks)
-```
-
-Los argumentos de la función `plot` son:
-
-- `x`: vector numérico con los valores de $x$ donde fue evaluada la función o superficie.
-- `y`: vector numérico con los valores de $y$ donde fue evaluada la función o superficie.
-- `z`: matriz que contiene las alturas $z$ de la supercifie para cada combinación de $x$ e $y$.
-- `main`: vector numérico con las coordenadas del eje vertical.
-- `sub`: vector numérico con las coordenadas del eje vertical.
-- `theta, phi`: ángulo para la visión de la superficie, `theta` para la dirección azimutal y `phi` para latitud. Ver Figura \@ref(fig:globo) para una ilustración de los ángulos.
-- `r`: distancia entre el centro de la caja de dibujo al punto de vista.
-- `col`: color de la superficie.
-- `border`: color para el borde de la superficie.
-- `box`: valor lógico para indicar si se quiere dibujar la caja que contiene la superficie, por defecto es `TRUE`.
-- `axes`: valor lógico para indicar si se desean marcas en los ejes y nombres de los ejes, por defecto es `TRUE`. Si `box='FALSE'` no aparecen marcas ni nombres de los ejes.
-- `expand`: factor de expansión aplicado a los valores en el eje `z`.
-- `ticktype`: tipo de marcas a colocar en los ejes, `simple` no dibuja nada y `detailed` coloca números a los ejes.
-- `nticks`: número aproximado de marcas en los ejes.
-
-```{r globo, fig.cap='Ilustración de los angulos theta y phi para la función persp. Figura tomada de https://i-msdn.sec.s-msft.com/dynimg/IC412528.png', echo=F, out.width = '25%', fig.align='center'}
-knitr::include_graphics("images/IC412528.png")
-```
-
-### Ejemplo {-}
-Dibujar la superficie asociada a la función $f(x, y)=sen(x^2+y^2)$ para $-2 \leq x \leq2$ y $-2 \leq y \leq2$. Usar 4 combinaciones de los parámetros `theta` y `phi` para obtener un buen punto de vista de la superficie.
-
-Lo primero que se debe hacer es crear la función $f(x, y)$ la cual se va a llamar `fun`. Luego se definen los vectores `x` e `y` tomando por ejemplo 25 puntos equiespaciados en el intervalo $[-2, 2]$. Luego se usa la función `outer` para crear la rejilla o matriz que contiene los valores de $f(x, y)$ para cada combinación de `x` e `y`, los resultados se almacenan en el objeto `z`. Por último se dibujan 4 perspectivas de la función variando los parámetros `theta` y `phi` de la función `persp`. A continuación el código utilizado.
-
-```{r ex1persp, fig.cap='Superficie generada con `persp` y diferentes valores de theta y phi.', fig.asp=0.5, fig.width=13}
-fun <- function(x, y)   sin(x^2 + y^2)
-x <- seq(from=-2, to=2, length.out=25)
-y <- seq(from=-2, to=2, length.out=25)
-z <- outer(x, y, fun)
-
-par(mfrow=c(2, 2), mar=c(1, 1, 2, 1))
-persp(x, y, z, zlim=c(-1, 1.5), theta=0, phi=0, col='aquamarine',
-      main='(A) theta=0, phi=0')
-persp(x, y, z, zlim=c(-1, 1.5), theta=15, phi=15, col='lightpink',
-      main='(B) theta=15, phi=15')
-persp(x, y, z, zlim=c(-1, 1.5), theta=45, phi=30, col='yellow1',
-      main='(c) theta=45, phi=30')
-persp(x, y, z, zlim=c(-1, 1.5), theta=60, phi=50, col='lightblue',
-      main='(D) theta=60, phi=50')
-```
-
-En la Figura \@ref(fig:ex1persp) se presentan las 4 perspectivas de la función $f(x, y)=sen(x^2+y^2)$. De los 4 páneles se nota que (C) y (D) muestran mejor la superficie de interés. 
-
-Al aumentar el valor del parámetro `length.out` en la creación de los vectores `x` e `y` se obtendrá una rejilla más tupida, se recomienda modificar este valor para obtener una superficie apropiada.
-
-### Ejemplo {-}
-Dibujar la superficie de una distribución normal bivariada con vector de medias $\boldsymbol{\mu}=(5, 12)^\top$, varianzas unitarias y covarianza con valor de -0.8. Explorar el efecto de los parámetros `ticktype`, `nticks`, `expand`, `axes` y `box`.
-
-Primero se define el vector de medias y la matriz de varianzas y covarianzas, luego se carga el paquete `mvtnorm` que contiene la función `dmvnorm` que calcula la densidad dado el vector de medias y la matriz de varianzas y covarianzas. Se construye la función `fun` y se vectoriza para luego obtener las alturas de la superficie con la ayuda de `outer`. Por último se dibujan tres perspectivas diferentes para la densidad modificando los parámetros `ticktype`, `nticks`, `expand`, `axes` y `box`, a continuación el código usado.
-
-
-```{r ex2persp, fig.cap='Distribución normal bivariada.', fig.asp=0.5, fig.width=14, message=FALSE}
-media <- c(5, 12)
-varianza <- matrix(c(1, -0.8, -0.8, 1), ncol=2)
-
-require(mvtnorm)
-fun <- function(x, y) dmvnorm(c(x, y), mean=media, sigma=varianza)
-fun <- Vectorize(fun)
-
-x <- seq(from=2, to=8, length.out=30)
-y <- seq(from=9, to=15, length.out=30)
-z <- outer(x, y, fun)
-
-par(mfrow=c(1, 3), mar=c(1, 1, 2, 1))
-persp(x, y, z, theta=30, phi=30, ticktype = "detailed", nticks=4)
-persp(x, y, z, theta=30, phi=30, col='salmon1', expand=0.5, axes=FALSE)
-persp(x, y, z, theta=30, phi=30, col='springgreen1', expand=0.2, box=FALSE)
-```
-
-En la Figura \@ref(fig:ex2persp) se presentan las 3 perspectivas para la densidad. Note los efectos que `ticktype`, `nticks`, `expand`, `axes` y `box` tienen sobre los dibujos de las perspectivas.
-
-
-
 ## Función `pairs` \index{pairs} 
 Las matrices de dispersión obtenidas con la función `pairs` proporcionan un método simple de presentar las relaciones entre pares de variables cuantitativas y son la versión múltiple de la función `plot`. Este gráfico consiste en una matriz donde cada entrada presenta un gráfico de dispersión sencillo. Un inconveniente es que si tenemos muchas variables el tamaño de cada entrada se reduce demasiado impidiendo ver con claridad las relaciones entre los pares de variables. La celda $(i,j)$ de una matriz de dispersión contiene el gráfico de dispersión de la columna $i$ versus la columna $j$ de la matriz de datos. 
 
@@ -299,8 +217,170 @@ pairs(datos.num,
       lower.panel = panel.smooth)
 ```
 
+## Función `persp` \index{persp}
+La función `persp` dibuja superfices en tres dimensiones y es posible rotar la superficie para obtener una perpectiva apropiada. La estructura de la función `persp` con los argumentos más usuales se muestran a continuación.
+
+```{r, eval=F}
+persp(x, y, z, main, sub, theta, phi, r, col,
+      border, box, axes, nticks)
+```
+
+Los argumentos de la función `plot` son:
+
+- `x`: vector numérico con los valores de $x$ donde fue evaluada la función o superficie.
+- `y`: vector numérico con los valores de $y$ donde fue evaluada la función o superficie.
+- `z`: matriz que contiene las alturas $z$ de la supercifie para cada combinación de $x$ e $y$.
+- `main`: vector numérico con las coordenadas del eje vertical.
+- `sub`: vector numérico con las coordenadas del eje vertical.
+- `theta, phi`: ángulo para la visión de la superficie, `theta` para la dirección azimutal y `phi` para latitud. Ver Figura \@ref(fig:globo) para una ilustración de los ángulos.
+- `r`: distancia entre el centro de la caja de dibujo al punto de vista.
+- `col`: color de la superficie.
+- `border`: color para el borde de la superficie.
+- `box`: valor lógico para indicar si se quiere dibujar la caja que contiene la superficie, por defecto es `TRUE`.
+- `axes`: valor lógico para indicar si se desean marcas en los ejes y nombres de los ejes, por defecto es `TRUE`. Si `box='FALSE'` no aparecen marcas ni nombres de los ejes.
+- `expand`: factor de expansión aplicado a los valores en el eje `z`.
+- `ticktype`: tipo de marcas a colocar en los ejes, `simple` no dibuja nada y `detailed` coloca números a los ejes.
+- `nticks`: número aproximado de marcas en los ejes.
+
+```{r globo, fig.cap='Ilustración de los angulos theta y phi para la función persp. Figura tomada de https://i-msdn.sec.s-msft.com/dynimg/IC412528.png', echo=F, out.width = '25%', fig.align='center'}
+knitr::include_graphics("images/IC412528.png")
+```
+
+### Ejemplo {-}
+Dibujar la superficie asociada a la función $f(x, y)=sen(x^2+y^2)$ para $-2 \leq x \leq2$ y $-2 \leq y \leq2$. Usar 4 combinaciones de los parámetros `theta` y `phi` para obtener un buen punto de vista de la superficie.
+
+Lo primero que se debe hacer es crear la función $f(x, y)$ la cual se va a llamar `fun`. Luego se definen los vectores `x` e `y` tomando por ejemplo 25 puntos equiespaciados en el intervalo $[-2, 2]$. Luego se usa la función `outer` para crear la rejilla o matriz que contiene los valores de $f(x, y)$ para cada combinación de `x` e `y`, los resultados se almacenan en el objeto `z`. Por último se dibujan 4 perspectivas de la función variando los parámetros `theta` y `phi` de la función `persp`. A continuación el código utilizado.
+
+```{r ex1persp, fig.cap='Superficie generada con `persp` y diferentes valores de theta y phi.', fig.asp=0.8, fig.width=18}
+fun <- function(x, y)   sin(x^2 + y^2)
+x <- seq(from=-2, to=2, length.out=25)
+y <- seq(from=-2, to=2, length.out=25)
+z <- outer(x, y, fun)
+
+par(mfrow=c(2, 2), mar=c(1, 1, 2, 1))
+persp(x, y, z, zlim=c(-1, 1.5), theta=0, phi=0, col='aquamarine',
+      main='(A) theta=0, phi=0')
+persp(x, y, z, zlim=c(-1, 1.5), theta=15, phi=15, col='lightpink',
+      main='(B) theta=15, phi=15')
+persp(x, y, z, zlim=c(-1, 1.5), theta=45, phi=30, col='yellow1',
+      main='(c) theta=45, phi=30')
+persp(x, y, z, zlim=c(-1, 1.5), theta=60, phi=50, col='lightblue',
+      main='(D) theta=60, phi=50')
+```
+
+En la Figura \@ref(fig:ex1persp) se presentan las 4 perspectivas de la función $f(x, y)=sen(x^2+y^2)$. De los 4 páneles se nota que (C) y (D) muestran mejor la superficie de interés. 
+
+Al aumentar el valor del parámetro `length.out` en la creación de los vectores `x` e `y` se obtendrá una rejilla más tupida, se recomienda modificar este valor para obtener una superficie apropiada.
+
+### Ejemplo {-}
+Dibujar la superficie de una distribución normal bivariada con vector de medias $\boldsymbol{\mu}=(5, 12)^\top$, varianzas unitarias y covarianza con valor de -0.8. Explorar el efecto de los parámetros `ticktype`, `nticks`, `expand`, `axes` y `box`.
+
+Primero se define el vector de medias y la matriz de varianzas y covarianzas, luego se carga el paquete `mvtnorm` que contiene la función `dmvnorm` que calcula la densidad dado el vector de medias y la matriz de varianzas y covarianzas. Se construye la función `fun` y se vectoriza para luego obtener las alturas de la superficie con la ayuda de `outer`. Por último se dibujan tres perspectivas diferentes para la densidad modificando los parámetros `ticktype`, `nticks`, `expand`, `axes` y `box`, a continuación el código usado.
+
+
+```{r ex2persp, fig.cap='Distribución normal bivariada.', fig.asp=0.5, fig.width=14, message=FALSE}
+media <- c(5, 12)
+varianza <- matrix(c(1, -0.8, -0.8, 1), ncol=2)
+
+require(mvtnorm)
+fun <- function(x, y) dmvnorm(c(x, y), mean=media, sigma=varianza)
+fun <- Vectorize(fun)
+
+x <- seq(from=2, to=8, length.out=30)
+y <- seq(from=9, to=15, length.out=30)
+z <- outer(x, y, fun)
+
+par(mfrow=c(1, 3), mar=c(1, 1, 2, 1))
+persp(x, y, z, theta=30, phi=30, ticktype = "detailed", nticks=4)
+persp(x, y, z, theta=30, phi=30, col='salmon1', expand=0.5, axes=FALSE)
+persp(x, y, z, theta=30, phi=30, col='springgreen1', expand=0.2, box=FALSE)
+```
+
+En la Figura \@ref(fig:ex2persp) se presentan las 3 perspectivas para la densidad. Note los efectos que `ticktype`, `nticks`, `expand`, `axes` y `box` tienen sobre los dibujos de las perspectivas.
+
 
 ## Función `contour` \index{contour} \index{gráfico de contornos}
+La función `contour` dibuja gráficos contornos. La estructura de la función `contour` con los argumentos más usuales se muestran a continuación.
+
+```{r, eval=FALSE}
+contour(x, y, z,
+        xlim, ylim, zlim,
+        levels, nlevels=20, col)
+```
+
+Los argumentos de la función son:
+
+- `x, y`: vectores numéricos en los cuales se evaluó la función de interés para construir el objeto `z`. Ambos vectores deben estar ordenados.
+- `z`: matriz con las alturas de la función de interés, por lo general creada con la función `outer`. 
+- `xlim, ylim, zlim`: límites de los ejes x, y e z respectivamente.
+- `nlevels`: número aproximado de niveles o cortes en la superficie a representar.
+- `col`: color a usar en las líneas de contornos.
+
+La función `contour` tiene otros parámetros adicionales que el lector puede consultar en la ayuda usando `help(contour)`.
+
+### Ejemplo {-}
+Generar una muestra aleatoria de 50 observaciones de una distribución normal con parámetros $\mu=170$ y $\sigma^2=25$. Dibujar un gráfico de contornos para la superficie de log-verosimilitud.
+
+La muestra aleatoria se genera con el siguiente código.
+
+```{r}
+y <- rnorm(n=50, mean=170, sd=5)  # sd es desviación
+```
+
+Para dibujar los contornos solicitados se debe primero construir la función de log-verosimilitud llamada `ll`. A continuación el código para crear `ll`, mayores detalles de cómo construir funciones de log-verosimilitud se pueden consultar en @hernandez_usuga.
+
+```{r}
+ll <- function(a, b) sum(dnorm(x=y, mean=a, sd=b, log=TRUE))
+ll <- Vectorize(ll)  # Para vectorizar la función
+```
+
+Una vez construída la función `ll` se deben construir los vectores con las coordenadas horizontal y vertical donde se evalua la función `ll`. En el código mostrado abajo se tienen dos vectores `xx` e `yy` obtenidos como secuencias desde el menor valor hasta el mayor valor para cada uno de los parámetros $\mu$ y $\sigma$ de la distribución normal, el valor `by=0.5` indica el tamaño de paso de la secuencia. Luego se construye la matriz `zz` usando la función `outer` evaluando `ll` en `xx` e `yy`. Por último la función `contour` se aplica sobre los elementos `xx`, `yy` e `zz`. En la Figura \@ref(fig:contour1) se muestra el gráfico de contornos con aproximadamente 50 niveles.
+
+```{r contour1, fig.cap='Gráfico de contornos para la función de log-verosimilitud para el ejemplo sobre normal.', fig.asp=0.6, fig.width=9}
+xx <- seq(from=160, to=180, by=0.5)
+yy <- seq(from=3, to=7, by=0.5)
+zz <- outer(X=xx, Y=yy, ll)
+contour(x=xx, y=yy, z=zz, nlevels=50,
+        col=gray(0.3), lwd=2, lty='solid',
+        xlab=expression(mu), ylab=expression(sigma))
+```
+
+## Función `filled.contour` \index{filled.contour} \index{gráfico de nivel}
+
+La función `filled.contour` dibuja una especie de gráficos contornos pero usando una paleta de colores.  La estructura de la función `filled.contour` con los argumentos más usuales se muestran a continuación.
+
+```{r, eval=FALSE}
+filled.contour(x, y, z,
+               xlim, ylim, zlim,
+               levels, nlevels=20,
+               color.palette=cm.colors, col)
+```
+
+Los argumentos de la función son:
+
+- `x, y`: vectores numéricos en los cuales se evaluó la función de interés para construir el objeto `z`. Ambos vectores deben estar ordenados.
+- `z`: matriz con las alturas de la función de interés, por lo general creada con la función `outer`. 
+- `xlim, ylim, zlim`: límites de los ejes x, y e z respectivamente.
+- `nlevels`: número aproximado de niveles o cortes en la superficie a representar.
+- `color.palette`: paleta de colores a usar. Por defecto es `cm.colors` pero el usuario puede elegir entre `heat.colors`, `terrain.colors` o `topo.colors`.
+
+La función `filled.contour` tiene otros parámetros adicionales que el lector puede consultar en la ayuda usando `help(filled.contour)`.
+
+### Ejemplo {-}
+Para la muestra aleatoria obtenida en el ejemplo anterior, dibujar un gráfico de nivel para la superficie de log-verosimilitud.
+
+Usando los objetos `xx`, `yy` e `zz` creados en el ejemplo anterior se puede construir el gráfico de niveles, a continuación el código utilizado. En la Figura \@ref(fig:contour2) se muestra el gráfico de niveles con aproximadamente 20 niveles.
+
+```{r contour2, fig.cap='Gráfico de nivel para la función de log-verosimilitud para el ejemplo sobre normal.', fig.asp=0.6, fig.width=9}
+filled.contour(x=xx, y=yy, z=zz, nlevels=20,
+               xlab=expression(mu), ylab=expression(sigma),
+               color = topo.colors)
+```
+
+
+
+
+
 
 
 
