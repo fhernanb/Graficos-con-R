@@ -1,0 +1,34 @@
+# Respuestas a preguntas frecuentes
+
+En este capítulo se presentan las respuestas a preguntas frecuentes que tienen los usuarios de \proglang{R}
+
+## ¿Cómo personalizar los valores a mostrar en los ejes?
+Supongamos que tenemos un gráfico de dispersión y que queremos que el eje horizontal presente sólo tres marcas en los valores 2, 6 y 10, y que el eje vertical presente también tres marcas en los valores 0, 15 y 25.
+
+Para realizar esto construimos el diagrama de dispersión de la forma usual con la función `plot` pero le agregamos dentro lo siguiente `xaxt='n', yaxt='n'`, esto se agrega para evitar que `plot` coloque marcas en los ejes. Luego se usa la función `axis(side, at, labels)` para colocar las marcas en cada uno de los ejes. Los parámetros básicos de la función `axis` son:
+
+- `side`: número para indicar el eje a completar, 1 para eje horizontal inferior, 2 para el eje vertical izquierdo, 3 para el eje horizontal superior y 4 para el eje vertical a la derecha.
+- `at`: vector con los puntos donde se desean las marcas.
+- `labels`: vector con las etiquetas a colocar en las marcas.
+
+A continuación se muestra un ejemplo de cómo colocar tres marcas tanto en el eje horizontal como vertical. En la Figura \@ref(fig:faq1) se muestra el resultado, a la izquierda está el diagrama obtenido por defecto y a la derecha el mismo diagrama pero con las tres marcas en los ejes.
+
+```{r faq1, fig.cap='Personalizando los valores a mostrar en los ejes.', fig.asp=0.6, fig.width=7}
+x <- 1:10          # Los datos para el dibujo
+y <- (x - 5) ^ 2   # Los datos para el dibujo
+
+par(mfrow=c(1, 2)) # Para dividir la ventana gráfica
+plot(x=x, y=y, main='Dibujo por defecto')  # Dibujo por defecto
+plot(x=x, y=y, xaxt='n', yaxt='n',
+     main='Con marcas personalizadas')  # Sin marcas
+axis(side=1, at=c(2, 6, 10), labels=c(2, 6, 10))
+axis(side=2, at=c(0, 15, 25), labels=c(0, 15, 25))
+```
+
+
+
+
+
+
+
+
