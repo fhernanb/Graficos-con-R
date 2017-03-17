@@ -1,6 +1,6 @@
 # Respuestas a preguntas frecuentes
 
-En este capítulo se presentan las respuestas a preguntas frecuentes que tienen los usuarios de \proglang{R}
+En este capítulo se presentan las respuestas a preguntas frecuentes que tienen los usuarios de \proglang{R} sobre la construcción de gráficos personalizados.
 
 ## ¿Cómo personalizar los valores a mostrar en los ejes?
 Supongamos que tenemos un gráfico de dispersión y que queremos que el eje horizontal presente sólo tres marcas en los valores 2, 6 y 10, y que el eje vertical presente también tres marcas en los valores 0, 15 y 25.
@@ -25,10 +25,44 @@ axis(side=1, at=c(2, 6, 10), labels=c(2, 6, 10))
 axis(side=2, at=c(0, 15, 25), labels=c(0, 15, 25))
 ```
 
+## Dibujar varios QQplot en una misma figura
+Para colocar varios QQplot en una misma figura lo primero que se debe hacer es aplicar la función `qqnorm` a los datos pero usando `plot.it=FALSE` para que no se dibuje nada, luego se almacenan los resultados en un objeto. Ese objeto resultante será una lista con las coordenadas de ubicación de los puntos. Se hace un gráfico vacío y sobre éste se colocar los puntos y las líneas de referencia.
 
+Supongamos que tenemos dos muestras aleatorias `m1` y `m2` para las cuales queremos dibujar QQplots. El código para construir el gráfico solicitado se muestra a continuación y el resultado es la Figura \@ref(fig:faq2).
 
+```{r faq2, fig.cap='QQplots simultáneos.', fig.asp=1, fig.width=4}
+m1 <- rnorm(n=15, mean=170, sd=10)  # Simulando las muestras
+m2 <- rnorm(n=20, mean=160, sd=15)
 
+q1 <- qqnorm(m1, plot.it=FALSE)
+q2 <- qqnorm(m2, plot.it=FALSE)
+plot(range(q1$x, q2$x), range(q1$y, q2$y), type='n', las=1,
+     xlab='Theoretical Quantiles', ylab='Sample Quantiles')
+points(q1, pch=19, col='slateblue3')
+points(q2, pch=19, col='seagreen4')
+qqline(m1, col='slateblue3')
+qqline(m1, col='seagreen4')
+legend('topleft', legend=c('Muestra 1', 'Muestra 2'), bty='n',
+       col=c('slateblue3', 'seagreen4'), pch=19)
+```
 
+## Dibujar varias densidades en una misma figura
+Para dibujar varias densidades en una misma figura se procede de forma similar al ejemplo anterior. Se construyen las densidades pero sin dibujarlas, luego se crea un gráfico y se van agregando una a una las densidades. Abajo el código para dibujar dos densidades a partir de dos muestras aleatorias `m1` y `m2`. En la Figura \@ref(fig:faq3) se muestran las dos densidades.
+
+```{r faq3, fig.cap='Densidades simultáneas.', fig.asp=0.7, fig.width=4.5}
+m1 <- rnorm(n=100, mean=3, sd=1)        # Generando los datos
+m2 <- rgamma(n=100, shape=2, scale=1)
+
+f1 <- density(m1)  # Calculando las densidades
+f2 <- density(m2)
+
+plot(f1, main='', las=1, lwd=2,
+     xlim=range(f1$x, f2$x), ylim=range(f1$y, f2$y),
+     xlab='Variable', ylab='Densidad')
+lines(f2, lwd=2, col='red')  # Para agregar f2
+legend('topright', col=c('black', 'red'),
+       lwd=2, bty='n', legend=c('Muestra 1', 'Muestra2'))
+```
 
 
 

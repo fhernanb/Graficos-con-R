@@ -220,7 +220,7 @@
 \title{Gráficos con R}
 \author{Freddy Hernández Barajas\\
 Juan Carlos Correa Morales}
-\date{2017-03-06}
+\date{2017-03-17}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -3354,7 +3354,8 @@ En este capítulo se presentan funciones asociadas a geometría.
 frecuentes}\label{respuestas-a-preguntas-frecuentes}
 
 En este capítulo se presentan las respuestas a preguntas frecuentes que
-tienen los usuarios de \proglang{R}
+tienen los usuarios de \proglang{R} sobre la construcción de gráficos
+personalizados.
 
 \section{¿Cómo personalizar los valores a mostrar en los
 ejes?}\label{como-personalizar-los-valores-a-mostrar-en-los-ejes}
@@ -3407,6 +3408,78 @@ ejes.
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/faq1-1.pdf}
 \caption{\label{fig:faq1}Personalizando los valores a mostrar en los ejes.}
+\end{figure}
+
+\section{Dibujar varios QQplot en una misma
+figura}\label{dibujar-varios-qqplot-en-una-misma-figura}
+
+Para colocar varios QQplot en una misma figura lo primero que se debe
+hacer es aplicar la función \texttt{qqnorm} a los datos pero usando
+\texttt{plot.it=FALSE} para que no se dibuje nada, luego se almacenan
+los resultados en un objeto. Ese objeto resultante será una lista con
+las coordenadas de ubicación de los puntos. Se hace un gráfico vacío y
+sobre éste se colocar los puntos y las líneas de referencia.
+
+Supongamos que tenemos dos muestras aleatorias \texttt{m1} y \texttt{m2}
+para las cuales queremos dibujar QQplots. El código para construir el
+gráfico solicitado se muestra a continuación y el resultado es la Figura
+\ref{fig:faq2}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m1 <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n=}\DecValTok{15}\NormalTok{, }\DataTypeTok{mean=}\DecValTok{170}\NormalTok{, }\DataTypeTok{sd=}\DecValTok{10}\NormalTok{)  }\CommentTok{# Simulando las muestras}
+\NormalTok{m2 <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n=}\DecValTok{20}\NormalTok{, }\DataTypeTok{mean=}\DecValTok{160}\NormalTok{, }\DataTypeTok{sd=}\DecValTok{15}\NormalTok{)}
+
+\NormalTok{q1 <-}\StringTok{ }\KeywordTok{qqnorm}\NormalTok{(m1, }\DataTypeTok{plot.it=}\OtherTok{FALSE}\NormalTok{)}
+\NormalTok{q2 <-}\StringTok{ }\KeywordTok{qqnorm}\NormalTok{(m2, }\DataTypeTok{plot.it=}\OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{range}\NormalTok{(q1$x, q2$x), }\KeywordTok{range}\NormalTok{(q1$y, q2$y), }\DataTypeTok{type=}\StringTok{'n'}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
+     \DataTypeTok{xlab=}\StringTok{'Theoretical Quantiles'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Sample Quantiles'}\NormalTok{)}
+\KeywordTok{points}\NormalTok{(q1, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{col=}\StringTok{'slateblue3'}\NormalTok{)}
+\KeywordTok{points}\NormalTok{(q2, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{col=}\StringTok{'seagreen4'}\NormalTok{)}
+\KeywordTok{qqline}\NormalTok{(m1, }\DataTypeTok{col=}\StringTok{'slateblue3'}\NormalTok{)}
+\KeywordTok{qqline}\NormalTok{(m1, }\DataTypeTok{col=}\StringTok{'seagreen4'}\NormalTok{)}
+\KeywordTok{legend}\NormalTok{(}\StringTok{'topleft'}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{c}\NormalTok{(}\StringTok{'Muestra 1'}\NormalTok{, }\StringTok{'Muestra 2'}\NormalTok{), }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{,}
+       \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'slateblue3'}\NormalTok{, }\StringTok{'seagreen4'}\NormalTok{), }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/faq2-1.pdf}
+\caption{\label{fig:faq2}QQplots simultáneos.}
+\end{figure}
+
+\section{Dibujar varias densidades en una misma
+figura}\label{dibujar-varias-densidades-en-una-misma-figura}
+
+Para dibujar varias densidades en una misma figura se procede de forma
+similar al ejemplo anterior. Se construyen las densidades pero sin
+dibujarlas, luego se crea un gráfico y se van agregando una a una las
+densidades. Abajo el código para dibujar dos densidades a partir de dos
+muestras aleatorias \texttt{m1} y \texttt{m2}. En la Figura
+\ref{fig:faq3} se muestran las dos densidades.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{m1 <-}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DataTypeTok{n=}\DecValTok{100}\NormalTok{, }\DataTypeTok{mean=}\DecValTok{3}\NormalTok{, }\DataTypeTok{sd=}\DecValTok{1}\NormalTok{)        }\CommentTok{# Generando los datos}
+\NormalTok{m2 <-}\StringTok{ }\KeywordTok{rgamma}\NormalTok{(}\DataTypeTok{n=}\DecValTok{100}\NormalTok{, }\DataTypeTok{shape=}\DecValTok{2}\NormalTok{, }\DataTypeTok{scale=}\DecValTok{1}\NormalTok{)}
+
+\NormalTok{f1 <-}\StringTok{ }\KeywordTok{density}\NormalTok{(m1)  }\CommentTok{# Calculando las densidades}
+\NormalTok{f2 <-}\StringTok{ }\KeywordTok{density}\NormalTok{(m2)}
+
+\KeywordTok{plot}\NormalTok{(f1, }\DataTypeTok{main=}\StringTok{''}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{,}
+     \DataTypeTok{xlim=}\KeywordTok{range}\NormalTok{(f1$x, f2$x), }\DataTypeTok{ylim=}\KeywordTok{range}\NormalTok{(f1$y, f2$y),}
+     \DataTypeTok{xlab=}\StringTok{'Variable'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(f2, }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{col=}\StringTok{'red'}\NormalTok{)  }\CommentTok{# Para agregar f2}
+\KeywordTok{legend}\NormalTok{(}\StringTok{'topright'}\NormalTok{, }\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'black'}\NormalTok{, }\StringTok{'red'}\NormalTok{),}
+       \DataTypeTok{lwd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{c}\NormalTok{(}\StringTok{'Muestra 1'}\NormalTok{, }\StringTok{'Muestra2'}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/faq3-1.pdf}
+\caption{\label{fig:faq3}Densidades simultáneas.}
 \end{figure}
 
 \cleardoublepage 
