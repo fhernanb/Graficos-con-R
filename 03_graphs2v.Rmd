@@ -242,7 +242,7 @@ Los argumentos de la función `plot` son:
 - `ticktype`: tipo de marcas a colocar en los ejes, `simple` no dibuja nada y `detailed` coloca números a los ejes.
 - `nticks`: número aproximado de marcas en los ejes.
 
-```{r globo, fig.cap='Ilustración de los angulos theta y phi para la función persp. Figura tomada de https://i-msdn.sec.s-msft.com/dynimg/IC412528.png', echo=F, out.width = '25%', fig.align='center'}
+```{r globo, fig.cap='Ilustración de los ángulos theta y phi para la función persp. Figura tomada de https://i-msdn.sec.s-msft.com/dynimg/IC412528.png', echo=F, out.width = '40%', fig.align='center'}
 knitr::include_graphics("images/IC412528.png")
 ```
 
@@ -251,7 +251,7 @@ Dibujar la superficie asociada a la función $f(x, y)=sen(x^2+y^2)$ para $-2 \le
 
 Lo primero que se debe hacer es crear la función $f(x, y)$ la cual se va a llamar `fun`. Luego se definen los vectores `x` e `y` tomando por ejemplo 25 puntos equiespaciados en el intervalo $[-2, 2]$. Luego se usa la función `outer` para crear la rejilla o matriz que contiene los valores de $f(x, y)$ para cada combinación de `x` e `y`, los resultados se almacenan en el objeto `z`. Por último se dibujan 4 perspectivas de la función variando los parámetros `theta` y `phi` de la función `persp`. A continuación el código utilizado.
 
-```{r ex1persp, fig.cap='Superficie generada con `persp` y diferentes valores de theta y phi.', fig.asp=0.8, fig.width=18}
+```{r ex1persp, fig.cap='Superficie generada con `persp` y diferentes valores de theta y phi.', fig.asp=1, fig.width=20}
 fun <- function(x, y)   sin(x^2 + y^2)
 x <- seq(from=-2, to=2, length.out=25)
 y <- seq(from=-2, to=2, length.out=25)

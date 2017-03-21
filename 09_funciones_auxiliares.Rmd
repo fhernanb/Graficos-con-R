@@ -2,6 +2,61 @@
 
 En este capítulo se presentan funciones auxiliares que son útiles para complementar los gráficos generados en \proglang{R}.
 
+## Función `arrows` \index{arrows} \index{flechas}
+Esta función es muy útil para incluir flechas en una figura. La estructura de la función se muestra a continuación.
+
+```{r, eval=FALSE}
+arrows(x0, y0, x1=x0, y1=y0, length=0.25, angle=30, ...)
+```
+
+Los argumentos de la función son:
+
+- `x0, y0`: coordenadas de inicio de la flecha.
+- `x1, y1`: coordenadas de fin de la flecha.
+- `length`: longitud (en pulgadas) de los bordes de punta de la flecha, el valor por defecto es 0.25.
+- `angle`: ángulo para la punta de la flecha, a mayor ángulo más abiertas las puntas.
+- `code`: número entero para indicar el tipo de flecha a dibujar. El valor de 0 para una flecha sin punta (entonces no sería una flecha), el valor de 1 para una flecha apuntando al revés (no es frecuente), el valor de 2 (valor por defecto) para una flecha usual y valor de 3 para colocar puntas a ambos lados de la flecha. El valor por defecto son 30 grados.
+- `...`: otros parámetros gráficos.
+
+En la Figura \@ref(fig:arrow1) se muestran los cuatro tipos de flechas que se obtienen al variar el parámetro `code` de la función `arrows`. Note que la flecha de la derecha fue construída subiendo, pero como `code=1` ella quedó bajando.
+
+```{r arrow1, fig.cap='Ejemplos de flechas variando el parámetro `code`.', fig.asp=0.8, fig.width=6}
+plot(NA, xlab='X', ylab='Y',      # Para crear un gráfico vacío
+     xlim=c(0, 6), ylim=c(0, 5))
+arrows(x0=2, y0=1, x1=4, y1=1, code=0)
+arrows(x0=5, y0=1, x1=5, y1=4, code=1)
+arrows(x0=2, y0=4, x1=4, y1=4, code=2)
+arrows(x0=1, y0=1, x1=1, y1=4, code=3)
+text(3, 0.8, 'code=0')
+text(5.4, 2.5, 'code=1')
+text(3, 4.2, 'code=2')
+text(0.6, 2.5, 'code=3')
+```
+
+En la Figura \@ref(fig:arrow2) se muestran 4 flechas para varios valores del parámetro `angle`, de la figura se observa que entre mayor el ángulo, la punta de la fecha es más achatada.
+
+```{r arrow2, fig.cap='Ejemplos de flechas variando el parámetro `angle`.', fig.asp=0.8, fig.width=6}
+plot(NA, xlab='X', ylab='Y',      # Para crear un gráfico vacío
+     xlim=c(0, 6), ylim=c(0, 5))
+
+arrows(x0=1, y0=4, x1=4, y1=4)
+arrows(x0=1, y0=3, x1=4, y1=3, angle=45)
+arrows(x0=1, y0=2, x1=4, y1=2, angle=60)
+arrows(x0=1, y0=1, x1=4, y1=1, angle=90)
+text(4.5, 3, 'angle=45')
+text(4.5, 2, 'angle=60')
+text(4.5, 1, 'angle=90')
+```
+
+
+
+## Función `segments` \index{segments} \index{segmentos}
+
+## Función `rect` \index{rect} \index{rectas}
+
+## Función `polygon` \index{polygon} \index{polígonos}
+
+
 ## Función `abline` \index{abline}
 La función `abline` sirve para ...
 

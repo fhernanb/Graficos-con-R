@@ -311,14 +311,14 @@ url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'
 datos <- read.table(file=url, header=T)
 
 par(mfrow=c(1, 2))
-plot(density(datos$peso), main='Densidad para el peso corporal',
+plot(density(datos$peso), main='Distribución del peso corporal',
      xlab='Peso corporal (kg)', ylab='Densidad', lwd=4)
 
 den.hom <- with(datos, density(peso[sexo == 'Hombre']))
 den.muj <- with(datos, density(peso[sexo == 'Mujer']))
 
 plot(den.hom, xlim=c(20, 120), 
-     main='Densidad para el peso corporal', ylab='Densidad',
+     main='Distribución del peso corporal por género', ylab='Densidad',
      xlab='Peso corporal (kg)', lwd=4, col='blue')
 lines(den.muj, lwd=4, col='red')
 legend('topright', legend=c('Hombres', 'Mujeres'), bty='n',

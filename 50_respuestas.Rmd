@@ -41,7 +41,7 @@ plot(range(q1$x, q2$x), range(q1$y, q2$y), type='n', las=1,
 points(q1, pch=19, col='slateblue3')
 points(q2, pch=19, col='seagreen4')
 qqline(m1, col='slateblue3')
-qqline(m1, col='seagreen4')
+qqline(m2, col='seagreen4')
 legend('topleft', legend=c('Muestra 1', 'Muestra 2'), bty='n',
        col=c('slateblue3', 'seagreen4'), pch=19)
 ```

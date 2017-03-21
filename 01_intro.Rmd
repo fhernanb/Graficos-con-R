@@ -16,7 +16,7 @@
 - [\proglang{R}-statistics blog](https://www.r-statistics.com/).
 - [RDataMining](https://rdatamining.wordpress.com/).
 
-```{r, echo=F, fig.cap='Robert Gentleman (izquierda) y Ross Ihaka (derecha) creadores de R.', dpi=200, fig.align='center'}
+```{r, echo=F, fig.cap='Robert Gentleman (izquierda) y Ross Ihaka (derecha) creadores de R.', out.width = '50%', fig.align='center'}
 knitr::include_graphics("images/Robert_Roos.png")
 ```
 
@@ -36,7 +36,7 @@ knitr::include_graphics("images/instalacion1.png")
 
 Luego de esto se abrirá otra página con un encabezado similar al mostrado en la Figura \@ref(fig:inst2), al momento de capturar la figura la versión actual de \proglang{R} era 3.2.5 pero seguramente en este momento usted tendrá disponible una versión actualizada. Una vez allí uste debe dar clic sobre \textcolor{BurntOrange}{Download R 3.2.5 for Windows} como es señalado por la flecha verde. Luego de esto se descargará el instalador \proglang{R} en el computador el cual deberá ser instalado con las opciones que vienen por defecto.
 
-```{r inst2, echo=F, fig.cap='Página de descarga.', dpi=190, fig.align='center'}
+```{r inst2, echo=F, fig.cap='Página de descarga.', out.width = '50%', fig.align='center'}
 knitr::include_graphics("images/instalacion2.png")
 ```
 
@@ -45,7 +45,7 @@ Se recomienda observar el siguiente video didáctico de instalación de \proglan
 \section{Apariencia del programa} \label{sec:apariencia}
 Una vez que esté instalado \proglang{R} en su computador, usted podrá acceder a él por la lista de programas o por medio del acceso directo que quedó en el escritorio, en la Figura \@ref(fig:rlogo) se muestra la apariencia del acceso directo para ingresar a \proglang{R}.
 
-```{r rlogo, echo=F, fig.cap='Apariencia del acceso directo para ingresar a R.', dpi=700, fig.align='center'}
+```{r rlogo, echo=F, fig.cap='Apariencia del acceso directo para ingresar a R.', out.width = '33%', fig.align='center'}
 knitr::include_graphics("images/rlogo.png")
 ```
 
@@ -243,8 +243,9 @@ if (is.null(ylim))                       # No se recomienda
   ylim <- c(0, 0.06)
 }
 	
-if (is.null(ylim)) {ylim <- c(0, 0.06)}  # Frente a la llave { no debe ir nada
-                                         # la llave de cierre } debe ir sola
+if (is.null(ylim)) {ylim <- c(0, 0.06)}
+# Frente a la llave { no debe ir nada
+# la llave de cierre } debe ir sola
 ```
 
 La sentencia else debe ir siempre entre llaves `} {`, ver el siguiente ejemplo.

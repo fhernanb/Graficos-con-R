@@ -24,7 +24,7 @@
 \usepackage[unicode=true]{hyperref}
 \PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
 \hypersetup{
-            pdftitle={Gráficos con R},
+            pdftitle={Gráficos en R usando la solo la base},
             colorlinks=true,
             linkcolor=Maroon,
             citecolor=Blue,
@@ -217,10 +217,10 @@
 
 \frontmatter
 
-\title{Gráficos con R}
+\title{Gráficos en R usando la solo la base}
 \author{Freddy Hernández Barajas\\
 Juan Carlos Correa Morales}
-\date{2017-03-17}
+\date{2017-03-21}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -404,7 +404,7 @@ exhaustiva de los sitios más populares relacionados con \proglang{R}:
 
 \begin{figure}
 
-{\centering \includegraphics{images/Robert_Roos} 
+{\centering \includegraphics[width=0.5\linewidth]{images/Robert_Roos} 
 
 }
 
@@ -459,7 +459,7 @@ opciones que vienen por defecto.
 
 \begin{figure}
 
-{\centering \includegraphics{images/instalacion2} 
+{\centering \includegraphics[width=0.5\linewidth]{images/instalacion2} 
 
 }
 
@@ -480,7 +480,7 @@ apariencia del acceso directo para ingresar a \proglang{R}.
 
 \begin{figure}
 
-{\centering \includegraphics{images/rlogo} 
+{\centering \includegraphics[width=0.33\linewidth]{images/rlogo} 
 
 }
 
@@ -919,8 +919,9 @@ dos ejemplos de lo que se recomienda.
   \NormalTok{ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)}
 \NormalTok{\}}
     
-\NormalTok{if (}\KeywordTok{is.null}\NormalTok{(ylim)) \{ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)\}  }\CommentTok{# Frente a la llave \{ no debe ir nada}
-                                         \CommentTok{# la llave de cierre \} debe ir sola}
+\NormalTok{if (}\KeywordTok{is.null}\NormalTok{(ylim)) \{ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)\}}
+\CommentTok{# Frente a la llave \{ no debe ir nada}
+\CommentTok{# la llave de cierre \} debe ir sola}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1663,14 +1664,14 @@ la misma variable pero diferenciando por sexo.
 \NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
 
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(datos$peso), }\DataTypeTok{main=}\StringTok{'Densidad para el peso corporal'}\NormalTok{,}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(datos$peso), }\DataTypeTok{main=}\StringTok{'Distribución del peso corporal'}\NormalTok{,}
      \DataTypeTok{xlab=}\StringTok{'Peso corporal (kg)'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{)}
 
 \NormalTok{den.hom <-}\StringTok{ }\KeywordTok{with}\NormalTok{(datos, }\KeywordTok{density}\NormalTok{(peso[sexo ==}\StringTok{ 'Hombre'}\NormalTok{]))}
 \NormalTok{den.muj <-}\StringTok{ }\KeywordTok{with}\NormalTok{(datos, }\KeywordTok{density}\NormalTok{(peso[sexo ==}\StringTok{ 'Mujer'}\NormalTok{]))}
 
 \KeywordTok{plot}\NormalTok{(den.hom, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{120}\NormalTok{), }
-     \DataTypeTok{main=}\StringTok{'Densidad para el peso corporal'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{,}
+     \DataTypeTok{main=}\StringTok{'Distribución del peso corporal por género'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{,}
      \DataTypeTok{xlab=}\StringTok{'Peso corporal (kg)'}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{col=}\StringTok{'blue'}\NormalTok{)}
 \KeywordTok{lines}\NormalTok{(den.muj, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{col=}\StringTok{'red'}\NormalTok{)}
 \KeywordTok{legend}\NormalTok{(}\StringTok{'topright'}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{c}\NormalTok{(}\StringTok{'Hombres'}\NormalTok{, }\StringTok{'Mujeres'}\NormalTok{), }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{,}
@@ -2225,11 +2226,11 @@ Los argumentos de la función \texttt{plot} son:
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.25\linewidth]{images/IC412528} 
+{\centering \includegraphics[width=0.4\linewidth]{images/IC412528} 
 
 }
 
-\caption{Ilustración de los angulos theta y phi para la función persp. Figura tomada de https://i-msdn.sec.s-msft.com/dynimg/IC412528.png}\label{fig:globo}
+\caption{Ilustración de los ángulos theta y phi para la función persp. Figura tomada de https://i-msdn.sec.s-msft.com/dynimg/IC412528.png}\label{fig:globo}
 \end{figure}
 
 \subsection*{Ejemplo}\label{ejemplo-15}
@@ -3296,6 +3297,105 @@ En la Figura \ref{fig:cols} se muestra el efecto de los parámetros
 En este capítulo se presentan funciones auxiliares que son útiles para
 complementar los gráficos generados en \proglang{R}.
 
+\section{\texorpdfstring{Función \texttt{arrows} \index{arrows}
+\index{flechas}}{Función arrows  }}\label{funcion-arrows}
+
+Esta función es muy útil para incluir flechas en una figura. La
+estructura de la función se muestra a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{arrows}\NormalTok{(x0, y0, }\DataTypeTok{x1=}\NormalTok{x0, }\DataTypeTok{y1=}\NormalTok{y0, }\DataTypeTok{length=}\FloatTok{0.25}\NormalTok{, }\DataTypeTok{angle=}\DecValTok{30}\NormalTok{, ...)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x0,\ y0}: coordenadas de inicio de la flecha.
+\item
+  \texttt{x1,\ y1}: coordenadas de fin de la flecha.
+\item
+  \texttt{length}: longitud (en pulgadas) de los bordes de punta de la
+  flecha, el valor por defecto es 0.25.
+\item
+  \texttt{angle}: ángulo para la punta de la flecha, a mayor ángulo más
+  abiertas las puntas.
+\item
+  \texttt{code}: número entero para indicar el tipo de flecha a dibujar.
+  El valor de 0 para una flecha sin punta (entonces no sería una
+  flecha), el valor de 1 para una flecha apuntando al revés (no es
+  frecuente), el valor de 2 (valor por defecto) para una flecha usual y
+  valor de 3 para colocar puntas a ambos lados de la flecha. El valor
+  por defecto son 30 grados.
+\item
+  \texttt{...}: otros parámetros gráficos.
+\end{itemize}
+
+En la Figura \ref{fig:arrow1} se muestran los cuatro tipos de flechas
+que se obtienen al variar el parámetro \texttt{code} de la función
+\texttt{arrows}. Note que la flecha de la derecha fue construída
+subiendo, pero como \texttt{code=1} ella quedó bajando.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{'X'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Y'}\NormalTok{,      }\CommentTok{# Para crear un gráfico vacío}
+     \DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{6}\NormalTok{), }\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+\KeywordTok{arrows}\NormalTok{(}\DataTypeTok{x0=}\DecValTok{2}\NormalTok{, }\DataTypeTok{y0=}\DecValTok{1}\NormalTok{, }\DataTypeTok{x1=}\DecValTok{4}\NormalTok{, }\DataTypeTok{y1=}\DecValTok{1}\NormalTok{, }\DataTypeTok{code=}\DecValTok{0}\NormalTok{)}
+\KeywordTok{arrows}\NormalTok{(}\DataTypeTok{x0=}\DecValTok{5}\NormalTok{, }\DataTypeTok{y0=}\DecValTok{1}\NormalTok{, }\DataTypeTok{x1=}\DecValTok{5}\NormalTok{, }\DataTypeTok{y1=}\DecValTok{4}\NormalTok{, }\DataTypeTok{code=}\DecValTok{1}\NormalTok{)}
+\KeywordTok{arrows}\NormalTok{(}\DataTypeTok{x0=}\DecValTok{2}\NormalTok{, }\DataTypeTok{y0=}\DecValTok{4}\NormalTok{, }\DataTypeTok{x1=}\DecValTok{4}\NormalTok{, }\DataTypeTok{y1=}\DecValTok{4}\NormalTok{, }\DataTypeTok{code=}\DecValTok{2}\NormalTok{)}
+\KeywordTok{arrows}\NormalTok{(}\DataTypeTok{x0=}\DecValTok{1}\NormalTok{, }\DataTypeTok{y0=}\DecValTok{1}\NormalTok{, }\DataTypeTok{x1=}\DecValTok{1}\NormalTok{, }\DataTypeTok{y1=}\DecValTok{4}\NormalTok{, }\DataTypeTok{code=}\DecValTok{3}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\DecValTok{3}\NormalTok{, }\FloatTok{0.8}\NormalTok{, }\StringTok{'code=0'}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\FloatTok{5.4}\NormalTok{, }\FloatTok{2.5}\NormalTok{, }\StringTok{'code=1'}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\DecValTok{3}\NormalTok{, }\FloatTok{4.2}\NormalTok{, }\StringTok{'code=2'}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\FloatTok{0.6}\NormalTok{, }\FloatTok{2.5}\NormalTok{, }\StringTok{'code=3'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/arrow1-1.pdf}
+\caption{\label{fig:arrow1}Ejemplos de flechas variando el parámetro
+\texttt{code}.}
+\end{figure}
+
+En la Figura \ref{fig:arrow2} se muestran 4 flechas para varios valores
+del parámetro \texttt{angle}, de la figura se observa que entre mayor el
+ángulo, la punta de la fecha es más achatada.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{'X'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Y'}\NormalTok{,      }\CommentTok{# Para crear un gráfico vacío}
+     \DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{6}\NormalTok{), }\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{))}
+
+\KeywordTok{arrows}\NormalTok{(}\DataTypeTok{x0=}\DecValTok{1}\NormalTok{, }\DataTypeTok{y0=}\DecValTok{4}\NormalTok{, }\DataTypeTok{x1=}\DecValTok{4}\NormalTok{, }\DataTypeTok{y1=}\DecValTok{4}\NormalTok{)}
+\KeywordTok{arrows}\NormalTok{(}\DataTypeTok{x0=}\DecValTok{1}\NormalTok{, }\DataTypeTok{y0=}\DecValTok{3}\NormalTok{, }\DataTypeTok{x1=}\DecValTok{4}\NormalTok{, }\DataTypeTok{y1=}\DecValTok{3}\NormalTok{, }\DataTypeTok{angle=}\DecValTok{45}\NormalTok{)}
+\KeywordTok{arrows}\NormalTok{(}\DataTypeTok{x0=}\DecValTok{1}\NormalTok{, }\DataTypeTok{y0=}\DecValTok{2}\NormalTok{, }\DataTypeTok{x1=}\DecValTok{4}\NormalTok{, }\DataTypeTok{y1=}\DecValTok{2}\NormalTok{, }\DataTypeTok{angle=}\DecValTok{60}\NormalTok{)}
+\KeywordTok{arrows}\NormalTok{(}\DataTypeTok{x0=}\DecValTok{1}\NormalTok{, }\DataTypeTok{y0=}\DecValTok{1}\NormalTok{, }\DataTypeTok{x1=}\DecValTok{4}\NormalTok{, }\DataTypeTok{y1=}\DecValTok{1}\NormalTok{, }\DataTypeTok{angle=}\DecValTok{90}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\FloatTok{4.5}\NormalTok{, }\DecValTok{3}\NormalTok{, }\StringTok{'angle=45'}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\FloatTok{4.5}\NormalTok{, }\DecValTok{2}\NormalTok{, }\StringTok{'angle=60'}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\FloatTok{4.5}\NormalTok{, }\DecValTok{1}\NormalTok{, }\StringTok{'angle=90'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/arrow2-1.pdf}
+\caption{\label{fig:arrow2}Ejemplos de flechas variando el parámetro
+\texttt{angle}.}
+\end{figure}
+
+\section{\texorpdfstring{Función \texttt{segments} \index{segments}
+\index{segmentos}}{Función segments  }}\label{funcion-segments}
+
+\section{\texorpdfstring{Función \texttt{rect} \index{rect}
+\index{rectas}}{Función rect  }}\label{funcion-rect}
+
+\section{\texorpdfstring{Función \texttt{polygon} \index{polygon}
+\index{polígonos}}{Función polygon  }}\label{funcion-polygon}
+
 \section{\texorpdfstring{Función \texttt{abline}
 \index{abline}}{Función abline }}\label{funcion-abline}
 
@@ -3333,22 +3433,6 @@ La función \texttt{abline} sirve para \ldots{}
 
 \section{\texorpdfstring{Función \texttt{rug}
 \index{rug}}{Función rug }}\label{funcion-rug}
-
-\chapter{Funciones geométricas}\label{funciones-geometricas}
-
-En este capítulo se presentan funciones asociadas a geometría.
-
-\section{\texorpdfstring{Función \texttt{arrows} \index{arrows}
-\index{flechas}}{Función arrows  }}\label{funcion-arrows}
-
-\section{\texorpdfstring{Función \texttt{segments} \index{segments}
-\index{segmentos}}{Función segments  }}\label{funcion-segments}
-
-\section{\texorpdfstring{Función \texttt{rect} \index{rect}
-\index{rectas}}{Función rect  }}\label{funcion-rect}
-
-\section{\texorpdfstring{Función \texttt{polygon} \index{polygon}
-\index{polígonos}}{Función polygon  }}\label{funcion-polygon}
 
 \chapter{Respuestas a preguntas
 frecuentes}\label{respuestas-a-preguntas-frecuentes}
@@ -3437,7 +3521,7 @@ gráfico solicitado se muestra a continuación y el resultado es la Figura
 \KeywordTok{points}\NormalTok{(q1, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{col=}\StringTok{'slateblue3'}\NormalTok{)}
 \KeywordTok{points}\NormalTok{(q2, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{col=}\StringTok{'seagreen4'}\NormalTok{)}
 \KeywordTok{qqline}\NormalTok{(m1, }\DataTypeTok{col=}\StringTok{'slateblue3'}\NormalTok{)}
-\KeywordTok{qqline}\NormalTok{(m1, }\DataTypeTok{col=}\StringTok{'seagreen4'}\NormalTok{)}
+\KeywordTok{qqline}\NormalTok{(m2, }\DataTypeTok{col=}\StringTok{'seagreen4'}\NormalTok{)}
 \KeywordTok{legend}\NormalTok{(}\StringTok{'topleft'}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{c}\NormalTok{(}\StringTok{'Muestra 1'}\NormalTok{, }\StringTok{'Muestra 2'}\NormalTok{), }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{,}
        \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'slateblue3'}\NormalTok{, }\StringTok{'seagreen4'}\NormalTok{), }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{)}
 \end{Highlighting}
@@ -3481,18 +3565,6 @@ muestras aleatorias \texttt{m1} y \texttt{m2}. En la Figura
 \includegraphics{Graficos_con_R_files/figure-latex/faq3-1.pdf}
 \caption{\label{fig:faq3}Densidades simultáneas.}
 \end{figure}
-
-\cleardoublepage 
-
-\appendix \addcontentsline{toc}{chapter}{\appendixname}
-
-
-\chapter{More to Say}\label{more-to-say}
-
-Yeah! I have finished my book, but I have more to say about some topics.
-Let me explain them in this appendix.
-
-To know more about \textbf{bookdown}, see \url{https://bookdown.org}.
 
 \chapter{Extras}\label{extras}
 
