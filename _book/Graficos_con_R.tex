@@ -220,7 +220,7 @@
 \title{Gráficos en R usando la solo la base}
 \author{Freddy Hernández Barajas\\
 Juan Carlos Correa Morales}
-\date{2017-03-21}
+\date{2017-03-23}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -422,7 +422,7 @@ sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics{images/cran} 
+{\centering \includegraphics[width=4.54in]{images/cran} 
 
 }
 
@@ -440,7 +440,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics{images/instalacion1} 
+{\centering \includegraphics[width=5.31in]{images/instalacion1} 
 
 }
 
@@ -498,7 +498,7 @@ consola, para hacer esto se deben explorar las opciones de
 
 \begin{figure}
 
-{\centering \includegraphics{images/Rpantallazo} 
+{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
 
 }
 
@@ -3297,6 +3297,133 @@ En la Figura \ref{fig:cols} se muestra el efecto de los parámetros
 En este capítulo se presentan funciones auxiliares que son útiles para
 complementar los gráficos generados en \proglang{R}.
 
+\section{\texorpdfstring{Función \texttt{segments} \index{segments}
+\index{segmentos}}{Función segments  }}\label{funcion-segments}
+
+\section{\texorpdfstring{Función \texttt{rect} \index{rect}
+\index{rectángulos}}{Función rect  }}\label{funcion-rect}
+
+Esta función es muy útil para digujar rectángulos. La estructura de la
+función se muestra a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{rect}\NormalTok{(xleft, ybottom, xright, ytop,}
+     \DataTypeTok{density =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{angle =} \DecValTok{45}\NormalTok{, ...)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{xleft}: vector o escalar con la posición de x a izquierda.
+\item
+  \texttt{ybottom}: vector o escalar con la posición de y abajo.
+\item
+  \texttt{xright}: vector o escalar con la posición de x a derecha.
+\item
+  \texttt{ytop}: vector o escalar con la posición de y arriba.
+\item
+  \texttt{density}: número de líneas por pulgada con la cuales se
+  rellenará el rectángulo.
+\item
+  \texttt{angle}: ángulo de inclinación de la líneas de relleno.
+\item
+  \texttt{col}: color para el fondo del rectángulo.
+\item
+  \texttt{border}: color para el borde del rectángulo, un valor posible
+  es \texttt{\textquotesingle{}transparent\textquotesingle{}} cuando no
+  se desea borde.
+\item
+  \texttt{...}: otros parámetros gráficos.
+\end{itemize}
+
+En la Figura \ref{fig:rect1} se muestran 7 rectángulos de ejemplo que
+fueron obtenidos al variar los parámetros de la función \texttt{rect}, a
+continuación el código usado para obtener esa figura.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\OtherTok{NA}\NormalTok{, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{20}\NormalTok{), }\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{30}\NormalTok{), }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{''}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{''}\NormalTok{)}
+\KeywordTok{rect}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{28}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{30}\NormalTok{)}
+\KeywordTok{rect}\NormalTok{(}\DecValTok{11}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{27}\NormalTok{, }\DataTypeTok{col=}\StringTok{'red'}\NormalTok{)}
+\KeywordTok{rect}\NormalTok{(}\DecValTok{12}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DecValTok{14}\NormalTok{, }\DecValTok{24}\NormalTok{, }\DataTypeTok{density=}\DecValTok{5}\NormalTok{)}
+\KeywordTok{rect}\NormalTok{(}\DecValTok{13}\NormalTok{, }\DecValTok{19}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DecValTok{21}\NormalTok{, }\DataTypeTok{density=}\DecValTok{5}\NormalTok{, }\DataTypeTok{angle=}\DecValTok{15}\NormalTok{)}
+\KeywordTok{rect}\NormalTok{(}\DecValTok{14}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{16}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DataTypeTok{col=}\StringTok{'pink'}\NormalTok{, }\DataTypeTok{border=}\StringTok{'blue'}\NormalTok{)}
+\KeywordTok{rect}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{13}\NormalTok{, }\DecValTok{17}\NormalTok{, }\DecValTok{15}\NormalTok{, }\DataTypeTok{lty=}\StringTok{'dashed'}\NormalTok{)}
+\KeywordTok{rect}\NormalTok{(}\DecValTok{16}\NormalTok{, }\DecValTok{10}\NormalTok{, }\DecValTok{18}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{)}
+
+\KeywordTok{text}\NormalTok{(}\DecValTok{14}\NormalTok{, }\DecValTok{26}\NormalTok{, }\StringTok{"col='red'"}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{23}\NormalTok{, }\StringTok{"density=5"}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\DecValTok{17}\NormalTok{, }\DecValTok{20}\NormalTok{, }\StringTok{"density=5, angle=15"}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\FloatTok{18.2}\NormalTok{, }\DecValTok{17}\NormalTok{, }\StringTok{"col='pink', border='blue'"}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\FloatTok{18.2}\NormalTok{, }\DecValTok{14}\NormalTok{, }\StringTok{"lty='dashed'"}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\FloatTok{18.8}\NormalTok{, }\DecValTok{11}\NormalTok{, }\StringTok{"lwd=3"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/rect1-1.pdf}
+\caption{\label{fig:rect1}Ejemplos de rectángulos.}
+\end{figure}
+
+El código mostrado abajo pertenece a la ayuda de la función
+\texttt{rect} y el resultado es la Figura \ref{fig:rect2}. De esta
+figura se observa que es posible dibujar varios rectángulos ingresando
+las coordenadas como vectores.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{## set up the plot region:}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{250}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\DecValTok{300}\NormalTok{, }\DecValTok{450}\NormalTok{), }\DataTypeTok{type =} \StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{""}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{""}\NormalTok{,}
+     \DataTypeTok{main =} \StringTok{"2 x 11 rectangles; 'rect(100+i,300+i,  150+i,380+i)'"}\NormalTok{)}
+\NormalTok{i <-}\StringTok{ }\DecValTok{4}\NormalTok{*(}\DecValTok{0}\NormalTok{:}\DecValTok{10}\NormalTok{)}
+\NormalTok{## draw rectangles with bottom left (100, 300)+i}
+\NormalTok{## and top right (150, 380)+i}
+\KeywordTok{rect}\NormalTok{(}\DecValTok{100}\NormalTok{+i, }\DecValTok{300}\NormalTok{+i, }\DecValTok{150}\NormalTok{+i, }\DecValTok{380}\NormalTok{+i, }\DataTypeTok{col =} \KeywordTok{rainbow}\NormalTok{(}\DecValTok{11}\NormalTok{, }\DataTypeTok{start =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{end =} \FloatTok{0.1}\NormalTok{))}
+\KeywordTok{rect}\NormalTok{(}\DecValTok{240}\NormalTok{-i, }\DecValTok{320}\NormalTok{+i, }\DecValTok{250}\NormalTok{-i, }\DecValTok{410}\NormalTok{+i, }\DataTypeTok{col =} \KeywordTok{heat.colors}\NormalTok{(}\DecValTok{11}\NormalTok{), }\DataTypeTok{lwd =} \NormalTok{i/}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/rect2-1.pdf}
+\caption{\label{fig:rect2}Ejemplo de la función rect.}
+\end{figure}
+
+\section{\texorpdfstring{Para dibujar un círculo
+\index{círculos}}{Para dibujar un círculo }}\label{para-dibujar-un-circulo}
+
+En la base de \proglang{R} no hay una función específica para crear
+círculos, sin embargo, es posible usar unas pocas líneas para obtener el
+círculo con un radio y centro deseado. A continuación se muestra el
+código para dibujar un círculo de radio 4 unidades con centro en el
+punto (-5, 5). En la Figura \ref{fig:circ1} se muestra el círculo
+solicitado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rad     <-}\StringTok{ }\DecValTok{4}   \CommentTok{# Valor del radio}
+\NormalTok{xcenter <-}\StringTok{ }\NormalTok{-}\DecValTok{5}  \CommentTok{# Coordenada en x del centro}
+\NormalTok{ycenter <-}\StringTok{ }\DecValTok{5}   \CommentTok{# Coordenada en y del centro}
+
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
+\NormalTok{theta <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{2} \NormalTok{*}\StringTok{ }\NormalTok{pi, }\DataTypeTok{length =} \DecValTok{200}\NormalTok{)}
+\KeywordTok{lines}\NormalTok{(}\DataTypeTok{x=}\NormalTok{rad *}\StringTok{ }\KeywordTok{cos}\NormalTok{(theta) +}\StringTok{ }\NormalTok{xcenter, }\DataTypeTok{y=}\NormalTok{rad *}\StringTok{ }\KeywordTok{sin}\NormalTok{(theta) +}\StringTok{ }\NormalTok{ycenter,}
+      \DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{'tomato2'}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{()  }\CommentTok{# Para incluir una cuadrícula de guía}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/circ1-1.pdf}
+\caption{\label{fig:circ1}Ejemplo de un círculo.}
+\end{figure}
+
 \section{\texorpdfstring{Función \texttt{arrows} \index{arrows}
 \index{flechas}}{Función arrows  }}\label{funcion-arrows}
 
@@ -3387,19 +3514,71 @@ del parámetro \texttt{angle}, de la figura se observa que entre mayor el
 \texttt{angle}.}
 \end{figure}
 
-\section{\texorpdfstring{Función \texttt{segments} \index{segments}
-\index{segmentos}}{Función segments  }}\label{funcion-segments}
+\section{\texorpdfstring{Función \texttt{grid} \index{grid}
+\label{grid}}{Función grid  }}\label{funcion-grid}
 
-\section{\texorpdfstring{Función \texttt{rect} \index{rect}
-\index{rectas}}{Función rect  }}\label{funcion-rect}
+La función \texttt{grid} es muy útil para construir rejillas sobre un
+gráfico, estas rejillas se pueden usar como referencia para facilitar la
+interpretación o como guía para ubicar elementos en un dibujo.
 
-\section{\texorpdfstring{Función \texttt{polygon} \index{polygon}
-\index{polígonos}}{Función polygon  }}\label{funcion-polygon}
+La estructura de la función se muestra a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{grid}\NormalTok{(}\DataTypeTok{nx =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{ny =} \NormalTok{nx, }\DataTypeTok{col =} \StringTok{"lightgray"}\NormalTok{, }\DataTypeTok{lty =} \StringTok{"dotted"}\NormalTok{,}
+     \DataTypeTok{lwd =} \KeywordTok{par}\NormalTok{(}\StringTok{"lwd"}\NormalTok{), }\DataTypeTok{equilogs =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{nx,\ ny}: número de celdas a dibujar tanto en el eje
+  horizontal y vertical.
+\item
+  \texttt{col}: color de la rejilla.
+\item
+  \texttt{lty}: tipo de línea a usar.
+\item
+  \texttt{lwd}: grosor de la rejilla.
+\end{itemize}
+
+A continuación se muestran dos ejemplos de como usar \texttt{grid}. En
+el primer ejemplo se dibuja un gráfico vacío y se le agrega la rejila
+estándar que se puede obtener con \texttt{grid()} sin definir ningún
+parámetro. En el segundo ejemplo se tiene una rejilla que divide en 4
+partes el eje horizontal (\texttt{nx=4}), en 3 partes el eje vertical
+(\texttt{ny=3}), de color rosado, grosor 2 y con guiones largos. Abajo
+el código utilizado y en la Figura \ref{fig:grid1} se observan los
+resultados.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{()}
+
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{(}\DataTypeTok{nx=}\DecValTok{4}\NormalTok{, }\DataTypeTok{ny=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{"pink"}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{lty=}\StringTok{"longdash"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/grid1-1.pdf}
+\caption{\label{fig:grid1}Ejemplos de rejillas con \texttt{grid}.}
+\end{figure}
+
+\section{\texorpdfstring{Función \texttt{points} \index{points}
+\index{puntos}}{Función points  }}\label{funcion-points}
 
 \section{\texorpdfstring{Función \texttt{abline}
 \index{abline}}{Función abline }}\label{funcion-abline}
 
-La función \texttt{abline} sirve para \ldots{}
+\section{\texorpdfstring{Función \texttt{polygon} \index{polygon}
+\index{polígonos}}{Función polygon  }}\label{funcion-polygon}
 
 \section{\texorpdfstring{Función \texttt{legend} \index{legend}
 \index{leyendas}}{Función legend  }}\label{funcion-legend}
@@ -3409,9 +3588,6 @@ La función \texttt{abline} sirve para \ldots{}
 
 \section{\texorpdfstring{Función \texttt{lines} \index{lines}
 \index{líneas}}{Función lines  }}\label{funcion-lines}
-
-\section{\texorpdfstring{Función \texttt{points} \index{points}
-\index{puntos}}{Función points  }}\label{funcion-points}
 
 \section{\texorpdfstring{Función \texttt{identify} \index{identify}
 \index{identificador}}{Función identify  }}\label{funcion-identify}
@@ -3494,8 +3670,8 @@ ejes.
 \caption{\label{fig:faq1}Personalizando los valores a mostrar en los ejes.}
 \end{figure}
 
-\section{Dibujar varios QQplot en una misma
-figura}\label{dibujar-varios-qqplot-en-una-misma-figura}
+\section{¿Cómo dibujar varios QQplot en una misma
+figura?}\label{como-dibujar-varios-qqplot-en-una-misma-figura}
 
 Para colocar varios QQplot en una misma figura lo primero que se debe
 hacer es aplicar la función \texttt{qqnorm} a los datos pero usando
@@ -3533,8 +3709,8 @@ gráfico solicitado se muestra a continuación y el resultado es la Figura
 \caption{\label{fig:faq2}QQplots simultáneos.}
 \end{figure}
 
-\section{Dibujar varias densidades en una misma
-figura}\label{dibujar-varias-densidades-en-una-misma-figura}
+\section{¿Cómo dibujar varias densidades en una misma
+figura?}\label{como-dibujar-varias-densidades-en-una-misma-figura}
 
 Para dibujar varias densidades en una misma figura se procede de forma
 similar al ejemplo anterior. Se construyen las densidades pero sin
@@ -3564,6 +3740,37 @@ muestras aleatorias \texttt{m1} y \texttt{m2}. En la Figura
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/faq3-1.pdf}
 \caption{\label{fig:faq3}Densidades simultáneas.}
+\end{figure}
+
+\section{¿Cómo incluir una rejilla a una figura en ciertos
+puntos?}\label{como-incluir-una-rejilla-a-una-figura-en-ciertos-puntos}
+
+La función \texttt{grid} explicada en la sección \ref{grid} se usa para
+incluir una cuadrícula o rejilla, sin embargo, no se le puede indicar
+los sitios donde queremos que aparezcan las líneas de referencia. La
+función \texttt{abline} es útil en este caso.
+
+A continuación se muestra el código de ejemplo para construir una
+rejilla que pase por los puntos -9, -6, -3, 0, 3, 6 y 9 del eje
+horizontal, y que pase por los puntos -10,-5, 0, 5 y 10 del eje
+vertical. Los parámetros \texttt{v} y \texttt{h} se usan para colocar el
+vector con las posiciones donde se desea la rejilla. El color de la
+rejilla se puede personalizar con el parámetro \texttt{col} y el tipo de
+línea a dibujar con \texttt{lty}. En la Figura \ref{fig:rejilla} se
+observa el resultado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{v=}\KeywordTok{c}\NormalTok{(-}\DecValTok{9}\NormalTok{, -}\DecValTok{6}\NormalTok{, -}\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{9}\NormalTok{),}
+       \DataTypeTok{h=}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{,-}\DecValTok{5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{col=}\KeywordTok{gray}\NormalTok{(}\FloatTok{0.8}\NormalTok{), }\DataTypeTok{lty=}\StringTok{'dashed'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/rejilla-1.pdf}
+\caption{\label{fig:rejilla}Rejilla personalizada.}
 \end{figure}
 
 \chapter{Extras}\label{extras}

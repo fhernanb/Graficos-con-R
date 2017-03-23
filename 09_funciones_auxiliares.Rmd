@@ -2,6 +2,76 @@
 
 En este capítulo se presentan funciones auxiliares que son útiles para complementar los gráficos generados en \proglang{R}.
 
+## Función `segments` \index{segments} \index{segmentos}
+
+## Función `rect` \index{rect} \index{rectángulos}
+Esta función es muy útil para digujar rectángulos. La estructura de la función se muestra a continuación.
+
+```{r, eval=FALSE}
+rect(xleft, ybottom, xright, ytop,
+     density = NULL, angle = 45, ...)
+```
+
+Los argumentos de la función son:
+
+- `xleft`: vector o escalar con la posición de x a izquierda.
+- `ybottom`: vector o escalar con la posición de y abajo.
+- `xright`: vector o escalar con la posición de x a derecha.
+- `ytop`: vector o escalar con la posición de y arriba.
+- `density`: número de líneas por pulgada con la cuales se rellenará el rectángulo.
+- `angle`: ángulo de inclinación de la líneas de relleno.
+- `col`: color para el fondo del rectángulo.
+- `border`: color para el borde del rectángulo, un valor posible es `'transparent'` cuando no se desea borde.
+- `...`: otros parámetros gráficos.
+
+En la Figura \@ref(fig:rect1) se muestran 7 rectángulos de ejemplo que fueron obtenidos al variar los parámetros de la función `rect`, a continuación el código usado para obtener esa figura.
+
+```{r rect1, fig.cap='Ejemplos de rectángulos.', fig.asp=0.8, fig.width=8}
+plot(NA, xlim=c(10, 20), ylim=c(10, 30), las=1, xlab='', ylab='')
+rect(10, 28, 12, 30)
+rect(11, 25, 13, 27, col='red')
+rect(12, 22, 14, 24, density=5)
+rect(13, 19, 15, 21, density=5, angle=15)
+rect(14, 16, 16, 18, col='pink', border='blue')
+rect(15, 13, 17, 15, lty='dashed')
+rect(16, 10, 18, 12, lwd=3)
+
+text(14, 26, "col='red'")
+text(15, 23, "density=5")
+text(17, 20, "density=5, angle=15")
+text(18.2, 17, "col='pink', border='blue'")
+text(18.2, 14, "lty='dashed'")
+text(18.8, 11, "lwd=3")
+```
+
+El código mostrado abajo pertenece a la ayuda de la función `rect` y el resultado es la Figura \@ref(fig:rect2). De esta figura se observa que es posible dibujar varios rectángulos ingresando las coordenadas como vectores.
+
+```{r rect2, fig.cap='Ejemplo de la función rect.', fig.asp=0.8, fig.width=8}
+## set up the plot region:
+plot(c(100, 250), c(300, 450), type = "n", xlab = "", ylab = "",
+     main = "2 x 11 rectangles; 'rect(100+i,300+i,  150+i,380+i)'")
+i <- 4*(0:10)
+## draw rectangles with bottom left (100, 300)+i
+## and top right (150, 380)+i
+rect(100+i, 300+i, 150+i, 380+i, col = rainbow(11, start = 0.7, end = 0.1))
+rect(240-i, 320+i, 250-i, 410+i, col = heat.colors(11), lwd = i/5)
+```
+
+## Para dibujar un círculo \index{círculos}
+En la base de \proglang{R} no hay una función específica para crear círculos, sin embargo, es posible usar unas pocas líneas para obtener el círculo con un radio y centro deseado. A continuación se muestra el código para dibujar un círculo de radio 4 unidades con centro en el punto (-5, 5). En la Figura \@ref(fig:circ1) se muestra el círculo solicitado.
+
+```{r circ1, fig.cap='Ejemplo de un círculo.', fig.asp=1, fig.width=6}
+rad     <- 4   # Valor del radio
+xcenter <- -5  # Coordenada en x del centro
+ycenter <- 5   # Coordenada en y del centro
+
+plot(c(-10, 10), c(-10, 10), type="n", xlab="", ylab="")
+theta <- seq(0, 2 * pi, length = 200)
+lines(x=rad * cos(theta) + xcenter, y=rad * sin(theta) + ycenter,
+      lwd=3, col='tomato2')
+grid()  # Para incluir una cuadrícula de guía
+```
+
 ## Función `arrows` \index{arrows} \index{flechas}
 Esta función es muy útil para incluir flechas en una figura. La estructura de la función se muestra a continuación.
 
@@ -48,25 +118,47 @@ text(4.5, 2, 'angle=60')
 text(4.5, 1, 'angle=90')
 ```
 
+## Función `grid` \index{grid} \label{grid}
+La función `grid` es muy útil para construir rejillas sobre un gráfico, estas rejillas se pueden usar como referencia para facilitar la interpretación o como guía para ubicar elementos en un dibujo.
+
+La estructura de la función se muestra a continuación.
+
+```{r, eval=FALSE}
+grid(nx = NULL, ny = nx, col = "lightgray", lty = "dotted",
+     lwd = par("lwd"), equilogs = TRUE)
+```
+
+Los argumentos de la función son:
+
+- `nx, ny`: número de celdas a dibujar tanto en el eje horizontal y vertical.
+- `col`: color de la rejilla.
+- `lty`: tipo de línea a usar.
+- `lwd`: grosor de la rejilla.
+
+A continuación se muestran dos ejemplos de como usar `grid`. En el primer ejemplo se dibuja un gráfico vacío y se le agrega la rejila estándar que se puede obtener con `grid()` sin definir ningún parámetro. En el segundo ejemplo se tiene una rejilla que divide en 4 partes el eje horizontal (`nx=4`), en 3 partes el eje vertical (`ny=3`), de color rosado, grosor 2 y con guiones largos. Abajo el código utilizado y en la Figura \@ref(fig:grid1) se observan los resultados.
+
+```{r grid1, fig.cap='Ejemplos de rejillas con `grid`.', fig.asp=0.6, fig.width=7}
+par(mfrow=c(1, 2))
+plot(c(-10, 10), c(-10, 10), type="n", xlab="", ylab="")
+grid()
+
+plot(c(-10, 10), c(-10, 10), type="n", xlab="", ylab="")
+grid(nx=4, ny=3, col="pink", lwd=2, lty="longdash")
+```
 
 
-## Función `segments` \index{segments} \index{segmentos}
 
-## Función `rect` \index{rect} \index{rectas}
-
-## Función `polygon` \index{polygon} \index{polígonos}
-
+## Función `points` \index{points} \index{puntos}
 
 ## Función `abline` \index{abline}
-La función `abline` sirve para ...
+
+## Función `polygon` \index{polygon} \index{polígonos}
 
 ## Función `legend` \index{legend} \index{leyendas}
 
 ## Función `text` \index{text} \index{texto}
 
 ## Función `lines` \index{lines} \index{líneas}
-
-## Función `points` \index{points} \index{puntos}
 
 ## Función `identify` \index{identify} \index{identificador}
 
