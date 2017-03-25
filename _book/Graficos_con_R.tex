@@ -220,7 +220,7 @@
 \title{Gráficos en R usando la solo la base}
 \author{Freddy Hernández Barajas\\
 Juan Carlos Correa Morales}
-\date{2017-03-23}
+\date{2017-03-25}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -422,7 +422,7 @@ sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics[width=4.54in]{images/cran} 
+{\centering \includegraphics{images/cran} 
 
 }
 
@@ -440,7 +440,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=5.31in]{images/instalacion1} 
+{\centering \includegraphics{images/instalacion1} 
 
 }
 
@@ -498,7 +498,7 @@ consola, para hacer esto se deben explorar las opciones de
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
+{\centering \includegraphics{images/Rpantallazo} 
 
 }
 
@@ -3300,6 +3300,52 @@ complementar los gráficos generados en \proglang{R}.
 \section{\texorpdfstring{Función \texttt{segments} \index{segments}
 \index{segmentos}}{Función segments  }}\label{funcion-segments}
 
+Esta función es muy útil para digujar segmentos. La estructura de la
+función se muestra a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{segments}\NormalTok{(x0, y0, }\DataTypeTok{x1 =} \NormalTok{x0, }\DataTypeTok{y1 =} \NormalTok{y0, ...)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{xo,\ yo}: coordenadas del punto de inicio del segmento.
+\item
+  \texttt{x1,\ y1}: coordenadas del punto de fin del segmento.
+\item
+  \texttt{...}: otros parámetros gráficos.
+\end{itemize}
+
+A continuación de muestra el código para dibujar con segmentos la sigla
+de la Universidad Nacional de Colombia (UN), en la Figura \ref{fig:seg1}
+se puede ver el resultado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{11}\NormalTok{, }\DecValTok{3}\NormalTok{), }\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{()}
+
+\KeywordTok{segments}\NormalTok{(-}\DecValTok{9}\NormalTok{, }\DecValTok{9}\NormalTok{, -}\DecValTok{9}\NormalTok{, -}\DecValTok{9}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{col=}\DecValTok{3}\NormalTok{)}
+\KeywordTok{segments}\NormalTok{(-}\DecValTok{9}\NormalTok{, -}\DecValTok{9}\NormalTok{, -}\DecValTok{5}\NormalTok{, -}\DecValTok{9}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{col=}\DecValTok{3}\NormalTok{)}
+\KeywordTok{segments}\NormalTok{(-}\DecValTok{5}\NormalTok{, -}\DecValTok{9}\NormalTok{, -}\DecValTok{5}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{col=}\DecValTok{3}\NormalTok{)}
+
+\KeywordTok{segments}\NormalTok{(-}\DecValTok{4}\NormalTok{, -}\DecValTok{9}\NormalTok{, -}\DecValTok{4}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{)}
+\KeywordTok{segments}\NormalTok{(-}\DecValTok{4}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{0}\NormalTok{, -}\DecValTok{9}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{)}
+\KeywordTok{segments}\NormalTok{(}\DecValTok{0}\NormalTok{, -}\DecValTok{9}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/seg1-1.pdf}
+\caption{\label{fig:seg1}Ejemplos de segmentos.}
+\end{figure}
+
 \section{\texorpdfstring{Función \texttt{rect} \index{rect}
 \index{rectángulos}}{Función rect  }}\label{funcion-rect}
 
@@ -3401,14 +3447,14 @@ En la base de \proglang{R} no hay una función específica para crear
 círculos, sin embargo, es posible usar unas pocas líneas para obtener el
 círculo con un radio y centro deseado. A continuación se muestra el
 código para dibujar un círculo de radio 4 unidades con centro en el
-punto (-5, 5). En la Figura \ref{fig:circ1} se muestra el círculo
+punto (-2, 1). En la Figura \ref{fig:circ1} se muestra el círculo
 solicitado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{rad     <-}\StringTok{ }\DecValTok{4}   \CommentTok{# Valor del radio}
-\NormalTok{xcenter <-}\StringTok{ }\NormalTok{-}\DecValTok{5}  \CommentTok{# Coordenada en x del centro}
-\NormalTok{ycenter <-}\StringTok{ }\DecValTok{5}   \CommentTok{# Coordenada en y del centro}
+\NormalTok{rad     <-}\StringTok{ }\DecValTok{7}   \CommentTok{# Valor del radio}
+\NormalTok{xcenter <-}\StringTok{ }\NormalTok{-}\DecValTok{2}  \CommentTok{# Coordenada en x del centro}
+\NormalTok{ycenter <-}\StringTok{ }\DecValTok{1}   \CommentTok{# Coordenada en y del centro}
 
 \KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
 \NormalTok{theta <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{2} \NormalTok{*}\StringTok{ }\NormalTok{pi, }\DataTypeTok{length =} \DecValTok{200}\NormalTok{)}
@@ -3549,7 +3595,7 @@ A continuación se muestran dos ejemplos de como usar \texttt{grid}. En
 el primer ejemplo se dibuja un gráfico vacío y se le agrega la rejila
 estándar que se puede obtener con \texttt{grid()} sin definir ningún
 parámetro. En el segundo ejemplo se tiene una rejilla que divide en 4
-partes el eje horizontal (\texttt{nx=4}), en 3 partes el eje vertical
+partes el eje horizontal (\texttt{nx=3}), en 3 partes el eje vertical
 (\texttt{ny=3}), de color rosado, grosor 2 y con guiones largos. Abajo
 el código utilizado y en la Figura \ref{fig:grid1} se observan los
 resultados.
@@ -3561,7 +3607,7 @@ resultados.
 \KeywordTok{grid}\NormalTok{()}
 
 \KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
-\KeywordTok{grid}\NormalTok{(}\DataTypeTok{nx=}\DecValTok{4}\NormalTok{, }\DataTypeTok{ny=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{"pink"}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{lty=}\StringTok{"longdash"}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{(}\DataTypeTok{nx=}\DecValTok{3}\NormalTok{, }\DataTypeTok{ny=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{"pink"}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{lty=}\StringTok{"longdash"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3573,6 +3619,67 @@ resultados.
 
 \section{\texorpdfstring{Función \texttt{points} \index{points}
 \index{puntos}}{Función points  }}\label{funcion-points}
+
+Esta función es útil para agregar puntos a una figura ya creada. La
+estructura de la función es la siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{points}\NormalTok{(x, y, pch, col, cex)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x,\ y}: vectores con las coordenadas de ubicación de los
+  puntos.
+\item
+  \texttt{pch}: vector numérico con el tipo de punto a usar, por defecto
+  \texttt{pch=1}.
+\item
+  \texttt{col}: vector con los colores para cada punto.
+\item
+  \texttt{cex}: número para modificar el tamaño de los puntos, por
+  defecto es \texttt{cex=1} y al aumentar su valor aumenta el tamaño de
+  los puntos.
+\end{itemize}
+
+Los diferentes tipos de puntos que se pueden obtener al variar el
+parámetro \texttt{pch} se muestran en la Figura \ref{fig:point1}.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/point1-1.pdf}
+\caption{\label{fig:point1}Ejemplos de los tipos de puntos obtenidos al
+variar \texttt{pch}.}
+\end{figure}
+
+Es posible usar otros símbolos personalizados en el parámetro
+\texttt{pch}, a continuación se muestra el código para incluir 5 puntos
+usando los símbolos @, ., \$, \% y w. En la Figura \ref{fig:point2} se
+observan los 5 puntos con los símbolos usados. Observe que cuando se usó
+\texttt{pch=\textquotesingle{}.\textquotesingle{}} aparece un pequeño
+punto, casi imperceptible, esta opción es muy usada cuando se tiene
+muchos puntos que se traslapan entre si.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\FloatTok{5.5}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\FloatTok{5.5}\NormalTok{), }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{, }\DataTypeTok{type=}\StringTok{'n'}\NormalTok{)}
+\KeywordTok{points}\NormalTok{(}\DataTypeTok{x=}\DecValTok{1}\NormalTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{y=}\DecValTok{1}\NormalTok{:}\DecValTok{5}\NormalTok{,}
+       \DataTypeTok{pch=}\KeywordTok{c}\NormalTok{(}\StringTok{'@'}\NormalTok{, }\StringTok{'.'}\NormalTok{, }\StringTok{'$'}\NormalTok{, }\StringTok{'%'}\NormalTok{, }\StringTok{'w'}\NormalTok{),}
+       \DataTypeTok{col=}\DecValTok{1}\NormalTok{:}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/point2-1.pdf}
+\caption{\label{fig:point2}Ejemplos de símbolos personalizados con
+\texttt{pch}.}
+\end{figure}
 
 \section{\texorpdfstring{Función \texttt{abline}
 \index{abline}}{Función abline }}\label{funcion-abline}
