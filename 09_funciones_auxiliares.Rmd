@@ -30,7 +30,6 @@ segments(-4, 9, 0, -9, lwd=4)
 segments(0, -9, 0, 9, lwd=4)
 ```
 
-
 ## Función `rect` \index{rect} \index{rectángulos}
 Esta función es muy útil para digujar rectángulos. La estructura de la función se muestra a continuación.
 
@@ -73,19 +72,50 @@ text(18.8, 11, "lwd=3")
 
 El código mostrado abajo pertenece a la ayuda de la función `rect` y el resultado es la Figura \@ref(fig:rect2). De esta figura se observa que es posible dibujar varios rectángulos ingresando las coordenadas como vectores.
 
-```{r rect2, fig.cap='Ejemplo de la función rect.', fig.asp=0.8, fig.width=8}
+```{r rect2, fig.cap='Ejemplo de rectángulos obtenidos con `rect`.', fig.asp=0.8, fig.width=8}
 ## set up the plot region:
-plot(c(100, 250), c(300, 450), type = "n", xlab = "", ylab = "",
-     main = "2 x 11 rectangles; 'rect(100+i,300+i,  150+i,380+i)'")
+plot(c(100, 250), c(300, 450), type="n", xlab="", ylab="",
+     main="2 x 11 rectangles; 'rect(100+i,300+i, 150+i,380+i)'")
 i <- 4*(0:10)
 ## draw rectangles with bottom left (100, 300)+i
 ## and top right (150, 380)+i
-rect(100+i, 300+i, 150+i, 380+i, col = rainbow(11, start = 0.7, end = 0.1))
-rect(240-i, 320+i, 250-i, 410+i, col = heat.colors(11), lwd = i/5)
+rect(100+i, 300+i, 150+i, 380+i, col=rainbow(11, start=0.7, end=0.1))
+rect(240-i, 320+i, 250-i, 410+i, col=heat.colors(11), lwd=i/5)
+```
+
+## Función `polygon` \index{polygon} \index{polígonos}
+Esta función es muy útil para digujar polígonos. La estructura de la función se muestra a continuación.
+
+```{r, eval=FALSE}
+polygon(x, y, density = NULL, angle = 45,
+        border, col, lty, ...)
+```
+
+Los argumentos de la función son:
+
+- `x, y`: vectores con las coordenadas de ubicación de los puntos que forman el polígono.
+- `density`: número de líneas por pulgada con la cuales se rellenará el polígono.
+- `angle`: ángulo de inclinación de la líneas de relleno.
+- `border`: color para el borde del polígono, un valor posible es `'transparent'` cuando no se desea borde.
+- `col`: color para el fondo del rectángulo.
+- `lty`: tipo de línea a usar para el borde.
+- `...`: otros parámetros gráficos.
+
+A continuación se muestra como usar la función `polygon` para dibujar un triángulo y un cuadrilátero. En la Figura \@ref(fig:poly1) se muestran las figuras obtenidas.
+
+```{r poly1, fig.cap='Ejemplo de formas obtenidas con `polygon`.', fig.asp=0.8, fig.width=6}
+plot(0:5, 0:5, type="n", xlab="", ylab="")
+abline(v=0:5, h=0:5, col=gray(0.8), lty='dashed')
+
+polygon(x=c(0, 1, 2), y=c(1, 5, 2),         # Para el triangulo
+        col='blue', border='red', lwd=4)
+
+polygon(x=c(3, 5, 5, 2), y=c(5, 4, 1, 1), # Para el cuadrilatero
+        col='orange', border='darkgreen', lwd=4)
 ```
 
 ## Para dibujar un círculo \index{círculos}
-En la base de \proglang{R} no hay una función específica para crear círculos, sin embargo, es posible usar unas pocas líneas para obtener el círculo con un radio y centro deseado. A continuación se muestra el código para dibujar un círculo de radio 4 unidades con centro en el punto (-2, 1). En la Figura \@ref(fig:circ1) se muestra el círculo solicitado.
+En la base de \proglang{R} no hay una función específica para crear círculos, sin embargo, es posible usar unas pocas líneas para obtener el círculo con un radio y centro deseado por medio de la función `polygon`. A continuación se muestra el código para dibujar un círculo de radio 7 unidades con centro en el punto (-2, 1) con fondo azul claro y borde de color azul obscuro. En la Figura \@ref(fig:circ1) se muestra el círculo solicitado.
 
 ```{r circ1, fig.cap='Ejemplo de un círculo.', fig.asp=1, fig.width=6}
 rad     <- 7   # Valor del radio
@@ -94,8 +124,8 @@ ycenter <- 1   # Coordenada en y del centro
 
 plot(c(-10, 10), c(-10, 10), type="n", xlab="", ylab="")
 theta <- seq(0, 2 * pi, length = 200)
-lines(x=rad * cos(theta) + xcenter, y=rad * sin(theta) + ycenter,
-      lwd=3, col='tomato2')
+polygon(x=rad * cos(theta) + xcenter, y=rad * sin(theta) + ycenter,
+      lwd=3, col='steelblue1', border='steelblue4')
 grid()  # Para incluir una cuadrícula de guía
 ```
 
@@ -162,15 +192,19 @@ Los argumentos de la función son:
 - `lty`: tipo de línea a usar.
 - `lwd`: grosor de la rejilla.
 
-A continuación se muestran dos ejemplos de como usar `grid`. En el primer ejemplo se dibuja un gráfico vacío y se le agrega la rejila estándar que se puede obtener con `grid()` sin definir ningún parámetro. En el segundo ejemplo se tiene una rejilla que divide en 4 partes el eje horizontal (`nx=3`), en 3 partes el eje vertical (`ny=3`), de color rosado, grosor 2 y con guiones largos. Abajo el código utilizado y en la Figura \@ref(fig:grid1) se observan los resultados.
+A continuación se muestran dos ejemplos de como usar `grid`. En el primer ejemplo se dibuja un gráfico vacío y se le agrega la rejila estándar que se puede obtener con `grid()` sin definir ningún parámetro. En el segundo ejemplo se tiene una rejilla que divide en 4 partes el eje horizontal (`nx=3`), en 4 partes el eje vertical (`ny=4`), de color rosado, grosor 2 y con guiones largos. Abajo el código utilizado y en la Figura \@ref(fig:grid1) se observan los resultados.
 
-```{r grid1, fig.cap='Ejemplos de rejillas con `grid`.', fig.asp=0.6, fig.width=7}
-par(mfrow=c(1, 2))
+```{r grid1, fig.cap='Ejemplos de rejillas con `grid`.', fig.asp=0.5, fig.width=5}
+par(mfrow=c(1, 2), mar=c(2, 2, 0, 0), cex=0.5)
 plot(c(-10, 10), c(-10, 10), type="n", xlab="", ylab="")
 grid()
 
 plot(c(-10, 10), c(-10, 10), type="n", xlab="", ylab="")
-grid(nx=3, ny=3, col="pink", lwd=2, lty="longdash")
+grid(nx=3, ny=4, col="pink", lwd=2, lty="longdash")
+```
+
+```{block2, type='rmdtip'}
+Para dibujar rejillas en puntos seleccionados por el usuario se puede utilizar el procedimiento explicado en la sección \@ref(rejper).
 ```
 
 ## Función `points` \index{points} \index{puntos}
@@ -190,7 +224,7 @@ Los argumentos de la función son:
 Los diferentes tipos de puntos que se pueden obtener al variar el parámetro `pch` se muestran en la Figura \@ref(fig:point1).
 
 ```{r point1, fig.cap='Ejemplos de los tipos de puntos obtenidos al variar `pch`.', fig.asp=0.5, fig.width=6, echo=FALSE}
-par(bg='azure2', mar=c(1, 1, 0, 0))
+par(bg='azure2', mar=c(1, 0, 0, 0))
 plot(c(0, 14), c(4, 5.3), type="n", axes=F, 
      xlab="", ylab="")
 points(x=1:13, y=rep(5, 13), pch=0:12, cex=2)
@@ -202,7 +236,8 @@ text(x=1:13,   y=rep(4.2, 13), labels=13:25)
 
 Es posible usar otros símbolos personalizados en el parámetro `pch`, a continuación se muestra el código para incluir 5 puntos usando los símbolos @, ., $, % y w. En la Figura \@ref(fig:point2) se observan los 5 puntos con los símbolos usados. Observe que cuando se usó `pch='.'` aparece un pequeño punto, casi imperceptible, esta opción es muy usada cuando se tiene muchos puntos que se traslapan entre si.
 
-```{r point2, fig.cap='Ejemplos de símbolos personalizados con `pch`.', fig.asp=0.8, fig.width=6}
+```{r point2, fig.cap='Ejemplos de símbolos personalizados con `pch`.', fig.asp=0.8, fig.width=3}
+par(mar=c(2, 2, 0, 0))
 plot(c(0.5, 5.5), c(0.5, 5.5), xlab="", ylab="", type='n')
 points(x=1:5, y=1:5,
        pch=c('@', '.', '$', '%', 'w'),
@@ -210,10 +245,8 @@ points(x=1:5, y=1:5,
 ```
 
 
-
-
+```{r, echo=F}
 ## Función `abline` \index{abline}
-## Función `polygon` \index{polygon} \index{polígonos}
 ## Función `legend` \index{legend} \index{leyendas}
 ## Función `text` \index{text} \index{texto}
 ## Función `lines` \index{lines} \index{líneas}
@@ -224,4 +257,26 @@ points(x=1:5, y=1:5,
 ## Función `mtext` \index{mtext} 
 ## Función `curve` \index{curve} \index{curve}
 ## Función `rug` \index{rug} 
+```
+
+
+## EJERCICIOS {-}
+
+1. Crear un gráfico vacío de manera que el eje horizontal tome valores desde 0 a 30 y el eje vertical valores de 0 a 20, usar los pasos de la sección \@ref(emptygraph) para construir el gráfico solicitado.
+
+
+2. Para el gráfico vacío creado en el paso anterior, agregar una rejilla o cuadrícula que pase por los valores enteros, use los pasos de la sección \@ref(rejper) para incluir la rejilla en los valores solicitados. El gráfico resultante de los ejercicios 1 y 2 debe ser similar al presentando en la Figura \@ref(fig:plantilla).
+
+```{r plantilla, fig.cap='Plantilla para el dibujo.', fig.asp=0.8, fig.width=3.4, echo=FALSE}
+par(mar=c(2, 2, 0, 0))
+plot(c(0, 30), c(0, 20), type="n", xlab="", ylab="")
+abline(v=0:30, h=0:20, col=gray(0.8), lty='dashed')
+```
+
+3. Incluir en el gráfico vacío y con rejillas anterior el dibujo mostrado en la Figura \@ref(fig:casita). Use las funciones vistas en este capítulo para replicar el dibujo del paisaje e incluya colores para mejorar la apariencia del paisaje.
+
+```{r casita, echo=F, fig.cap='Paisaje a dibujar.', dpi=250, fig.align='center'}
+knitr::include_graphics("images/casita.png")
+```
+
 
