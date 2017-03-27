@@ -220,7 +220,7 @@
 \title{Gráficos en R usando la solo la base}
 \author{Freddy Hernández Barajas\\
 Juan Carlos Correa Morales}
-\date{2017-03-25}
+\date{2017-03-27}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -422,7 +422,7 @@ sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics{images/cran} 
+{\centering \includegraphics[width=4.54in]{images/cran} 
 
 }
 
@@ -440,7 +440,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics{images/instalacion1} 
+{\centering \includegraphics[width=5.31in]{images/instalacion1} 
 
 }
 
@@ -498,7 +498,7 @@ consola, para hacer esto se deben explorar las opciones de
 
 \begin{figure}
 
-{\centering \includegraphics{images/Rpantallazo} 
+{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
 
 }
 
@@ -3424,20 +3424,81 @@ las coordenadas como vectores.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{## set up the plot region:}
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{250}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\DecValTok{300}\NormalTok{, }\DecValTok{450}\NormalTok{), }\DataTypeTok{type =} \StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab =} \StringTok{""}\NormalTok{, }\DataTypeTok{ylab =} \StringTok{""}\NormalTok{,}
-     \DataTypeTok{main =} \StringTok{"2 x 11 rectangles; 'rect(100+i,300+i,  150+i,380+i)'"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{250}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\DecValTok{300}\NormalTok{, }\DecValTok{450}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{,}
+     \DataTypeTok{main=}\StringTok{"2 x 11 rectangles; 'rect(100+i,300+i, 150+i,380+i)'"}\NormalTok{)}
 \NormalTok{i <-}\StringTok{ }\DecValTok{4}\NormalTok{*(}\DecValTok{0}\NormalTok{:}\DecValTok{10}\NormalTok{)}
 \NormalTok{## draw rectangles with bottom left (100, 300)+i}
 \NormalTok{## and top right (150, 380)+i}
-\KeywordTok{rect}\NormalTok{(}\DecValTok{100}\NormalTok{+i, }\DecValTok{300}\NormalTok{+i, }\DecValTok{150}\NormalTok{+i, }\DecValTok{380}\NormalTok{+i, }\DataTypeTok{col =} \KeywordTok{rainbow}\NormalTok{(}\DecValTok{11}\NormalTok{, }\DataTypeTok{start =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{end =} \FloatTok{0.1}\NormalTok{))}
-\KeywordTok{rect}\NormalTok{(}\DecValTok{240}\NormalTok{-i, }\DecValTok{320}\NormalTok{+i, }\DecValTok{250}\NormalTok{-i, }\DecValTok{410}\NormalTok{+i, }\DataTypeTok{col =} \KeywordTok{heat.colors}\NormalTok{(}\DecValTok{11}\NormalTok{), }\DataTypeTok{lwd =} \NormalTok{i/}\DecValTok{5}\NormalTok{)}
+\KeywordTok{rect}\NormalTok{(}\DecValTok{100}\NormalTok{+i, }\DecValTok{300}\NormalTok{+i, }\DecValTok{150}\NormalTok{+i, }\DecValTok{380}\NormalTok{+i, }\DataTypeTok{col=}\KeywordTok{rainbow}\NormalTok{(}\DecValTok{11}\NormalTok{, }\DataTypeTok{start=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{end=}\FloatTok{0.1}\NormalTok{))}
+\KeywordTok{rect}\NormalTok{(}\DecValTok{240}\NormalTok{-i, }\DecValTok{320}\NormalTok{+i, }\DecValTok{250}\NormalTok{-i, }\DecValTok{410}\NormalTok{+i, }\DataTypeTok{col=}\KeywordTok{heat.colors}\NormalTok{(}\DecValTok{11}\NormalTok{), }\DataTypeTok{lwd=}\NormalTok{i/}\DecValTok{5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/rect2-1.pdf}
-\caption{\label{fig:rect2}Ejemplo de la función rect.}
+\caption{\label{fig:rect2}Ejemplo de rectángulos obtenidos con
+\texttt{rect}.}
+\end{figure}
+
+\section{\texorpdfstring{Función \texttt{polygon} \index{polygon}
+\index{polígonos}}{Función polygon  }}\label{funcion-polygon}
+
+Esta función es muy útil para digujar polígonos. La estructura de la
+función se muestra a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{polygon}\NormalTok{(x, y, }\DataTypeTok{density =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{angle =} \DecValTok{45}\NormalTok{,}
+        \NormalTok{border, col, lty, ...)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x,\ y}: vectores con las coordenadas de ubicación de los
+  puntos que forman el polígono.
+\item
+  \texttt{density}: número de líneas por pulgada con la cuales se
+  rellenará el polígono.
+\item
+  \texttt{angle}: ángulo de inclinación de la líneas de relleno.
+\item
+  \texttt{border}: color para el borde del polígono, un valor posible es
+  \texttt{\textquotesingle{}transparent\textquotesingle{}} cuando no se
+  desea borde.
+\item
+  \texttt{col}: color para el fondo del rectángulo.
+\item
+  \texttt{lty}: tipo de línea a usar para el borde.
+\item
+  \texttt{...}: otros parámetros gráficos.
+\end{itemize}
+
+A continuación se muestra como usar la función \texttt{polygon} para
+dibujar un triángulo y un cuadrilátero. En la Figura \ref{fig:poly1} se
+muestran las figuras obtenidas.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\DecValTok{0}\NormalTok{:}\DecValTok{5}\NormalTok{, }\DecValTok{0}\NormalTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{v=}\DecValTok{0}\NormalTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{h=}\DecValTok{0}\NormalTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{col=}\KeywordTok{gray}\NormalTok{(}\FloatTok{0.8}\NormalTok{), }\DataTypeTok{lty=}\StringTok{'dashed'}\NormalTok{)}
+
+\KeywordTok{polygon}\NormalTok{(}\DataTypeTok{x=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{), }\DataTypeTok{y=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{2}\NormalTok{),         }\CommentTok{# Para el triangulo}
+        \DataTypeTok{col=}\StringTok{'blue'}\NormalTok{, }\DataTypeTok{border=}\StringTok{'red'}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{)}
+
+\KeywordTok{polygon}\NormalTok{(}\DataTypeTok{x=}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{2}\NormalTok{), }\DataTypeTok{y=}\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{), }\CommentTok{# Para el cuadrilatero}
+        \DataTypeTok{col=}\StringTok{'orange'}\NormalTok{, }\DataTypeTok{border=}\StringTok{'darkgreen'}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/poly1-1.pdf}
+\caption{\label{fig:poly1}Ejemplo de formas obtenidas con \texttt{polygon}.}
 \end{figure}
 
 \section{\texorpdfstring{Para dibujar un círculo
@@ -3445,10 +3506,11 @@ las coordenadas como vectores.
 
 En la base de \proglang{R} no hay una función específica para crear
 círculos, sin embargo, es posible usar unas pocas líneas para obtener el
-círculo con un radio y centro deseado. A continuación se muestra el
-código para dibujar un círculo de radio 4 unidades con centro en el
-punto (-2, 1). En la Figura \ref{fig:circ1} se muestra el círculo
-solicitado.
+círculo con un radio y centro deseado por medio de la función
+\texttt{polygon}. A continuación se muestra el código para dibujar un
+círculo de radio 7 unidades con centro en el punto (-2, 1) con fondo
+azul claro y borde de color azul obscuro. En la Figura \ref{fig:circ1}
+se muestra el círculo solicitado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3458,8 +3520,8 @@ solicitado.
 
 \KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
 \NormalTok{theta <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{2} \NormalTok{*}\StringTok{ }\NormalTok{pi, }\DataTypeTok{length =} \DecValTok{200}\NormalTok{)}
-\KeywordTok{lines}\NormalTok{(}\DataTypeTok{x=}\NormalTok{rad *}\StringTok{ }\KeywordTok{cos}\NormalTok{(theta) +}\StringTok{ }\NormalTok{xcenter, }\DataTypeTok{y=}\NormalTok{rad *}\StringTok{ }\KeywordTok{sin}\NormalTok{(theta) +}\StringTok{ }\NormalTok{ycenter,}
-      \DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{'tomato2'}\NormalTok{)}
+\KeywordTok{polygon}\NormalTok{(}\DataTypeTok{x=}\NormalTok{rad *}\StringTok{ }\KeywordTok{cos}\NormalTok{(theta) +}\StringTok{ }\NormalTok{xcenter, }\DataTypeTok{y=}\NormalTok{rad *}\StringTok{ }\KeywordTok{sin}\NormalTok{(theta) +}\StringTok{ }\NormalTok{ycenter,}
+      \DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{'steelblue1'}\NormalTok{, }\DataTypeTok{border=}\StringTok{'steelblue4'}\NormalTok{)}
 \KeywordTok{grid}\NormalTok{()  }\CommentTok{# Para incluir una cuadrícula de guía}
 \end{Highlighting}
 \end{Shaded}
@@ -3595,19 +3657,19 @@ A continuación se muestran dos ejemplos de como usar \texttt{grid}. En
 el primer ejemplo se dibuja un gráfico vacío y se le agrega la rejila
 estándar que se puede obtener con \texttt{grid()} sin definir ningún
 parámetro. En el segundo ejemplo se tiene una rejilla que divide en 4
-partes el eje horizontal (\texttt{nx=3}), en 3 partes el eje vertical
-(\texttt{ny=3}), de color rosado, grosor 2 y con guiones largos. Abajo
+partes el eje horizontal (\texttt{nx=3}), en 4 partes el eje vertical
+(\texttt{ny=4}), de color rosado, grosor 2 y con guiones largos. Abajo
 el código utilizado y en la Figura \ref{fig:grid1} se observan los
 resultados.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{), }\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{), }\DataTypeTok{cex=}\FloatTok{0.5}\NormalTok{)}
 \KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
 \KeywordTok{grid}\NormalTok{()}
 
 \KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
-\KeywordTok{grid}\NormalTok{(}\DataTypeTok{nx=}\DecValTok{3}\NormalTok{, }\DataTypeTok{ny=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{"pink"}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{lty=}\StringTok{"longdash"}\NormalTok{)}
+\KeywordTok{grid}\NormalTok{(}\DataTypeTok{nx=}\DecValTok{3}\NormalTok{, }\DataTypeTok{ny=}\DecValTok{4}\NormalTok{, }\DataTypeTok{col=}\StringTok{"pink"}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{lty=}\StringTok{"longdash"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3616,6 +3678,11 @@ resultados.
 \includegraphics{Graficos_con_R_files/figure-latex/grid1-1.pdf}
 \caption{\label{fig:grid1}Ejemplos de rejillas con \texttt{grid}.}
 \end{figure}
+
+\BeginKnitrBlock{rmdtip}
+Para dibujar rejillas en puntos seleccionados por el usuario se puede
+utilizar el procedimiento explicado en la sección \ref{rejper}.
+\EndKnitrBlock{rmdtip}
 
 \section{\texorpdfstring{Función \texttt{points} \index{points}
 \index{puntos}}{Función points  }}\label{funcion-points}
@@ -3667,6 +3734,7 @@ muchos puntos que se traslapan entre si.
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{))}
 \KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\FloatTok{5.5}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\FloatTok{5.5}\NormalTok{), }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{, }\DataTypeTok{type=}\StringTok{'n'}\NormalTok{)}
 \KeywordTok{points}\NormalTok{(}\DataTypeTok{x=}\DecValTok{1}\NormalTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{y=}\DecValTok{1}\NormalTok{:}\DecValTok{5}\NormalTok{,}
        \DataTypeTok{pch=}\KeywordTok{c}\NormalTok{(}\StringTok{'@'}\NormalTok{, }\StringTok{'.'}\NormalTok{, }\StringTok{'$'}\NormalTok{, }\StringTok{'%'}\NormalTok{, }\StringTok{'w'}\NormalTok{),}
@@ -3681,41 +3749,48 @@ muchos puntos que se traslapan entre si.
 \texttt{pch}.}
 \end{figure}
 
-\section{\texorpdfstring{Función \texttt{abline}
-\index{abline}}{Función abline }}\label{funcion-abline}
+\section*{EJERCICIOS}\label{ejercicios-1}
 
-\section{\texorpdfstring{Función \texttt{polygon} \index{polygon}
-\index{polígonos}}{Función polygon  }}\label{funcion-polygon}
 
-\section{\texorpdfstring{Función \texttt{legend} \index{legend}
-\index{leyendas}}{Función legend  }}\label{funcion-legend}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Crear un gráfico vacío de manera que el eje horizontal tome valores
+  desde 0 a 30 y el eje vertical valores de 0 a 20, usar los pasos de la
+  sección \ref{emptygraph} para construir el gráfico solicitado.
+\item
+  Para el gráfico vacío creado en el paso anterior, agregar una rejilla
+  o cuadrícula que pase por los valores enteros, use los pasos de la
+  sección \ref{rejper} para incluir la rejilla en los valores
+  solicitados. El gráfico resultante de los ejercicios 1 y 2 debe ser
+  similar al presentando en la Figura \ref{fig:plantilla}.
+\end{enumerate}
 
-\section{\texorpdfstring{Función \texttt{text} \index{text}
-\index{texto}}{Función text  }}\label{funcion-text}
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/plantilla-1.pdf}
+\caption{\label{fig:plantilla}Plantilla para el dibujo.}
+\end{figure}
 
-\section{\texorpdfstring{Función \texttt{lines} \index{lines}
-\index{líneas}}{Función lines  }}\label{funcion-lines}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Incluir en el gráfico vacío y con rejillas anterior el dibujo mostrado
+  en la Figura \ref{fig:casita}. Use las funciones vistas en este
+  capítulo para replicar el dibujo del paisaje e incluya colores para
+  mejorar la apariencia del paisaje.
+\end{enumerate}
 
-\section{\texorpdfstring{Función \texttt{identify} \index{identify}
-\index{identificador}}{Función identify  }}\label{funcion-identify}
+\begin{figure}
 
-\section{\texorpdfstring{Función \texttt{locator}
-\index{locator}}{Función locator }}\label{funcion-locator}
+{\centering \includegraphics[width=2.98in]{images/casita} 
 
-\section{\texorpdfstring{Función \texttt{axes} \index{axes}
-\index{ejes}}{Función axes  }}\label{funcion-axes}
+}
 
-\section{\texorpdfstring{Función \texttt{title} \index{title}
-\index{títulos}}{Función title  }}\label{funcion-title}
-
-\section{\texorpdfstring{Función \texttt{mtext}
-\index{mtext}}{Función mtext }}\label{funcion-mtext}
-
-\section{\texorpdfstring{Función \texttt{curve} \index{curve}
-\index{curve}}{Función curve  }}\label{funcion-curve}
-
-\section{\texorpdfstring{Función \texttt{rug}
-\index{rug}}{Función rug }}\label{funcion-rug}
+\caption{Paisaje a dibujar.}\label{fig:casita}
+\end{figure}
 
 \chapter{Respuestas a preguntas
 frecuentes}\label{respuestas-a-preguntas-frecuentes}
@@ -3723,6 +3798,43 @@ frecuentes}\label{respuestas-a-preguntas-frecuentes}
 En este capítulo se presentan las respuestas a preguntas frecuentes que
 tienen los usuarios de \proglang{R} sobre la construcción de gráficos
 personalizados.
+
+\section{\texorpdfstring{¿Cómo crear un gráfico vacío?
+\label{emptygraph}}{¿Cómo crear un gráfico vacío? }}\label{como-crear-un-grafico-vacio}
+
+Es muy frecuente que se necesite crear un gráfico vacío para luego
+agregar ciertos elementos y construir un nuevo gráfico de forma
+incremental. Hacer esto en \proglang{R} es muy sencillo, solo se debe
+dibujar el gráfico con \texttt{plot} incluyendo
+\texttt{type=\textquotesingle{}n\textquotesingle{}} para que no dibuje
+nada.
+
+A continuación se presenta el código para crear un gráfico vacío con
+valores de X entre -5 y 5, valores de Y entre 0 y 1, sin nombres en los
+ejes. En el pánel izquierdo de la Figura \ref{fig:empty1} se muestra el
+gráfico resultante, no se observa nada adentro porque esa era la idea,
+un gráfico vacío. Es posible crear un gráfico más vacío aún, sin ejes ni
+la caja alrededor del gráfico. En el pánel derecho de la Figura
+\ref{fig:empty1} se muestra el gráfico resultante con un mensaje para
+alertar que no es un error en la figura.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{, }\DataTypeTok{type=}\StringTok{'n'}\NormalTok{)}
+
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{, }\DataTypeTok{type=}\StringTok{'n'}\NormalTok{,}
+     \DataTypeTok{xaxt=}\StringTok{'n'}\NormalTok{, }\DataTypeTok{yaxt=}\StringTok{'n'}\NormalTok{, }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\DataTypeTok{x=}\DecValTok{0}\NormalTok{, }\DataTypeTok{y=}\FloatTok{0.5}\NormalTok{,}
+     \DataTypeTok{label=}\StringTok{'Gráfico completamente vacío.'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/empty1-1.pdf}
+\caption{\label{fig:empty1}Ejemplo de gráfico vacío.}
+\end{figure}
 
 \section{¿Cómo personalizar los valores a mostrar en los
 ejes?}\label{como-personalizar-los-valores-a-mostrar-en-los-ejes}
@@ -3849,8 +3961,9 @@ muestras aleatorias \texttt{m1} y \texttt{m2}. En la Figura
 \caption{\label{fig:faq3}Densidades simultáneas.}
 \end{figure}
 
-\section{¿Cómo incluir una rejilla a una figura en ciertos
-puntos?}\label{como-incluir-una-rejilla-a-una-figura-en-ciertos-puntos}
+\section{\texorpdfstring{¿Cómo incluir una rejilla a una figura en
+ciertos puntos?
+\label{rejper}}{¿Cómo incluir una rejilla a una figura en ciertos puntos? }}\label{como-incluir-una-rejilla-a-una-figura-en-ciertos-puntos}
 
 La función \texttt{grid} explicada en la sección \ref{grid} se usa para
 incluir una cuadrícula o rejilla, sin embargo, no se le puede indicar
