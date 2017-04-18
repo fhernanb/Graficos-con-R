@@ -220,7 +220,7 @@
 \title{Gráficos en R usando la solo la base}
 \author{Freddy Hernández Barajas\\
 Juan Carlos Correa Morales}
-\date{2017-03-31}
+\date{2017-04-18}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -422,7 +422,7 @@ sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics[width=4.54in]{images/cran} 
+{\centering \includegraphics{images/cran} 
 
 }
 
@@ -440,7 +440,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=5.31in]{images/instalacion1} 
+{\centering \includegraphics{images/instalacion1} 
 
 }
 
@@ -498,7 +498,7 @@ consola, para hacer esto se deben explorar las opciones de
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
+{\centering \includegraphics{images/Rpantallazo} 
 
 }
 
@@ -2505,6 +2505,116 @@ muestra el gráfico de niveles con aproximadamente 20 niveles.
 log-verosimilitud para el ejemplo sobre normal.}
 \end{figure}
 
+\section{\texorpdfstring{Función \texttt{interaction.plot}
+\index{interaction.plot}
+\index{gráfico de interacción}}{Función interaction.plot  }}\label{funcion-interaction.plot}
+
+La función \texttt{interaction.plot} dibuja gráficos de interacción. La
+estructura de la función \texttt{interaction.plot} con los argumentos
+más usuales se muestran a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{interaction.plot}\NormalTok{(response, x.factor, trace.factor, fun,}
+                 \NormalTok{legend, trace.label)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{response}: vector numérico con la variable respuesta.
+\item
+  \texttt{x.factor}: factor 1 a ubicar en el eje horizontal.
+\item
+  \texttt{trace.factor}: factor 2 para diferenciar las líneas.
+\item
+  \texttt{fun}: función a aplicar para a \texttt{response} para cada
+  combinación de \texttt{x.factor} y \texttt{trace.factor}.
+\item
+  \texttt{legend}: valor lógico para incluir o no leyenda.
+\item
+  \texttt{trace.label}: ombre a colocar en la leyenda.
+\end{itemize}
+
+La función \texttt{interaction.plot} tiene otros parámetros adicionales
+que el lector puede consultar en la ayuda usando
+\texttt{help(interaction.plot)}.
+
+\subsection*{Ejemplo}\label{ejemplo-19}
+
+
+Se realizó un experimento para determinar cómo influye el material de la
+batería y la temperatura del medio ambiente sobre la duración en horas
+de la batería. Se desea construir un gráfico de interacción entre
+Temperatura y Material para ver el efecto sobre la duración promedio de
+las baterías. Los datos y el código para generar el gráfico solicitado
+se muestran a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{horas <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{130}\NormalTok{, }\DecValTok{155}\NormalTok{, }\DecValTok{74}\NormalTok{, }\DecValTok{180}\NormalTok{, }\DecValTok{150}\NormalTok{, }\DecValTok{188}\NormalTok{, }\DecValTok{159}\NormalTok{, }\DecValTok{126}\NormalTok{, }\DecValTok{138}\NormalTok{, }\DecValTok{110}\NormalTok{, }\DecValTok{168}\NormalTok{, }
+           \DecValTok{160}\NormalTok{, }\DecValTok{34}\NormalTok{, }\DecValTok{40}\NormalTok{, }\DecValTok{80}\NormalTok{, }\DecValTok{75}\NormalTok{, }\DecValTok{136}\NormalTok{, }\DecValTok{122}\NormalTok{, }\DecValTok{106}\NormalTok{, }\DecValTok{115}\NormalTok{, }\DecValTok{174}\NormalTok{, }\DecValTok{120}\NormalTok{, }\DecValTok{150}\NormalTok{, }
+           \DecValTok{139}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{70}\NormalTok{, }\DecValTok{82}\NormalTok{, }\DecValTok{58}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{70}\NormalTok{, }\DecValTok{58}\NormalTok{, }\DecValTok{45}\NormalTok{, }\DecValTok{96}\NormalTok{, }\DecValTok{104}\NormalTok{, }\DecValTok{82}\NormalTok{, }\DecValTok{60}\NormalTok{)}
+
+\NormalTok{temperatura <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{70}\NormalTok{, }\DecValTok{125}\NormalTok{), }\DataTypeTok{each=}\DecValTok{12}\NormalTok{)}
+\NormalTok{material    <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{3}\NormalTok{, }\DataTypeTok{each=}\DecValTok{4}\NormalTok{, }\DataTypeTok{times=}\DecValTok{3}\NormalTok{)}
+
+\KeywordTok{interaction.plot}\NormalTok{(}\DataTypeTok{x.factor=}\NormalTok{temperatura, }\DataTypeTok{trace.factor=}\NormalTok{material,}
+                 \DataTypeTok{response=}\NormalTok{horas, }\DataTypeTok{trace.label=}\StringTok{'Material'}\NormalTok{,}
+                 \DataTypeTok{xlab=}\StringTok{'Temperatura'}\NormalTok{,}
+                 \DataTypeTok{ylab=}\StringTok{'Duración promedio (horas)'}\NormalTok{,}
+                 \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'blue'}\NormalTok{, }\StringTok{'black'}\NormalTok{, }\StringTok{'red'}\NormalTok{),}
+                 \DataTypeTok{fun=}\NormalTok{mean, }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{fixed=}\NormalTok{T)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/intplot1-1.pdf}
+\caption{\label{fig:intplot1}Gráfico de interacción entre Temperatura y
+Material sobre la duración promedio de las baterías.}
+\end{figure}
+
+\section{\texorpdfstring{Gráfico de espagueti
+\index{espagueti}}{Gráfico de espagueti }}\label{grafico-de-espagueti}
+
+Los gráficos de espagueti son usados para representar la evolución de
+una variable medida para un grupo de sujetos en diferentes momentos del
+tiempo. La función \texttt{interaction.plot} se puede usar para obtener
+este tipo de gráficos, a continuación un ejemplo.
+
+\subsection*{Ejemplo}\label{ejemplo-20}
+
+
+El ejemplo aquí presentado fue tomado de este
+\href{http://stats.idre.ucla.edu/r/faq/how-can-i-make-spaghetti-plots/}{enlace}.
+El objetivo es crear un gráfico de espagueti para mostrar la evolución
+de la variable tolerancia a través del tiempo para cada uno de los 16
+individuos estudiados. El código para descargar la base de datos y
+construir el gráfico se muestran a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dt <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\StringTok{"http://www.ats.ucla.edu/stat/r/faq/tolpp.csv"}\NormalTok{,}
+                      \DataTypeTok{sep=}\StringTok{","}\NormalTok{, }\DataTypeTok{header=}\NormalTok{T)}
+
+\KeywordTok{interaction.plot}\NormalTok{(}\DataTypeTok{response=}\NormalTok{dt$tolerance,}
+                 \DataTypeTok{x.factor=}\NormalTok{dt$time, }\DataTypeTok{col=}\DecValTok{1}\NormalTok{:}\DecValTok{8}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{,}
+                 \DataTypeTok{trace.factor=}\NormalTok{dt$id, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{1}\NormalTok{, }
+                 \DataTypeTok{xlab=}\StringTok{"Tiempo"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Tolerancia"}\NormalTok{, }\DataTypeTok{legend=}\NormalTok{F)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/intplot2-1.pdf}
+\caption{\label{fig:intplot2}Gráfico de espagueti para ver la evolución de
+la variable tolerancia.}
+\end{figure}
+
 \chapter{Gráficos para variables
 cualitativas}\label{graficos-para-variables-cualitativas}
 
@@ -2546,7 +2656,7 @@ La función \texttt{barplot} tiene otros parámetros que pueden ser
 consultados en la ayuda de la función por medio de la instrucción
 \texttt{?barplot}.
 
-\subsection*{Ejemplo}\label{ejemplo-19}
+\subsection*{Ejemplo}\label{ejemplo-21}
 
 
 Suponga que queremos construir un diagrama de barras para las
@@ -2640,7 +2750,7 @@ En la Figura \ref{fig:barra2} se muestra el diagrama de barras
 modificado. Note que si no se hubiese usado \texttt{ylim=c(0,\ 0.45)} al
 dibujar el diagrama, la marca sobre la última barra no se podría ver.
 
-\subsection*{Ejemplo}\label{ejemplo-20}
+\subsection*{Ejemplo}\label{ejemplo-22}
 
 
 Suponga que queremos construir un diagrama de barras para comparar la
@@ -2819,7 +2929,7 @@ Los argumentos de la función \texttt{pie} son:
   pastel, por defecto se usan los nombres del vector \texttt{x}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-23}
 
 
 Dibujar un gráfico de pastel para las frecuencias relativas de la
@@ -2931,7 +3041,7 @@ se mostrará por medio de ejemplos.
 Este parámetro sirve para indicar si se quiere un gráfico con nombres en
 los ejes y título principal, por defecto asume el valor \texttt{TRUE}.
 
-\subsection*{Ejemplo}\label{ejemplo-22}
+\subsection*{Ejemplo}\label{ejemplo-24}
 
 
 Dibujar la densidad para una distribución \(\chi^2_1\) usando
@@ -2975,7 +3085,7 @@ valor por defecto es 0.5 que indica que el texto debe quedar centrado en
 las coordenadas x e y indicadas, un valor de 0 significa justificación a
 izquierda mientras que 1 significa justificación a derecha.
 
-\subsection*{Ejemplo}\label{ejemplo-23}
+\subsection*{Ejemplo}\label{ejemplo-25}
 
 
 Dibujar un gráfico vacío, ubicar las palabra \emph{hola mi mundo}
@@ -3019,7 +3129,7 @@ del texto.
 Este parámetro sirve para modificar el color del fondo donde se va a
 dibujar.
 
-\subsection*{Ejemplo}\label{ejemplo-24}
+\subsection*{Ejemplo}\label{ejemplo-26}
 
 
 Dibujar la densidad de una normal estándar usando un color verde para el
@@ -3055,7 +3165,7 @@ modificar este parámetro es \texttt{mfrow=c(nf,\ nc)}, donde \texttt{nf}
 es el número de filas y \texttt{nc} el número de columnas en las cuales
 se va a dividir la ventana gráfica.
 
-\subsection*{Ejemplo}\label{ejemplo-25}
+\subsection*{Ejemplo}\label{ejemplo-27}
 
 
 Dibujar la distribución de probabilidad para una distribución Poisson
@@ -3114,7 +3224,7 @@ obtener la caja usual; se pueden usar también los símboloes
 caja con la forma del símbolo; se puede usar
 \texttt{\textquotesingle{}n\textquotesingle{}} para suprimir la caja.
 
-\subsection*{Ejemplo}\label{ejemplo-26}
+\subsection*{Ejemplo}\label{ejemplo-28}
 
 
 Dibujar la densidad de una \(\chi^2_5\) modificando el parámetro
@@ -3162,7 +3272,7 @@ este parámetro permiten obtener mejores figuras. A continuación un
 ejemplo para ver el efecto que tiene este parámetro sobre las figuras
 obtenidas.
 
-\subsection*{Ejemplo}\label{ejemplo-27}
+\subsection*{Ejemplo}\label{ejemplo-29}
 
 
 Hacer un gráfico de dispersión sencillo para explorar el efecto del
@@ -3212,7 +3322,7 @@ anteriores elementos simultáneamente mientras que los parámetros
 explicados en esta sección modifican cada uno de los elementos por
 aparte.
 
-\subsection*{Ejemplo}\label{ejemplo-28}
+\subsection*{Ejemplo}\label{ejemplo-30}
 
 
 Hacer un gráfico cualquiera y modificar los parámetros
@@ -3258,7 +3368,7 @@ personalizados en \proglang{R}.
 Estos parámetros sirven para definir el color a usar en los ejes, en los
 nombres de los ejes, en el título y en el subtítulo.
 
-\subsection*{Ejemplo}\label{ejemplo-29}
+\subsection*{Ejemplo}\label{ejemplo-31}
 
 
 Hacer un gráfico cualquiera y modificar los parámetros \texttt{col},
@@ -3785,7 +3895,7 @@ muchos puntos que se traslapan entre si.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.26in]{images/casita} 
+{\centering \includegraphics{images/casita} 
 
 }
 
