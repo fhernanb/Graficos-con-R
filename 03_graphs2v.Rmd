@@ -377,10 +377,60 @@ filled.contour(x=xx, y=yy, z=zz, nlevels=20,
                color = topo.colors)
 ```
 
+## Función `interaction.plot` \index{interaction.plot} \index{gráfico de interacción}
+La función `interaction.plot` dibuja gráficos de interacción. La estructura de la función `interaction.plot` con los argumentos más usuales se muestran a continuación.
+
+```{r, eval=FALSE}
+interaction.plot(response, x.factor, trace.factor, fun,
+                 legend, trace.label)
+```
+
+Los argumentos de la función son:
+
+- `response`: vector numérico con la variable respuesta.
+- `x.factor`: factor 1 a ubicar en el eje horizontal.
+- `trace.factor`: factor 2 para diferenciar las líneas.
+- `fun`: función a aplicar para a `response` para cada combinación de `x.factor` y `trace.factor`.
+- `legend`: valor lógico para incluir o no leyenda.
+- `trace.label`: ombre a colocar en la leyenda.
+
+La función `interaction.plot` tiene otros parámetros adicionales que el lector puede consultar en la ayuda usando `help(interaction.plot)`.
+
+### Ejemplo {-}
+Se realizó un experimento para determinar cómo influye el material de la batería y la temperatura del medio ambiente sobre la duración en horas de la batería. Se desea construir un gráfico de interacción entre Temperatura y Material para ver el efecto sobre la duración promedio de las baterías. Los datos y el código para generar el gráfico solicitado se muestran a continuación.
+
+```{r intplot1, fig.cap='Gráfico de interacción entre Temperatura y Material sobre la duración promedio de las baterías.', fig.asp=0.8, fig.width=6}
+horas <- c(130, 155, 74, 180, 150, 188, 159, 126, 138, 110, 168, 
+           160, 34, 40, 80, 75, 136, 122, 106, 115, 174, 120, 150, 
+           139, 20, 70, 82, 58, 25, 70, 58, 45, 96, 104, 82, 60)
+
+temperatura <- rep(c(15, 70, 125), each=12)
+material    <- rep(1:3, each=4, times=3)
+
+interaction.plot(x.factor=temperatura, trace.factor=material,
+                 response=horas, trace.label='Material',
+                 xlab='Temperatura',
+                 ylab='Duración promedio (horas)',
+                 col=c('blue', 'black', 'red'),
+                 fun=mean, lwd=3, las=1, fixed=T)
+```
 
 
+## Gráfico de espagueti \index{espagueti}
+Los gráficos de espagueti son usados para representar la evolución de una variable medida para un grupo de sujetos en diferentes momentos del tiempo. La función `interaction.plot` se puede usar para obtener este tipo de gráficos, a continuación un ejemplo.
 
+### Ejemplo {-}
+El ejemplo aquí presentado fue tomado de este [enlace](http://stats.idre.ucla.edu/r/faq/how-can-i-make-spaghetti-plots/). El objetivo es crear un gráfico de espagueti para mostrar la evolución de la variable tolerancia a través del tiempo para cada uno de los 16 individuos estudiados. El código para descargar la base de datos y construir el gráfico se muestran a continuación.
 
+```{r intplot2, fig.cap='Gráfico de espagueti para ver la evolución de la variable tolerancia.', fig.asp=0.8, fig.width=6}
+dt <- read.table("http://www.ats.ucla.edu/stat/r/faq/tolpp.csv",
+                      sep=",", header=T)
+
+interaction.plot(response=dt$tolerance,
+                 x.factor=dt$time, col=1:8, lwd=2,
+                 trace.factor=dt$id, las=1, lty=1, 
+                 xlab="Tiempo", ylab="Tolerancia", legend=F)
+```
 
 
 
