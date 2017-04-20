@@ -220,7 +220,7 @@
 \title{Gráficos en R usando la solo la base}
 \author{Freddy Hernández Barajas\\
 Juan Carlos Correa Morales}
-\date{2017-04-18}
+\date{2017-04-20}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -422,7 +422,7 @@ sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics{images/cran} 
+{\centering \includegraphics[width=4.54in]{images/cran} 
 
 }
 
@@ -440,7 +440,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics{images/instalacion1} 
+{\centering \includegraphics[width=5.31in]{images/instalacion1} 
 
 }
 
@@ -498,7 +498,7 @@ consola, para hacer esto se deben explorar las opciones de
 
 \begin{figure}
 
-{\centering \includegraphics{images/Rpantallazo} 
+{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
 
 }
 
@@ -3859,6 +3859,75 @@ muchos puntos que se traslapan entre si.
 \texttt{pch}.}
 \end{figure}
 
+\section{\texorpdfstring{Función \texttt{curve} \index{curve}
+\index{curve}}{Función curve  }}\label{funcion-curve}
+
+Esta función sirve para dibujar una curva en un intervalo dado. La
+estructura de la función es la siguiente.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{curve}\NormalTok{(expr, }\DataTypeTok{from =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{to =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{n =} \DecValTok{101}\NormalTok{, }\DataTypeTok{add =} \OtherTok{FALSE}\NormalTok{,}
+      \DataTypeTok{type =} \StringTok{"l"}\NormalTok{, }\DataTypeTok{log =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{xlim =} \OtherTok{NULL}\NormalTok{, ...)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{expr}: nombre de la función que se desea evaluar.
+\item
+  \texttt{from,\ to}: valores mínimo y máximo donde se va a evaluar la
+  función.
+\item
+  \texttt{n}: número de puntos en los cuales se va a evaluar la función,
+  su valor por defecto es 101.
+\item
+  \texttt{add}: valor lógico para indicar que se desea agregar la curva
+  a un gráfico ya existente.
+\item
+  \texttt{type}: tipo de línea a usar y están disponibles ``blank'',
+  ``solid'', ``dashed'', ``dotted'', ``dotdash'', ``longdash'' o
+  ``twodash''.
+\item
+  \texttt{xlim}: intervalo para construir la ventana gráfica, no
+  confundir con \texttt{from} y \texttt{to}.
+\end{itemize}
+
+A continuación se muestra un ejemplo de cómo dibujar dos funciones
+\(f_1\) y \(f_2\) usando la función \texttt{curve}.
+
+La ecuación para \(f_1\) es:
+
+\[f_1(x)=x^2-10\] La ecuación para \(f_2\) es: \[
+f(n) = \begin{cases} x^2-10, & \mbox{si } x < 1 \\ 5 x, & \mbox{si } x \geq 1 \end{cases}
+\] El código necesario para definir las dos funciones se muestra a
+continuación. Se Para dibujar \(f_2\) se usó \texttt{add=TRUE} con el
+objetivo de que quedaran ambas en una misma ventana gráfica. Note que se
+usó \texttt{xlim=c(-5,\ 10)} para indicar que se deseaba una ventana
+gráfica en ese intervalo para el eje horizontal.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{f1 <-}\StringTok{ }\NormalTok{function(x) x^}\DecValTok{2} \NormalTok{-}\StringTok{ }\DecValTok{10}
+\NormalTok{f2 <-}\StringTok{ }\NormalTok{function(x) }\KeywordTok{ifelse}\NormalTok{(x <}\StringTok{ }\DecValTok{1}\NormalTok{, -x^}\DecValTok{2}\NormalTok{, }\DecValTok{5}\NormalTok{*x)}
+
+\KeywordTok{curve}\NormalTok{(}\DataTypeTok{expr=}\NormalTok{f1, }\DataTypeTok{from=}\NormalTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{7}\NormalTok{, }\DataTypeTok{type=}\StringTok{'l'}\NormalTok{,}
+      \DataTypeTok{col=}\StringTok{'blue'}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'f(x)'}\NormalTok{, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{5}\NormalTok{, }\DecValTok{10}\NormalTok{))}
+
+\KeywordTok{curve}\NormalTok{(}\DataTypeTok{expr=}\NormalTok{f2, }\DataTypeTok{from=}\NormalTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{4}\NormalTok{, }\DataTypeTok{type=}\StringTok{'l'}\NormalTok{,}
+      \DataTypeTok{col=}\StringTok{'green4'}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{add=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/curve1-1.pdf}
+\caption{\label{fig:curve1}Dibujo de dos funciones en una misma ventana.}
+\end{figure}
+
 \section*{EJERCICIOS}\label{ejercicios-1}
 
 
@@ -3895,7 +3964,7 @@ muchos puntos que se traslapan entre si.
 
 \begin{figure}
 
-{\centering \includegraphics{images/casita} 
+{\centering \includegraphics[width=3.26in]{images/casita} 
 
 }
 

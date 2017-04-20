@@ -244,6 +244,48 @@ points(x=1:5, y=1:5,
        col=1:5)
 ```
 
+## Función `curve` \index{curve} \index{curve}
+Esta función sirve para dibujar una curva en un intervalo dado. La estructura de la función es la siguiente.
+
+```{r, eval=FALSE}
+curve(expr, from = NULL, to = NULL, n = 101, add = FALSE,
+      type = "l", log = NULL, xlim = NULL, ...)
+```
+
+Los argumentos de la función son:
+
+- `expr`: nombre de la función que se desea evaluar.
+- `from, to`: valores mínimo y máximo donde se va a evaluar la función.
+- `n`: número de puntos en los cuales se va a evaluar la función, su valor por defecto es 101.
+- `add`: valor lógico para indicar que se desea agregar la curva a un gráfico ya existente.
+- `type`: tipo de línea a usar y están disponibles "blank", "solid", "dashed", "dotted", "dotdash", "longdash" o "twodash".
+- `xlim`: intervalo para construir la ventana gráfica, no confundir con `from` y `to`.
+
+
+A continuación se muestra un ejemplo de cómo dibujar dos funciones $f_1$ y $f_2$ usando la función `curve`.
+
+La ecuación para $f_1$ es:
+
+$$f_1(x)=x^2-10$$
+La ecuación para $f_2$ es:
+$$
+f(n) = \begin{cases} x^2-10, & \mbox{si } x < 1 \\ 5 x, & \mbox{si } x \geq 1 \end{cases}
+$$
+El código necesario para definir las dos funciones se muestra a continuación. Se  Para dibujar $f_2$ se usó `add=TRUE` con el objetivo de que quedaran ambas en una misma ventana gráfica. Note que se usó `xlim=c(-5, 10)` para indicar que se deseaba una ventana gráfica en ese intervalo para el eje horizontal.
+
+```{r curve1, fig.cap='Dibujo de dos funciones en una misma ventana.', fig.asp=0.8, fig.width=5}
+f1 <- function(x) x^2 - 10
+f2 <- function(x) ifelse(x < 1, -x^2, 5*x)
+
+curve(expr=f1, from=-2, to=7, type='l',
+      col='blue', lwd=4, ylab='f(x)', xlim=c(-5, 10))
+
+curve(expr=f2, from=-2, to=4, type='l',
+      col='green4', lwd=4, add=TRUE)
+
+```
+
+
 
 ```{r, echo=F}
 ## Función `abline` \index{abline}
@@ -255,7 +297,6 @@ points(x=1:5, y=1:5,
 ## Función `axes` \index{axes} \index{ejes}
 ## Función `title` \index{title} \index{títulos}
 ## Función `mtext` \index{mtext} 
-## Función `curve` \index{curve} \index{curve}
 ## Función `rug` \index{rug} 
 ```
 
