@@ -220,7 +220,7 @@
 \title{Gráficos en R usando la solo la base}
 \author{Freddy Hernández Barajas\\
 Juan Carlos Correa Morales}
-\date{2017-04-20}
+\date{2017-04-21}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -1724,6 +1724,7 @@ Los argumentos de la función \texttt{plot} son:
   \texttt{y}: vector numérico con las coordenadas del eje vertical
 \item
   \texttt{type}: tipo de gráfico a dibujar. Las opciones son:
+  \label{type}
 
   \begin{itemize}
   \tightlist
@@ -3888,44 +3889,94 @@ Los argumentos de la función son:
   \texttt{add}: valor lógico para indicar que se desea agregar la curva
   a un gráfico ya existente.
 \item
-  \texttt{type}: tipo de línea a usar y están disponibles ``blank'',
-  ``solid'', ``dashed'', ``dotted'', ``dotdash'', ``longdash'' o
-  ``twodash''.
+  \texttt{type}: tipo de representación para la función, se disponen de
+  9 opciones que se pueden consultar en descripción de \texttt{type}
+  para la función \texttt{plot} en la sección \ref{type}.
 \item
   \texttt{xlim}: intervalo para construir la ventana gráfica, no
   confundir con \texttt{from} y \texttt{to}.
 \end{itemize}
 
-A continuación se muestra un ejemplo de cómo dibujar dos funciones
-\(f_1\) y \(f_2\) usando la función \texttt{curve}.
+\subsection*{Ejemplo}\label{ejemplo-32}
 
-La ecuación para \(f_1\) es:
 
-\[f_1(x)=x^2-10\] La ecuación para \(f_2\) es: \[
-f(n) = \begin{cases} x^2-10, & \mbox{si } x < 1 \\ 5 x, & \mbox{si } x \geq 1 \end{cases}
-\] El código necesario para definir las dos funciones se muestra a
-continuación. Se Para dibujar \(f_2\) se usó \texttt{add=TRUE} con el
-objetivo de que quedaran ambas en una misma ventana gráfica. Note que se
-usó \texttt{xlim=c(-5,\ 10)} para indicar que se deseaba una ventana
-gráfica en ese intervalo para el eje horizontal.
+Dibujar las funciones \(f_1\), \(f_2\) y \(f_3\) usando la función
+\texttt{curve}, las ecuaciones para las funciones son:
+
+\begin{align}
+f_1(x) &= x^2-10 \\
+f_2(x) &= \begin{cases} x^2-10, & \mbox{si } x < 1 \\ 5 x, & \mbox{si } x \geq 1 \end{cases} \\
+f_3(x) &=15-4x
+\end{align}
+
+Dibujar \(f_1\) en el intervalo {[}-2, 7{]}, \(f_2\) en el intervalo
+{[}-2, 4{]} y \(f_3\) en el intervalo {[}-5, 0{]}.
+
+El código necesario para definir las dos funciones se muestra a
+continuación. Para dibujar \(f_2\) y \(f_3\) se usó \texttt{add=TRUE}
+con el objetivo de que quedaran en la misma ventana gráfica de \(f_1\).
+Note que se usó \texttt{xlim=c(-5,\ 10)} para indicar que se deseaba una
+ventana gráfica en ese intervalo para el eje horizontal. En la Figura
+\ref{fig:curve1} se muestra el dibujo de las tres funciones.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{f1 <-}\StringTok{ }\NormalTok{function(x) x^}\DecValTok{2} \NormalTok{-}\StringTok{ }\DecValTok{10}
 \NormalTok{f2 <-}\StringTok{ }\NormalTok{function(x) }\KeywordTok{ifelse}\NormalTok{(x <}\StringTok{ }\DecValTok{1}\NormalTok{, -x^}\DecValTok{2}\NormalTok{, }\DecValTok{5}\NormalTok{*x)}
+\NormalTok{f3 <-}\StringTok{ }\NormalTok{function(x) }\DecValTok{15} \NormalTok{-}\StringTok{ }\DecValTok{4} \NormalTok{*}\StringTok{ }\NormalTok{x}
 
-\KeywordTok{curve}\NormalTok{(}\DataTypeTok{expr=}\NormalTok{f1, }\DataTypeTok{from=}\NormalTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{7}\NormalTok{, }\DataTypeTok{type=}\StringTok{'l'}\NormalTok{,}
-      \DataTypeTok{col=}\StringTok{'blue'}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'f(x)'}\NormalTok{, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{5}\NormalTok{, }\DecValTok{10}\NormalTok{))}
+\KeywordTok{curve}\NormalTok{(}\DataTypeTok{expr=}\NormalTok{f1, }\DataTypeTok{from=}\NormalTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{7}\NormalTok{, }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{,}
+      \DataTypeTok{col=}\StringTok{"blue"}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'f(x)'}\NormalTok{, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{5}\NormalTok{, }\DecValTok{10}\NormalTok{))}
 
-\KeywordTok{curve}\NormalTok{(}\DataTypeTok{expr=}\NormalTok{f2, }\DataTypeTok{from=}\NormalTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{4}\NormalTok{, }\DataTypeTok{type=}\StringTok{'l'}\NormalTok{,}
-      \DataTypeTok{col=}\StringTok{'green4'}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{add=}\OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{curve}\NormalTok{(}\DataTypeTok{expr=}\NormalTok{f2, }\DataTypeTok{from=}\NormalTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{4}\NormalTok{, }\DataTypeTok{type=}\StringTok{"p"}\NormalTok{,}
+      \DataTypeTok{col=}\StringTok{"green4"}\NormalTok{, }\DataTypeTok{add=}\OtherTok{TRUE}\NormalTok{)}
+
+\KeywordTok{curve}\NormalTok{(}\DataTypeTok{expr=}\NormalTok{f3, }\DataTypeTok{from=}\NormalTok{-}\DecValTok{5}\NormalTok{, }\DataTypeTok{to=}\DecValTok{0}\NormalTok{, }\DataTypeTok{type=}\StringTok{"b"}\NormalTok{,}
+      \DataTypeTok{col=}\StringTok{'red'}\NormalTok{, }\DataTypeTok{add=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{n=}\DecValTok{5}\NormalTok{)}
+
+\KeywordTok{text}\NormalTok{(}\DataTypeTok{x=}\DecValTok{7}\NormalTok{, }\DataTypeTok{y=}\DecValTok{9}\NormalTok{, }\StringTok{"f1(x) usando type='l'"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"blue"}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\DataTypeTok{x=}\NormalTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{y=}\DecValTok{4}\NormalTok{, }\StringTok{"f2(x) usando type='p'"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"green4"}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\DataTypeTok{x=}\NormalTok{-}\DecValTok{1}\NormalTok{, }\DataTypeTok{y=}\DecValTok{30}\NormalTok{, }\StringTok{"f3(x) usando type='b' y n=5"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}[htbp]
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/curve1-1.pdf}
-\caption{\label{fig:curve1}Dibujo de dos funciones en una misma ventana.}
+\caption{\label{fig:curve1}Dibujo de varias funciones en una misma ventana.}
+\end{figure}
+
+\subsection*{Ejemplo}\label{ejemplo-33}
+
+
+Dibujar la figura de la relación entre las variables \(x\) y \(y\) dada
+por la siguiente expresión paramétrica:
+
+\begin{align}
+x &= 16 \cos^3(t) \\
+y &= 13 \cos(t)-5 \cos(2t)-2 \cos(3t)- \cos(4t)
+\end{align}
+
+El código para realizar la Figura \ref{fig:curve2} fue tomado de
+\href{http://stackoverflow.com/questions/8082429/plot-a-heart-in-r}{Stackoverflow}
+y se muestra a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{t=}\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{*pi, }\DataTypeTok{by=}\FloatTok{0.1}\NormalTok{))}
+\NormalTok{xhrt <-}\StringTok{ }\NormalTok{function(t) }\DecValTok{16}\NormalTok{*}\KeywordTok{sin}\NormalTok{(t)^}\DecValTok{3}
+\NormalTok{yhrt <-}\StringTok{ }\NormalTok{function(t) }\DecValTok{13}\NormalTok{*}\KeywordTok{cos}\NormalTok{(t)-}\DecValTok{5}\NormalTok{*}\KeywordTok{cos}\NormalTok{(}\DecValTok{2}\NormalTok{*t)-}\DecValTok{2}\NormalTok{*}\KeywordTok{cos}\NormalTok{(}\DecValTok{3}\NormalTok{*t)-}\KeywordTok{cos}\NormalTok{(}\DecValTok{4}\NormalTok{*t)}
+\NormalTok{dat$y <-}\StringTok{ }\KeywordTok{yhrt}\NormalTok{(dat$t)}
+\NormalTok{dat$x <-}\StringTok{ }\KeywordTok{xhrt}\NormalTok{(dat$t)}
+\KeywordTok{with}\NormalTok{(dat, }\KeywordTok{plot}\NormalTok{(x,y, }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{10}\NormalTok{))}
+\KeywordTok{with}\NormalTok{(dat, }\KeywordTok{polygon}\NormalTok{(x, y, }\DataTypeTok{col=}\StringTok{"hotpink"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/curve2-1.pdf}
+\caption{\label{fig:curve2}Dibujo de un cardiode.}
 \end{figure}
 
 \section*{EJERCICIOS}\label{ejercicios-1}
@@ -3970,6 +4021,27 @@ gráfica en ese intervalo para el eje horizontal.
 
 \caption{Paisaje a dibujar.}\label{fig:casita}
 \end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Dibujar las siguientes dos líneas en un mismo gráfico, la primera de
+  color azul y la segunda de color verde.
+
+  \begin{align*} 
+  2x - 5y &=  8 \\ 
+  3x + 9y &=  -12
+  \end{align*}
+\item
+  Dibujar la siguiente figura dada en forma parametrica.
+
+  \begin{align*} 
+  x &=  \cos(t) \\ 
+  y &=  \sen(t)
+  \end{align*}
+\end{enumerate}
 
 \chapter{Respuestas a preguntas
 frecuentes}\label{respuestas-a-preguntas-frecuentes}
