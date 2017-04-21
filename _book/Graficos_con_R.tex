@@ -422,7 +422,7 @@ sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics[width=4.54in]{images/cran} 
+{\centering \includegraphics{images/cran} 
 
 }
 
@@ -440,7 +440,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=5.31in]{images/instalacion1} 
+{\centering \includegraphics{images/instalacion1} 
 
 }
 
@@ -498,7 +498,7 @@ consola, para hacer esto se deben explorar las opciones de
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
+{\centering \includegraphics{images/Rpantallazo} 
 
 }
 
@@ -1072,7 +1072,7 @@ usado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'}
+\NormalTok{url <-}\StringTok{ 'https://tinyurl.com/k55nnlu'}
 \NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
 \KeywordTok{stem}\NormalTok{(datos$altura)}
 \end{Highlighting}
@@ -1170,29 +1170,20 @@ Los argumentos de la función \texttt{boxplot} son:
 \subsection*{Ejemplo}\label{ejemplo-1}
 
 
-Como ilustración vamos a crear tres boxplot para la variable altura (cm)
+Como ilustración vamos a crear dos boxplot para la variable altura (cm)
 de un grupo de estudiantes de la universidad, el primer boxplot será
-sobre la variable altura, el segundo será un boxplot para altura
-diferenciando por sexo y el tercer boxplot será igual que el primero
-pero modificando los nombres a imprimir en el eje horizontal. Primero se
-leerán los datos disponibles en github y luego se usará la función
-\texttt{boxplot} para obtener ambos gráfico. A continuación el código
-usado.
+vertical y el segundo horizontal. Primero se leerán los datos
+disponibles en github y luego se usará la función \texttt{boxplot} para
+obtener ambos gráfico. A continuación el código usado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'}
+\NormalTok{url <-}\StringTok{ 'https://tinyurl.com/k55nnlu'}
 \NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
 
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{))}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
 \KeywordTok{boxplot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$altura, }\DataTypeTok{ylab=}\StringTok{'Altura (cm)'}\NormalTok{)}
-
-\KeywordTok{boxplot}\NormalTok{(altura ~}\StringTok{ }\NormalTok{sexo, }\DataTypeTok{data=}\NormalTok{datos,}
-        \DataTypeTok{xlab=}\StringTok{'Sexo'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Altura (cm)'}\NormalTok{)}
-                
-\KeywordTok{boxplot}\NormalTok{(altura ~}\StringTok{ }\NormalTok{sexo, }\DataTypeTok{data=}\NormalTok{datos, }\DataTypeTok{horizontal=}\OtherTok{TRUE}\NormalTok{,}
-        \DataTypeTok{ylab=}\StringTok{'Género'}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{'Altura (cm)'}\NormalTok{,}
-        \DataTypeTok{names=}\KeywordTok{c}\NormalTok{(}\StringTok{'Masculino'}\NormalTok{, }\StringTok{'Femenino'}\NormalTok{))}
+\KeywordTok{boxplot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$altura, }\DataTypeTok{xlab=}\StringTok{'Altura (cm)'}\NormalTok{, }\DataTypeTok{horizontal=}\OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1206,6 +1197,57 @@ En la Figura \ref{fig:boxplots} se presentan los boxplots obtenidos con
 las instrucciones anteriores. El segundo y tercer boxplot son el mismo,
 lo único que se modificó fueron los nombres o etiquetas a colocar debajo
 de cada boxplot por medio del argumento \texttt{names} y la orientación.
+
+\subsection*{Ejemplo}\label{ejemplo-2}
+
+
+\index{boxplot comparativo} Es posible crear boxplots comparativos
+usando 1 o 2 variables cualitativas. A continuación se construyen dos
+boxplots para la variable precio de los apartamentos usados en Medellín;
+en el primero de ellos se diferencia por la variable balcón y en el
+segundo se diferencia por los cruces de las variables parqueadero y
+ubicación (en Laureles y Poblado).
+
+A continuación se muestra el código necesario para construir los
+boxplots. En el primero se usa la fórmula
+\texttt{precio\ \textasciitilde{}\ balcon} para crear el boxplot del
+precio diferenciando por los dos niveles de la variable balcón. En el
+segundo se usa la fórmula
+\texttt{precio\ \textasciitilde{}\ ubicacion\ *\ parqueadero} pero se
+limitan las ubicaciones a sólo dos, Laureles y Aburrá sur, por esa razón
+se usa el parámetro \texttt{subset} para incluir la restricción. Se
+agregó también \texttt{drop=TRUE} para que en el segundo boxplot no
+aparezcan las otras ubicaciones.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ 'https://tinyurl.com/hwhb769'}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(url, }\DataTypeTok{header=}\NormalTok{T)}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{boxplot}\NormalTok{(precio ~}\StringTok{ }\NormalTok{balcon, }\DataTypeTok{data=}\NormalTok{datos,}
+        \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'lightblue'}\NormalTok{, }\StringTok{'pink'}\NormalTok{),}
+        \DataTypeTok{xlab=}\StringTok{'¿Tiene balcón?'}\NormalTok{,}
+        \DataTypeTok{ylab=}\StringTok{'Precio (millones $)'}\NormalTok{)}
+
+\KeywordTok{boxplot}\NormalTok{(precio ~}\StringTok{ }\NormalTok{ubicacion *}\StringTok{ }\NormalTok{parqueadero,}
+        \DataTypeTok{data=}\NormalTok{datos, }\DataTypeTok{drop=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'lightblue'}\NormalTok{, }\StringTok{'pink'}\NormalTok{),}
+        \DataTypeTok{subset=}\NormalTok{ubicacion %in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'laureles'}\NormalTok{, }\StringTok{'aburra sur'}\NormalTok{),}
+        \DataTypeTok{xlab=}\StringTok{'Ubicación y parqueadero'}\NormalTok{,}
+        \DataTypeTok{ylab=}\StringTok{'Precio (millones $)'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/boxplots2-1.pdf}
+\caption{\label{fig:boxplots2}Boxplot para la variable altura.}
+\end{figure}
+
+En la Figura \ref{fig:boxplots2} se muestran los boxplots. Se le
+recomienda al lector construir nuevamente el segundo boxplot pero
+eliminando \texttt{drop=TRUE} para que vea el efecto que tiene sobre el
+dibujo.
 
 \section{\texorpdfstring{Función
 \texttt{hist}}{Función hist}}\label{funcion-hist}
@@ -1271,7 +1313,7 @@ de uso se muestran a continuación.
   \texttt{axis}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-2}
+\subsection*{Ejemplo}\label{ejemplo-3}
 
 
 Vamos a construir varios histogramas para los tiempos de 180 corredores
@@ -1449,7 +1491,7 @@ Existe otra función útil y es \texttt{qqline}, esta función sirve para
 agregar una línea de referencia al gráfico cuantil cuantil obtenido con
 \texttt{qqnorm}.
 
-\subsection*{Ejemplo}\label{ejemplo-3}
+\subsection*{Ejemplo}\label{ejemplo-4}
 
 
 Simular 30 observaciones de una distribución \(N(\mu=10, \sigma=4)\) y
@@ -1485,7 +1527,7 @@ cuantil sin editar, en la derecha se encuentra el gráfico luego de
 modificar los nombres de los ejes, grosor y color de la línea de
 referencia.
 
-\subsection*{Ejemplo}\label{ejemplo-4}
+\subsection*{Ejemplo}\label{ejemplo-5}
 
 
 Simular 100 observaciones de una distribución \(Weibull(1,1)\) y
@@ -1563,7 +1605,7 @@ Los argumentos de la función \texttt{density} son:
   defecto es \texttt{FALSE}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-5}
+\subsection*{Ejemplo}\label{ejemplo-6}
 
 
 Simular mil observaciones de una \(N(0, 1)\), aplicar la función
@@ -1592,7 +1634,7 @@ De la salida anterior se observa que la lista \texttt{res} tiene 7
 elementos, los dos primeros son los vectores con las coordenadas para
 dibujar la densidad, los restantes elementos con información adicional.
 
-\subsection*{Ejemplo}\label{ejemplo-6}
+\subsection*{Ejemplo}\label{ejemplo-7}
 
 
 Con los datos generados en el ejemplo anterior construir la densidad
@@ -1651,7 +1693,7 @@ arbitrariamente para ver los cambios en la densidad. El usar un ancho de
 banda pequeño la densidad queda muy rugosa y usar un valor muy grande la
 suaviza, se recomienda usar el valor automático.
 
-\subsection*{Ejemplo}\label{ejemplo-7}
+\subsection*{Ejemplo}\label{ejemplo-8}
 
 
 Construir un gráfico de densidad para la variable peso corporal de la
@@ -1760,7 +1802,7 @@ Los argumentos de la función \texttt{plot} son:
   argumentos para \texttt{plot}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-8}
+\subsection*{Ejemplo}\label{ejemplo-9}
 
 
 Crear 16 parejas de puntos tales que \(x=-5, -4, \ldots, 9, 10\) con
@@ -1798,7 +1840,7 @@ dispersión.
 \texttt{plot}.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-9}
+\subsection*{Ejemplo}\label{ejemplo-10}
 
 
 Como ilustración vamos a crear un diagrama de dispersión entre el precio
@@ -1922,7 +1964,7 @@ Los argumentos de la función \texttt{pairs} son:
   base. Por defecto es lo primero.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-10}
+\subsection*{Ejemplo}\label{ejemplo-11}
 
 
 Dibujar una matriz de dispersión para las variables precio, área, número
@@ -1956,7 +1998,7 @@ apartamentos en Medellín.}
 En la Figura \ref{fig:ex1pairs} se muestra la matriz de dispersión para
 las variables del marco de datos \texttt{datos.num}.
 
-\subsection*{Ejemplo}\label{ejemplo-11}
+\subsection*{Ejemplo}\label{ejemplo-12}
 
 
 Volver a construir la Figura \ref{fig:ex1pairs} editando los nombres de
@@ -1984,7 +2026,7 @@ la nueva matriz de dispersión.
 adicionales de la función pairs.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-12}
+\subsection*{Ejemplo}\label{ejemplo-13}
 
 
 Construir una matriz de dispersión con las variables precio, área y
@@ -2030,7 +2072,7 @@ solicitada, los puntos rojos representan los apartamento sin parqueadero
 mientras que los puntos verdes son los apartamento que si tienen
 parqueadero.
 
-\subsection*{Ejemplo}\label{ejemplo-13}
+\subsection*{Ejemplo}\label{ejemplo-14}
 
 
 ¿Es posible agregar una leyenda a una matriz de dispersión?
@@ -2059,7 +2101,7 @@ A continuación se muestra el código para el ejemplo y en la Figura
 \caption{\label{fig:expairs}Matriz de dispersión con leyenda.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-14}
+\subsection*{Ejemplo}\label{ejemplo-15}
 
 
 ¿Es posible modificar el contenido de los páneles de una matriz de
@@ -2234,7 +2276,7 @@ Los argumentos de la función \texttt{plot} son:
 \caption{Ilustración de los ángulos theta y phi para la función persp. Figura tomada de https://i-msdn.sec.s-msft.com/dynimg/IC412528.png}\label{fig:globo}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-15}
+\subsection*{Ejemplo}\label{ejemplo-16}
 
 
 Dibujar la superficie asociada a la función \(f(x, y)=sen(x^2+y^2)\)
@@ -2287,7 +2329,7 @@ los vectores \texttt{x} e \texttt{y} se obtendrá una rejilla más tupida,
 se recomienda modificar este valor para obtener una superficie
 apropiada.
 
-\subsection*{Ejemplo}\label{ejemplo-16}
+\subsection*{Ejemplo}\label{ejemplo-17}
 
 
 Dibujar la superficie de una distribución normal bivariada con vector de
@@ -2376,7 +2418,7 @@ Los argumentos de la función son:
 La función \texttt{contour} tiene otros parámetros adicionales que el
 lector puede consultar en la ayuda usando \texttt{help(contour)}.
 
-\subsection*{Ejemplo}\label{ejemplo-17}
+\subsection*{Ejemplo}\label{ejemplo-18}
 
 
 Generar una muestra aleatoria de 50 observaciones de una distribución
@@ -2480,7 +2522,7 @@ La función \texttt{filled.contour} tiene otros parámetros adicionales
 que el lector puede consultar en la ayuda usando
 \texttt{help(filled.contour)}.
 
-\subsection*{Ejemplo}\label{ejemplo-18}
+\subsection*{Ejemplo}\label{ejemplo-19}
 
 
 Para la muestra aleatoria obtenida en el ejemplo anterior, dibujar un
@@ -2544,7 +2586,7 @@ La función \texttt{interaction.plot} tiene otros parámetros adicionales
 que el lector puede consultar en la ayuda usando
 \texttt{help(interaction.plot)}.
 
-\subsection*{Ejemplo}\label{ejemplo-19}
+\subsection*{Ejemplo}\label{ejemplo-20}
 
 
 Se realizó un experimento para determinar cómo influye el material de la
@@ -2587,7 +2629,7 @@ una variable medida para un grupo de sujetos en diferentes momentos del
 tiempo. La función \texttt{interaction.plot} se puede usar para obtener
 este tipo de gráficos, a continuación un ejemplo.
 
-\subsection*{Ejemplo}\label{ejemplo-20}
+\subsection*{Ejemplo}\label{ejemplo-21}
 
 
 El ejemplo aquí presentado fue tomado de este
@@ -2657,7 +2699,7 @@ La función \texttt{barplot} tiene otros parámetros que pueden ser
 consultados en la ayuda de la función por medio de la instrucción
 \texttt{?barplot}.
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-22}
 
 
 Suponga que queremos construir un diagrama de barras para las
@@ -2751,7 +2793,7 @@ En la Figura \ref{fig:barra2} se muestra el diagrama de barras
 modificado. Note que si no se hubiese usado \texttt{ylim=c(0,\ 0.45)} al
 dibujar el diagrama, la marca sobre la última barra no se podría ver.
 
-\subsection*{Ejemplo}\label{ejemplo-22}
+\subsection*{Ejemplo}\label{ejemplo-23}
 
 
 Suponga que queremos construir un diagrama de barras para comparar la
@@ -2930,7 +2972,7 @@ Los argumentos de la función \texttt{pie} son:
   pastel, por defecto se usan los nombres del vector \texttt{x}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-23}
+\subsection*{Ejemplo}\label{ejemplo-24}
 
 
 Dibujar un gráfico de pastel para las frecuencias relativas de la
@@ -3042,7 +3084,7 @@ se mostrará por medio de ejemplos.
 Este parámetro sirve para indicar si se quiere un gráfico con nombres en
 los ejes y título principal, por defecto asume el valor \texttt{TRUE}.
 
-\subsection*{Ejemplo}\label{ejemplo-24}
+\subsection*{Ejemplo}\label{ejemplo-25}
 
 
 Dibujar la densidad para una distribución \(\chi^2_1\) usando
@@ -3086,7 +3128,7 @@ valor por defecto es 0.5 que indica que el texto debe quedar centrado en
 las coordenadas x e y indicadas, un valor de 0 significa justificación a
 izquierda mientras que 1 significa justificación a derecha.
 
-\subsection*{Ejemplo}\label{ejemplo-25}
+\subsection*{Ejemplo}\label{ejemplo-26}
 
 
 Dibujar un gráfico vacío, ubicar las palabra \emph{hola mi mundo}
@@ -3130,7 +3172,7 @@ del texto.
 Este parámetro sirve para modificar el color del fondo donde se va a
 dibujar.
 
-\subsection*{Ejemplo}\label{ejemplo-26}
+\subsection*{Ejemplo}\label{ejemplo-27}
 
 
 Dibujar la densidad de una normal estándar usando un color verde para el
@@ -3166,7 +3208,7 @@ modificar este parámetro es \texttt{mfrow=c(nf,\ nc)}, donde \texttt{nf}
 es el número de filas y \texttt{nc} el número de columnas en las cuales
 se va a dividir la ventana gráfica.
 
-\subsection*{Ejemplo}\label{ejemplo-27}
+\subsection*{Ejemplo}\label{ejemplo-28}
 
 
 Dibujar la distribución de probabilidad para una distribución Poisson
@@ -3225,7 +3267,7 @@ obtener la caja usual; se pueden usar también los símboloes
 caja con la forma del símbolo; se puede usar
 \texttt{\textquotesingle{}n\textquotesingle{}} para suprimir la caja.
 
-\subsection*{Ejemplo}\label{ejemplo-28}
+\subsection*{Ejemplo}\label{ejemplo-29}
 
 
 Dibujar la densidad de una \(\chi^2_5\) modificando el parámetro
@@ -3273,7 +3315,7 @@ este parámetro permiten obtener mejores figuras. A continuación un
 ejemplo para ver el efecto que tiene este parámetro sobre las figuras
 obtenidas.
 
-\subsection*{Ejemplo}\label{ejemplo-29}
+\subsection*{Ejemplo}\label{ejemplo-30}
 
 
 Hacer un gráfico de dispersión sencillo para explorar el efecto del
@@ -3323,7 +3365,7 @@ anteriores elementos simultáneamente mientras que los parámetros
 explicados en esta sección modifican cada uno de los elementos por
 aparte.
 
-\subsection*{Ejemplo}\label{ejemplo-30}
+\subsection*{Ejemplo}\label{ejemplo-31}
 
 
 Hacer un gráfico cualquiera y modificar los parámetros
@@ -3369,7 +3411,7 @@ personalizados en \proglang{R}.
 Estos parámetros sirven para definir el color a usar en los ejes, en los
 nombres de los ejes, en el título y en el subtítulo.
 
-\subsection*{Ejemplo}\label{ejemplo-31}
+\subsection*{Ejemplo}\label{ejemplo-32}
 
 
 Hacer un gráfico cualquiera y modificar los parámetros \texttt{col},
@@ -3897,7 +3939,7 @@ Los argumentos de la función son:
   confundir con \texttt{from} y \texttt{to}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-32}
+\subsection*{Ejemplo}\label{ejemplo-33}
 
 
 Dibujar las funciones \(f_1\), \(f_2\) y \(f_3\) usando la función
@@ -3946,7 +3988,7 @@ ventana gráfica en ese intervalo para el eje horizontal. En la Figura
 \caption{\label{fig:curve1}Dibujo de varias funciones en una misma ventana.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-33}
+\subsection*{Ejemplo}\label{ejemplo-34}
 
 
 Dibujar la figura de la relación entre las variables \(x\) y \(y\) dada
@@ -4015,7 +4057,7 @@ y se muestra a continuación.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.26in]{images/casita} 
+{\centering \includegraphics{images/casita} 
 
 }
 

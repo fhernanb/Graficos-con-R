@@ -32,7 +32,7 @@ Desventajas del gráfico:
 Como ilustración vamos a crear el gráfico de tallo y hoja para la variable altura (cm) de un grupo de estudiantes de la universidad. Primero se leerán los datos disponibles en github y luego se usará la función `stem` para obtener el gráfico. A continuación el código usado.
 
 ```{r}
-url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'
+url <- 'https://tinyurl.com/k55nnlu'
 datos <- read.table(file=url, header=T)
 stem(datos$altura)
 ```
@@ -66,24 +66,43 @@ Los argumentos de la función `boxplot` son:
 - `...`: otros parámetros gráficos que pueden ser pasados como argumentos para el boxplot.
 
 ### Ejemplo {-}
-Como ilustración vamos a crear tres boxplot para la variable altura (cm) de un grupo de estudiantes de la universidad, el primer boxplot será sobre la variable altura, el segundo será un boxplot para altura diferenciando por sexo y el tercer boxplot será igual que el primero pero modificando los nombres a imprimir en el eje horizontal. Primero se leerán los datos disponibles en github y luego se usará la función `boxplot` para obtener ambos gráfico. A continuación el código usado.
+Como ilustración vamos a crear dos boxplot para la variable altura (cm) de un grupo de estudiantes de la universidad, el primer boxplot será vertical y el segundo horizontal. Primero se leerán los datos disponibles en github y luego se usará la función `boxplot` para obtener ambos gráfico. A continuación el código usado.
 
-```{r boxplots, fig.cap='Boxplot para la variable altura.', fig.asp=0.4, fig.width =7}
-url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'
+```{r boxplots, fig.cap='Boxplot para la variable altura.', fig.asp=0.7, fig.width =7}
+url <- 'https://tinyurl.com/k55nnlu'
 datos <- read.table(file=url, header=T)
 
-par(mfrow=c(1, 3))
+par(mfrow=c(1, 2))
 boxplot(x=datos$altura, ylab='Altura (cm)')
-
-boxplot(altura ~ sexo, data=datos,
-        xlab='Sexo', ylab='Altura (cm)')
-				
-boxplot(altura ~ sexo, data=datos, horizontal=TRUE,
-        ylab='Género', xlab='Altura (cm)',
-        names=c('Masculino', 'Femenino'))
+boxplot(x=datos$altura, xlab='Altura (cm)', horizontal=TRUE)
 ```
 
 En la Figura \@ref(fig:boxplots) se presentan los boxplots obtenidos con las instrucciones anteriores. El segundo y tercer boxplot son el mismo, lo único que se modificó fueron los nombres o etiquetas a colocar debajo de cada boxplot por medio del argumento `names` y la orientación.
+
+### Ejemplo {-}
+\index{boxplot comparativo}
+Es posible crear boxplots comparativos usando 1 o 2 variables cualitativas. A continuación se construyen dos boxplots para la variable precio de los apartamentos usados en Medellín; en el primero de ellos se diferencia por la variable balcón y en el segundo se diferencia por los cruces de las variables parqueadero y ubicación (en Laureles y Poblado).
+
+A continuación se muestra el código necesario para construir los boxplots. En el primero se usa la fórmula `precio ~ balcon` para crear el boxplot del precio diferenciando por los dos niveles de la variable balcón. En el segundo se usa la fórmula `precio ~ ubicacion * parqueadero` pero se limitan las ubicaciones a sólo dos, Laureles y Aburrá sur, por esa razón se usa el parámetro `subset` para incluir la restricción. Se agregó también `drop=TRUE` para que en el segundo boxplot no aparezcan las otras ubicaciones.
+
+```{r boxplots2, fig.cap='Boxplot para la variable altura.', fig.asp=0.7, fig.width =9}
+url <- 'https://tinyurl.com/hwhb769'
+datos <- read.table(url, header=T)
+
+par(mfrow=c(1, 2))
+boxplot(precio ~ balcon, data=datos,
+        col=c('lightblue', 'pink'),
+        xlab='¿Tiene balcón?',
+        ylab='Precio (millones $)')
+
+boxplot(precio ~ ubicacion * parqueadero,
+        data=datos, drop=TRUE, col=c('lightblue', 'pink'),
+        subset=ubicacion %in% c('laureles', 'aburra sur'),
+        xlab='Ubicación y parqueadero',
+        ylab='Precio (millones $)')
+```
+
+En la Figura \@ref(fig:boxplots2) se muestran los boxplots. Se le recomienda al lector construir nuevamente el segundo boxplot pero eliminando `drop=TRUE` para que vea el efecto que tiene sobre el dibujo.
 
 ## Función `hist`
 La función `hist` sirve para crear el histograma \index{histograma}\index{hist} para una variable cuantitativa. Como argumentos esta función recibe un vector con los datos y opcionalmente puede ingresarse como argumento el número de intervalos a ser graficados o en su defecto el número de clases se determina con la fórmula de Sturges.
