@@ -1877,6 +1877,72 @@ dispersión de la derecha se usó el parámetro
 obtener pequeños puntos que representen cada apartamento y que no se
 traslapen debido a que se tienen 694 observaciones en la base de datos.
 
+\section{\texorpdfstring{Función \texttt{symbols}
+\index{symbols}}{Función symbols }}\label{funcion-symbols}
+
+La función \texttt{symbols} sirve para construir diagramas de dispersión
+pero incluyendo información de variables adicionales.
+
+\subsection*{Ejemplo}\label{ejemplo-11}
+
+
+Como ilustración vamos a crear un diagrama de dispersión entre el precio
+de apartamentos usados en la ciudad de Medellín y el área de los
+apartamentos pero incluyendo otras variables.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ 'https://tinyurl.com/hwhb769'}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(url, }\DataTypeTok{header=}\NormalTok{T)}
+\NormalTok{subdat <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(datos, ubicacion ==}\StringTok{ 'centro'}\NormalTok{)}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{with}\NormalTok{(subdat, }\KeywordTok{symbols}\NormalTok{(}\DataTypeTok{x=}\NormalTok{mt2, }\DataTypeTok{y=}\NormalTok{precio,}
+                     \DataTypeTok{circles=}\NormalTok{alcobas, }
+                     \DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{inches=}\FloatTok{0.4}\NormalTok{, }
+                     \DataTypeTok{fg=}\StringTok{'red'}\NormalTok{,}
+                     \DataTypeTok{main=}\StringTok{'Radio = N° alcobas'}\NormalTok{))}
+
+\KeywordTok{with}\NormalTok{(subdat, }\KeywordTok{symbols}\NormalTok{(}\DataTypeTok{x=}\NormalTok{mt2, }\DataTypeTok{y=}\NormalTok{precio,}
+                     \DataTypeTok{squares=}\NormalTok{alcobas, }
+                     \DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{inches=}\FloatTok{0.4}\NormalTok{, }
+                     \DataTypeTok{fg=}\StringTok{'dodgerblue4'}\NormalTok{, }\DataTypeTok{bg=}\StringTok{'pink'}\NormalTok{,}
+                     \DataTypeTok{main=}\StringTok{'Lado = N° alcobas'}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/symbols1-1.pdf}
+\caption{\label{fig:symbols1}Diagrama de dispersión con los símbolos circle
+y squares para incluir más variables.}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{with}\NormalTok{(subdat, }\KeywordTok{symbols}\NormalTok{(}\DataTypeTok{x=}\NormalTok{mt2, }\DataTypeTok{y=}\NormalTok{precio,}
+                     \DataTypeTok{rectangles=}\KeywordTok{cbind}\NormalTok{(estrato, alcobas), }
+                     \DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{inches=}\FloatTok{0.4}\NormalTok{, }
+                     \DataTypeTok{fg=}\StringTok{'chartreuse4'}\NormalTok{, }\DataTypeTok{bg=}\StringTok{'yellow'}\NormalTok{,}
+                     \DataTypeTok{main=}\StringTok{'Ancho = estrato y Alto = N° alcobas'}\NormalTok{))}
+
+\KeywordTok{with}\NormalTok{(subdat, }\KeywordTok{symbols}\NormalTok{(}\DataTypeTok{x=}\NormalTok{mt2, }\DataTypeTok{y=}\NormalTok{precio,}
+                     \DataTypeTok{stars=}\KeywordTok{cbind}\NormalTok{(estrato, alcobas,}
+                                 \NormalTok{banos), }
+                     \DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{inches=}\FloatTok{0.4}\NormalTok{, }
+                     \DataTypeTok{fg=}\StringTok{'purple1'}\NormalTok{, }\DataTypeTok{bg=}\StringTok{'tomato'}\NormalTok{,}
+                     \DataTypeTok{main=}\StringTok{'Estrato, alcobas y n° baños'}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/symbols2-1.pdf}
+\caption{\label{fig:symbols2}Diagrama de dispersión con los símbolos
+rectangles y stars para incluir más variables.}
+\end{figure}
+
 \section{\texorpdfstring{Función \texttt{pairs}
 \index{pairs}}{Función pairs }}\label{funcion-pairs}
 
@@ -1964,7 +2030,7 @@ Los argumentos de la función \texttt{pairs} son:
   base. Por defecto es lo primero.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-11}
+\subsection*{Ejemplo}\label{ejemplo-12}
 
 
 Dibujar una matriz de dispersión para las variables precio, área, número
@@ -1998,7 +2064,7 @@ apartamentos en Medellín.}
 En la Figura \ref{fig:ex1pairs} se muestra la matriz de dispersión para
 las variables del marco de datos \texttt{datos.num}.
 
-\subsection*{Ejemplo}\label{ejemplo-12}
+\subsection*{Ejemplo}\label{ejemplo-13}
 
 
 Volver a construir la Figura \ref{fig:ex1pairs} editando los nombres de
@@ -2026,7 +2092,7 @@ la nueva matriz de dispersión.
 adicionales de la función pairs.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-13}
+\subsection*{Ejemplo}\label{ejemplo-14}
 
 
 Construir una matriz de dispersión con las variables precio, área y
@@ -2072,7 +2138,7 @@ solicitada, los puntos rojos representan los apartamento sin parqueadero
 mientras que los puntos verdes son los apartamento que si tienen
 parqueadero.
 
-\subsection*{Ejemplo}\label{ejemplo-14}
+\subsection*{Ejemplo}\label{ejemplo-15}
 
 
 ¿Es posible agregar una leyenda a una matriz de dispersión?
@@ -2101,7 +2167,7 @@ A continuación se muestra el código para el ejemplo y en la Figura
 \caption{\label{fig:expairs}Matriz de dispersión con leyenda.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-15}
+\subsection*{Ejemplo}\label{ejemplo-16}
 
 
 ¿Es posible modificar el contenido de los páneles de una matriz de
@@ -2276,7 +2342,7 @@ Los argumentos de la función \texttt{plot} son:
 \caption{Ilustración de los ángulos theta y phi para la función persp. Figura tomada de https://i-msdn.sec.s-msft.com/dynimg/IC412528.png}\label{fig:globo}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-16}
+\subsection*{Ejemplo}\label{ejemplo-17}
 
 
 Dibujar la superficie asociada a la función \(f(x, y)=sen(x^2+y^2)\)
@@ -2329,7 +2395,7 @@ los vectores \texttt{x} e \texttt{y} se obtendrá una rejilla más tupida,
 se recomienda modificar este valor para obtener una superficie
 apropiada.
 
-\subsection*{Ejemplo}\label{ejemplo-17}
+\subsection*{Ejemplo}\label{ejemplo-18}
 
 
 Dibujar la superficie de una distribución normal bivariada con vector de
@@ -2418,7 +2484,7 @@ Los argumentos de la función son:
 La función \texttt{contour} tiene otros parámetros adicionales que el
 lector puede consultar en la ayuda usando \texttt{help(contour)}.
 
-\subsection*{Ejemplo}\label{ejemplo-18}
+\subsection*{Ejemplo}\label{ejemplo-19}
 
 
 Generar una muestra aleatoria de 50 observaciones de una distribución
@@ -2522,7 +2588,7 @@ La función \texttt{filled.contour} tiene otros parámetros adicionales
 que el lector puede consultar en la ayuda usando
 \texttt{help(filled.contour)}.
 
-\subsection*{Ejemplo}\label{ejemplo-19}
+\subsection*{Ejemplo}\label{ejemplo-20}
 
 
 Para la muestra aleatoria obtenida en el ejemplo anterior, dibujar un
@@ -2586,7 +2652,7 @@ La función \texttt{interaction.plot} tiene otros parámetros adicionales
 que el lector puede consultar en la ayuda usando
 \texttt{help(interaction.plot)}.
 
-\subsection*{Ejemplo}\label{ejemplo-20}
+\subsection*{Ejemplo}\label{ejemplo-21}
 
 
 Se realizó un experimento para determinar cómo influye el material de la
@@ -2629,7 +2695,7 @@ una variable medida para un grupo de sujetos en diferentes momentos del
 tiempo. La función \texttt{interaction.plot} se puede usar para obtener
 este tipo de gráficos, a continuación un ejemplo.
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-22}
 
 
 El ejemplo aquí presentado fue tomado de este
@@ -2699,7 +2765,7 @@ La función \texttt{barplot} tiene otros parámetros que pueden ser
 consultados en la ayuda de la función por medio de la instrucción
 \texttt{?barplot}.
 
-\subsection*{Ejemplo}\label{ejemplo-22}
+\subsection*{Ejemplo}\label{ejemplo-23}
 
 
 Suponga que queremos construir un diagrama de barras para las
@@ -2793,7 +2859,7 @@ En la Figura \ref{fig:barra2} se muestra el diagrama de barras
 modificado. Note que si no se hubiese usado \texttt{ylim=c(0,\ 0.45)} al
 dibujar el diagrama, la marca sobre la última barra no se podría ver.
 
-\subsection*{Ejemplo}\label{ejemplo-23}
+\subsection*{Ejemplo}\label{ejemplo-24}
 
 
 Suponga que queremos construir un diagrama de barras para comparar la
@@ -2972,7 +3038,7 @@ Los argumentos de la función \texttt{pie} son:
   pastel, por defecto se usan los nombres del vector \texttt{x}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-24}
+\subsection*{Ejemplo}\label{ejemplo-25}
 
 
 Dibujar un gráfico de pastel para las frecuencias relativas de la
@@ -3084,7 +3150,7 @@ se mostrará por medio de ejemplos.
 Este parámetro sirve para indicar si se quiere un gráfico con nombres en
 los ejes y título principal, por defecto asume el valor \texttt{TRUE}.
 
-\subsection*{Ejemplo}\label{ejemplo-25}
+\subsection*{Ejemplo}\label{ejemplo-26}
 
 
 Dibujar la densidad para una distribución \(\chi^2_1\) usando
@@ -3128,7 +3194,7 @@ valor por defecto es 0.5 que indica que el texto debe quedar centrado en
 las coordenadas x e y indicadas, un valor de 0 significa justificación a
 izquierda mientras que 1 significa justificación a derecha.
 
-\subsection*{Ejemplo}\label{ejemplo-26}
+\subsection*{Ejemplo}\label{ejemplo-27}
 
 
 Dibujar un gráfico vacío, ubicar las palabra \emph{hola mi mundo}
@@ -3172,7 +3238,7 @@ del texto.
 Este parámetro sirve para modificar el color del fondo donde se va a
 dibujar.
 
-\subsection*{Ejemplo}\label{ejemplo-27}
+\subsection*{Ejemplo}\label{ejemplo-28}
 
 
 Dibujar la densidad de una normal estándar usando un color verde para el
@@ -3208,7 +3274,7 @@ modificar este parámetro es \texttt{mfrow=c(nf,\ nc)}, donde \texttt{nf}
 es el número de filas y \texttt{nc} el número de columnas en las cuales
 se va a dividir la ventana gráfica.
 
-\subsection*{Ejemplo}\label{ejemplo-28}
+\subsection*{Ejemplo}\label{ejemplo-29}
 
 
 Dibujar la distribución de probabilidad para una distribución Poisson
@@ -3267,7 +3333,7 @@ obtener la caja usual; se pueden usar también los símboloes
 caja con la forma del símbolo; se puede usar
 \texttt{\textquotesingle{}n\textquotesingle{}} para suprimir la caja.
 
-\subsection*{Ejemplo}\label{ejemplo-29}
+\subsection*{Ejemplo}\label{ejemplo-30}
 
 
 Dibujar la densidad de una \(\chi^2_5\) modificando el parámetro
@@ -3315,7 +3381,7 @@ este parámetro permiten obtener mejores figuras. A continuación un
 ejemplo para ver el efecto que tiene este parámetro sobre las figuras
 obtenidas.
 
-\subsection*{Ejemplo}\label{ejemplo-30}
+\subsection*{Ejemplo}\label{ejemplo-31}
 
 
 Hacer un gráfico de dispersión sencillo para explorar el efecto del
@@ -3365,7 +3431,7 @@ anteriores elementos simultáneamente mientras que los parámetros
 explicados en esta sección modifican cada uno de los elementos por
 aparte.
 
-\subsection*{Ejemplo}\label{ejemplo-31}
+\subsection*{Ejemplo}\label{ejemplo-32}
 
 
 Hacer un gráfico cualquiera y modificar los parámetros
@@ -3411,7 +3477,7 @@ personalizados en \proglang{R}.
 Estos parámetros sirven para definir el color a usar en los ejes, en los
 nombres de los ejes, en el título y en el subtítulo.
 
-\subsection*{Ejemplo}\label{ejemplo-32}
+\subsection*{Ejemplo}\label{ejemplo-33}
 
 
 Hacer un gráfico cualquiera y modificar los parámetros \texttt{col},
@@ -3939,7 +4005,7 @@ Los argumentos de la función son:
   confundir con \texttt{from} y \texttt{to}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-33}
+\subsection*{Ejemplo}\label{ejemplo-34}
 
 
 Dibujar las funciones \(f_1\), \(f_2\) y \(f_3\) usando la función
@@ -3988,7 +4054,7 @@ ventana gráfica en ese intervalo para el eje horizontal. En la Figura
 \caption{\label{fig:curve1}Dibujo de varias funciones en una misma ventana.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-34}
+\subsection*{Ejemplo}\label{ejemplo-35}
 
 
 Dibujar la figura de la relación entre las variables \(x\) y \(y\) dada

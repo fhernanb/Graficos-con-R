@@ -49,7 +49,7 @@ plot(x=x, y=y, type='n', main="con type='n'")
 ### Ejemplo {-}
 Como ilustración vamos a crear un diagrama de dispersión entre el precio de apartamentos usados en la ciudad de Medellín y el área de los apartamentos. El código necesario para cargar la base de datos y construir el diagrama de dispersión se muestra a continuación.
 
-```{r ex2plot, fig.cap='Diagrama de dispersión del precio del apartamento versus área del apartamento. A la izquierda el diagrama de dispersión sin editar y a la derecha el diagrama de dispersión mejorado', fig.asp=0.5, fig.width=6}
+```{r ex2plot, fig.cap='Diagrama de dispersión del precio del apartamento versus área del apartamento. A la izquierda el diagrama de dispersión sin editar y a la derecha el diagrama de dispersión mejorado', fig.asp=0.7, fig.width=6}
 url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015'
 datos <- read.table(file=url, header=T)
 
@@ -60,6 +60,51 @@ plot(x=datos$mt2, y=datos$precio, pch='.',
 ```
 
 En la Figura \@ref(fig:ex2plot) se presenta el diagrama de dispersión entre precio y área de los apartamentos, de este diagrama se observa claramente que a medida que los apartamentos tienen mayor área el precio promedio y la variabilidad del precio aumentan. Para el diagrama de dispersión de la derecha se usó el parámetro `pch='.'` con el objetivo de obtener pequeños puntos que representen cada apartamento y que no se traslapen debido a que se tienen `r nrow(datos)` observaciones en la base de datos.
+
+## Función `symbols` \index{symbols}
+La función `symbols` sirve para construir diagramas de dispersión pero incluyendo información de variables adicionales.
+
+### Ejemplo {-}
+Como ilustración vamos a crear un diagrama de dispersión entre el precio de apartamentos usados en la ciudad de Medellín y el área de los apartamentos pero incluyendo otras variables.
+
+
+```{r symbols1, fig.cap='Diagrama de dispersión con los símbolos circle y squares para incluir más variables.', fig.asp=0.7, fig.width=8}
+url <- 'https://tinyurl.com/hwhb769'
+datos <- read.table(url, header=T)
+subdat <- subset(datos, ubicacion == 'centro')
+
+par(mfrow=c(1, 2))
+with(subdat, symbols(x=mt2, y=precio,
+                     circles=alcobas, 
+                     las=1, inches=0.4, 
+                     fg='red',
+                     main='Radio = N° alcobas'))
+
+with(subdat, symbols(x=mt2, y=precio,
+                     squares=alcobas, 
+                     las=1, inches=0.4, 
+                     fg='dodgerblue4', bg='pink',
+                     main='Lado = N° alcobas'))
+```
+
+
+```{r symbols2, fig.cap='Diagrama de dispersión con los símbolos rectangles y stars para incluir más variables.', fig.asp=0.7, fig.width=8}
+par(mfrow=c(1, 2))
+with(subdat, symbols(x=mt2, y=precio,
+                     rectangles=cbind(estrato, alcobas), 
+                     las=1, inches=0.4, 
+                     fg='chartreuse4', bg='yellow',
+                     main='Ancho = estrato y Alto = N° alcobas'))
+
+with(subdat, symbols(x=mt2, y=precio,
+                     stars=cbind(estrato, alcobas,
+                                 banos), 
+                     las=1, inches=0.4, 
+                     fg='purple1', bg='tomato',
+                     main='Estrato, alcobas y n° baños'))
+```
+
+
 
 ## Función `pairs` \index{pairs} 
 Las matrices de dispersión obtenidas con la función `pairs` proporcionan un método simple de presentar las relaciones entre pares de variables cuantitativas y son la versión múltiple de la función `plot`. Este gráfico consiste en una matriz donde cada entrada presenta un gráfico de dispersión sencillo. Un inconveniente es que si tenemos muchas variables el tamaño de cada entrada se reduce demasiado impidiendo ver con claridad las relaciones entre los pares de variables. La celda $(i,j)$ de una matriz de dispersión contiene el gráfico de dispersión de la columna $i$ versus la columna $j$ de la matriz de datos. 
