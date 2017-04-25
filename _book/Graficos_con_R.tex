@@ -4352,6 +4352,74 @@ observa el resultado.
 \caption{\label{fig:rejilla}Rejilla personalizada.}
 \end{figure}
 
+\section{¿Cómo incluir en un gráfico valores en forma
+automática?}\label{como-incluir-en-un-grafico-valores-en-forma-automatica}
+
+Es frecuente que se necesite crear un gráfico en el que se incluya de
+forma automática el valor de un parámetro. Para estos casos se puede
+usar la función \texttt{bquote}.
+
+Vamos a simular 1000 observaciones de una distribución Poisson con
+\(\lambda=10\) y luego a crear un diagrama de barras para los valores de
+la muestra. El objetivo es colocar en el título \(\lambda=10\) de forma
+automática. El código para generar los datos y crear la figura se
+muestran a continuación. Observe que en \texttt{main} se coloca
+\texttt{bquote(lambda\ ==\ .(media))} para indicar que se desea escribir
+la expresión con \(\lambda\) y que sea igual al valor almacenado en
+\texttt{media}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{media <-}\StringTok{ }\DecValTok{10}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{rpois}\NormalTok{(}\DataTypeTok{n=}\DecValTok{1000}\NormalTok{, }\DataTypeTok{lambda=}\NormalTok{media)}
+\KeywordTok{barplot}\NormalTok{(}\KeywordTok{table}\NormalTok{(x), }\DataTypeTok{main=}\KeywordTok{bquote}\NormalTok{(lambda ==}\StringTok{ }\NormalTok{.(media)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/faq4-1.pdf}
+\caption{\label{fig:faq4}Ejemplo 1 con bquote.}
+\end{figure}
+
+El mismo título se hubiese conseguido con
+\texttt{main=expression(lambda\ ==\ 10)} pero la idea era que el valor
+de \(\lambda\) apareciera de forma automática.
+
+\section{¿Cómo incluir en un gráfico varios valores en forma
+automática?}\label{como-incluir-en-un-grafico-varios-valores-en-forma-automatica}
+
+Al igual que en el caso anterior se puede usar la función
+\texttt{bquote} para evaluar valores dentro de una expresión.
+
+Vamos a dibujar la densidad para una distribución \(N(150, 9)\). El
+objetivo es colocar en el título el nombre de la distribución y los
+valores de los parámetros de forma automática. El código para generar
+los datos y crear la figura se muestran a continuación. Observe que en
+\texttt{main} se usa \texttt{bquote} para crear la expresión y
+\texttt{paste} para juntar lo que se evaluará con \texttt{bquote}, el
+texto fijo se encierra dentro de comillas \texttt{"\ "}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mu <-}\StringTok{ }\DecValTok{150}
+\NormalTok{vari <-}\StringTok{ }\DecValTok{9}
+
+\KeywordTok{curve}\NormalTok{(}\KeywordTok{dnorm}\NormalTok{(x, }\DataTypeTok{mean=}\NormalTok{mu, }\DataTypeTok{sd=}\KeywordTok{sqrt}\NormalTok{(vari)), }\DataTypeTok{from=}\DecValTok{130}\NormalTok{, }\DataTypeTok{to=}\DecValTok{170}\NormalTok{,}
+      \DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Density'}\NormalTok{,}
+      \DataTypeTok{main=}\KeywordTok{bquote}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"Pdf for a normal with "}\NormalTok{,}
+                  \NormalTok{mu, }\StringTok{"="}\NormalTok{, .(mu),}
+                  \StringTok{" and "}\NormalTok{,}
+                  \NormalTok{sigma^}\DecValTok{2}\NormalTok{, }\StringTok{"="}\NormalTok{, .(vari))))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/faq5-1.pdf}
+\caption{\label{fig:faq5}Ejemplo 2 con bquote.}
+\end{figure}
+
 \chapter{Extras}\label{extras}
 
 \begin{Shaded}

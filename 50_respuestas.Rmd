@@ -18,10 +18,6 @@ text(x=0, y=0.5,
 ```
 
 
-
-
-
-
 ## ¿Cómo personalizar los valores a mostrar en los ejes?
 Supongamos que tenemos un gráfico de dispersión y que queremos que el eje horizontal presente sólo tres marcas en los valores 2, 6 y 10, y que el eje vertical presente también tres marcas en los valores 0, 15 y 25.
 
@@ -69,7 +65,7 @@ legend('topleft', legend=c('Muestra 1', 'Muestra 2'), bty='n',
 ## ¿Cómo dibujar varias densidades en una misma figura?
 Para dibujar varias densidades en una misma figura se procede de forma similar al ejemplo anterior. Se construyen las densidades pero sin dibujarlas, luego se crea un gráfico y se van agregando una a una las densidades. Abajo el código para dibujar dos densidades a partir de dos muestras aleatorias `m1` y `m2`. En la Figura \@ref(fig:faq3) se muestran las dos densidades.
 
-```{r faq3, fig.cap='Densidades simultáneas.', fig.asp=0.7, fig.width=4.5}
+```{r faq3, fig.cap='Densidades simultáneas.', fig.asp=0.7, fig.width=4}
 m1 <- rnorm(n=100, mean=3, sd=1)        # Generando los datos
 m2 <- rgamma(n=100, shape=2, scale=1)
 
@@ -89,12 +85,41 @@ La función `grid` explicada en la sección \@ref(grid) se usa para incluir una 
 
 A continuación se muestra el código de ejemplo para construir una rejilla que pase por los puntos -9, -6, -3, 0, 3, 6 y 9 del eje horizontal, y que pase por los puntos -10,-5, 0, 5 y 10 del eje vertical. Los parámetros `v` y `h` se usan para colocar el vector con las posiciones donde se desea la rejilla. El color de la rejilla se puede personalizar con el parámetro `col` y el tipo de línea a dibujar con `lty`. En la Figura \@ref(fig:rejilla) se observa el resultado.
 
-```{r rejilla, fig.cap='Rejilla personalizada.', fig.asp=1, fig.width=4}
+```{r rejilla, fig.cap='Rejilla personalizada.', fig.asp=1, fig.width=3.5}
 plot(c(-10, 10), c(-10, 10), type="n", xlab="", ylab="")
 abline(v=c(-9, -6, -3, 0, 3, 6, 9),
        h=c(-10,-5, 0, 5, 10), col=gray(0.8), lty='dashed')
 ```
 
+## ¿Cómo incluir en un gráfico valores en forma automática?
+Es frecuente que se necesite crear un gráfico en el que se incluya de forma automática el valor de un parámetro. Para estos casos se puede usar la función `bquote`.
+
+Vamos a simular 1000 observaciones de una distribución Poisson con $\lambda=10$ y luego a crear un diagrama de barras para los valores de la muestra. El objetivo es colocar en el título $\lambda=10$ de forma automática. El código para generar los datos y crear la figura se muestran a continuación. Observe que en `main` se coloca `bquote(lambda == .(media))` para indicar que se desea escribir la expresión con $\lambda$ y que sea igual al valor almacenado en `media`.
+
+```{r faq4, fig.cap='Ejemplo 1 con bquote.', fig.asp=0.7, fig.width=4}
+media <- 10
+x <- rpois(n=1000, lambda=media)
+barplot(table(x), main=bquote(lambda == .(media)))
+```
+
+El mismo título se hubiese conseguido con `main=expression(lambda == 10)` pero la idea era que el valor de $\lambda$ apareciera de forma automática.
+
+## ¿Cómo incluir en un gráfico varios valores en forma automática?
+Al igual que en el caso anterior se puede usar la función `bquote` para evaluar valores dentro de una expresión.
+
+Vamos a dibujar la densidad para una distribución $N(150, 9)$. El objetivo es colocar en el título el nombre de la distribución y los valores de los parámetros de forma automática. El código para generar los datos y crear la figura se muestran a continuación. Observe que en `main` se usa `bquote` para crear la expresión y `paste` para juntar lo que se evaluará con `bquote`, el texto fijo se encierra dentro de comillas `" "`.
+
+```{r faq5, fig.cap='Ejemplo 2 con bquote.', fig.asp=0.7, fig.width=4}
+mu <- 150
+vari <- 9
+
+curve(dnorm(x, mean=mu, sd=sqrt(vari)), from=130, to=170,
+      lwd=4, ylab='Density',
+      main=bquote(paste("Pdf for a normal with ",
+                  mu, "=", .(mu),
+                  " and ",
+                  sigma^2, "=", .(vari))))
+```
 
 
 
