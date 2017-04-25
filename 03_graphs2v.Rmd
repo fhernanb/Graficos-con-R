@@ -68,7 +68,7 @@ La función `symbols` sirve para construir diagramas de dispersión pero incluye
 Como ilustración vamos a crear un diagrama de dispersión entre el precio de apartamentos usados en la ciudad de Medellín y el área de los apartamentos pero incluyendo otras variables.
 
 
-```{r symbols1, fig.cap='Diagrama de dispersión con los símbolos circle y squares para incluir más variables.', fig.asp=0.7, fig.width=8}
+```{r symbols1, fig.cap='Diagrama de dispersión con los símbolos circle y squares para incluir más variables.', fig.asp=0.5, fig.width=8}
 url <- 'https://tinyurl.com/hwhb769'
 datos <- read.table(url, header=T)
 subdat <- subset(datos, ubicacion == 'centro')
@@ -88,7 +88,7 @@ with(subdat, symbols(x=mt2, y=precio,
 ```
 
 
-```{r symbols2, fig.cap='Diagrama de dispersión con los símbolos rectangles y stars para incluir más variables.', fig.asp=0.7, fig.width=8}
+```{r symbols2, fig.cap='Diagrama de dispersión con los símbolos rectangles y stars para incluir más variables.', fig.asp=0.5, fig.width=8}
 par(mfrow=c(1, 2))
 with(subdat, symbols(x=mt2, y=precio,
                      rectangles=cbind(estrato, alcobas), 
@@ -296,7 +296,7 @@ Dibujar la superficie asociada a la función $f(x, y)=sen(x^2+y^2)$ para $-2 \le
 
 Lo primero que se debe hacer es crear la función $f(x, y)$ la cual se va a llamar `fun`. Luego se definen los vectores `x` e `y` tomando por ejemplo 25 puntos equiespaciados en el intervalo $[-2, 2]$. Luego se usa la función `outer` para crear la rejilla o matriz que contiene los valores de $f(x, y)$ para cada combinación de `x` e `y`, los resultados se almacenan en el objeto `z`. Por último se dibujan 4 perspectivas de la función variando los parámetros `theta` y `phi` de la función `persp`. A continuación el código utilizado.
 
-```{r ex1persp, fig.cap='Superficie generada con `persp` y diferentes valores de theta y phi.', fig.asp=1, fig.width=20}
+```{r ex1persp, fig.cap='Superficie generada con `persp` y diferentes valores de theta y phi.', fig.asp=1, fig.width=10}
 fun <- function(x, y)   sin(x^2 + y^2)
 x <- seq(from=-2, to=2, length.out=25)
 y <- seq(from=-2, to=2, length.out=25)
@@ -323,7 +323,7 @@ Dibujar la superficie de una distribución normal bivariada con vector de medias
 Primero se define el vector de medias y la matriz de varianzas y covarianzas, luego se carga el paquete `mvtnorm` que contiene la función `dmvnorm` que calcula la densidad dado el vector de medias y la matriz de varianzas y covarianzas. Se construye la función `fun` y se vectoriza para luego obtener las alturas de la superficie con la ayuda de `outer`. Por último se dibujan tres perspectivas diferentes para la densidad modificando los parámetros `ticktype`, `nticks`, `expand`, `axes` y `box`, a continuación el código usado.
 
 
-```{r ex2persp, fig.cap='Distribución normal bivariada.', fig.asp=0.5, fig.width=14, message=FALSE}
+```{r ex2persp, fig.cap='Distribución normal bivariada.', fig.asp=0.5, fig.width=8, message=FALSE}
 media <- c(5, 12)
 varianza <- matrix(c(1, -0.8, -0.8, 1), ncol=2)
 
