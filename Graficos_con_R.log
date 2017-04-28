@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210 64-bit) (preloaded format=xelatex 2017.1.16)  28 APR 2017 11:46
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210 64-bit) (preloaded format=xelatex 2017.1.16)  28 APR 2017 11:53
 entering extended mode
 **./Graficos_con_R.tex
 (Graficos_con_R.tex
@@ -2897,7 +2897,7 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Here is how much of TeX's memory you used:
  27837 strings out of 428408
  483120 string characters out of 3160621
- 565232 words of memory out of 3000000
+ 565211 words of memory out of 3000000
  30864 multiletter control sequences out of 15000+200000
  35255 words of font info for 74 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
