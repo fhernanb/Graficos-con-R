@@ -220,7 +220,7 @@
 \title{Gráficos en R usando la solo la base}
 \author{Freddy Hernández Barajas\\
 Juan Carlos Correa Morales}
-\date{2017-04-25}
+\date{2017-04-28}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -4418,6 +4418,44 @@ texto fijo se encierra dentro de comillas \texttt{"\ "}.
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/faq5-1.pdf}
 \caption{\label{fig:faq5}Ejemplo 2 con bquote.}
+\end{figure}
+
+\section{¿Cómo incluir colores dependiendo de los valores de una
+variable
+cualitativa?}\label{como-incluir-colores-dependiendo-de-los-valores-de-una-variable-cualitativa}
+
+Esta pregunta es muy frecuente cuando se construyen diagramas de
+dispersión y el usuario desea colorear o diferenciar los puntos
+dependiendo de una variable cualitativa.
+
+Como ejemplo vamos a construir un diagrama de dispersión para la
+longitud del sépalo y del pétalo de un grupo de flores con la
+información de la base de datos \texttt{iris}. Se desea también que los
+puntos se puedan diferenciar con colores según la especie (setosa,
+versicolor y virginica) a la que pertenecen. Como son tres especies se
+eligen tres colores y luego se le indica a \proglang{R} que repita la
+secuencia de colores según la información almacenada en
+\texttt{Species}, esto se consigue por medio del siguiente código:
+\texttt{c(\textquotesingle{}red\textquotesingle{},\ \textquotesingle{}blue\textquotesingle{},\ \textquotesingle{}green3\textquotesingle{}){[}Species{]}},
+luego esto se coloca en el parámetro \texttt{col} de la función
+\texttt{plot}. A continuación el código completo para construir la
+Figura \ref{fig:faq6}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\FloatTok{1.8}\NormalTok{, }\FloatTok{1.8}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DataTypeTok{cex.axis=}\FloatTok{0.5}\NormalTok{)}
+\KeywordTok{with}\NormalTok{(iris, }\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Sepal.Length, }\DataTypeTok{y=}\NormalTok{Petal.Length, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{,}
+                \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'red'}\NormalTok{, }\StringTok{'blue'}\NormalTok{, }\StringTok{'green3'}\NormalTok{)[Species]))}
+\KeywordTok{legend}\NormalTok{(}\StringTok{'topleft'}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{levels}\NormalTok{(iris$Species), }\DataTypeTok{cex=}\FloatTok{0.5}\NormalTok{,}
+       \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'red'}\NormalTok{, }\StringTok{'blue'}\NormalTok{, }\StringTok{'green3'}\NormalTok{), }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/faq6-1.pdf}
+\caption{\label{fig:faq6}Ejemplo para incluir colores dependiendo de los
+valores de una variable cualitativa.}
 \end{figure}
 
 \chapter{Extras}\label{extras}

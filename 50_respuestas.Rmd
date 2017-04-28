@@ -121,5 +121,18 @@ curve(dnorm(x, mean=mu, sd=sqrt(vari)), from=130, to=170,
                   sigma^2, "=", .(vari))))
 ```
 
+## ¿Cómo incluir colores dependiendo de los valores de una variable cualitativa?
+Esta pregunta es muy frecuente cuando se construyen diagramas de dispersión y el usuario desea colorear o diferenciar los puntos dependiendo de una variable cualitativa.
+
+Como ejemplo vamos a construir un diagrama de dispersión para la longitud del sépalo y del pétalo de un grupo de flores con la información de la base de datos `iris`. Se desea también que los puntos se puedan diferenciar con colores según la especie (setosa, versicolor y virginica) a la que pertenecen. Como son tres especies se eligen tres colores y luego se le indica a \proglang{R} que repita la secuencia de colores según la información almacenada en `Species`, esto se consigue por medio del siguiente código: `c('red', 'blue', 'green3')[Species]`, luego esto se coloca en el parámetro `col` de la función `plot`. A continuación el código completo para construir la Figura \@ref(fig:faq6).
+
+```{r faq6, fig.cap='Ejemplo para incluir colores dependiendo de los valores de una variable cualitativa.', fig.asp=0.7, fig.width=3.5}
+par(mar=c(1.8, 1.8, 1, 1), cex.axis=0.5)
+with(iris, plot(x=Sepal.Length, y=Petal.Length, pch=19,
+                col=c('red', 'blue', 'green3')[Species]))
+legend('topleft', legend=levels(iris$Species), cex=0.5,
+       col=c('red', 'blue', 'green3'), pch=19)
+```
+
 
 
