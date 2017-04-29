@@ -17,3 +17,36 @@ legend('topleft', legend=levels(iris$Species),
 
 
 dev.off()
+
+
+jpeg(file = "portada.jpeg")
+plot(1:10)
+rect(1, 5, 3, 7, col = "white")
+dev.off()
+
+
+
+
+jpeg(filename="portada999.jpeg", #bg="transparent",
+     quality=99,
+     width=859, height=453)
+
+par(col.axis='white', bg='transparent',
+    col.lab='white', col.main='white')
+
+plot(f[[1]], main='', las=1, lwd=3,
+     bty='n', xaxt='n', yaxt='n',
+     xlim=c(4, 20), col=paleta[1],
+     xlab='Producción promedio por día (lt)',
+     ylab='Densidad')
+for (i in 2:8) lines(f[[i]], lwd=3, col=paleta[i])
+
+axis(side=1, col='white')
+axis(side=2, col='white')
+
+legend('topright', col=paleta, text.col='white',
+       lwd=2, bty='n',
+       legend=paste('Parto ', 1:8))
+
+dev.off()
+
