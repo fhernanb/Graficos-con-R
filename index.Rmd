@@ -1,5 +1,5 @@
 --- 
-title: "Gráficos en R usando solo la base"
+title: "Gráficos con R"
 author: |
   | Freddy Hernández Barajas
   | Juan Carlos Correa Morales
