@@ -24,7 +24,7 @@
 \usepackage[unicode=true]{hyperref}
 \PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
 \hypersetup{
-            pdftitle={Gráficos en R usando solo la base},
+            pdftitle={Gráficos con R},
             colorlinks=true,
             linkcolor=Maroon,
             citecolor=Blue,
@@ -217,10 +217,10 @@
 
 \frontmatter
 
-\title{Gráficos en R usando solo la base}
+\title{Gráficos con R}
 \author{Freddy Hernández Barajas\\
 Juan Carlos Correa Morales}
-\date{2017-04-28}
+\date{2017-05-24}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -2707,8 +2707,8 @@ construir el gráfico se muestran a continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{dt <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\StringTok{"http://www.ats.ucla.edu/stat/r/faq/tolpp.csv"}\NormalTok{,}
-                      \DataTypeTok{sep=}\StringTok{","}\NormalTok{, }\DataTypeTok{header=}\NormalTok{T)}
+\NormalTok{dt <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\StringTok{"https://stats.idre.ucla.edu/stat/r/faq/tolpp.csv"}\NormalTok{,}
+                 \DataTypeTok{sep=}\StringTok{","}\NormalTok{, }\DataTypeTok{header=}\NormalTok{T)}
 
 \KeywordTok{interaction.plot}\NormalTok{(}\DataTypeTok{response=}\NormalTok{dt$tolerance,}
                  \DataTypeTok{x.factor=}\NormalTok{dt$time, }\DataTypeTok{col=}\DecValTok{1}\NormalTok{:}\DecValTok{8}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{,}

@@ -468,8 +468,8 @@ Los gráficos de espagueti son usados para representar la evolución de una vari
 El ejemplo aquí presentado fue tomado de este [enlace](http://stats.idre.ucla.edu/r/faq/how-can-i-make-spaghetti-plots/). El objetivo es crear un gráfico de espagueti para mostrar la evolución de la variable tolerancia a través del tiempo para cada uno de los 16 individuos estudiados. El código para descargar la base de datos y construir el gráfico se muestran a continuación.
 
 ```{r intplot2, fig.cap='Gráfico de espagueti para ver la evolución de la variable tolerancia.', fig.asp=0.8, fig.width=6}
-dt <- read.table("http://www.ats.ucla.edu/stat/r/faq/tolpp.csv",
-                      sep=",", header=T)
+dt <- read.table("https://stats.idre.ucla.edu/stat/r/faq/tolpp.csv",
+                 sep=",", header=T)
 
 interaction.plot(response=dt$tolerance,
                  x.factor=dt$time, col=1:8, lwd=2,
