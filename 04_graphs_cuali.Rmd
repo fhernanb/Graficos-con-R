@@ -139,6 +139,42 @@ pie(x=tabla1, labels=nombres,
 
 La Figura \@ref(fig:pie) presenta el gráfico de pastel construído con la instrucción anterior.
 
+## Función `dotchart` \index{gráfico de puntos} \index{dotchart}
+Los gráficos de puntos son útiles para representar tablas de frecuencia (de 1 o 2 vías) o tablas de resumen de en relación a una o dos variables. La estructura de la función `dotchart` se muestra a continuación.
+
+```{r, eval=F}
+dotchart(x, labels=NULL, groups=NULL, gdata=NULL,
+         pt.cex, pch, color, lcolor, ...)
+```
+
+Los argumentos de la función `dotchart` son:
+
+- `x`: vector o matriz con la información de las frecuencias o medida de resumen a representar. Si `x` es una matriz las columnas representarán agrupaciones.
+- `labels`: vector con los nombres a usar para los puntos, por defecto toma los nombres de las filas de la matriz `x`.
+- `groups`: vector con los nombres a usar para los grupos, por defecto toma los nombres de las columnas de la matriz `x`.
+- `pt.cex`: tamaño del punto.
+- `pch`: tipo de punto a usar, las diferentes opciones para `pch` están disponibles en la Figura \@ref(fig:point1).
+- `color`: tipo de color usar para los puntos.
+- `lcolor`: color para la línea asociada a cada punto.
+- `...`: otros parámetros gráficos que pueden ser pasados como argumentos.
+
+### Ejemplo {-}
+Suponga que se tiene la información del número de hombres y mujeres que sufren de una enfermedad rara en cuatro ciudades importantes del mundo, a continuación la matriz `x` con la información recolectada.
+
+```{r, eval=T}
+x <- matrix(c(4, 6, 30, 18, 7, 13, 35, 20),
+            ncol=4, byrow=TRUE)
+colnames(x) <- c('Madrid', 'Londres', 'Paris', 'Miami')
+rownames(x) <- c('Hombre', 'Mujer')
+x
+```
+
+Para construir un gráfico de puntos para resumir 
+
+```{r dotchart2, fig.cap='Ejemplos de los tipos de puntos obtenidos al variar `pch`.', fig.asp=0.5, fig.width=6, echo=TRUE}
+dotchart(x=x)
+```
+
 ## EJERCICIOS {-}
 Use funciones o procedimientos (varias líneas) de \proglang{R} para responder cada una de las siguientes preguntas.
 
