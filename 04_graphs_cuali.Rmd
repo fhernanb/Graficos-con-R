@@ -159,7 +159,7 @@ Los argumentos de la función `dotchart` son:
 - `...`: otros parámetros gráficos que pueden ser pasados como argumentos.
 
 ### Ejemplo {-}
-Suponga que se tiene la información del número de hombres y mujeres que sufren de una enfermedad rara en cuatro ciudades importantes del mundo, a continuación la matriz `x` con la información recolectada.
+Suponga que se tiene una tabla de contingencia con la información del número de hombres y mujeres que sufren de una enfermedad rara en cuatro ciudades importantes del mundo, a continuación la matriz `x` con la información recolectada.
 
 ```{r, eval=T}
 x <- matrix(c(4, 6, 30, 18, 7, 13, 35, 20),
@@ -168,11 +168,21 @@ colnames(x) <- c('Madrid', 'Londres', 'Paris', 'Miami')
 rownames(x) <- c('Hombre', 'Mujer')
 x
 ```
+En la salida anterior se presenta la matriz `x`, de esta matriz se observa que en Madrid hay 11 personas, 4 hombres y 7 mujeres que sufren de la enfermedad, las demás columnas se interpretan de forma similar.
 
-Para construir un gráfico de puntos para resumir 
+Para construir un gráfico de puntos con el objetivo de presentar la información de la matriz `x` se utiliza el siguiente código. En la Figura \@ref(fig:dotchart2) se presenta el gráfico de puntos, de esta figura se nota claramente que en París es donde hay más personas que sufren de la enfermedad.
 
-```{r dotchart2, fig.cap='Ejemplos de los tipos de puntos obtenidos al variar `pch`.', fig.asp=0.5, fig.width=6, echo=TRUE}
+```{r dotchart2, fig.cap='Gráfico de puntos para una tabla de contingencia de 2 variables.', fig.asp=0.7, fig.width=6, echo=TRUE}
 dotchart(x=x)
+```
+
+El gráfico de puntos presentado en la Figura \@ref(fig:dotchart2) se puede mejorar usando los otros argumentos disponibles en la función `dotchart`, a continuación el código y en la Figura \@ref(fig:dotchart3) el resultado.
+
+```{r dotchart3, fig.cap='Gráfico de puntos mejorado para una tabla de contingencia de 2 variables.', fig.asp=0.7, fig.width=6, echo=TRUE}
+dotchart(x=x,
+         pt.cex=2, pch=c(8, 21), color=c('blue', 'red'),
+         lcolor='black', 
+         xlab='Número de personas')
 ```
 
 ## EJERCICIOS {-}

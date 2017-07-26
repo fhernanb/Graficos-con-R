@@ -3114,9 +3114,10 @@ Los argumentos de la función \texttt{dotchart} son:
 \subsection*{Ejemplo}\label{ejemplo-26}
 
 
-Suponga que se tiene la información del número de hombres y mujeres que
-sufren de una enfermedad rara en cuatro ciudades importantes del mundo,
-a continuación la matriz \texttt{x} con la información recolectada.
+Suponga que se tiene una tabla de contingencia con la información del
+número de hombres y mujeres que sufren de una enfermedad rara en cuatro
+ciudades importantes del mundo, a continuación la matriz \texttt{x} con
+la información recolectada.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3134,7 +3135,16 @@ a continuación la matriz \texttt{x} con la información recolectada.
 ## Mujer       7      13    35    20
 \end{verbatim}
 
-Para construir un gráfico de puntos para resumir
+En la salida anterior se presenta la matriz \texttt{x}, de esta matriz
+se observa que en Madrid hay 11 personas, 4 hombres y 7 mujeres que
+sufren de la enfermedad, las demás columnas se interpretan de forma
+similar.
+
+Para construir un gráfico de puntos con el objetivo de presentar la
+información de la matriz \texttt{x} se utiliza el siguiente código. En
+la Figura \ref{fig:dotchart2} se presenta el gráfico de puntos, de esta
+figura se nota claramente que en París es donde hay más personas que
+sufren de la enfermedad.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3145,8 +3155,29 @@ Para construir un gráfico de puntos para resumir
 \begin{figure}[htbp]
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/dotchart2-1.pdf}
-\caption{\label{fig:dotchart2}Ejemplos de los tipos de puntos obtenidos al
-variar \texttt{pch}.}
+\caption{\label{fig:dotchart2}Gráfico de puntos para una tabla de
+contingencia de 2 variables.}
+\end{figure}
+
+El gráfico de puntos presentado en la Figura \ref{fig:dotchart2} se
+puede mejorar usando los otros argumentos disponibles en la función
+\texttt{dotchart}, a continuación el código y en la Figura
+\ref{fig:dotchart3} el resultado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dotchart}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x,}
+         \DataTypeTok{pt.cex=}\DecValTok{2}\NormalTok{, }\DataTypeTok{pch=}\KeywordTok{c}\NormalTok{(}\DecValTok{8}\NormalTok{, }\DecValTok{21}\NormalTok{), }\DataTypeTok{color=}\KeywordTok{c}\NormalTok{(}\StringTok{'blue'}\NormalTok{, }\StringTok{'red'}\NormalTok{),}
+         \DataTypeTok{lcolor=}\StringTok{'black'}\NormalTok{, }
+         \DataTypeTok{xlab=}\StringTok{'Número de personas'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/dotchart3-1.pdf}
+\caption{\label{fig:dotchart3}Gráfico de puntos mejorado para una tabla de
+contingencia de 2 variables.}
 \end{figure}
 
 \section*{EJERCICIOS}\label{ejercicios}
