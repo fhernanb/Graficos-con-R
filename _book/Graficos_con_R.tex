@@ -422,7 +422,7 @@ sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics[width=4.54in]{images/cran} 
+{\centering \includegraphics{images/cran} 
 
 }
 
@@ -440,7 +440,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=5.31in]{images/instalacion1} 
+{\centering \includegraphics{images/instalacion1} 
 
 }
 
@@ -498,7 +498,7 @@ consola, para hacer esto se deben explorar las opciones de
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
+{\centering \includegraphics{images/Rpantallazo} 
 
 }
 
@@ -2543,12 +2543,64 @@ aproximadamente 50 niveles.
 log-verosimilitud para el ejemplo sobre normal.}
 \end{figure}
 
+\section{\texorpdfstring{Función \texttt{image}
+\index{image}}{Función image }}\label{funcion-image}
+
+La función \texttt{image} dibuja un gráfico de perspectiva en dos
+dimensiones y visto paralelo a la tercer variable de altura, es una
+especie de gráfico de calor. La estructura de la función \texttt{image}
+con los argumentos más usuales se muestran a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{image}\NormalTok{(x, y, z)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x,\ y}: vectores numéricos en los cuales se evaluó la función
+  de interés para construir el objeto \texttt{z}. Ambos vectores deben
+  estar ordenados.
+\item
+  \texttt{z}: matriz con las alturas de la función de interés, por lo
+  general creada con la función \texttt{outer}.
+\end{itemize}
+
+\subsection*{Ejemplo}\label{ejemplo-20}
+
+
+Para la muestra aleatoria obtenida en el ejemplo anterior, dibujar un
+gráfico con \texttt{image} para la superficie de log-verosimilitud.
+
+Usando los objetos \texttt{xx}, \texttt{yy} e \texttt{zz} creados en el
+ejemplo anterior se puede construir el gráfico solicitado, a
+continuación el código utilizado. En la Figura \ref{fig:image1} se
+muestra el gráfico.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{image}\NormalTok{(}\DataTypeTok{x=}\NormalTok{xx, }\DataTypeTok{y=}\NormalTok{yy, }\DataTypeTok{z=}\NormalTok{zz,}
+      \DataTypeTok{xlab=}\KeywordTok{expression}\NormalTok{(mu), }\DataTypeTok{ylab=}\KeywordTok{expression}\NormalTok{(sigma))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/image1-1.pdf}
+\caption{\label{fig:image1}Gráfico para la función de log-verosimilitud para
+el ejemplo sobre normal.}
+\end{figure}
+
 \section{\texorpdfstring{Función \texttt{filled.contour}
 \index{filled.contour}
 \index{gráfico de nivel}}{Función filled.contour  }}\label{funcion-filled.contour}
 
-La función \texttt{filled.contour} dibuja una especie de gráficos
-contornos pero usando una paleta de colores. La estructura de la función
+La función \texttt{filled.contour} dibuja gráficos contornos pero usando
+una paleta de colores. La estructura de la función
 \texttt{filled.contour} con los argumentos más usuales se muestran a
 continuación.
 
@@ -2588,7 +2640,7 @@ La función \texttt{filled.contour} tiene otros parámetros adicionales
 que el lector puede consultar en la ayuda usando
 \texttt{help(filled.contour)}.
 
-\subsection*{Ejemplo}\label{ejemplo-20}
+\subsection*{Ejemplo}\label{ejemplo-21}
 
 
 Para la muestra aleatoria obtenida en el ejemplo anterior, dibujar un
@@ -2612,6 +2664,81 @@ muestra el gráfico de niveles con aproximadamente 20 niveles.
 \includegraphics{Graficos_con_R_files/figure-latex/contour2-1.pdf}
 \caption{\label{fig:contour2}Gráfico de nivel para la función de
 log-verosimilitud para el ejemplo sobre normal.}
+\end{figure}
+
+\section{\texorpdfstring{Función \texttt{kde2d} \index{kde2d}
+\index{densidad en 2d}}{Función kde2d  }}\label{funcion-kde2d}
+
+La función \texttt{kde2d} pertenece al paquete \texttt{MASS} y es
+utilizada para crear densidades para dos variables cuantitativas. La
+estructura de la función \texttt{kde2d} con los argumentos más usuales
+se muestran a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{kde2d}\NormalTok{(x, y, h, }\DataTypeTok{n =} \DecValTok{25}\NormalTok{, }\DataTypeTok{lims =} \KeywordTok{c}\NormalTok{(}\KeywordTok{range}\NormalTok{(x), }\KeywordTok{range}\NormalTok{(y)))}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: vector con la variable para el eje X.
+\item
+  \texttt{y}: vector con la variable para el eje Y..
+\item
+  \texttt{h}: vector con los anchos de banda en las direcciones X e Y.
+\item
+  \texttt{n}: número de puntos para construir la rejilla.
+\item
+  \texttt{lims}: límites del rectángulo de datos a considerar, debe ser
+  un vector de la forma \texttt{c(xl,\ xu,\ yl,\ yu)}. Este parámetro
+  por defecto es \texttt{c(range(x),\ range(y))}.
+\end{itemize}
+
+\subsection*{Ejemplo}\label{ejemplo-22}
+
+
+La base de datos medidas del cuerpo cuenta con 6 variables registradas a
+un grupo de 36 estudiantes de la universidad, dos de esas variables son
+la altura y el peso corporal. Se desea construir un gráfico de densidad
+bivariada para altura y peso.
+
+El código mostrado a continuación hace la lectura de la base de datos y
+luego se construyen dos densidades, la primera con \texttt{n=5} y la
+segunda con \texttt{n=50}, esto para ver el efecto del parámetro
+\texttt{n}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo'}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
+
+\KeywordTok{require}\NormalTok{(MASS)  }\CommentTok{# Se debe cargar este paquete}
+\NormalTok{f1 <-}\StringTok{ }\KeywordTok{kde2d}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$peso, }\DataTypeTok{y=}\NormalTok{datos$altura, }\DataTypeTok{n=}\DecValTok{5}\NormalTok{)}
+\NormalTok{f2 <-}\StringTok{ }\KeywordTok{kde2d}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$peso, }\DataTypeTok{y=}\NormalTok{datos$altura, }\DataTypeTok{n=}\DecValTok{50}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+En el código mostrado a continuación se dibujan las dos densidades
+usando un gráfico de calor usando la función \texttt{image}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{image}\NormalTok{(f1, }\DataTypeTok{xlab=}\StringTok{'Peso'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Estatura'}\NormalTok{, }\DataTypeTok{main=}\StringTok{'n=5'}\NormalTok{)}
+\KeywordTok{image}\NormalTok{(f2, }\DataTypeTok{xlab=}\StringTok{'Peso'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Estatura'}\NormalTok{, }\DataTypeTok{main=}\StringTok{'n=50'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/den2d1-1.pdf}
+\caption{\label{fig:den2d1}Gráfico de densidad bivariada para el peso
+corporal y la estatura de un grupo de estudiantes. A la izquierda la
+densidad con \texttt{n=5} y a la derecha con \texttt{n=50}.}
 \end{figure}
 
 \section{\texorpdfstring{Función \texttt{interaction.plot}
@@ -2645,14 +2772,14 @@ Los argumentos de la función son:
 \item
   \texttt{legend}: valor lógico para incluir o no leyenda.
 \item
-  \texttt{trace.label}: ombre a colocar en la leyenda.
+  \texttt{trace.label}: nombre a colocar en la leyenda.
 \end{itemize}
 
 La función \texttt{interaction.plot} tiene otros parámetros adicionales
 que el lector puede consultar en la ayuda usando
 \texttt{help(interaction.plot)}.
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-23}
 
 
 Se realizó un experimento para determinar cómo influye el material de la
@@ -2695,7 +2822,7 @@ una variable medida para un grupo de sujetos en diferentes momentos del
 tiempo. La función \texttt{interaction.plot} se puede usar para obtener
 este tipo de gráficos, a continuación un ejemplo.
 
-\subsection*{Ejemplo}\label{ejemplo-22}
+\subsection*{Ejemplo}\label{ejemplo-24}
 
 
 El ejemplo aquí presentado fue tomado de este
@@ -2765,7 +2892,7 @@ La función \texttt{barplot} tiene otros parámetros que pueden ser
 consultados en la ayuda de la función por medio de la instrucción
 \texttt{?barplot}.
 
-\subsection*{Ejemplo}\label{ejemplo-23}
+\subsection*{Ejemplo}\label{ejemplo-25}
 
 
 Suponga que queremos construir un diagrama de barras para las
@@ -2859,7 +2986,7 @@ En la Figura \ref{fig:barra2} se muestra el diagrama de barras
 modificado. Note que si no se hubiese usado \texttt{ylim=c(0,\ 0.45)} al
 dibujar el diagrama, la marca sobre la última barra no se podría ver.
 
-\subsection*{Ejemplo}\label{ejemplo-24}
+\subsection*{Ejemplo}\label{ejemplo-26}
 
 
 Suponga que queremos construir un diagrama de barras para comparar la
@@ -3038,7 +3165,7 @@ Los argumentos de la función \texttt{pie} son:
   pastel, por defecto se usan los nombres del vector \texttt{x}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-25}
+\subsection*{Ejemplo}\label{ejemplo-27}
 
 
 Dibujar un gráfico de pastel para las frecuencias relativas de la
@@ -3111,7 +3238,7 @@ Los argumentos de la función \texttt{dotchart} son:
   argumentos.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-26}
+\subsection*{Ejemplo}\label{ejemplo-28}
 
 
 Suponga que se tiene una tabla de contingencia con la información del
@@ -3263,7 +3390,7 @@ se mostrará por medio de ejemplos.
 Este parámetro sirve para indicar si se quiere un gráfico con nombres en
 los ejes y título principal, por defecto asume el valor \texttt{TRUE}.
 
-\subsection*{Ejemplo}\label{ejemplo-27}
+\subsection*{Ejemplo}\label{ejemplo-29}
 
 
 Dibujar la densidad para una distribución \(\chi^2_1\) usando
@@ -3307,7 +3434,7 @@ valor por defecto es 0.5 que indica que el texto debe quedar centrado en
 las coordenadas x e y indicadas, un valor de 0 significa justificación a
 izquierda mientras que 1 significa justificación a derecha.
 
-\subsection*{Ejemplo}\label{ejemplo-28}
+\subsection*{Ejemplo}\label{ejemplo-30}
 
 
 Dibujar un gráfico vacío, ubicar las palabra \emph{hola mi mundo}
@@ -3351,7 +3478,7 @@ del texto.
 Este parámetro sirve para modificar el color del fondo donde se va a
 dibujar.
 
-\subsection*{Ejemplo}\label{ejemplo-29}
+\subsection*{Ejemplo}\label{ejemplo-31}
 
 
 Dibujar la densidad de una normal estándar usando un color verde para el
@@ -3387,7 +3514,7 @@ modificar este parámetro es \texttt{mfrow=c(nf,\ nc)}, donde \texttt{nf}
 es el número de filas y \texttt{nc} el número de columnas en las cuales
 se va a dividir la ventana gráfica.
 
-\subsection*{Ejemplo}\label{ejemplo-30}
+\subsection*{Ejemplo}\label{ejemplo-32}
 
 
 Dibujar la distribución de probabilidad para una distribución Poisson
@@ -3446,7 +3573,7 @@ obtener la caja usual; se pueden usar también los símboloes
 caja con la forma del símbolo; se puede usar
 \texttt{\textquotesingle{}n\textquotesingle{}} para suprimir la caja.
 
-\subsection*{Ejemplo}\label{ejemplo-31}
+\subsection*{Ejemplo}\label{ejemplo-33}
 
 
 Dibujar la densidad de una \(\chi^2_5\) modificando el parámetro
@@ -3494,7 +3621,7 @@ este parámetro permiten obtener mejores figuras. A continuación un
 ejemplo para ver el efecto que tiene este parámetro sobre las figuras
 obtenidas.
 
-\subsection*{Ejemplo}\label{ejemplo-32}
+\subsection*{Ejemplo}\label{ejemplo-34}
 
 
 Hacer un gráfico de dispersión sencillo para explorar el efecto del
@@ -3544,7 +3671,7 @@ anteriores elementos simultáneamente mientras que los parámetros
 explicados en esta sección modifican cada uno de los elementos por
 aparte.
 
-\subsection*{Ejemplo}\label{ejemplo-33}
+\subsection*{Ejemplo}\label{ejemplo-35}
 
 
 Hacer un gráfico cualquiera y modificar los parámetros
@@ -3590,7 +3717,7 @@ personalizados en \proglang{R}.
 Estos parámetros sirven para definir el color a usar en los ejes, en los
 nombres de los ejes, en el título y en el subtítulo.
 
-\subsection*{Ejemplo}\label{ejemplo-34}
+\subsection*{Ejemplo}\label{ejemplo-36}
 
 
 Hacer un gráfico cualquiera y modificar los parámetros \texttt{col},
@@ -4194,7 +4321,7 @@ Los argumentos de la función son:
   confundir con \texttt{from} y \texttt{to}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-35}
+\subsection*{Ejemplo}\label{ejemplo-37}
 
 
 Dibujar las funciones \(f_1\), \(f_2\) y \(f_3\) usando la función
@@ -4243,7 +4370,7 @@ ventana gráfica en ese intervalo para el eje horizontal. En la Figura
 \caption{\label{fig:curve1}Dibujo de varias funciones en una misma ventana.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-36}
+\subsection*{Ejemplo}\label{ejemplo-38}
 
 
 Dibujar la figura de la relación entre las variables \(x\) y \(y\) dada
@@ -4312,7 +4439,7 @@ y se muestra a continuación.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.26in]{images/casita} 
+{\centering \includegraphics{images/casita} 
 
 }
 
