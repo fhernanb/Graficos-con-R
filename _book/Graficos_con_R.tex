@@ -220,7 +220,7 @@
 \title{Gráficos con R}
 \author{Freddy Hernández Barajas\\
 Juan Carlos Correa Morales}
-\date{2017-07-26}
+\date{2017-08-03}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -422,7 +422,7 @@ sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics{images/cran} 
+{\centering \includegraphics[width=4.54in]{images/cran} 
 
 }
 
@@ -440,7 +440,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics{images/instalacion1} 
+{\centering \includegraphics[width=5.31in]{images/instalacion1} 
 
 }
 
@@ -498,7 +498,7 @@ consola, para hacer esto se deben explorar las opciones de
 
 \begin{figure}
 
-{\centering \includegraphics{images/Rpantallazo} 
+{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
 
 }
 
@@ -3776,7 +3776,7 @@ las coordenadas como vectores.
 \section{\texorpdfstring{Función \texttt{polygon} \index{polygon}
 \index{polígonos}}{Función polygon  }}\label{funcion-polygon}
 
-Esta función es muy útil para digujar polígonos. La estructura de la
+Esta función es muy útil para dibujar polígonos. La estructura de la
 función se muestra a continuación.
 
 \begin{Shaded}
@@ -3831,6 +3831,82 @@ muestran las figuras obtenidas.
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/poly1-1.pdf}
 \caption{\label{fig:poly1}Ejemplo de formas obtenidas con \texttt{polygon}.}
+\end{figure}
+
+\section{\texorpdfstring{Función \texttt{abline}
+\index{abline}}{Función abline }}\label{funcion-abline}
+
+Esta función es muy útil para dibujar líneas rectas dada la ecuación
+\(y=a+bx\), donde \(a\) representa el intercepto y \(b\) la pendiente de
+la recta. La estructura de la función se muestra a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{a =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{b =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{h =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{v =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{reg =} \OtherTok{NULL}\NormalTok{,}
+       \DataTypeTok{coef =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{untf =} \OtherTok{FALSE}\NormalTok{, ...)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{a,\ b}: son los coeficientes de la ecuación, \texttt{a}
+  representa el intercepto y \texttt{b} la pendiente.
+\item
+  \texttt{h}: es el valor del eje Y por donde queremos que pase una
+  \textbf{recta horizontal}.
+\item
+  \texttt{v}: es el valor del eje X por donde queremos que pase una
+  \textbf{recta vertical}.
+\item
+  \texttt{coef}: vector de dos elementos con el intercepto y pendiente.
+\item
+  \texttt{reg}: objeto de clase \texttt{lm} resultante de haber usado la
+  función \texttt{lm}.
+\item
+  \texttt{...}: otros parámetros gráficos.
+\end{itemize}
+
+A continuación de muestra el código para dibujar la recta \(y=-5+3x\).
+En la Figura \ref{fig:abline1} se puede ver el resultado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\KeywordTok{c}\NormalTok{(-}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{), }\DataTypeTok{y=}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{),    }\CommentTok{# Para crear el lienzo}
+     \DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{, }\DataTypeTok{type=}\StringTok{'n'}\NormalTok{)  }\CommentTok{# donde se ubicará la recta}
+
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{a=}\NormalTok{-}\DecValTok{5}\NormalTok{, }\DataTypeTok{b=}\DecValTok{3}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{'blue'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/abline1-1.pdf}
+\caption{\label{fig:abline1}Ejemplo de una recta con la función abline.}
+\end{figure}
+
+A continuación de muestra el código para dibujar tres rectas, la de
+color verde debe ser horizontal y pasar por \(y=5\), la de color rojo
+debe ser horizontal y pasar por \(y=-3\) y la última debe ser vertical,
+de color naranja y pasar por \(x=2\). En la Figura \ref{fig:abline2} se
+puede ver el resultado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\KeywordTok{c}\NormalTok{(-}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{), }\DataTypeTok{y=}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{),    }\CommentTok{# Para crear el lienzo}
+     \DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{, }\DataTypeTok{type=}\StringTok{'n'}\NormalTok{)  }\CommentTok{# donde se ubicará la recta}
+
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{h=}\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, -}\DecValTok{3}\NormalTok{), }\DataTypeTok{v=}\DecValTok{2}\NormalTok{,}
+       \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'darkgreen'}\NormalTok{, }\StringTok{'red'}\NormalTok{, }\StringTok{'orange'}\NormalTok{), }\DataTypeTok{lwd=}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/abline2-1.pdf}
+\caption{\label{fig:abline2}Ejemplo de una recta con la función abline.}
 \end{figure}
 
 \section{\texorpdfstring{Para dibujar un círculo
@@ -4236,7 +4312,7 @@ y se muestra a continuación.
 
 \begin{figure}
 
-{\centering \includegraphics{images/casita} 
+{\centering \includegraphics[width=3.26in]{images/casita} 
 
 }
 

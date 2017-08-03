@@ -84,7 +84,7 @@ rect(240-i, 320+i, 250-i, 410+i, col=heat.colors(11), lwd=i/5)
 ```
 
 ## Función `polygon` \index{polygon} \index{polígonos}
-Esta función es muy útil para digujar polígonos. La estructura de la función se muestra a continuación.
+Esta función es muy útil para dibujar polígonos. La estructura de la función se muestra a continuación.
 
 ```{r, eval=FALSE}
 polygon(x, y, density = NULL, angle = 45,
@@ -103,7 +103,7 @@ Los argumentos de la función son:
 
 A continuación se muestra como usar la función `polygon` para dibujar un triángulo y un cuadrilátero. En la Figura \@ref(fig:poly1) se muestran las figuras obtenidas.
 
-```{r poly1, fig.cap='Ejemplo de formas obtenidas con `polygon`.', fig.asp=0.8, fig.width=6}
+```{r poly1, fig.cap='Ejemplo de formas obtenidas con `polygon`.', fig.asp=1, fig.width=3.5}
 plot(0:5, 0:5, type="n", xlab="", ylab="")
 abline(v=0:5, h=0:5, col=gray(0.8), lty='dashed')
 
@@ -112,6 +112,42 @@ polygon(x=c(0, 1, 2), y=c(1, 5, 2),         # Para el triangulo
 
 polygon(x=c(3, 5, 5, 2), y=c(5, 4, 1, 1), # Para el cuadrilatero
         col='orange', border='darkgreen', lwd=4)
+```
+
+## Función `abline` \index{abline}
+Esta función es muy útil para dibujar líneas rectas dada la ecuación $y=a+bx$, donde $a$ representa el intercepto y $b$ la pendiente de la recta. La estructura de la función se muestra a continuación.
+
+```{r, eval=FALSE}
+abline(a = NULL, b = NULL, h = NULL, v = NULL, reg = NULL,
+       coef = NULL, untf = FALSE, ...)
+```
+
+Los argumentos de la función son:
+
+- `a, b`: son los coeficientes de la ecuación, `a` representa el intercepto y `b` la pendiente.
+- `h`: es el valor del eje Y por donde queremos que pase una __recta horizontal__.
+- `v`: es el valor del eje X por donde queremos que pase una __recta vertical__.
+- `coef`: vector de dos elementos con el intercepto y pendiente.
+- `reg`: objeto de clase `lm` resultante de haber usado la función `lm`.
+- `...`: otros parámetros gráficos.
+
+A continuación de muestra el código para dibujar la recta $y=-5+3x$. En la Figura \@ref(fig:abline1) se puede ver el resultado.
+
+```{r abline1, fig.cap='Ejemplo de una recta con la función abline.', fig.asp=1, fig.width=3.3}
+plot(x=c(-5, 5), y=c(-10, 10),    # Para crear el lienzo
+     xlab="", ylab="", type='n')  # donde se ubicará la recta
+
+abline(a=-5, b=3, lwd=3, col='blue')
+```
+
+A continuación de muestra el código para dibujar tres rectas, la de color verde debe ser horizontal y pasar por $y=5$, la de color rojo debe ser horizontal y pasar por $y=-3$ y la última debe ser vertical, de color naranja y pasar por $x=2$. En la Figura \@ref(fig:abline2) se puede ver el resultado.
+
+```{r abline2, fig.cap='Ejemplo de una recta con la función abline.', fig.asp=1, fig.width=3.3}
+plot(x=c(-5, 5), y=c(-10, 10),    # Para crear el lienzo
+     xlab="", ylab="", type='n')  # donde se ubicará la recta
+
+abline(h=c(5, -3), v=2,
+       col=c('darkgreen', 'red', 'orange'), lwd=5)
 ```
 
 ## Para dibujar un círculo \index{círculos}
