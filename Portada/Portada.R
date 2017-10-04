@@ -19,7 +19,7 @@ legend('topleft', legend=levels(iris$Species),
 dev.off()
 
 
-jpeg(file = "portada.jpeg")
+jpeg(file = "portada.png")
 plot(1:10)
 rect(1, 5, 3, 7, col = "white")
 dev.off()
@@ -27,7 +27,7 @@ dev.off()
 
 
 
-jpeg(filename="portada999.jpeg", #bg="transparent",
+jpeg(filename="portada999.png", #bg="transparent",
      quality=99,
      width=859, height=453)
 

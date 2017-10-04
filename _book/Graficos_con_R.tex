@@ -18,9 +18,10 @@
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 % use microtype if available
 \IfFileExists{microtype.sty}{%
-\usepackage{microtype}
+\usepackage[]{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
+\PassOptionsToPackage{hyphens}{url} % url is loaded by hyperref
 \usepackage[unicode=true]{hyperref}
 \PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
 \hypersetup{
@@ -42,38 +43,40 @@
 \usepackage{framed}
 \definecolor{shadecolor}{RGB}{248,248,248}
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\ImportTok}[1]{{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
-\newcommand{\BuiltInTok}[1]{{#1}}
-\newcommand{\ExtensionTok}[1]{{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
-\newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\NormalTok}[1]{{#1}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
 \usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -102,6 +105,12 @@
 \let\oldsubparagraph\subparagraph
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
 \usepackage{booktabs}
 \usepackage[spanish]{babel}
 \decimalpoint
@@ -220,7 +229,7 @@
 \title{Gráficos con R}
 \author{Freddy Hernández Barajas\\
 Juan Carlos Correa Morales}
-\date{2017-08-03}
+\date{2017-10-04}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -284,10 +293,10 @@ beige) similar a la mostrada a continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\DecValTok{4} \NormalTok{+}\StringTok{ }\DecValTok{6}
+\DecValTok{4} \OperatorTok{+}\StringTok{ }\DecValTok{6}
 \NormalTok{a <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{6}\NormalTok{)}
-\DecValTok{5} \NormalTok{*}\StringTok{ }\NormalTok{a}
-\DecValTok{1}\NormalTok{:}\DecValTok{10}
+\DecValTok{5} \OperatorTok{*}\StringTok{ }\NormalTok{a}
+\DecValTok{1}\OperatorTok{:}\DecValTok{10}
 \end{Highlighting}
 \end{Shaded}
 
@@ -422,7 +431,7 @@ sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics{images/cran} 
+{\centering \includegraphics[width=4.54in]{images/cran} 
 
 }
 
@@ -440,7 +449,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics{images/instalacion1} 
+{\centering \includegraphics[width=5.31in]{images/instalacion1} 
 
 }
 
@@ -498,7 +507,7 @@ consola, para hacer esto se deben explorar las opciones de
 
 \begin{figure}
 
-{\centering \includegraphics{images/Rpantallazo} 
+{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
 
 }
 
@@ -611,7 +620,7 @@ la consola.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{mimatriz <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{data=}\DecValTok{1}\NormalTok{:}\DecValTok{20}\NormalTok{, }\DataTypeTok{nrow=}\DecValTok{4}\NormalTok{, }\DataTypeTok{ncol=}\DecValTok{5}\NormalTok{, }\DataTypeTok{byrow=}\OtherTok{FALSE}\NormalTok{)}
+\NormalTok{mimatriz <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{data=}\DecValTok{1}\OperatorTok{:}\DecValTok{20}\NormalTok{, }\DataTypeTok{nrow=}\DecValTok{4}\NormalTok{, }\DataTypeTok{ncol=}\DecValTok{5}\NormalTok{, }\DataTypeTok{byrow=}\OtherTok{FALSE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -648,7 +657,7 @@ alfabeto se escribe el siguiente código.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{miarray <-}\StringTok{ }\KeywordTok{array}\NormalTok{(}\DataTypeTok{data=}\NormalTok{letters[}\DecValTok{1}\NormalTok{:}\DecValTok{24}\NormalTok{], }\DataTypeTok{dim=}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\NormalTok{miarray <-}\StringTok{ }\KeywordTok{array}\NormalTok{(}\DataTypeTok{data=}\NormalTok{letters[}\DecValTok{1}\OperatorTok{:}\DecValTok{24}\NormalTok{], }\DataTypeTok{dim=}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{2}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -738,7 +747,7 @@ muestran a continuación.
 \begin{Highlighting}[]
 \KeywordTok{set.seed}\NormalTok{(}\DecValTok{12345}\NormalTok{)}
 \NormalTok{mivector <-}\StringTok{ }\KeywordTok{runif}\NormalTok{(}\DataTypeTok{n=}\DecValTok{5}\NormalTok{)}
-\NormalTok{matriz2 <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{data=}\DecValTok{1}\NormalTok{:}\DecValTok{12}\NormalTok{, }\DataTypeTok{ncol=}\DecValTok{6}\NormalTok{)}
+\NormalTok{matriz2 <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{data=}\DecValTok{1}\OperatorTok{:}\DecValTok{12}\NormalTok{, }\DataTypeTok{ncol=}\DecValTok{6}\NormalTok{)}
 \NormalTok{milista <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}\DataTypeTok{E1=}\NormalTok{mivector, }\DataTypeTok{E2=}\NormalTok{matriz2, }\DataTypeTok{E3=}\NormalTok{mimarco)}
 \end{Highlighting}
 \end{Shaded}
@@ -844,14 +853,14 @@ y malas prácticas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{tab <-}\StringTok{ }\KeywordTok{table}\NormalTok{(df[df$days <}\StringTok{ }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{])  }\CommentTok{# Bien}
+\NormalTok{tab <-}\StringTok{ }\KeywordTok{table}\NormalTok{(df[df}\OperatorTok{$}\NormalTok{days }\OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{])  }\CommentTok{# Bien}
 \NormalTok{tot <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(x[, }\DecValTok{1}\NormalTok{])                }\CommentTok{# Bien}
 \NormalTok{tot <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(x[}\DecValTok{1}\NormalTok{, ])                }\CommentTok{# Bien}
-\NormalTok{tab <-}\StringTok{ }\KeywordTok{table}\NormalTok{(df[df$days<}\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{])    }\CommentTok{# Faltan espacios alrededor '<' }
-\NormalTok{tab <-}\StringTok{ }\KeywordTok{table}\NormalTok{(df[df$days <}\StringTok{ }\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{])   }\CommentTok{# Falta espacio luego de coma}
-\NormalTok{tab <-}\StringTok{ }\KeywordTok{table}\NormalTok{(df[df$days <}\StringTok{ }\DecValTok{0} \NormalTok{, }\DecValTok{2}\NormalTok{]) }\CommentTok{# Sobra espacio antes de coma}
-\NormalTok{tab<-}\StringTok{ }\KeywordTok{table}\NormalTok{(df[df$days <}\StringTok{ }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{])   }\CommentTok{# Falta espacio antes de '<-'}
-\NormalTok{tab<-}\KeywordTok{table}\NormalTok{(df[df$days <}\StringTok{ }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{])    }\CommentTok{# Falta espacio alrededor de '<-'}
+\NormalTok{tab <-}\StringTok{ }\KeywordTok{table}\NormalTok{(df[df}\OperatorTok{$}\NormalTok{days}\OperatorTok{<}\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{])    }\CommentTok{# Faltan espacios alrededor '<' }
+\NormalTok{tab <-}\StringTok{ }\KeywordTok{table}\NormalTok{(df[df}\OperatorTok{$}\NormalTok{days }\OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{,}\DecValTok{2}\NormalTok{])   }\CommentTok{# Falta espacio luego de coma}
+\NormalTok{tab <-}\StringTok{ }\KeywordTok{table}\NormalTok{(df[df}\OperatorTok{$}\NormalTok{days }\OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{ , }\DecValTok{2}\NormalTok{]) }\CommentTok{# Sobra espacio antes de coma}
+\NormalTok{tab<-}\StringTok{ }\KeywordTok{table}\NormalTok{(df[df}\OperatorTok{$}\NormalTok{days }\OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{])   }\CommentTok{# Falta espacio antes de '<-'}
+\NormalTok{tab<-}\KeywordTok{table}\NormalTok{(df[df}\OperatorTok{$}\NormalTok{days }\OperatorTok{<}\StringTok{ }\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{])    }\CommentTok{# Falta espacio alrededor de '<-'}
 \NormalTok{tot <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(x[,}\DecValTok{1}\NormalTok{])                 }\CommentTok{# Falta espacio luego de coma}
 \NormalTok{tot <-}\StringTok{ }\KeywordTok{sum}\NormalTok{(x[}\DecValTok{1}\NormalTok{,])                 }\CommentTok{# Falta espacio luego de coma}
 \end{Highlighting}
@@ -862,9 +871,9 @@ cuando se llama una función.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{if (debug)    }\CommentTok{# Correcto}
-\NormalTok{if(debug)     }\CommentTok{# Funciona pero no se recomienda}
-\KeywordTok{colMeans} \NormalTok{(x)  }\CommentTok{# Funciona pero no se recomienda}
+\ControlFlowTok{if}\NormalTok{ (debug)    }\CommentTok{# Correcto}
+\ControlFlowTok{if}\NormalTok{(debug)     }\CommentTok{# Funciona pero no se recomienda}
+\KeywordTok{colMeans}\NormalTok{ (x)  }\CommentTok{# Funciona pero no se recomienda}
 \end{Highlighting}
 \end{Shaded}
 
@@ -873,12 +882,12 @@ del código, ver el ejemplo siguiente.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x    =} \NormalTok{x.coord,}
-     \DataTypeTok{y    =} \NormalTok{data.mat[, }\KeywordTok{MakeColName}\NormalTok{(metric, ptiles[}\DecValTok{1}\NormalTok{], }\StringTok{"roiOpt"}\NormalTok{)],}
-     \DataTypeTok{ylim =} \NormalTok{ylim,}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x    =}\NormalTok{ x.coord,}
+     \DataTypeTok{y    =}\NormalTok{ data.mat[, }\KeywordTok{MakeColName}\NormalTok{(metric, ptiles[}\DecValTok{1}\NormalTok{], }\StringTok{"roiOpt"}\NormalTok{)],}
+     \DataTypeTok{ylim =}\NormalTok{ ylim,}
      \DataTypeTok{xlab =} \StringTok{"dates"}\NormalTok{,}
-     \DataTypeTok{ylab =} \NormalTok{metric,}
-     \DataTypeTok{main =} \NormalTok{(}\KeywordTok{paste}\NormalTok{(metric, }\StringTok{" for 3 samples "}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)))}
+     \DataTypeTok{ylab =}\NormalTok{ metric,}
+     \DataTypeTok{main =}\NormalTok{ (}\KeywordTok{paste}\NormalTok{(metric, }\StringTok{" for 3 samples "}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -888,9 +897,9 @@ de una coma, ver el ejemplo siguiente.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{if (condicion)    }\CommentTok{# Correcto }
+\ControlFlowTok{if}\NormalTok{ (condicion)    }\CommentTok{# Correcto }
 \NormalTok{x[}\DecValTok{1}\NormalTok{, ]            }\CommentTok{# Correcto}
-\NormalTok{if ( condicion )  }\CommentTok{# Sobran espacios alrededor de condicion}
+\ControlFlowTok{if}\NormalTok{ ( condicion )  }\CommentTok{# Sobran espacios alrededor de condicion}
 \NormalTok{x[}\DecValTok{1}\NormalTok{,]             }\CommentTok{# Se necesita espacio luego de coma}
 \end{Highlighting}
 \end{Shaded}
@@ -905,21 +914,21 @@ dos ejemplos de lo que se recomienda.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{if (}\KeywordTok{is.null}\NormalTok{(ylim)) \{                     }\CommentTok{# Correcto}
-  \NormalTok{ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)}
+\ControlFlowTok{if}\NormalTok{ (}\KeywordTok{is.null}\NormalTok{(ylim)) \{                     }\CommentTok{# Correcto}
+\NormalTok{  ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)}
 \NormalTok{\}}
 
-\NormalTok{if (}\KeywordTok{is.null}\NormalTok{(ylim))                       }\CommentTok{# Correcto}
-  \NormalTok{ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)}
+\ControlFlowTok{if}\NormalTok{ (}\KeywordTok{is.null}\NormalTok{(ylim))                       }\CommentTok{# Correcto}
+\NormalTok{  ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)}
 
-\NormalTok{if (}\KeywordTok{is.null}\NormalTok{(ylim)) ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)    }\CommentTok{# Aceptable}
+\ControlFlowTok{if}\NormalTok{ (}\KeywordTok{is.null}\NormalTok{(ylim)) ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)    }\CommentTok{# Aceptable}
 
-\NormalTok{if (}\KeywordTok{is.null}\NormalTok{(ylim))                       }\CommentTok{# No se recomienda}
+\ControlFlowTok{if}\NormalTok{ (}\KeywordTok{is.null}\NormalTok{(ylim))                       }\CommentTok{# No se recomienda}
 \NormalTok{\{        }
-  \NormalTok{ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)}
+\NormalTok{  ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)}
 \NormalTok{\}}
     
-\NormalTok{if (}\KeywordTok{is.null}\NormalTok{(ylim)) \{ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)\}}
+\ControlFlowTok{if}\NormalTok{ (}\KeywordTok{is.null}\NormalTok{(ylim)) \{ylim <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.06}\NormalTok{)\}}
 \CommentTok{# Frente a la llave \{ no debe ir nada}
 \CommentTok{# la llave de cierre \} debe ir sola}
 \end{Highlighting}
@@ -930,25 +939,25 @@ siguiente ejemplo.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{if (condition) \{         }
-  \NormalTok{one or more lines}
-\NormalTok{\} else \{                 }\CommentTok{# Correcto}
-  \NormalTok{one or more lines}
+\ControlFlowTok{if}\NormalTok{ (condition) \{         }
+\NormalTok{  one or more lines}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{                 }\CommentTok{# Correcto}
+\NormalTok{  one or more lines}
 \NormalTok{\}}
 
 
-\NormalTok{if (condition) \{         }
-  \NormalTok{one or more lines}
+\ControlFlowTok{if}\NormalTok{ (condition) \{         }
+\NormalTok{  one or more lines}
 \NormalTok{\}}
-\NormalTok{else \{                   }\CommentTok{# Incorrecto}
-  \NormalTok{one or more lines}
+\ControlFlowTok{else}\NormalTok{ \{                   }\CommentTok{# Incorrecto}
+\NormalTok{  one or more lines}
 \NormalTok{\}}
 
 
-\NormalTok{if (condition)           }
-  \NormalTok{one line}
-\NormalTok{else                     }\CommentTok{# Incorrecto}
-  \NormalTok{one line}
+\ControlFlowTok{if}\NormalTok{ (condition)           }
+\NormalTok{  one line}
+\ControlFlowTok{else}                     \CommentTok{# Incorrecto}
+\NormalTok{  one line}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1074,7 +1083,7 @@ usado.
 \begin{Highlighting}[]
 \NormalTok{url <-}\StringTok{ 'https://tinyurl.com/k55nnlu'}
 \NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
-\KeywordTok{stem}\NormalTok{(datos$altura)}
+\KeywordTok{stem}\NormalTok{(datos}\OperatorTok{$}\NormalTok{altura)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1109,8 +1118,8 @@ continuación.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{boxplot}\NormalTok{(x, formula, data, subset, na.action,}
-        \NormalTok{range, width, varwidth, notch, names, }
-        \NormalTok{plot, col, log, horizontal, add, ...)}
+\NormalTok{        range, width, varwidth, notch, names, }
+\NormalTok{        plot, col, log, horizontal, add, ...)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1182,12 +1191,12 @@ obtener ambos gráfico. A continuación el código usado.
 \NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
 
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
-\KeywordTok{boxplot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$altura, }\DataTypeTok{ylab=}\StringTok{'Altura (cm)'}\NormalTok{)}
-\KeywordTok{boxplot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$altura, }\DataTypeTok{xlab=}\StringTok{'Altura (cm)'}\NormalTok{, }\DataTypeTok{horizontal=}\OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos}\OperatorTok{$}\NormalTok{altura, }\DataTypeTok{ylab=}\StringTok{'Altura (cm)'}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos}\OperatorTok{$}\NormalTok{altura, }\DataTypeTok{xlab=}\StringTok{'Altura (cm)'}\NormalTok{, }\DataTypeTok{horizontal=}\OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/boxplots-1.pdf}
 \caption{\label{fig:boxplots}Boxplot para la variable altura.}
@@ -1225,20 +1234,20 @@ aparezcan las otras ubicaciones.
 \NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(url, }\DataTypeTok{header=}\NormalTok{T)}
 
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
-\KeywordTok{boxplot}\NormalTok{(precio ~}\StringTok{ }\NormalTok{balcon, }\DataTypeTok{data=}\NormalTok{datos,}
+\KeywordTok{boxplot}\NormalTok{(precio }\OperatorTok{~}\StringTok{ }\NormalTok{balcon, }\DataTypeTok{data=}\NormalTok{datos,}
         \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'lightblue'}\NormalTok{, }\StringTok{'pink'}\NormalTok{),}
         \DataTypeTok{xlab=}\StringTok{'¿Tiene balcón?'}\NormalTok{,}
         \DataTypeTok{ylab=}\StringTok{'Precio (millones $)'}\NormalTok{)}
 
-\KeywordTok{boxplot}\NormalTok{(precio ~}\StringTok{ }\NormalTok{ubicacion *}\StringTok{ }\NormalTok{parqueadero,}
+\KeywordTok{boxplot}\NormalTok{(precio }\OperatorTok{~}\StringTok{ }\NormalTok{ubicacion }\OperatorTok{*}\StringTok{ }\NormalTok{parqueadero,}
         \DataTypeTok{data=}\NormalTok{datos, }\DataTypeTok{drop=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'lightblue'}\NormalTok{, }\StringTok{'pink'}\NormalTok{),}
-        \DataTypeTok{subset=}\NormalTok{ubicacion %in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'laureles'}\NormalTok{, }\StringTok{'aburra sur'}\NormalTok{),}
+        \DataTypeTok{subset=}\NormalTok{ubicacion }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'laureles'}\NormalTok{, }\StringTok{'aburra sur'}\NormalTok{),}
         \DataTypeTok{xlab=}\StringTok{'Ubicación y parqueadero'}\NormalTok{,}
         \DataTypeTok{ylab=}\StringTok{'Precio (millones $)'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/boxplots2-1.pdf}
 \caption{\label{fig:boxplots2}Boxplot para la variable altura.}
@@ -1354,10 +1363,10 @@ es necesario convertir los tiempos anteriores almacenados en
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{horas <-}\StringTok{ }\NormalTok{maraton %/%}\StringTok{ }\DecValTok{10000}
-\NormalTok{min <-}\StringTok{ }\NormalTok{(maraton -}\StringTok{ }\NormalTok{horas *}\StringTok{ }\DecValTok{10000}\NormalTok{) %/%}\StringTok{ }\DecValTok{100}
-\NormalTok{seg <-}\StringTok{ }\NormalTok{maraton -}\StringTok{ }\NormalTok{horas *}\StringTok{ }\DecValTok{10000} \NormalTok{-}\StringTok{ }\NormalTok{min *}\StringTok{ }\DecValTok{100}
-\NormalTok{Tiempos <-}\StringTok{ }\NormalTok{horas +}\StringTok{ }\NormalTok{min /}\StringTok{ }\DecValTok{60} \NormalTok{+}\StringTok{ }\NormalTok{seg /}\StringTok{ }\DecValTok{3600}
+\NormalTok{horas <-}\StringTok{ }\NormalTok{maraton }\OperatorTok{%/%}\StringTok{ }\DecValTok{10000}
+\NormalTok{min <-}\StringTok{ }\NormalTok{(maraton }\OperatorTok{-}\StringTok{ }\NormalTok{horas }\OperatorTok{*}\StringTok{ }\DecValTok{10000}\NormalTok{) }\OperatorTok{%/%}\StringTok{ }\DecValTok{100}
+\NormalTok{seg <-}\StringTok{ }\NormalTok{maraton }\OperatorTok{-}\StringTok{ }\NormalTok{horas }\OperatorTok{*}\StringTok{ }\DecValTok{10000} \OperatorTok{-}\StringTok{ }\NormalTok{min }\OperatorTok{*}\StringTok{ }\DecValTok{100}
+\NormalTok{Tiempos <-}\StringTok{ }\NormalTok{horas }\OperatorTok{+}\StringTok{ }\NormalTok{min }\OperatorTok{/}\StringTok{ }\DecValTok{60} \OperatorTok{+}\StringTok{ }\NormalTok{seg }\OperatorTok{/}\StringTok{ }\DecValTok{3600}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1387,7 +1396,7 @@ con 2, 4, 8 y 16 intervalos para los tiempos a partir de la variable
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/hist1-1.pdf}
 \caption{\label{fig:hist1}Histogramas para el tiempo en la media maratón de
@@ -1438,7 +1447,7 @@ corte y los cuatro histogramas.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/hist2-1.pdf}
 \caption{\label{fig:hist2}Histogramas para el tiempo en la media maratón de
@@ -1510,12 +1519,12 @@ muestra a continuación.
 \KeywordTok{qqline}\NormalTok{(}\DataTypeTok{y=}\NormalTok{muestra)}
 
 \KeywordTok{qqnorm}\NormalTok{(}\DataTypeTok{y=}\NormalTok{muestra, }\DataTypeTok{main=}\StringTok{''}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Cuantiles muestrales'}\NormalTok{,}
-       \DataTypeTok{xlab=}\StringTok{'Cuantiles teóricos'}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{)}
-\KeywordTok{qqline}\NormalTok{(}\DataTypeTok{y=}\NormalTok{muestra, }\DataTypeTok{col=}\StringTok{'blue'}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{2}\NormalTok{)}
+       \DataTypeTok{xlab=}\StringTok{'Cuantiles teóricos', las=1)}
+\StringTok{qqline(y=muestra, col='}\NormalTok{blue}\StringTok{', lwd=2, lty=2)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/qqplot1-1.pdf}
 \caption{\label{fig:qqplot1}Gráfico cuantil cuantil para una muestra
@@ -1549,7 +1558,7 @@ se muestra a continuación.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/qqplot2-1.pdf}
 \caption{\label{fig:qqplot2}Gráfico cuantil cuantil para una muestra
@@ -1653,7 +1662,7 @@ núcleos.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/density1-1.pdf}
 \caption{\label{fig:density1}Densidad para una muestra aleatoria de una N(0,
@@ -1678,7 +1687,7 @@ de banda.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/density2-1.pdf}
 \caption{\label{fig:density2}Densidad para una muestra aleatoria de una N(0,
@@ -1706,11 +1715,11 @@ la misma variable pero diferenciando por sexo.
 \NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
 
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(datos$peso), }\DataTypeTok{main=}\StringTok{'Distribución del peso corporal'}\NormalTok{,}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{density}\NormalTok{(datos}\OperatorTok{$}\NormalTok{peso), }\DataTypeTok{main=}\StringTok{'Distribución del peso corporal'}\NormalTok{,}
      \DataTypeTok{xlab=}\StringTok{'Peso corporal (kg)'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{)}
 
-\NormalTok{den.hom <-}\StringTok{ }\KeywordTok{with}\NormalTok{(datos, }\KeywordTok{density}\NormalTok{(peso[sexo ==}\StringTok{ 'Hombre'}\NormalTok{]))}
-\NormalTok{den.muj <-}\StringTok{ }\KeywordTok{with}\NormalTok{(datos, }\KeywordTok{density}\NormalTok{(peso[sexo ==}\StringTok{ 'Mujer'}\NormalTok{]))}
+\NormalTok{den.hom <-}\StringTok{ }\KeywordTok{with}\NormalTok{(datos, }\KeywordTok{density}\NormalTok{(peso[sexo }\OperatorTok{==}\StringTok{ 'Hombre'}\NormalTok{]))}
+\NormalTok{den.muj <-}\StringTok{ }\KeywordTok{with}\NormalTok{(datos, }\KeywordTok{density}\NormalTok{(peso[sexo }\OperatorTok{==}\StringTok{ 'Mujer'}\NormalTok{]))}
 
 \KeywordTok{plot}\NormalTok{(den.hom, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{, }\DecValTok{120}\NormalTok{), }
      \DataTypeTok{main=}\StringTok{'Distribución del peso corporal por género'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{,}
@@ -1721,7 +1730,7 @@ la misma variable pero diferenciando por sexo.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/density3-1.pdf}
 \caption{\label{fig:density3}Densidad para la variable peso en la izquierda,
@@ -1818,8 +1827,8 @@ dispersión.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{x <-}\StringTok{ }\NormalTok{-}\DecValTok{5}\NormalTok{:}\DecValTok{10}
-\NormalTok{y <-}\StringTok{ }\NormalTok{-}\DecValTok{10} \NormalTok{+}\StringTok{ }\NormalTok{(x}\DecValTok{-3}\NormalTok{)^}\DecValTok{2}
+\NormalTok{x <-}\StringTok{ }\OperatorTok{-}\DecValTok{5}\OperatorTok{:}\DecValTok{10}
+\NormalTok{y <-}\StringTok{ }\OperatorTok{-}\DecValTok{10} \OperatorTok{+}\StringTok{ }\NormalTok{(x}\OperatorTok{-}\DecValTok{3}\NormalTok{)}\OperatorTok{^}\DecValTok{2}
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{3}\NormalTok{))}
 \KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{y, }\DataTypeTok{type=}\StringTok{'p'}\NormalTok{, }\DataTypeTok{main=}\StringTok{"con type='p'"}\NormalTok{)}
 \KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{y, }\DataTypeTok{type=}\StringTok{'l'}\NormalTok{, }\DataTypeTok{main=}\StringTok{"con type='l'"}\NormalTok{)}
@@ -1833,7 +1842,7 @@ dispersión.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/ex1plot-1.pdf}
 \caption{\label{fig:ex1plot}Efecto del parámetro \texttt{type} en la función
@@ -1854,13 +1863,13 @@ construir el diagrama de dispersión se muestra a continuación.
 \NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
 
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$mt2, }\DataTypeTok{y=}\NormalTok{datos$precio)}
-\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$mt2, }\DataTypeTok{y=}\NormalTok{datos$precio, }\DataTypeTok{pch=}\StringTok{'.'}\NormalTok{,}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos}\OperatorTok{$}\NormalTok{mt2, }\DataTypeTok{y=}\NormalTok{datos}\OperatorTok{$}\NormalTok{precio)}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos}\OperatorTok{$}\NormalTok{mt2, }\DataTypeTok{y=}\NormalTok{datos}\OperatorTok{$}\NormalTok{precio, }\DataTypeTok{pch=}\StringTok{'.'}\NormalTok{,}
      \DataTypeTok{xlab=}\StringTok{'Área del apartamento (m2)'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Precio (millones de pesos)'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/ex2plot-1.pdf}
 \caption{\label{fig:ex2plot}Diagrama de dispersión del precio del
@@ -1894,7 +1903,7 @@ apartamentos pero incluyendo otras variables.
 \begin{Highlighting}[]
 \NormalTok{url <-}\StringTok{ 'https://tinyurl.com/hwhb769'}
 \NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(url, }\DataTypeTok{header=}\NormalTok{T)}
-\NormalTok{subdat <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(datos, ubicacion ==}\StringTok{ 'centro'}\NormalTok{)}
+\NormalTok{subdat <-}\StringTok{ }\KeywordTok{subset}\NormalTok{(datos, ubicacion }\OperatorTok{==}\StringTok{ 'centro'}\NormalTok{)}
 
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
 \KeywordTok{with}\NormalTok{(subdat, }\KeywordTok{symbols}\NormalTok{(}\DataTypeTok{x=}\NormalTok{mt2, }\DataTypeTok{y=}\NormalTok{precio,}
@@ -1911,7 +1920,7 @@ apartamentos pero incluyendo otras variables.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/symbols1-1.pdf}
 \caption{\label{fig:symbols1}Diagrama de dispersión con los símbolos circle
@@ -1929,14 +1938,14 @@ y squares para incluir más variables.}
 
 \KeywordTok{with}\NormalTok{(subdat, }\KeywordTok{symbols}\NormalTok{(}\DataTypeTok{x=}\NormalTok{mt2, }\DataTypeTok{y=}\NormalTok{precio,}
                      \DataTypeTok{stars=}\KeywordTok{cbind}\NormalTok{(estrato, alcobas,}
-                                 \NormalTok{banos), }
+\NormalTok{                                 banos), }
                      \DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{inches=}\FloatTok{0.4}\NormalTok{, }
                      \DataTypeTok{fg=}\StringTok{'purple1'}\NormalTok{, }\DataTypeTok{bg=}\StringTok{'tomato'}\NormalTok{,}
                      \DataTypeTok{main=}\StringTok{'Estrato, alcobas y n° baños'}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/symbols2-1.pdf}
 \caption{\label{fig:symbols2}Diagrama de dispersión con los símbolos
@@ -1962,7 +1971,7 @@ dispersión para un conjunto de datos, en la diagonal están los nombres
 de las variables y por fuera de la diagonal están los diagramas de
 dispersión para cada combinación de variables.
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/ex0pairs-1.pdf}
 \caption{\label{fig:ex0pairs}Ilustración de una matriz de dispersión.}
@@ -1973,11 +1982,11 @@ usuales se muestran a continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{pairs}\NormalTok{(x, labels, }\DataTypeTok{panel =} \NormalTok{points, ...,}
-      \DataTypeTok{horInd =} \DecValTok{1}\NormalTok{:nc, }\DataTypeTok{verInd =} \DecValTok{1}\NormalTok{:nc,}
-      \DataTypeTok{lower.panel =} \NormalTok{panel, }\DataTypeTok{upper.panel =} \NormalTok{panel,}
-      \DataTypeTok{diag.panel =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{text.panel =} \NormalTok{textPanel,}
-      \DataTypeTok{label.pos =} \FloatTok{0.5} \NormalTok{+}\StringTok{ }\NormalTok{has.diag/}\DecValTok{3}\NormalTok{, }\DataTypeTok{line.main =} \DecValTok{3}\NormalTok{,}
+\KeywordTok{pairs}\NormalTok{(x, labels, }\DataTypeTok{panel =}\NormalTok{ points, ...,}
+      \DataTypeTok{horInd =} \DecValTok{1}\OperatorTok{:}\NormalTok{nc, }\DataTypeTok{verInd =} \DecValTok{1}\OperatorTok{:}\NormalTok{nc,}
+      \DataTypeTok{lower.panel =}\NormalTok{ panel, }\DataTypeTok{upper.panel =}\NormalTok{ panel,}
+      \DataTypeTok{diag.panel =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{text.panel =}\NormalTok{ textPanel,}
+      \DataTypeTok{label.pos =} \FloatTok{0.5} \OperatorTok{+}\StringTok{ }\NormalTok{has.diag}\OperatorTok{/}\DecValTok{3}\NormalTok{, }\DataTypeTok{line.main =} \DecValTok{3}\NormalTok{,}
       \DataTypeTok{cex.labels =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{font.labels =} \DecValTok{1}\NormalTok{,}
       \DataTypeTok{row1attop =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{gap =} \DecValTok{1}\NormalTok{, }\DataTypeTok{log =} \StringTok{""}\NormalTok{)}
 \end{Highlighting}
@@ -2053,7 +2062,7 @@ baños.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/ex1pairs-1.pdf}
 \caption{\label{fig:ex1pairs}Matriz de dispersión para las variables precio,
@@ -2079,13 +2088,13 @@ la nueva matriz de dispersión.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{pairs}\NormalTok{(datos.num, }\DataTypeTok{lower.panel=}\OtherTok{NULL}\NormalTok{, }\DataTypeTok{cex.labels=}\FloatTok{1.5}\NormalTok{, }\DataTypeTok{log=}\StringTok{'xy'}\NormalTok{,}
-      \DataTypeTok{main=}\StringTok{'Matriz de dispersión'}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
-      \DataTypeTok{labels=}\KeywordTok{c}\NormalTok{(}\StringTok{'Precio'}\NormalTok{, }\StringTok{'Área'}\NormalTok{, }\StringTok{'Num alcobas'}\NormalTok{, }\StringTok{'Num baños'}\NormalTok{),}
-      \DataTypeTok{pch=}\DecValTok{3}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.6}\NormalTok{, }\DataTypeTok{col=}\StringTok{'red'}\NormalTok{)}
+      \DataTypeTok{main=}\StringTok{'Matriz de dispersión', las=1,}
+\StringTok{      labels=c('}\NormalTok{Precio}\StringTok{', '}\NormalTok{Área}\StringTok{', '}\NormalTok{Num alcobas}\StringTok{', '}\NormalTok{Num baños}\StringTok{'),}
+\StringTok{      pch=3, cex=0.6, col='}\NormalTok{red}\StringTok{')}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/ex2pairs-1.pdf}
 \caption{\label{fig:ex2pairs}Matriz de dispersión modificando los parámetros
@@ -2117,16 +2126,16 @@ solicitada.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{col1 <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(datos$parqueadero ==}\StringTok{ 'no'}\NormalTok{, }\StringTok{'red'}\NormalTok{, }\StringTok{'green3'}\NormalTok{)}
-\KeywordTok{pairs}\NormalTok{(~}\StringTok{ }\NormalTok{precio +}\StringTok{ }\NormalTok{mt2 +}\StringTok{ }\NormalTok{avaluo, }\DataTypeTok{data=}\NormalTok{datos,}
+\NormalTok{col1 <-}\StringTok{ }\KeywordTok{ifelse}\NormalTok{(datos}\OperatorTok{$}\NormalTok{parqueadero }\OperatorTok{==}\StringTok{ 'no'}\NormalTok{, }\StringTok{'red'}\NormalTok{, }\StringTok{'green3'}\NormalTok{)}
+\KeywordTok{pairs}\NormalTok{(}\OperatorTok{~}\StringTok{ }\NormalTok{precio }\OperatorTok{+}\StringTok{ }\NormalTok{mt2 }\OperatorTok{+}\StringTok{ }\NormalTok{avaluo, }\DataTypeTok{data=}\NormalTok{datos,}
       \DataTypeTok{lower.panel=}\OtherTok{NULL}\NormalTok{, }\DataTypeTok{col=}\NormalTok{col1,}
-      \DataTypeTok{subset=}\NormalTok{mt2 >}\StringTok{ }\DecValTok{100} \NormalTok{&}\StringTok{ }\NormalTok{mt2 <}\StringTok{ }\DecValTok{130}\NormalTok{, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.8}\NormalTok{,}
+      \DataTypeTok{subset=}\NormalTok{mt2 }\OperatorTok{>}\StringTok{ }\DecValTok{100} \OperatorTok{&}\StringTok{ }\NormalTok{mt2 }\OperatorTok{<}\StringTok{ }\DecValTok{130}\NormalTok{, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.8}\NormalTok{,}
       \DataTypeTok{main=}\StringTok{"Matriz de dispersión para aptos con }
 \StringTok{      100 < área < 130 mt2"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/ex3pairs-1.pdf}
 \caption{\label{fig:ex3pairs}Matriz de dispersión con un subconjunto de los
@@ -2152,16 +2161,16 @@ A continuación se muestra el código para el ejemplo y en la Figura
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{pairs}\NormalTok{(iris[}\DecValTok{1}\NormalTok{:}\DecValTok{4}\NormalTok{], }\DataTypeTok{main=}\StringTok{"Anderson's Iris Data -- 3 species"}\NormalTok{,}
-      \DataTypeTok{pch=}\DecValTok{21}\NormalTok{, }\DataTypeTok{bg=}\KeywordTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"green3"}\NormalTok{, }\StringTok{"blue"}\NormalTok{)[iris$Species],}
+\KeywordTok{pairs}\NormalTok{(iris[}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{], }\DataTypeTok{main=}\StringTok{"Anderson's Iris Data -- 3 species"}\NormalTok{,}
+      \DataTypeTok{pch=}\DecValTok{21}\NormalTok{, }\DataTypeTok{bg=}\KeywordTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"green3"}\NormalTok{, }\StringTok{"blue"}\NormalTok{)[iris}\OperatorTok{$}\NormalTok{Species],}
       \DataTypeTok{oma=}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{12}\NormalTok{))}
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{xpd=}\OtherTok{TRUE}\NormalTok{)}
-\KeywordTok{legend}\NormalTok{(}\FloatTok{0.85}\NormalTok{, }\FloatTok{0.7}\NormalTok{, }\KeywordTok{as.vector}\NormalTok{(}\KeywordTok{unique}\NormalTok{(iris$Species)), }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{,}
+\KeywordTok{legend}\NormalTok{(}\FloatTok{0.85}\NormalTok{, }\FloatTok{0.7}\NormalTok{, }\KeywordTok{as.vector}\NormalTok{(}\KeywordTok{unique}\NormalTok{(iris}\OperatorTok{$}\NormalTok{Species)), }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{,}
        \DataTypeTok{fill=}\KeywordTok{c}\NormalTok{(}\StringTok{"red"}\NormalTok{, }\StringTok{"green3"}\NormalTok{, }\StringTok{"blue"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/expairs-1.pdf}
 \caption{\label{fig:expairs}Matriz de dispersión con leyenda.}
@@ -2201,43 +2210,43 @@ de los parámetros \texttt{upper.panel}, \texttt{diag.panel} y
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Función para dibujar los puntos y agregar la recta de regresión}
-\NormalTok{panel.reg <-}\StringTok{ }\NormalTok{function (x, y) }
+\NormalTok{panel.reg <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{ (x, y) }
 \NormalTok{\{}
   \KeywordTok{points}\NormalTok{(x, y, }\DataTypeTok{pch=}\DecValTok{20}\NormalTok{)}
-  \KeywordTok{abline}\NormalTok{(}\KeywordTok{lm}\NormalTok{(y ~}\StringTok{ }\NormalTok{x), }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{col=}\StringTok{'dodgerblue2'}\NormalTok{)}
+  \KeywordTok{abline}\NormalTok{(}\KeywordTok{lm}\NormalTok{(y }\OperatorTok{~}\StringTok{ }\NormalTok{x), }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{col=}\StringTok{'dodgerblue2'}\NormalTok{)}
 \NormalTok{\}}
 
 \CommentTok{# Función para crear el histograma}
-\NormalTok{panel.hist <-}\StringTok{ }\NormalTok{function(x, ...)}
+\NormalTok{panel.hist <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, ...)}
 \NormalTok{\{}
-  \NormalTok{usr <-}\StringTok{ }\KeywordTok{par}\NormalTok{(}\StringTok{"usr"}\NormalTok{); }\KeywordTok{on.exit}\NormalTok{(}\KeywordTok{par}\NormalTok{(usr))}
-  \KeywordTok{par}\NormalTok{(}\DataTypeTok{usr =} \KeywordTok{c}\NormalTok{(usr[}\DecValTok{1}\NormalTok{:}\DecValTok{2}\NormalTok{], }\DecValTok{0}\NormalTok{, }\FloatTok{1.5}\NormalTok{) )}
-  \NormalTok{h <-}\StringTok{ }\KeywordTok{hist}\NormalTok{(x, }\DataTypeTok{plot =} \OtherTok{FALSE}\NormalTok{)}
-  \NormalTok{breaks <-}\StringTok{ }\NormalTok{h$breaks; nB <-}\StringTok{ }\KeywordTok{length}\NormalTok{(breaks)}
-  \NormalTok{y <-}\StringTok{ }\NormalTok{h$counts; y <-}\StringTok{ }\NormalTok{y/}\KeywordTok{max}\NormalTok{(y)}
-  \KeywordTok{rect}\NormalTok{(breaks[-nB], }\DecValTok{0}\NormalTok{, breaks[-}\DecValTok{1}\NormalTok{], y, }\DataTypeTok{col=}\StringTok{"dodgerblue2"}\NormalTok{, ...)}
+\NormalTok{  usr <-}\StringTok{ }\KeywordTok{par}\NormalTok{(}\StringTok{"usr"}\NormalTok{); }\KeywordTok{on.exit}\NormalTok{(}\KeywordTok{par}\NormalTok{(usr))}
+  \KeywordTok{par}\NormalTok{(}\DataTypeTok{usr =} \KeywordTok{c}\NormalTok{(usr[}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{], }\DecValTok{0}\NormalTok{, }\FloatTok{1.5}\NormalTok{) )}
+\NormalTok{  h <-}\StringTok{ }\KeywordTok{hist}\NormalTok{(x, }\DataTypeTok{plot =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{  breaks <-}\StringTok{ }\NormalTok{h}\OperatorTok{$}\NormalTok{breaks; nB <-}\StringTok{ }\KeywordTok{length}\NormalTok{(breaks)}
+\NormalTok{  y <-}\StringTok{ }\NormalTok{h}\OperatorTok{$}\NormalTok{counts; y <-}\StringTok{ }\NormalTok{y}\OperatorTok{/}\KeywordTok{max}\NormalTok{(y)}
+  \KeywordTok{rect}\NormalTok{(breaks[}\OperatorTok{-}\NormalTok{nB], }\DecValTok{0}\NormalTok{, breaks[}\OperatorTok{-}\DecValTok{1}\NormalTok{], y, }\DataTypeTok{col=}\StringTok{"dodgerblue2"}\NormalTok{, ...)}
 \NormalTok{\}}
 
 \CommentTok{# Función para obtener la correlación}
-\NormalTok{panel.cor <-}\StringTok{ }\NormalTok{function(x, y, }\DataTypeTok{digits=}\DecValTok{2}\NormalTok{, }\DataTypeTok{prefix=}\StringTok{""}\NormalTok{, cex.cor)}
+\NormalTok{panel.cor <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y, }\DataTypeTok{digits=}\DecValTok{2}\NormalTok{, }\DataTypeTok{prefix=}\StringTok{""}\NormalTok{, cex.cor)}
 \NormalTok{\{}
-  \NormalTok{usr <-}\StringTok{ }\KeywordTok{par}\NormalTok{(}\StringTok{"usr"}\NormalTok{); }\KeywordTok{on.exit}\NormalTok{(}\KeywordTok{par}\NormalTok{(usr))}
+\NormalTok{  usr <-}\StringTok{ }\KeywordTok{par}\NormalTok{(}\StringTok{"usr"}\NormalTok{); }\KeywordTok{on.exit}\NormalTok{(}\KeywordTok{par}\NormalTok{(usr))}
   \KeywordTok{par}\NormalTok{(}\DataTypeTok{usr =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{))}
-  \NormalTok{r <-}\StringTok{ }\KeywordTok{abs}\NormalTok{(}\KeywordTok{cor}\NormalTok{(x, y))}
-  \NormalTok{txt <-}\StringTok{ }\KeywordTok{format}\NormalTok{(}\KeywordTok{c}\NormalTok{(r, }\FloatTok{0.123456789}\NormalTok{), }\DataTypeTok{digits=}\NormalTok{digits)[}\DecValTok{1}\NormalTok{]}
-  \NormalTok{txt <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(prefix, txt, }\DataTypeTok{sep=}\StringTok{""}\NormalTok{)}
-  \NormalTok{if(}\KeywordTok{missing}\NormalTok{(cex.cor)) cex <-}\StringTok{ }\FloatTok{0.8}\NormalTok{/}\KeywordTok{strwidth}\NormalTok{(txt)}
-  \KeywordTok{text}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\FloatTok{0.5}\NormalTok{, txt, }\DataTypeTok{cex =} \NormalTok{cex *}\StringTok{ }\NormalTok{r)}
+\NormalTok{  r <-}\StringTok{ }\KeywordTok{abs}\NormalTok{(}\KeywordTok{cor}\NormalTok{(x, y))}
+\NormalTok{  txt <-}\StringTok{ }\KeywordTok{format}\NormalTok{(}\KeywordTok{c}\NormalTok{(r, }\FloatTok{0.123456789}\NormalTok{), }\DataTypeTok{digits=}\NormalTok{digits)[}\DecValTok{1}\NormalTok{]}
+\NormalTok{  txt <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(prefix, txt, }\DataTypeTok{sep=}\StringTok{""}\NormalTok{)}
+  \ControlFlowTok{if}\NormalTok{(}\KeywordTok{missing}\NormalTok{(cex.cor)) cex <-}\StringTok{ }\FloatTok{0.8}\OperatorTok{/}\KeywordTok{strwidth}\NormalTok{(txt)}
+  \KeywordTok{text}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\FloatTok{0.5}\NormalTok{, txt, }\DataTypeTok{cex =}\NormalTok{ cex }\OperatorTok{*}\StringTok{ }\NormalTok{r)}
 \NormalTok{\}}
 
 \KeywordTok{pairs}\NormalTok{(datos.num,}
-      \DataTypeTok{upper.panel =} \NormalTok{panel.reg,}
-      \DataTypeTok{diag.panel =} \NormalTok{panel.hist,}
-      \DataTypeTok{lower.panel =} \NormalTok{panel.cor)}
+      \DataTypeTok{upper.panel =}\NormalTok{ panel.reg,}
+      \DataTypeTok{diag.panel =}\NormalTok{ panel.hist,}
+      \DataTypeTok{lower.panel =}\NormalTok{ panel.cor)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/exmod1pairs-1.pdf}
 \caption{\label{fig:exmod1pairs}Matriz de dispersión con páneles
@@ -2258,13 +2267,13 @@ la Figura \ref{fig:exmod2pairs} se muestra gráfico obtenido.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{pairs}\NormalTok{(datos.num,}
-      \DataTypeTok{upper.panel =} \NormalTok{panel.reg,}
-      \DataTypeTok{diag.panel =} \NormalTok{panel.hist,}
-      \DataTypeTok{lower.panel =} \NormalTok{panel.smooth)}
+      \DataTypeTok{upper.panel =}\NormalTok{ panel.reg,}
+      \DataTypeTok{diag.panel =}\NormalTok{ panel.hist,}
+      \DataTypeTok{lower.panel =}\NormalTok{ panel.smooth)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/exmod2pairs-1.pdf}
 \caption{\label{fig:exmod2pairs}Matriz de dispersión usando la función
@@ -2282,7 +2291,7 @@ se muestran a continuación.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{persp}\NormalTok{(x, y, z, main, sub, theta, phi, r, col,}
-      \NormalTok{border, box, axes, nticks)}
+\NormalTok{      border, box, axes, nticks)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2362,24 +2371,24 @@ variando los parámetros \texttt{theta} y \texttt{phi} de la función
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{fun <-}\StringTok{ }\NormalTok{function(x, y)   }\KeywordTok{sin}\NormalTok{(x^}\DecValTok{2} \NormalTok{+}\StringTok{ }\NormalTok{y^}\DecValTok{2}\NormalTok{)}
-\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\NormalTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{2}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{25}\NormalTok{)}
-\NormalTok{y <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\NormalTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{2}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{25}\NormalTok{)}
+\NormalTok{fun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y)   }\KeywordTok{sin}\NormalTok{(x}\OperatorTok{^}\DecValTok{2} \OperatorTok{+}\StringTok{ }\NormalTok{y}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\OperatorTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{2}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{25}\NormalTok{)}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\OperatorTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{2}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{25}\NormalTok{)}
 \NormalTok{z <-}\StringTok{ }\KeywordTok{outer}\NormalTok{(x, y, fun)}
 
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{), }\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{1}\NormalTok{))}
-\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{0}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{0}\NormalTok{, }\DataTypeTok{col=}\StringTok{'aquamarine'}\NormalTok{,}
+\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{0}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{0}\NormalTok{, }\DataTypeTok{col=}\StringTok{'aquamarine'}\NormalTok{,}
       \DataTypeTok{main=}\StringTok{'(A) theta=0, phi=0'}\NormalTok{)}
-\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{15}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{15}\NormalTok{, }\DataTypeTok{col=}\StringTok{'lightpink'}\NormalTok{,}
+\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{15}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{15}\NormalTok{, }\DataTypeTok{col=}\StringTok{'lightpink'}\NormalTok{,}
       \DataTypeTok{main=}\StringTok{'(B) theta=15, phi=15'}\NormalTok{)}
-\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{45}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{30}\NormalTok{, }\DataTypeTok{col=}\StringTok{'yellow1'}\NormalTok{,}
+\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{45}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{30}\NormalTok{, }\DataTypeTok{col=}\StringTok{'yellow1'}\NormalTok{,}
       \DataTypeTok{main=}\StringTok{'(c) theta=45, phi=30'}\NormalTok{)}
-\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{60}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{50}\NormalTok{, }\DataTypeTok{col=}\StringTok{'lightblue'}\NormalTok{,}
+\KeywordTok{persp}\NormalTok{(x, y, z, }\DataTypeTok{zlim=}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\FloatTok{1.5}\NormalTok{), }\DataTypeTok{theta=}\DecValTok{60}\NormalTok{, }\DataTypeTok{phi=}\DecValTok{50}\NormalTok{, }\DataTypeTok{col=}\StringTok{'lightblue'}\NormalTok{,}
       \DataTypeTok{main=}\StringTok{'(D) theta=60, phi=50'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/ex1persp-1.pdf}
 \caption{\label{fig:ex1persp}Superficie generada con \texttt{persp} y
@@ -2417,10 +2426,10 @@ perspectivas diferentes para la densidad modificando los parámetros
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{media <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{12}\NormalTok{)}
-\NormalTok{varianza <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, -}\FloatTok{0.8}\NormalTok{, -}\FloatTok{0.8}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DataTypeTok{ncol=}\DecValTok{2}\NormalTok{)}
+\NormalTok{varianza <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\OperatorTok{-}\FloatTok{0.8}\NormalTok{, }\OperatorTok{-}\FloatTok{0.8}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DataTypeTok{ncol=}\DecValTok{2}\NormalTok{)}
 
 \KeywordTok{require}\NormalTok{(mvtnorm)}
-\NormalTok{fun <-}\StringTok{ }\NormalTok{function(x, y) }\KeywordTok{dmvnorm}\NormalTok{(}\KeywordTok{c}\NormalTok{(x, y), }\DataTypeTok{mean=}\NormalTok{media, }\DataTypeTok{sigma=}\NormalTok{varianza)}
+\NormalTok{fun <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x, y) }\KeywordTok{dmvnorm}\NormalTok{(}\KeywordTok{c}\NormalTok{(x, y), }\DataTypeTok{mean=}\NormalTok{media, }\DataTypeTok{sigma=}\NormalTok{varianza)}
 \NormalTok{fun <-}\StringTok{ }\KeywordTok{Vectorize}\NormalTok{(fun)}
 
 \NormalTok{x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{8}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{30}\NormalTok{)}
@@ -2434,7 +2443,7 @@ perspectivas diferentes para la densidad modificando los parámetros
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/ex2persp-1.pdf}
 \caption{\label{fig:ex2persp}Distribución normal bivariada.}
@@ -2455,8 +2464,8 @@ continuación.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{contour}\NormalTok{(x, y, z,}
-        \NormalTok{xlim, ylim, zlim,}
-        \NormalTok{levels, }\DataTypeTok{nlevels=}\DecValTok{20}\NormalTok{, col)}
+\NormalTok{        xlim, ylim, zlim,}
+\NormalTok{        levels, }\DataTypeTok{nlevels=}\DecValTok{20}\NormalTok{, col)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2507,7 +2516,7 @@ funciones de log-verosimilitud se pueden consultar en
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ll <-}\StringTok{ }\NormalTok{function(a, b) }\KeywordTok{sum}\NormalTok{(}\KeywordTok{dnorm}\NormalTok{(}\DataTypeTok{x=}\NormalTok{y, }\DataTypeTok{mean=}\NormalTok{a, }\DataTypeTok{sd=}\NormalTok{b, }\DataTypeTok{log=}\OtherTok{TRUE}\NormalTok{))}
+\NormalTok{ll <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(a, b) }\KeywordTok{sum}\NormalTok{(}\KeywordTok{dnorm}\NormalTok{(}\DataTypeTok{x=}\NormalTok{y, }\DataTypeTok{mean=}\NormalTok{a, }\DataTypeTok{sd=}\NormalTok{b, }\DataTypeTok{log=}\OtherTok{TRUE}\NormalTok{))}
 \NormalTok{ll <-}\StringTok{ }\KeywordTok{Vectorize}\NormalTok{(ll)  }\CommentTok{# Para vectorizar la función}
 \end{Highlighting}
 \end{Shaded}
@@ -2536,7 +2545,7 @@ aproximadamente 50 niveles.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/contour1-1.pdf}
 \caption{\label{fig:contour1}Gráfico de contornos para la función de
@@ -2588,7 +2597,7 @@ muestra el gráfico.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/image1-1.pdf}
 \caption{\label{fig:image1}Gráfico para la función de log-verosimilitud para
@@ -2607,8 +2616,8 @@ continuación.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{filled.contour}\NormalTok{(x, y, z,}
-               \NormalTok{xlim, ylim, zlim,}
-               \NormalTok{levels, }\DataTypeTok{nlevels=}\DecValTok{20}\NormalTok{,}
+\NormalTok{               xlim, ylim, zlim,}
+\NormalTok{               levels, }\DataTypeTok{nlevels=}\DecValTok{20}\NormalTok{,}
                \DataTypeTok{color.palette=}\NormalTok{cm.colors, col)}
 \end{Highlighting}
 \end{Shaded}
@@ -2655,11 +2664,11 @@ muestra el gráfico de niveles con aproximadamente 20 niveles.
 \begin{Highlighting}[]
 \KeywordTok{filled.contour}\NormalTok{(}\DataTypeTok{x=}\NormalTok{xx, }\DataTypeTok{y=}\NormalTok{yy, }\DataTypeTok{z=}\NormalTok{zz, }\DataTypeTok{nlevels=}\DecValTok{20}\NormalTok{,}
                \DataTypeTok{xlab=}\KeywordTok{expression}\NormalTok{(mu), }\DataTypeTok{ylab=}\KeywordTok{expression}\NormalTok{(sigma),}
-               \DataTypeTok{color =} \NormalTok{topo.colors)}
+               \DataTypeTok{color =}\NormalTok{ topo.colors)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/contour2-1.pdf}
 \caption{\label{fig:contour2}Gráfico de nivel para la función de
@@ -2717,8 +2726,8 @@ segunda con \texttt{n=50}, esto para ver el efecto del parámetro
 \NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
 
 \KeywordTok{require}\NormalTok{(MASS)  }\CommentTok{# Se debe cargar este paquete}
-\NormalTok{f1 <-}\StringTok{ }\KeywordTok{kde2d}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$peso, }\DataTypeTok{y=}\NormalTok{datos$altura, }\DataTypeTok{n=}\DecValTok{5}\NormalTok{)}
-\NormalTok{f2 <-}\StringTok{ }\KeywordTok{kde2d}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos$peso, }\DataTypeTok{y=}\NormalTok{datos$altura, }\DataTypeTok{n=}\DecValTok{50}\NormalTok{)}
+\NormalTok{f1 <-}\StringTok{ }\KeywordTok{kde2d}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos}\OperatorTok{$}\NormalTok{peso, }\DataTypeTok{y=}\NormalTok{datos}\OperatorTok{$}\NormalTok{altura, }\DataTypeTok{n=}\DecValTok{5}\NormalTok{)}
+\NormalTok{f2 <-}\StringTok{ }\KeywordTok{kde2d}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos}\OperatorTok{$}\NormalTok{peso, }\DataTypeTok{y=}\NormalTok{datos}\OperatorTok{$}\NormalTok{altura, }\DataTypeTok{n=}\DecValTok{50}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2733,7 +2742,7 @@ usando un gráfico de calor usando la función \texttt{image}.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/den2d1-1.pdf}
 \caption{\label{fig:den2d1}Gráfico de densidad bivariada para el peso
@@ -2752,7 +2761,7 @@ más usuales se muestran a continuación.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{interaction.plot}\NormalTok{(response, x.factor, trace.factor, fun,}
-                 \NormalTok{legend, trace.label)}
+\NormalTok{                 legend, trace.label)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2796,7 +2805,7 @@ se muestran a continuación.
            \DecValTok{139}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{70}\NormalTok{, }\DecValTok{82}\NormalTok{, }\DecValTok{58}\NormalTok{, }\DecValTok{25}\NormalTok{, }\DecValTok{70}\NormalTok{, }\DecValTok{58}\NormalTok{, }\DecValTok{45}\NormalTok{, }\DecValTok{96}\NormalTok{, }\DecValTok{104}\NormalTok{, }\DecValTok{82}\NormalTok{, }\DecValTok{60}\NormalTok{)}
 
 \NormalTok{temperatura <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{15}\NormalTok{, }\DecValTok{70}\NormalTok{, }\DecValTok{125}\NormalTok{), }\DataTypeTok{each=}\DecValTok{12}\NormalTok{)}
-\NormalTok{material    <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{3}\NormalTok{, }\DataTypeTok{each=}\DecValTok{4}\NormalTok{, }\DataTypeTok{times=}\DecValTok{3}\NormalTok{)}
+\NormalTok{material    <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{, }\DataTypeTok{each=}\DecValTok{4}\NormalTok{, }\DataTypeTok{times=}\DecValTok{3}\NormalTok{)}
 
 \KeywordTok{interaction.plot}\NormalTok{(}\DataTypeTok{x.factor=}\NormalTok{temperatura, }\DataTypeTok{trace.factor=}\NormalTok{material,}
                  \DataTypeTok{response=}\NormalTok{horas, }\DataTypeTok{trace.label=}\StringTok{'Material'}\NormalTok{,}
@@ -2807,7 +2816,7 @@ se muestran a continuación.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/intplot1-1.pdf}
 \caption{\label{fig:intplot1}Gráfico de interacción entre Temperatura y
@@ -2837,14 +2846,14 @@ construir el gráfico se muestran a continuación.
 \NormalTok{dt <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\StringTok{"https://stats.idre.ucla.edu/stat/r/faq/tolpp.csv"}\NormalTok{,}
                  \DataTypeTok{sep=}\StringTok{","}\NormalTok{, }\DataTypeTok{header=}\NormalTok{T)}
 
-\KeywordTok{interaction.plot}\NormalTok{(}\DataTypeTok{response=}\NormalTok{dt$tolerance,}
-                 \DataTypeTok{x.factor=}\NormalTok{dt$time, }\DataTypeTok{col=}\DecValTok{1}\NormalTok{:}\DecValTok{8}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{,}
-                 \DataTypeTok{trace.factor=}\NormalTok{dt$id, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{1}\NormalTok{, }
+\KeywordTok{interaction.plot}\NormalTok{(}\DataTypeTok{response=}\NormalTok{dt}\OperatorTok{$}\NormalTok{tolerance,}
+                 \DataTypeTok{x.factor=}\NormalTok{dt}\OperatorTok{$}\NormalTok{time, }\DataTypeTok{col=}\DecValTok{1}\OperatorTok{:}\DecValTok{8}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{,}
+                 \DataTypeTok{trace.factor=}\NormalTok{dt}\OperatorTok{$}\NormalTok{id, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{1}\NormalTok{, }
                  \DataTypeTok{xlab=}\StringTok{"Tiempo"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Tolerancia"}\NormalTok{, }\DataTypeTok{legend=}\NormalTok{F)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/intplot2-1.pdf}
 \caption{\label{fig:intplot2}Gráfico de espagueti para ver la evolución de
@@ -2912,7 +2921,7 @@ objeto \texttt{tabla1}.
 \begin{Highlighting}[]
 \NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015'}
 \NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
-\NormalTok{tabla1 <-}\StringTok{ }\KeywordTok{table}\NormalTok{(datos$estrato)}
+\NormalTok{tabla1 <-}\StringTok{ }\KeywordTok{table}\NormalTok{(datos}\OperatorTok{$}\NormalTok{estrato)}
 \NormalTok{tabla1 <-}\StringTok{ }\KeywordTok{prop.table}\NormalTok{(tabla1)}
 \NormalTok{tabla1}
 \end{Highlighting}
@@ -2930,12 +2939,12 @@ código.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{barplot}\NormalTok{(tabla1, }\DataTypeTok{xlab=}\StringTok{'Estrato socioeconómico'}\NormalTok{,}
-        \DataTypeTok{ylab=}\StringTok{'Frecuencia relativa'}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{)}
+\KeywordTok{barplot}\NormalTok{(tabla1, }\DataTypeTok{xlab=}\StringTok{'Estrato socioeconómico',}
+\StringTok{        ylab='}\NormalTok{Frecuencia relativa}\StringTok{', las=1)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/barra1-1.pdf}
 \caption{\label{fig:barra1}Diagrama de barras para el estrato socioeconómico
@@ -2966,15 +2975,15 @@ almacenadas en \texttt{tabla1}.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{xx <-}\StringTok{ }\KeywordTok{barplot}\NormalTok{(tabla1, }\DataTypeTok{ylim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{0.45}\NormalTok{), }\DataTypeTok{col=}\KeywordTok{gray}\NormalTok{(}\FloatTok{0.9}\NormalTok{),}
-              \DataTypeTok{xlab=}\StringTok{'Estrato socioeconómico'}\NormalTok{,}
-              \DataTypeTok{ylab=}\StringTok{'Frecuencia relativa'}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{)}
+              \DataTypeTok{xlab=}\StringTok{'Estrato socioeconómico',}
+\StringTok{              ylab='}\NormalTok{Frecuencia relativa}\StringTok{', las=1)}
 
-\KeywordTok{text}\NormalTok{(}\DataTypeTok{x=}\NormalTok{xx, }\DataTypeTok{y=}\NormalTok{tabla1, }\DataTypeTok{pos=}\DecValTok{3}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.8}\NormalTok{, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{,}
-     \DataTypeTok{label=}\KeywordTok{round}\NormalTok{(tabla1, }\DecValTok{4}\NormalTok{))}
+\StringTok{text(x=xx, y=tabla1, pos=3, cex=0.8, col="red",}
+\StringTok{     label=round(tabla1, 4))}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/barra2-1.pdf}
 \caption{\label{fig:barra2}Diagrama de barras para el estrato socioeconómico
@@ -3000,7 +3009,7 @@ código.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{tabla2 <-}\StringTok{ }\KeywordTok{table}\NormalTok{(datos$parqueadero, datos$estrato)}
+\NormalTok{tabla2 <-}\StringTok{ }\KeywordTok{table}\NormalTok{(datos}\OperatorTok{$}\NormalTok{parqueadero, datos}\OperatorTok{$}\NormalTok{estrato)}
 \NormalTok{tabla2}
 \end{Highlighting}
 \end{Shaded}
@@ -3024,7 +3033,7 @@ gráficamente usando el siguiente código.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/barra3-1.pdf}
 \caption{\label{fig:barra3}Diagrama I de barras la relación entre
@@ -3045,7 +3054,7 @@ utilizado.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/barra4-1.pdf}
 \caption{\label{fig:barra4}Diagrama II de barras la relación entre
@@ -3069,7 +3078,7 @@ a continuación el código utilizado.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/barra5-1.pdf}
 \caption{\label{fig:barra5}Relación entre la presencia de parqueadero y el
@@ -3120,7 +3129,7 @@ los estratos 6, 5 y 4. El código para generar un gráfico asociado a la
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/barra6-1.pdf}
 \caption{\label{fig:barra6}Relación entre la presencia de parqueadero y el
@@ -3178,13 +3187,13 @@ necesario para construir el gráfico.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{nombres <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(}\StringTok{'Estrato '}\NormalTok{, }\DecValTok{2}\NormalTok{:}\DecValTok{6}\NormalTok{)}
+\NormalTok{nombres <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(}\StringTok{'Estrato '}\NormalTok{, }\DecValTok{2}\OperatorTok{:}\DecValTok{6}\NormalTok{)}
 \KeywordTok{pie}\NormalTok{(}\DataTypeTok{x=}\NormalTok{tabla1, }\DataTypeTok{labels=}\NormalTok{nombres, }
     \DataTypeTok{main=}\StringTok{'Gráfico de pastel NO recomendado!!!'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/pie-1.pdf}
 \caption{\label{fig:pie}Gráfico de pastel para las frecuencias relativas del
@@ -3206,7 +3215,7 @@ continuación.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{dotchart}\NormalTok{(x, }\DataTypeTok{labels=}\OtherTok{NULL}\NormalTok{, }\DataTypeTok{groups=}\OtherTok{NULL}\NormalTok{, }\DataTypeTok{gdata=}\OtherTok{NULL}\NormalTok{,}
-         \NormalTok{pt.cex, pch, color, lcolor, ...)}
+\NormalTok{         pt.cex, pch, color, lcolor, ...)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3279,7 +3288,7 @@ sufren de la enfermedad.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/dotchart2-1.pdf}
 \caption{\label{fig:dotchart2}Gráfico de puntos para una tabla de
@@ -3300,7 +3309,7 @@ puede mejorar usando los otros argumentos disponibles en la función
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/dotchart3-1.pdf}
 \caption{\label{fig:dotchart3}Gráfico de puntos mejorado para una tabla de
@@ -3349,13 +3358,13 @@ tiene 72 parámetros y a continuación se muestran.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{par}\NormalTok{(xlog, ylog, adj, ann, ask, bg, bty, cex, cex.axis, cex.lab,}
-    \NormalTok{cex.main, cex.sub, cin, col, col.axis, col.lab, col.main,}
-    \NormalTok{col.sub, cra, crt, csi, cxy, din, err, family, fg, fig, fin,}
-    \NormalTok{font, font.axis, font.lab, font.main, font.sub, lab, las, }
-    \NormalTok{lend, lheight, ljoin, lmitre, lty, lwd, mai, mar, mex, mfcol,}
-    \NormalTok{mfg, mfrow, mgp, mkh, new, oma, omd, omi, page, pch, pin, }
-    \NormalTok{plt, ps, pty, smo, srt, tck, tcl, usr, xaxp, xaxs, xaxt, xpd, }
-    \NormalTok{yaxp, yaxs, yaxt, ylbias)}
+\NormalTok{    cex.main, cex.sub, cin, col, col.axis, col.lab, col.main,}
+\NormalTok{    col.sub, cra, crt, csi, cxy, din, err, family, fg, fig, fin,}
+\NormalTok{    font, font.axis, font.lab, font.main, font.sub, lab, las, }
+\NormalTok{    lend, lheight, ljoin, lmitre, lty, lwd, mai, mar, mex, mfcol,}
+\NormalTok{    mfg, mfrow, mgp, mkh, new, oma, omd, omi, page, pch, pin, }
+\NormalTok{    plt, ps, pty, smo, srt, tck, tcl, usr, xaxp, xaxs, xaxt, xpd, }
+\NormalTok{    yaxp, yaxs, yaxt, ylbias)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3411,7 +3420,7 @@ gráfico solicitado.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/ann-1.pdf}
 \caption{\label{fig:ann}Efecto del parámetro \texttt{ann}.}
@@ -3466,7 +3475,7 @@ del texto.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/adj-1.pdf}
 \caption{\label{fig:adj}Efecto del parámetro \texttt{adj}.}
@@ -3494,11 +3503,11 @@ toda la ventana gráfica.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{bg=}\StringTok{'darkseagreen1'}\NormalTok{)}
-\KeywordTok{curve}\NormalTok{(dnorm, }\DataTypeTok{lwd=}\DecValTok{6}\NormalTok{, }\DataTypeTok{col=}\StringTok{'blue'}\NormalTok{, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{))}
+\KeywordTok{curve}\NormalTok{(dnorm, }\DataTypeTok{lwd=}\DecValTok{6}\NormalTok{, }\DataTypeTok{col=}\StringTok{'blue'}\NormalTok{, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/bg-1.pdf}
 \caption{\label{fig:bg}Efecto del parámetro \texttt{bg}.}
@@ -3536,15 +3545,15 @@ el código utilizado.
 
 \NormalTok{lambdas <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{15}\NormalTok{)}
 
-\NormalTok{for (i in }\DecValTok{1}\NormalTok{:}\DecValTok{4}\NormalTok{) \{}
-  \KeywordTok{plot}\NormalTok{(}\KeywordTok{dpois}\NormalTok{(}\DataTypeTok{x=}\DecValTok{0}\NormalTok{:}\DecValTok{30}\NormalTok{, }\DataTypeTok{lambda=}\NormalTok{lambdas[i]), }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{,}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{) \{}
+  \KeywordTok{plot}\NormalTok{(}\KeywordTok{dpois}\NormalTok{(}\DataTypeTok{x=}\DecValTok{0}\OperatorTok{:}\DecValTok{30}\NormalTok{, }\DataTypeTok{lambda=}\NormalTok{lambdas[i]), }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{,}
        \DataTypeTok{type=}\StringTok{'h'}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{'x'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Probabilidad'}\NormalTok{)}
-  \KeywordTok{title}\NormalTok{(}\KeywordTok{bquote}\NormalTok{(~}\StringTok{ }\NormalTok{lambda ==}\StringTok{ }\NormalTok{.(lambdas[i])))}
+  \KeywordTok{title}\NormalTok{(}\KeywordTok{bquote}\NormalTok{(}\OperatorTok{~}\StringTok{ }\NormalTok{lambda }\OperatorTok{==}\StringTok{ }\NormalTok{.(lambdas[i])))}
 \NormalTok{\} }
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/mfrow-1.pdf}
 \caption{\label{fig:mfrow}Efecto del parámetro \texttt{mfrow}.}
@@ -3603,7 +3612,7 @@ es una caja con esa misma forma.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/par2-1.pdf}
 \caption{\label{fig:par2}Efecto del parámetro \texttt{bty}.}
@@ -3637,7 +3646,7 @@ título principal, marcas de los ejes y tamaño del símbolo.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{x <-}\StringTok{ }\NormalTok{-}\DecValTok{3}\NormalTok{:}\DecValTok{3}
+\NormalTok{x <-}\StringTok{ }\OperatorTok{-}\DecValTok{3}\OperatorTok{:}\DecValTok{3}
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{), }\DataTypeTok{cex=}\FloatTok{1.4}\NormalTok{)}
 \KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{x, }\DataTypeTok{main=}\StringTok{'Usando }\CharTok{\textbackslash{}n}\StringTok{ cex=1.4'}\NormalTok{)}
 
@@ -3646,7 +3655,7 @@ título principal, marcas de los ejes y tamaño del símbolo.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/cex-1.pdf}
 \caption{\label{fig:cex}Efecto del parámetro \texttt{cex}.}
@@ -3694,7 +3703,7 @@ personalizados en \proglang{R}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{x <-}\StringTok{ }\NormalTok{-}\DecValTok{3}\NormalTok{:}\DecValTok{3}
+\NormalTok{x <-}\StringTok{ }\OperatorTok{-}\DecValTok{3}\OperatorTok{:}\DecValTok{3}
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{cex.axis=}\FloatTok{1.8}\NormalTok{, }\DataTypeTok{cex.lab=}\FloatTok{0.3}\NormalTok{, }\DataTypeTok{cex.main=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{cex.sub=}\FloatTok{2.0}\NormalTok{)}
 \KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{x,}
      \DataTypeTok{xlab=}\StringTok{'Valores de x'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Valores de y'}\NormalTok{,}
@@ -3703,7 +3712,7 @@ personalizados en \proglang{R}.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/cexs-1.pdf}
 \caption{\label{fig:cexs}Efecto de los parámetros \texttt{cex.axis},
@@ -3733,13 +3742,13 @@ resultante, abajo el código usado.
 \begin{Highlighting}[]
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{col=}\StringTok{'blue'}\NormalTok{, }\DataTypeTok{col.axis=}\StringTok{'red'}\NormalTok{, }\DataTypeTok{col.lab=}\StringTok{'orange'}\NormalTok{,}
     \DataTypeTok{col.main=}\StringTok{'darkgreen'}\NormalTok{, }\DataTypeTok{col.sub=}\StringTok{'purple'}\NormalTok{, }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{)}
-\KeywordTok{plot}\NormalTok{(}\DecValTok{1}\NormalTok{:}\DecValTok{10}\NormalTok{, }\DataTypeTok{pch=}\DecValTok{20}\NormalTok{, }\DataTypeTok{cex=}\DecValTok{2}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
+\KeywordTok{plot}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{10}\NormalTok{, }\DataTypeTok{pch=}\DecValTok{20}\NormalTok{, }\DataTypeTok{cex=}\DecValTok{2}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
      \DataTypeTok{main=}\StringTok{'Título'}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{'Nombre eje X'}\NormalTok{,}
      \DataTypeTok{ylab=}\StringTok{'Nombre eje Y'}\NormalTok{, }\DataTypeTok{sub=}\StringTok{'Subtítulo'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/cols-1.pdf}
 \caption{\label{fig:cols}Efecto de los parámetros \texttt{col},
@@ -3764,7 +3773,7 @@ función se muestra a continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{segments}\NormalTok{(x0, y0, }\DataTypeTok{x1 =} \NormalTok{x0, }\DataTypeTok{y1 =} \NormalTok{y0, ...)}
+\KeywordTok{segments}\NormalTok{(x0, y0, }\DataTypeTok{x1 =}\NormalTok{ x0, }\DataTypeTok{y1 =}\NormalTok{ y0, ...)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3786,20 +3795,20 @@ se puede ver el resultado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{11}\NormalTok{, }\DecValTok{3}\NormalTok{), }\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{11}\NormalTok{, }\DecValTok{3}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
 \KeywordTok{grid}\NormalTok{()}
 
-\KeywordTok{segments}\NormalTok{(-}\DecValTok{9}\NormalTok{, }\DecValTok{9}\NormalTok{, -}\DecValTok{9}\NormalTok{, -}\DecValTok{9}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{col=}\DecValTok{3}\NormalTok{)}
-\KeywordTok{segments}\NormalTok{(-}\DecValTok{9}\NormalTok{, -}\DecValTok{9}\NormalTok{, -}\DecValTok{5}\NormalTok{, -}\DecValTok{9}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{col=}\DecValTok{3}\NormalTok{)}
-\KeywordTok{segments}\NormalTok{(-}\DecValTok{5}\NormalTok{, -}\DecValTok{9}\NormalTok{, -}\DecValTok{5}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{col=}\DecValTok{3}\NormalTok{)}
+\KeywordTok{segments}\NormalTok{(}\OperatorTok{-}\DecValTok{9}\NormalTok{, }\DecValTok{9}\NormalTok{, }\OperatorTok{-}\DecValTok{9}\NormalTok{, }\OperatorTok{-}\DecValTok{9}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{col=}\DecValTok{3}\NormalTok{)}
+\KeywordTok{segments}\NormalTok{(}\OperatorTok{-}\DecValTok{9}\NormalTok{, }\OperatorTok{-}\DecValTok{9}\NormalTok{, }\OperatorTok{-}\DecValTok{5}\NormalTok{, }\OperatorTok{-}\DecValTok{9}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{col=}\DecValTok{3}\NormalTok{)}
+\KeywordTok{segments}\NormalTok{(}\OperatorTok{-}\DecValTok{5}\NormalTok{, }\OperatorTok{-}\DecValTok{9}\NormalTok{, }\OperatorTok{-}\DecValTok{5}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{col=}\DecValTok{3}\NormalTok{)}
 
-\KeywordTok{segments}\NormalTok{(-}\DecValTok{4}\NormalTok{, -}\DecValTok{9}\NormalTok{, -}\DecValTok{4}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{)}
-\KeywordTok{segments}\NormalTok{(-}\DecValTok{4}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{0}\NormalTok{, -}\DecValTok{9}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{)}
-\KeywordTok{segments}\NormalTok{(}\DecValTok{0}\NormalTok{, -}\DecValTok{9}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{)}
+\KeywordTok{segments}\NormalTok{(}\OperatorTok{-}\DecValTok{4}\NormalTok{, }\OperatorTok{-}\DecValTok{9}\NormalTok{, }\OperatorTok{-}\DecValTok{4}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{)}
+\KeywordTok{segments}\NormalTok{(}\OperatorTok{-}\DecValTok{4}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DecValTok{0}\NormalTok{, }\OperatorTok{-}\DecValTok{9}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{)}
+\KeywordTok{segments}\NormalTok{(}\DecValTok{0}\NormalTok{, }\OperatorTok{-}\DecValTok{9}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{9}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/seg1-1.pdf}
 \caption{\label{fig:seg1}Ejemplos de segmentos.}
@@ -3869,7 +3878,7 @@ continuación el código usado para obtener esa figura.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/rect1-1.pdf}
 \caption{\label{fig:rect1}Ejemplos de rectángulos.}
@@ -3885,15 +3894,15 @@ las coordenadas como vectores.
 \NormalTok{## set up the plot region:}
 \KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{100}\NormalTok{, }\DecValTok{250}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\DecValTok{300}\NormalTok{, }\DecValTok{450}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{,}
      \DataTypeTok{main=}\StringTok{"2 x 11 rectangles; 'rect(100+i,300+i, 150+i,380+i)'"}\NormalTok{)}
-\NormalTok{i <-}\StringTok{ }\DecValTok{4}\NormalTok{*(}\DecValTok{0}\NormalTok{:}\DecValTok{10}\NormalTok{)}
+\NormalTok{i <-}\StringTok{ }\DecValTok{4}\OperatorTok{*}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{10}\NormalTok{)}
 \NormalTok{## draw rectangles with bottom left (100, 300)+i}
 \NormalTok{## and top right (150, 380)+i}
-\KeywordTok{rect}\NormalTok{(}\DecValTok{100}\NormalTok{+i, }\DecValTok{300}\NormalTok{+i, }\DecValTok{150}\NormalTok{+i, }\DecValTok{380}\NormalTok{+i, }\DataTypeTok{col=}\KeywordTok{rainbow}\NormalTok{(}\DecValTok{11}\NormalTok{, }\DataTypeTok{start=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{end=}\FloatTok{0.1}\NormalTok{))}
-\KeywordTok{rect}\NormalTok{(}\DecValTok{240}\NormalTok{-i, }\DecValTok{320}\NormalTok{+i, }\DecValTok{250}\NormalTok{-i, }\DecValTok{410}\NormalTok{+i, }\DataTypeTok{col=}\KeywordTok{heat.colors}\NormalTok{(}\DecValTok{11}\NormalTok{), }\DataTypeTok{lwd=}\NormalTok{i/}\DecValTok{5}\NormalTok{)}
+\KeywordTok{rect}\NormalTok{(}\DecValTok{100}\OperatorTok{+}\NormalTok{i, }\DecValTok{300}\OperatorTok{+}\NormalTok{i, }\DecValTok{150}\OperatorTok{+}\NormalTok{i, }\DecValTok{380}\OperatorTok{+}\NormalTok{i, }\DataTypeTok{col=}\KeywordTok{rainbow}\NormalTok{(}\DecValTok{11}\NormalTok{, }\DataTypeTok{start=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{end=}\FloatTok{0.1}\NormalTok{))}
+\KeywordTok{rect}\NormalTok{(}\DecValTok{240}\OperatorTok{-}\NormalTok{i, }\DecValTok{320}\OperatorTok{+}\NormalTok{i, }\DecValTok{250}\OperatorTok{-}\NormalTok{i, }\DecValTok{410}\OperatorTok{+}\NormalTok{i, }\DataTypeTok{col=}\KeywordTok{heat.colors}\NormalTok{(}\DecValTok{11}\NormalTok{), }\DataTypeTok{lwd=}\NormalTok{i}\OperatorTok{/}\DecValTok{5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/rect2-1.pdf}
 \caption{\label{fig:rect2}Ejemplo de rectángulos obtenidos con
@@ -3909,7 +3918,7 @@ función se muestra a continuación.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{polygon}\NormalTok{(x, y, }\DataTypeTok{density =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{angle =} \DecValTok{45}\NormalTok{,}
-        \NormalTok{border, col, lty, ...)}
+\NormalTok{        border, col, lty, ...)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3943,8 +3952,8 @@ muestran las figuras obtenidas.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(}\DecValTok{0}\NormalTok{:}\DecValTok{5}\NormalTok{, }\DecValTok{0}\NormalTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
-\KeywordTok{abline}\NormalTok{(}\DataTypeTok{v=}\DecValTok{0}\NormalTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{h=}\DecValTok{0}\NormalTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{col=}\KeywordTok{gray}\NormalTok{(}\FloatTok{0.8}\NormalTok{), }\DataTypeTok{lty=}\StringTok{'dashed'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DecValTok{0}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{v=}\DecValTok{0}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{h=}\DecValTok{0}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{col=}\KeywordTok{gray}\NormalTok{(}\FloatTok{0.8}\NormalTok{), }\DataTypeTok{lty=}\StringTok{'dashed'}\NormalTok{)}
 
 \KeywordTok{polygon}\NormalTok{(}\DataTypeTok{x=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{), }\DataTypeTok{y=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{2}\NormalTok{),         }\CommentTok{# Para el triangulo}
         \DataTypeTok{col=}\StringTok{'blue'}\NormalTok{, }\DataTypeTok{border=}\StringTok{'red'}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{)}
@@ -3954,7 +3963,7 @@ muestran las figuras obtenidas.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/poly1-1.pdf}
 \caption{\label{fig:poly1}Ejemplo de formas obtenidas con \texttt{polygon}.}
@@ -4001,14 +4010,14 @@ En la Figura \ref{fig:abline1} se puede ver el resultado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\KeywordTok{c}\NormalTok{(-}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{), }\DataTypeTok{y=}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{),    }\CommentTok{# Para crear el lienzo}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{), }\DataTypeTok{y=}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{),    }\CommentTok{# Para crear el lienzo}
      \DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{, }\DataTypeTok{type=}\StringTok{'n'}\NormalTok{)  }\CommentTok{# donde se ubicará la recta}
 
-\KeywordTok{abline}\NormalTok{(}\DataTypeTok{a=}\NormalTok{-}\DecValTok{5}\NormalTok{, }\DataTypeTok{b=}\DecValTok{3}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{'blue'}\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{a=}\OperatorTok{-}\DecValTok{5}\NormalTok{, }\DataTypeTok{b=}\DecValTok{3}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{'blue'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/abline1-1.pdf}
 \caption{\label{fig:abline1}Ejemplo de una recta con la función abline.}
@@ -4022,15 +4031,15 @@ puede ver el resultado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\KeywordTok{c}\NormalTok{(-}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{), }\DataTypeTok{y=}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{),    }\CommentTok{# Para crear el lienzo}
+\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{), }\DataTypeTok{y=}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{),    }\CommentTok{# Para crear el lienzo}
      \DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{, }\DataTypeTok{type=}\StringTok{'n'}\NormalTok{)  }\CommentTok{# donde se ubicará la recta}
 
-\KeywordTok{abline}\NormalTok{(}\DataTypeTok{h=}\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, -}\DecValTok{3}\NormalTok{), }\DataTypeTok{v=}\DecValTok{2}\NormalTok{,}
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{h=}\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\OperatorTok{-}\DecValTok{3}\NormalTok{), }\DataTypeTok{v=}\DecValTok{2}\NormalTok{,}
        \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'darkgreen'}\NormalTok{, }\StringTok{'red'}\NormalTok{, }\StringTok{'orange'}\NormalTok{), }\DataTypeTok{lwd=}\DecValTok{5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/abline2-1.pdf}
 \caption{\label{fig:abline2}Ejemplo de una recta con la función abline.}
@@ -4050,18 +4059,18 @@ se muestra el círculo solicitado.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{rad     <-}\StringTok{ }\DecValTok{7}   \CommentTok{# Valor del radio}
-\NormalTok{xcenter <-}\StringTok{ }\NormalTok{-}\DecValTok{2}  \CommentTok{# Coordenada en x del centro}
+\NormalTok{xcenter <-}\StringTok{ }\OperatorTok{-}\DecValTok{2}  \CommentTok{# Coordenada en x del centro}
 \NormalTok{ycenter <-}\StringTok{ }\DecValTok{1}   \CommentTok{# Coordenada en y del centro}
 
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
-\NormalTok{theta <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{2} \NormalTok{*}\StringTok{ }\NormalTok{pi, }\DataTypeTok{length =} \DecValTok{200}\NormalTok{)}
-\KeywordTok{polygon}\NormalTok{(}\DataTypeTok{x=}\NormalTok{rad *}\StringTok{ }\KeywordTok{cos}\NormalTok{(theta) +}\StringTok{ }\NormalTok{xcenter, }\DataTypeTok{y=}\NormalTok{rad *}\StringTok{ }\KeywordTok{sin}\NormalTok{(theta) +}\StringTok{ }\NormalTok{ycenter,}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
+\NormalTok{theta <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{2} \OperatorTok{*}\StringTok{ }\NormalTok{pi, }\DataTypeTok{length =} \DecValTok{200}\NormalTok{)}
+\KeywordTok{polygon}\NormalTok{(}\DataTypeTok{x=}\NormalTok{rad }\OperatorTok{*}\StringTok{ }\KeywordTok{cos}\NormalTok{(theta) }\OperatorTok{+}\StringTok{ }\NormalTok{xcenter, }\DataTypeTok{y=}\NormalTok{rad }\OperatorTok{*}\StringTok{ }\KeywordTok{sin}\NormalTok{(theta) }\OperatorTok{+}\StringTok{ }\NormalTok{ycenter,}
       \DataTypeTok{lwd=}\DecValTok{3}\NormalTok{, }\DataTypeTok{col=}\StringTok{'steelblue1'}\NormalTok{, }\DataTypeTok{border=}\StringTok{'steelblue4'}\NormalTok{)}
 \KeywordTok{grid}\NormalTok{()  }\CommentTok{# Para incluir una cuadrícula de guía}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/circ1-1.pdf}
 \caption{\label{fig:circ1}Ejemplo de un círculo.}
@@ -4124,7 +4133,7 @@ subiendo, pero como \texttt{code=1} ella quedó bajando.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/arrow1-1.pdf}
 \caption{\label{fig:arrow1}Ejemplos de flechas variando el parámetro
@@ -4150,7 +4159,7 @@ del parámetro \texttt{angle}, de la figura se observa que entre mayor el
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/arrow2-1.pdf}
 \caption{\label{fig:arrow2}Ejemplos de flechas variando el parámetro
@@ -4168,7 +4177,7 @@ La estructura de la función se muestra a continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{grid}\NormalTok{(}\DataTypeTok{nx =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{ny =} \NormalTok{nx, }\DataTypeTok{col =} \StringTok{"lightgray"}\NormalTok{, }\DataTypeTok{lty =} \StringTok{"dotted"}\NormalTok{,}
+\KeywordTok{grid}\NormalTok{(}\DataTypeTok{nx =} \OtherTok{NULL}\NormalTok{, }\DataTypeTok{ny =}\NormalTok{ nx, }\DataTypeTok{col =} \StringTok{"lightgray"}\NormalTok{, }\DataTypeTok{lty =} \StringTok{"dotted"}\NormalTok{,}
      \DataTypeTok{lwd =} \KeywordTok{par}\NormalTok{(}\StringTok{"lwd"}\NormalTok{), }\DataTypeTok{equilogs =} \OtherTok{TRUE}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
@@ -4200,15 +4209,15 @@ resultados.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{), }\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{), }\DataTypeTok{cex=}\FloatTok{0.5}\NormalTok{)}
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
 \KeywordTok{grid}\NormalTok{()}
 
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
 \KeywordTok{grid}\NormalTok{(}\DataTypeTok{nx=}\DecValTok{3}\NormalTok{, }\DataTypeTok{ny=}\DecValTok{4}\NormalTok{, }\DataTypeTok{col=}\StringTok{"pink"}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{lty=}\StringTok{"longdash"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/grid1-1.pdf}
 \caption{\label{fig:grid1}Ejemplos de rejillas con \texttt{grid}.}
@@ -4252,7 +4261,7 @@ Los argumentos de la función son:
 Los diferentes tipos de puntos que se pueden obtener al variar el
 parámetro \texttt{pch} se muestran en la Figura \ref{fig:point1}.
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/point1-1.pdf}
 \caption{\label{fig:point1}Ejemplos de los tipos de puntos obtenidos al
@@ -4271,13 +4280,13 @@ muchos puntos que se traslapan entre si.
 \begin{Highlighting}[]
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{))}
 \KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\FloatTok{5.5}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\FloatTok{0.5}\NormalTok{, }\FloatTok{5.5}\NormalTok{), }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{, }\DataTypeTok{type=}\StringTok{'n'}\NormalTok{)}
-\KeywordTok{points}\NormalTok{(}\DataTypeTok{x=}\DecValTok{1}\NormalTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{y=}\DecValTok{1}\NormalTok{:}\DecValTok{5}\NormalTok{,}
+\KeywordTok{points}\NormalTok{(}\DataTypeTok{x=}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{y=}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{,}
        \DataTypeTok{pch=}\KeywordTok{c}\NormalTok{(}\StringTok{'@'}\NormalTok{, }\StringTok{'.'}\NormalTok{, }\StringTok{'$'}\NormalTok{, }\StringTok{'%'}\NormalTok{, }\StringTok{'w'}\NormalTok{),}
-       \DataTypeTok{col=}\DecValTok{1}\NormalTok{:}\DecValTok{5}\NormalTok{)}
+       \DataTypeTok{col=}\DecValTok{1}\OperatorTok{:}\DecValTok{5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/point2-1.pdf}
 \caption{\label{fig:point2}Ejemplos de símbolos personalizados con
@@ -4345,26 +4354,26 @@ ventana gráfica en ese intervalo para el eje horizontal. En la Figura
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{f1 <-}\StringTok{ }\NormalTok{function(x) x^}\DecValTok{2} \NormalTok{-}\StringTok{ }\DecValTok{10}
-\NormalTok{f2 <-}\StringTok{ }\NormalTok{function(x) }\KeywordTok{ifelse}\NormalTok{(x <}\StringTok{ }\DecValTok{1}\NormalTok{, -x^}\DecValTok{2}\NormalTok{, }\DecValTok{5}\NormalTok{*x)}
-\NormalTok{f3 <-}\StringTok{ }\NormalTok{function(x) }\DecValTok{15} \NormalTok{-}\StringTok{ }\DecValTok{4} \NormalTok{*}\StringTok{ }\NormalTok{x}
+\NormalTok{f1 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) x}\OperatorTok{^}\DecValTok{2} \OperatorTok{-}\StringTok{ }\DecValTok{10}
+\NormalTok{f2 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) }\KeywordTok{ifelse}\NormalTok{(x }\OperatorTok{<}\StringTok{ }\DecValTok{1}\NormalTok{, }\OperatorTok{-}\NormalTok{x}\OperatorTok{^}\DecValTok{2}\NormalTok{, }\DecValTok{5}\OperatorTok{*}\NormalTok{x)}
+\NormalTok{f3 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) }\DecValTok{15} \OperatorTok{-}\StringTok{ }\DecValTok{4} \OperatorTok{*}\StringTok{ }\NormalTok{x}
 
-\KeywordTok{curve}\NormalTok{(}\DataTypeTok{expr=}\NormalTok{f1, }\DataTypeTok{from=}\NormalTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{7}\NormalTok{, }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{,}
-      \DataTypeTok{col=}\StringTok{"blue"}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'f(x)'}\NormalTok{, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(-}\DecValTok{5}\NormalTok{, }\DecValTok{10}\NormalTok{))}
+\KeywordTok{curve}\NormalTok{(}\DataTypeTok{expr=}\NormalTok{f1, }\DataTypeTok{from=}\OperatorTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{7}\NormalTok{, }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{,}
+      \DataTypeTok{col=}\StringTok{"blue"}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'f(x)'}\NormalTok{, }\DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{5}\NormalTok{, }\DecValTok{10}\NormalTok{))}
 
-\KeywordTok{curve}\NormalTok{(}\DataTypeTok{expr=}\NormalTok{f2, }\DataTypeTok{from=}\NormalTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{4}\NormalTok{, }\DataTypeTok{type=}\StringTok{"p"}\NormalTok{,}
+\KeywordTok{curve}\NormalTok{(}\DataTypeTok{expr=}\NormalTok{f2, }\DataTypeTok{from=}\OperatorTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{to=}\DecValTok{4}\NormalTok{, }\DataTypeTok{type=}\StringTok{"p"}\NormalTok{,}
       \DataTypeTok{col=}\StringTok{"green4"}\NormalTok{, }\DataTypeTok{add=}\OtherTok{TRUE}\NormalTok{)}
 
-\KeywordTok{curve}\NormalTok{(}\DataTypeTok{expr=}\NormalTok{f3, }\DataTypeTok{from=}\NormalTok{-}\DecValTok{5}\NormalTok{, }\DataTypeTok{to=}\DecValTok{0}\NormalTok{, }\DataTypeTok{type=}\StringTok{"b"}\NormalTok{,}
+\KeywordTok{curve}\NormalTok{(}\DataTypeTok{expr=}\NormalTok{f3, }\DataTypeTok{from=}\OperatorTok{-}\DecValTok{5}\NormalTok{, }\DataTypeTok{to=}\DecValTok{0}\NormalTok{, }\DataTypeTok{type=}\StringTok{"b"}\NormalTok{,}
       \DataTypeTok{col=}\StringTok{'red'}\NormalTok{, }\DataTypeTok{add=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{n=}\DecValTok{5}\NormalTok{)}
 
 \KeywordTok{text}\NormalTok{(}\DataTypeTok{x=}\DecValTok{7}\NormalTok{, }\DataTypeTok{y=}\DecValTok{9}\NormalTok{, }\StringTok{"f1(x) usando type='l'"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"blue"}\NormalTok{)}
-\KeywordTok{text}\NormalTok{(}\DataTypeTok{x=}\NormalTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{y=}\DecValTok{4}\NormalTok{, }\StringTok{"f2(x) usando type='p'"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"green4"}\NormalTok{)}
-\KeywordTok{text}\NormalTok{(}\DataTypeTok{x=}\NormalTok{-}\DecValTok{1}\NormalTok{, }\DataTypeTok{y=}\DecValTok{30}\NormalTok{, }\StringTok{"f3(x) usando type='b' y n=5"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\DataTypeTok{x=}\OperatorTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{y=}\DecValTok{4}\NormalTok{, }\StringTok{"f2(x) usando type='p'"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"green4"}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\DataTypeTok{x=}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DataTypeTok{y=}\DecValTok{30}\NormalTok{, }\StringTok{"f3(x) usando type='b' y n=5"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/curve1-1.pdf}
 \caption{\label{fig:curve1}Dibujo de varias funciones en una misma ventana.}
@@ -4387,17 +4396,17 @@ y se muestra a continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{dat <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{t=}\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{2}\NormalTok{*pi, }\DataTypeTok{by=}\FloatTok{0.1}\NormalTok{))}
-\NormalTok{xhrt <-}\StringTok{ }\NormalTok{function(t) }\DecValTok{16}\NormalTok{*}\KeywordTok{sin}\NormalTok{(t)^}\DecValTok{3}
-\NormalTok{yhrt <-}\StringTok{ }\NormalTok{function(t) }\DecValTok{13}\NormalTok{*}\KeywordTok{cos}\NormalTok{(t)-}\DecValTok{5}\NormalTok{*}\KeywordTok{cos}\NormalTok{(}\DecValTok{2}\NormalTok{*t)-}\DecValTok{2}\NormalTok{*}\KeywordTok{cos}\NormalTok{(}\DecValTok{3}\NormalTok{*t)-}\KeywordTok{cos}\NormalTok{(}\DecValTok{4}\NormalTok{*t)}
-\NormalTok{dat$y <-}\StringTok{ }\KeywordTok{yhrt}\NormalTok{(dat$t)}
-\NormalTok{dat$x <-}\StringTok{ }\KeywordTok{xhrt}\NormalTok{(dat$t)}
+\NormalTok{dat <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{t=}\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{2}\OperatorTok{*}\NormalTok{pi, }\DataTypeTok{by=}\FloatTok{0.1}\NormalTok{))}
+\NormalTok{xhrt <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(t) }\DecValTok{16}\OperatorTok{*}\KeywordTok{sin}\NormalTok{(t)}\OperatorTok{^}\DecValTok{3}
+\NormalTok{yhrt <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(t) }\DecValTok{13}\OperatorTok{*}\KeywordTok{cos}\NormalTok{(t)}\OperatorTok{-}\DecValTok{5}\OperatorTok{*}\KeywordTok{cos}\NormalTok{(}\DecValTok{2}\OperatorTok{*}\NormalTok{t)}\OperatorTok{-}\DecValTok{2}\OperatorTok{*}\KeywordTok{cos}\NormalTok{(}\DecValTok{3}\OperatorTok{*}\NormalTok{t)}\OperatorTok{-}\KeywordTok{cos}\NormalTok{(}\DecValTok{4}\OperatorTok{*}\NormalTok{t)}
+\NormalTok{dat}\OperatorTok{$}\NormalTok{y <-}\StringTok{ }\KeywordTok{yhrt}\NormalTok{(dat}\OperatorTok{$}\NormalTok{t)}
+\NormalTok{dat}\OperatorTok{$}\NormalTok{x <-}\StringTok{ }\KeywordTok{xhrt}\NormalTok{(dat}\OperatorTok{$}\NormalTok{t)}
 \KeywordTok{with}\NormalTok{(dat, }\KeywordTok{plot}\NormalTok{(x,y, }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{10}\NormalTok{))}
 \KeywordTok{with}\NormalTok{(dat, }\KeywordTok{polygon}\NormalTok{(x, y, }\DataTypeTok{col=}\StringTok{"hotpink"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/curve2-1.pdf}
 \caption{\label{fig:curve2}Dibujo de un cardiode.}
@@ -4420,7 +4429,7 @@ y se muestra a continuación.
   similar al presentando en la Figura \ref{fig:plantilla}.
 \end{enumerate}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/plantilla-1.pdf}
 \caption{\label{fig:plantilla}Plantilla para el dibujo.}
@@ -4439,7 +4448,7 @@ y se muestra a continuación.
 
 \begin{figure}
 
-{\centering \includegraphics{images/casita} 
+{\centering \includegraphics[width=3.26in]{images/casita} 
 
 }
 
@@ -4466,6 +4475,17 @@ y se muestra a continuación.
   y &=  \sen(t)
   \end{align*}
 \end{enumerate}
+
+\chapter{Animaciones básicas}\label{animaciones-basicas}
+
+En este capítulo se presentan algunos ejemplos de cómo crear gráficos
+animados.
+
+\section{\texorpdfstring{Función \texttt{segments} \index{segments}
+\index{segmentos}}{Función segments  }}\label{funcion-segments-1}
+
+Esta función es muy útil para digujar segmentos. La estructura de la
+función se muestra a continuación.
 
 \chapter{Respuestas a preguntas
 frecuentes}\label{respuestas-a-preguntas-frecuentes}
@@ -4496,16 +4516,16 @@ alertar que no es un error en la figura.
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{, }\DataTypeTok{type=}\StringTok{'n'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{, }\DataTypeTok{type=}\StringTok{'n'}\NormalTok{)}
 
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{, }\DataTypeTok{type=}\StringTok{'n'}\NormalTok{,}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{, }\DataTypeTok{type=}\StringTok{'n'}\NormalTok{,}
      \DataTypeTok{xaxt=}\StringTok{'n'}\NormalTok{, }\DataTypeTok{yaxt=}\StringTok{'n'}\NormalTok{, }\DataTypeTok{bty=}\StringTok{'n'}\NormalTok{)}
 \KeywordTok{text}\NormalTok{(}\DataTypeTok{x=}\DecValTok{0}\NormalTok{, }\DataTypeTok{y=}\FloatTok{0.5}\NormalTok{,}
      \DataTypeTok{label=}\StringTok{'Gráfico completamente vacío.'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/empty1-1.pdf}
 \caption{\label{fig:empty1}Ejemplo de gráfico vacío.}
@@ -4546,8 +4566,8 @@ ejes.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{x <-}\StringTok{ }\DecValTok{1}\NormalTok{:}\DecValTok{10}          \CommentTok{# Los datos para el dibujo}
-\NormalTok{y <-}\StringTok{ }\NormalTok{(x -}\StringTok{ }\DecValTok{5}\NormalTok{) ^}\StringTok{ }\DecValTok{2}   \CommentTok{# Los datos para el dibujo}
+\NormalTok{x <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{10}          \CommentTok{# Los datos para el dibujo}
+\NormalTok{y <-}\StringTok{ }\NormalTok{(x }\OperatorTok{-}\StringTok{ }\DecValTok{5}\NormalTok{) }\OperatorTok{^}\StringTok{ }\DecValTok{2}   \CommentTok{# Los datos para el dibujo}
 
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{)) }\CommentTok{# Para dividir la ventana gráfica}
 \KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{x, }\DataTypeTok{y=}\NormalTok{y, }\DataTypeTok{main=}\StringTok{'Dibujo por defecto'}\NormalTok{)  }\CommentTok{# Dibujo por defecto}
@@ -4558,7 +4578,7 @@ ejes.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/faq1-1.pdf}
 \caption{\label{fig:faq1}Personalizando los valores a mostrar en los ejes.}
@@ -4586,7 +4606,7 @@ gráfico solicitado se muestra a continuación y el resultado es la Figura
 
 \NormalTok{q1 <-}\StringTok{ }\KeywordTok{qqnorm}\NormalTok{(m1, }\DataTypeTok{plot.it=}\OtherTok{FALSE}\NormalTok{)}
 \NormalTok{q2 <-}\StringTok{ }\KeywordTok{qqnorm}\NormalTok{(m2, }\DataTypeTok{plot.it=}\OtherTok{FALSE}\NormalTok{)}
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{range}\NormalTok{(q1$x, q2$x), }\KeywordTok{range}\NormalTok{(q1$y, q2$y), }\DataTypeTok{type=}\StringTok{'n'}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{range}\NormalTok{(q1}\OperatorTok{$}\NormalTok{x, q2}\OperatorTok{$}\NormalTok{x), }\KeywordTok{range}\NormalTok{(q1}\OperatorTok{$}\NormalTok{y, q2}\OperatorTok{$}\NormalTok{y), }\DataTypeTok{type=}\StringTok{'n'}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
      \DataTypeTok{xlab=}\StringTok{'Theoretical Quantiles'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Sample Quantiles'}\NormalTok{)}
 \KeywordTok{points}\NormalTok{(q1, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{col=}\StringTok{'slateblue3'}\NormalTok{)}
 \KeywordTok{points}\NormalTok{(q2, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{col=}\StringTok{'seagreen4'}\NormalTok{)}
@@ -4597,7 +4617,7 @@ gráfico solicitado se muestra a continuación y el resultado es la Figura
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/faq2-1.pdf}
 \caption{\label{fig:faq2}QQplots simultáneos.}
@@ -4622,7 +4642,7 @@ muestras aleatorias \texttt{m1} y \texttt{m2}. En la Figura
 \NormalTok{f2 <-}\StringTok{ }\KeywordTok{density}\NormalTok{(m2)}
 
 \KeywordTok{plot}\NormalTok{(f1, }\DataTypeTok{main=}\StringTok{''}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{,}
-     \DataTypeTok{xlim=}\KeywordTok{range}\NormalTok{(f1$x, f2$x), }\DataTypeTok{ylim=}\KeywordTok{range}\NormalTok{(f1$y, f2$y),}
+     \DataTypeTok{xlim=}\KeywordTok{range}\NormalTok{(f1}\OperatorTok{$}\NormalTok{x, f2}\OperatorTok{$}\NormalTok{x), }\DataTypeTok{ylim=}\KeywordTok{range}\NormalTok{(f1}\OperatorTok{$}\NormalTok{y, f2}\OperatorTok{$}\NormalTok{y),}
      \DataTypeTok{xlab=}\StringTok{'Variable'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{)}
 \KeywordTok{lines}\NormalTok{(f2, }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{col=}\StringTok{'red'}\NormalTok{)  }\CommentTok{# Para agregar f2}
 \KeywordTok{legend}\NormalTok{(}\StringTok{'topright'}\NormalTok{, }\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'black'}\NormalTok{, }\StringTok{'red'}\NormalTok{),}
@@ -4630,7 +4650,7 @@ muestras aleatorias \texttt{m1} y \texttt{m2}. En la Figura
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/faq3-1.pdf}
 \caption{\label{fig:faq3}Densidades simultáneas.}
@@ -4656,13 +4676,13 @@ observa el resultado.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
-\KeywordTok{abline}\NormalTok{(}\DataTypeTok{v=}\KeywordTok{c}\NormalTok{(-}\DecValTok{9}\NormalTok{, -}\DecValTok{6}\NormalTok{, -}\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{9}\NormalTok{),}
-       \DataTypeTok{h=}\KeywordTok{c}\NormalTok{(-}\DecValTok{10}\NormalTok{,-}\DecValTok{5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{col=}\KeywordTok{gray}\NormalTok{(}\FloatTok{0.8}\NormalTok{), }\DataTypeTok{lty=}\StringTok{'dashed'}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{""}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{""}\NormalTok{)}
+\KeywordTok{abline}\NormalTok{(}\DataTypeTok{v=}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{9}\NormalTok{, }\OperatorTok{-}\DecValTok{6}\NormalTok{, }\OperatorTok{-}\DecValTok{3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{9}\NormalTok{),}
+       \DataTypeTok{h=}\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\DecValTok{10}\NormalTok{,}\OperatorTok{-}\DecValTok{5}\NormalTok{, }\DecValTok{0}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{10}\NormalTok{), }\DataTypeTok{col=}\KeywordTok{gray}\NormalTok{(}\FloatTok{0.8}\NormalTok{), }\DataTypeTok{lty=}\StringTok{'dashed'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/rejilla-1.pdf}
 \caption{\label{fig:rejilla}Rejilla personalizada.}
@@ -4688,11 +4708,11 @@ la expresión con \(\lambda\) y que sea igual al valor almacenado en
 \begin{Highlighting}[]
 \NormalTok{media <-}\StringTok{ }\DecValTok{10}
 \NormalTok{x <-}\StringTok{ }\KeywordTok{rpois}\NormalTok{(}\DataTypeTok{n=}\DecValTok{1000}\NormalTok{, }\DataTypeTok{lambda=}\NormalTok{media)}
-\KeywordTok{barplot}\NormalTok{(}\KeywordTok{table}\NormalTok{(x), }\DataTypeTok{main=}\KeywordTok{bquote}\NormalTok{(lambda ==}\StringTok{ }\NormalTok{.(media)))}
+\KeywordTok{barplot}\NormalTok{(}\KeywordTok{table}\NormalTok{(x), }\DataTypeTok{main=}\KeywordTok{bquote}\NormalTok{(lambda }\OperatorTok{==}\StringTok{ }\NormalTok{.(media)))}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/faq4-1.pdf}
 \caption{\label{fig:faq4}Ejemplo 1 con bquote.}
@@ -4724,13 +4744,13 @@ texto fijo se encierra dentro de comillas \texttt{"\ "}.
 \KeywordTok{curve}\NormalTok{(}\KeywordTok{dnorm}\NormalTok{(x, }\DataTypeTok{mean=}\NormalTok{mu, }\DataTypeTok{sd=}\KeywordTok{sqrt}\NormalTok{(vari)), }\DataTypeTok{from=}\DecValTok{130}\NormalTok{, }\DataTypeTok{to=}\DecValTok{170}\NormalTok{,}
       \DataTypeTok{lwd=}\DecValTok{4}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Density'}\NormalTok{,}
       \DataTypeTok{main=}\KeywordTok{bquote}\NormalTok{(}\KeywordTok{paste}\NormalTok{(}\StringTok{"Pdf for a normal with "}\NormalTok{,}
-                  \NormalTok{mu, }\StringTok{"="}\NormalTok{, .(mu),}
+\NormalTok{                  mu, }\StringTok{"="}\NormalTok{, .(mu),}
                   \StringTok{" and "}\NormalTok{,}
-                  \NormalTok{sigma^}\DecValTok{2}\NormalTok{, }\StringTok{"="}\NormalTok{, .(vari))))}
+\NormalTok{                  sigma}\OperatorTok{^}\DecValTok{2}\NormalTok{, }\StringTok{"="}\NormalTok{, .(vari))))}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/faq5-1.pdf}
 \caption{\label{fig:faq5}Ejemplo 2 con bquote.}
@@ -4762,12 +4782,12 @@ Figura \ref{fig:faq6}.
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\FloatTok{1.8}\NormalTok{, }\FloatTok{1.8}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DataTypeTok{cex.axis=}\FloatTok{0.5}\NormalTok{)}
 \KeywordTok{with}\NormalTok{(iris, }\KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{Sepal.Length, }\DataTypeTok{y=}\NormalTok{Petal.Length, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{,}
                 \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'red'}\NormalTok{, }\StringTok{'blue'}\NormalTok{, }\StringTok{'green3'}\NormalTok{)[Species]))}
-\KeywordTok{legend}\NormalTok{(}\StringTok{'topleft'}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{levels}\NormalTok{(iris$Species), }\DataTypeTok{cex=}\FloatTok{0.5}\NormalTok{,}
+\KeywordTok{legend}\NormalTok{(}\StringTok{'topleft'}\NormalTok{, }\DataTypeTok{legend=}\KeywordTok{levels}\NormalTok{(iris}\OperatorTok{$}\NormalTok{Species), }\DataTypeTok{cex=}\FloatTok{0.5}\NormalTok{,}
        \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'red'}\NormalTok{, }\StringTok{'blue'}\NormalTok{, }\StringTok{'green3'}\NormalTok{), }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}[htbp]
+\begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/faq6-1.pdf}
 \caption{\label{fig:faq6}Ejemplo para incluir colores dependiendo de los
@@ -4778,13 +4798,13 @@ valores de una variable cualitativa.}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{datos <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{sample}\NormalTok{(}\DecValTok{0}\NormalTok{:}\DecValTok{7}\NormalTok{,}\DecValTok{10000}\NormalTok{,}
+\NormalTok{datos <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{sample}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{7}\NormalTok{,}\DecValTok{10000}\NormalTok{,}
                        \DataTypeTok{prob=}\KeywordTok{c}\NormalTok{(}\DecValTok{260}\NormalTok{, }\DecValTok{354}\NormalTok{, }\DecValTok{200}\NormalTok{, }\DecValTok{100}\NormalTok{, }\DecValTok{60}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{1}\NormalTok{),}
                        \DataTypeTok{replace=}\NormalTok{T), }\DataTypeTok{ncol=}\DecValTok{20}\NormalTok{)}
 \NormalTok{medias<-}\KeywordTok{apply}\NormalTok{(datos, }\DecValTok{1}\NormalTok{, mean)}
 
 \KeywordTok{library}\NormalTok{(MASS)}
-\NormalTok{resu1 <-}\StringTok{ }\KeywordTok{fitdistr}\NormalTok{(}\DataTypeTok{x=}\NormalTok{medias, }\DataTypeTok{densfun=}\StringTok{'gamma'}\NormalTok{)$estimate}
+\NormalTok{resu1 <-}\StringTok{ }\KeywordTok{fitdistr}\NormalTok{(}\DataTypeTok{x=}\NormalTok{medias, }\DataTypeTok{densfun=}\StringTok{'gamma'}\NormalTok{)}\OperatorTok{$}\NormalTok{estimate}
 \NormalTok{resu1}
 
 \KeywordTok{hist}\NormalTok{(medias, }\DataTypeTok{col=}\StringTok{'yellow'}\NormalTok{, }\DataTypeTok{freq=}\NormalTok{F, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{,}
