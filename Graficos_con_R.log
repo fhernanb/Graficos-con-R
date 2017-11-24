@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210 64-bit) (preloaded format=xelatex 2017.1.16)  4 OCT 2017 09:44
+This is XeTeX, Version 3.14159265-2.6-0.99996 (MiKTeX 2.9.6210 64-bit) (preloaded format=xelatex 2017.1.16)  24 NOV 2017 09:51
 entering extended mode
 **./Graficos_con_R.tex
 (Graficos_con_R.tex
@@ -1173,8 +1173,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 ]
 LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <10> not available
 (Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 46.
-LaTeX Info: Redefining \. on input line 76.
-LaTeX Info: Redefining \% on input line 76.
+LaTeX Info: Redefining \. on input line 75.
+LaTeX Info: Redefining \% on input line 75.
 [4])
 \tf@toc=\write6
 \openout6 = `Graficos_con_R.toc'.
@@ -1383,8 +1383,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--32
  \EU1/lmr/m/n/10 ción persp. Figura tomada de https://i-msdn.sec.s- 
  []
 
-LaTeX Info: Redefining \. on input line 50.
-LaTeX Info: Redefining \% on input line 50.
+LaTeX Info: Redefining \. on input line 49.
+LaTeX Info: Redefining \% on input line 49.
 [10])
 \tf@lof=\write8
 \openout8 = `Graficos_con_R.lof'.
@@ -1634,10 +1634,6 @@ File: images/cran.png Graphic file (type QTm)
 <use  "images/cran.png" >
 File: images/instalacion1.png Graphic file (type QTm)
 <use  "images/instalacion1.png" >
-Overfull \hbox (47.26102pt too wide) in paragraph at lines 452--453
- [][][][] 
- []
-
 LaTeX Info: Redefining \. on input line 468.
 LaTeX Info: Redefining \% on input line 468.
 [2]
@@ -1650,33 +1646,33 @@ File: images/Rpantallazo.png Graphic file (type QTm)
 LaTeX Info: Redefining \. on input line 515.
 LaTeX Info: Redefining \% on input line 515.
 [3]
-LaTeX Info: Redefining \. on input line 538.
-LaTeX Info: Redefining \% on input line 538.
+LaTeX Info: Redefining \. on input line 525.
+LaTeX Info: Redefining \% on input line 525.
 [4]
 File: images/warning.png Graphic file (type QTm)
 <use  "images/warning.png" >
 File: images/note.png Graphic file (type QTm)
 <use  "images/note.png" >
-LaTeX Info: Redefining \. on input line 591.
-LaTeX Info: Redefining \% on input line 591.
+LaTeX Info: Redefining \. on input line 581.
+LaTeX Info: Redefining \% on input line 581.
 [5]
-LaTeX Info: Redefining \. on input line 658.
-LaTeX Info: Redefining \% on input line 658.
+LaTeX Info: Redefining \. on input line 657.
+LaTeX Info: Redefining \% on input line 657.
 [6]
-LaTeX Info: Redefining \. on input line 726.
-LaTeX Info: Redefining \% on input line 726.
+LaTeX Info: Redefining \. on input line 713.
+LaTeX Info: Redefining \% on input line 713.
 [7]
 LaTeX Info: Redefining \. on input line 789.
 LaTeX Info: Redefining \% on input line 789.
 [8]
-LaTeX Info: Redefining \. on input line 829.
-LaTeX Info: Redefining \% on input line 829.
+LaTeX Info: Redefining \. on input line 824.
+LaTeX Info: Redefining \% on input line 824.
 [9]
-LaTeX Info: Redefining \. on input line 883.
-LaTeX Info: Redefining \% on input line 883.
+LaTeX Info: Redefining \. on input line 872.
+LaTeX Info: Redefining \% on input line 872.
 [10]
-LaTeX Info: Redefining \. on input line 940.
-LaTeX Info: Redefining \% on input line 940.
+LaTeX Info: Redefining \. on input line 935.
+LaTeX Info: Redefining \% on input line 935.
 [11]
 LaTeX Info: Redefining \. on input line 986.
 LaTeX Info: Redefining \% on input line 986.
@@ -1763,72 +1759,72 @@ LaTeX Font Info:    Font shape `EU1/lmtt/bx/n' in size <12> not available
 (Font)              Font shape `EU1/lmtt/b/n' tried instead on input line 1007.
 
 
-Underfull \hbox (badness 10000) detected at line 1021
+Underfull \hbox (badness 10000) detected at line 1020
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1021
+Underfull \hbox (badness 10000) detected at line 1020
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1023
+Underfull \hbox (badness 10000) detected at line 1022
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1023
+Underfull \hbox (badness 10000) detected at line 1022
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1037
+Underfull \hbox (badness 10000) detected at line 1036
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1037
+Underfull \hbox (badness 10000) detected at line 1036
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1055
+Underfull \hbox (badness 10000) detected at line 1054
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1055
+Underfull \hbox (badness 10000) detected at line 1054
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1057
+Underfull \hbox (badness 10000) detected at line 1056
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1057
+Underfull \hbox (badness 10000) detected at line 1056
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1066
+Underfull \hbox (badness 10000) detected at line 1065
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1066
+Underfull \hbox (badness 10000) detected at line 1065
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1068
+Underfull \hbox (badness 10000) detected at line 1067
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1068
+Underfull \hbox (badness 10000) detected at line 1067
 [][][]
  []
 
@@ -1840,111 +1836,111 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [15
 
 ]
-Underfull \hbox (badness 10000) detected at line 1070
+Underfull \hbox (badness 10000) detected at line 1069
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1070
+Underfull \hbox (badness 10000) detected at line 1069
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 1124.
-LaTeX Info: Redefining \% on input line 1124.
+LaTeX Info: Redefining \. on input line 1123.
+LaTeX Info: Redefining \% on input line 1123.
 [16]
-LaTeX Info: Redefining \. on input line 1188.
-LaTeX Info: Redefining \% on input line 1188.
+LaTeX Info: Redefining \. on input line 1187.
+LaTeX Info: Redefining \% on input line 1187.
 [17]
 File: Graficos_con_R_files/figure-latex/boxplots-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/boxplots-1.pdf" >
-LaTeX Info: Redefining \. on input line 1230.
-LaTeX Info: Redefining \% on input line 1230.
+LaTeX Info: Redefining \. on input line 1229.
+LaTeX Info: Redefining \% on input line 1229.
 [18]
 File: Graficos_con_R_files/figure-latex/boxplots2-1.pdf Graphic file (type QTm)
 
 <use  "Graficos_con_R_files/figure-latex/boxplots2-1.pdf" >
-LaTeX Info: Redefining \. on input line 1260.
-LaTeX Info: Redefining \% on input line 1260.
+LaTeX Info: Redefining \. on input line 1272.
+LaTeX Info: Redefining \% on input line 1272.
 [19]
-LaTeX Info: Redefining \. on input line 1321.
-LaTeX Info: Redefining \% on input line 1321.
+LaTeX Info: Redefining \. on input line 1334.
+LaTeX Info: Redefining \% on input line 1334.
 [20]
-LaTeX Info: Redefining \. on input line 1377.
-LaTeX Info: Redefining \% on input line 1377.
+LaTeX Info: Redefining \. on input line 1379.
+LaTeX Info: Redefining \% on input line 1379.
 [21]
 File: Graficos_con_R_files/figure-latex/hist1-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/hist1-1.pdf" >
-LaTeX Info: Redefining \. on input line 1448.
-LaTeX Info: Redefining \% on input line 1448.
+LaTeX Info: Redefining \. on input line 1419.
+LaTeX Info: Redefining \% on input line 1419.
 [22]
 File: Graficos_con_R_files/figure-latex/hist2-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/hist2-1.pdf" >
-LaTeX Info: Redefining \. on input line 1468.
-LaTeX Info: Redefining \% on input line 1468.
+LaTeX Info: Redefining \. on input line 1480.
+LaTeX Info: Redefining \% on input line 1480.
 [23]
-LaTeX Info: Redefining \. on input line 1486.
-LaTeX Info: Redefining \% on input line 1486.
+LaTeX Info: Redefining \. on input line 1501.
+LaTeX Info: Redefining \% on input line 1501.
 [24]
 File: Graficos_con_R_files/figure-latex/qqplot1-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/qqplot1-1.pdf" >
-LaTeX Info: Redefining \. on input line 1550.
-LaTeX Info: Redefining \% on input line 1550.
+LaTeX Info: Redefining \. on input line 1549.
+LaTeX Info: Redefining \% on input line 1549.
 [25]
 File: Graficos_con_R_files/figure-latex/qqplot2-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/qqplot2-1.pdf" >
-LaTeX Info: Redefining \. on input line 1579.
-LaTeX Info: Redefining \% on input line 1579.
+LaTeX Info: Redefining \. on input line 1587.
+LaTeX Info: Redefining \% on input line 1587.
 [26]
-LaTeX Info: Redefining \. on input line 1640.
-LaTeX Info: Redefining \% on input line 1640.
+LaTeX Info: Redefining \. on input line 1654.
+LaTeX Info: Redefining \% on input line 1654.
 [27]
 File: Graficos_con_R_files/figure-latex/density1-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/density1-1.pdf" >
-LaTeX Info: Redefining \. on input line 1680.
-LaTeX Info: Redefining \% on input line 1680.
+LaTeX Info: Redefining \. on input line 1690.
+LaTeX Info: Redefining \% on input line 1690.
 [28]
 File: Graficos_con_R_files/figure-latex/density2-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/density2-1.pdf" >
-LaTeX Info: Redefining \. on input line 1712.
-LaTeX Info: Redefining \% on input line 1712.
+LaTeX Info: Redefining \. on input line 1733.
+LaTeX Info: Redefining \% on input line 1733.
 [29]
 File: Graficos_con_R_files/figure-latex/density3-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/density3-1.pdf" >
-LaTeX Info: Redefining \. on input line 1747.
-LaTeX Info: Redefining \% on input line 1747.
+LaTeX Info: Redefining \. on input line 1749.
+LaTeX Info: Redefining \% on input line 1749.
 [30]
-Underfull \vbox (badness 10000) detected at line 1747
+Underfull \vbox (badness 10000) detected at line 1749
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1747
+Overfull \hbox (336.25pt too wide) detected at line 1749
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1747
+Underfull \vbox (badness 10000) detected at line 1749
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1747
+Overfull \hbox (336.25pt too wide) detected at line 1749
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1747
+Underfull \vbox (badness 10000) detected at line 1749
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1747
+Overfull \hbox (336.25pt too wide) detected at line 1749
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1747
+Underfull \vbox (badness 10000) detected at line 1749
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 1747
+Overfull \hbox (336.25pt too wide) detected at line 1749
 []
  []
 
@@ -1962,172 +1958,172 @@ File: Graficos_con_R_files/figure-latex/ex1plot-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/ex1plot-1.pdf" >
 File: Graficos_con_R_files/figure-latex/ex2plot-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/ex2plot-1.pdf" >
-LaTeX Info: Redefining \. on input line 1888.
-LaTeX Info: Redefining \% on input line 1888.
+LaTeX Info: Redefining \. on input line 1890.
+LaTeX Info: Redefining \% on input line 1890.
 [32]
-LaTeX Info: Redefining \. on input line 1888.
-LaTeX Info: Redefining \% on input line 1888.
+LaTeX Info: Redefining \. on input line 1890.
+LaTeX Info: Redefining \% on input line 1890.
 [33]
-LaTeX Info: Redefining \. on input line 1902.
-LaTeX Info: Redefining \% on input line 1902.
+LaTeX Info: Redefining \. on input line 1904.
+LaTeX Info: Redefining \% on input line 1904.
 [34]
 File: Graficos_con_R_files/figure-latex/symbols1-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/symbols1-1.pdf" >
-Overfull \vbox (1.43521pt too high) detected at line 1946
+Overfull \vbox (1.43521pt too high) detected at line 1948
  []
 
-LaTeX Info: Redefining \. on input line 1946.
-LaTeX Info: Redefining \% on input line 1946.
+LaTeX Info: Redefining \. on input line 1948.
+LaTeX Info: Redefining \% on input line 1948.
 [35]
 File: Graficos_con_R_files/figure-latex/symbols2-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/symbols2-1.pdf" >
 File: Graficos_con_R_files/figure-latex/ex0pairs-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/ex0pairs-1.pdf" >
-LaTeX Info: Redefining \. on input line 1983.
-LaTeX Info: Redefining \% on input line 1983.
+LaTeX Info: Redefining \. on input line 1985.
+LaTeX Info: Redefining \% on input line 1985.
 [36]
-LaTeX Info: Redefining \. on input line 2013.
-LaTeX Info: Redefining \% on input line 2013.
+LaTeX Info: Redefining \. on input line 2015.
+LaTeX Info: Redefining \% on input line 2015.
 [37]
 File: Graficos_con_R_files/figure-latex/ex1pairs-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/ex1pairs-1.pdf" >
-LaTeX Info: Redefining \. on input line 2088.
-LaTeX Info: Redefining \% on input line 2088.
+LaTeX Info: Redefining \. on input line 2090.
+LaTeX Info: Redefining \% on input line 2090.
 [38]
 File: Graficos_con_R_files/figure-latex/ex2pairs-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/ex2pairs-1.pdf" >
-LaTeX Info: Redefining \. on input line 2126.
-LaTeX Info: Redefining \% on input line 2126.
+LaTeX Info: Redefining \. on input line 2128.
+LaTeX Info: Redefining \% on input line 2128.
 [39]
 File: Graficos_con_R_files/figure-latex/ex3pairs-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/ex3pairs-1.pdf" >
-LaTeX Info: Redefining \. on input line 2150.
-LaTeX Info: Redefining \% on input line 2150.
+LaTeX Info: Redefining \. on input line 2152.
+LaTeX Info: Redefining \% on input line 2152.
 [40]
-Underfull \hbox (badness 10000) in paragraph at lines 2158--2158
+Underfull \hbox (badness 10000) in paragraph at lines 2160--2160
 [][][][][]$[][][][] [] [] [] [][][][][][][][][][][][][] [] [][][] [] [][][][][]
 [][][][] [] [][][][][][][][] [] [][][] [][] [][] [][] [][][] [][] [][][] [][] [
 ][][][][] [][] [][][][][][][][] [][]
  []
 
-LaTeX Info: Redefining \. on input line 2171.
-LaTeX Info: Redefining \% on input line 2171.
+LaTeX Info: Redefining \. on input line 2173.
+LaTeX Info: Redefining \% on input line 2173.
 [41]
 File: Graficos_con_R_files/figure-latex/expairs-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/expairs-1.pdf" >
-LaTeX Info: Redefining \. on input line 2201.
-LaTeX Info: Redefining \% on input line 2201.
+LaTeX Info: Redefining \. on input line 2203.
+LaTeX Info: Redefining \% on input line 2203.
 [42]
 File: Graficos_con_R_files/figure-latex/exmod1pairs-1.pdf Graphic file (type QT
 m)
 <use  "Graficos_con_R_files/figure-latex/exmod1pairs-1.pdf" >
-LaTeX Info: Redefining \. on input line 2261.
-LaTeX Info: Redefining \% on input line 2261.
+LaTeX Info: Redefining \. on input line 2263.
+LaTeX Info: Redefining \% on input line 2263.
 [43]
 File: Graficos_con_R_files/figure-latex/exmod2pairs-1.pdf Graphic file (type QT
 m)
 <use  "Graficos_con_R_files/figure-latex/exmod2pairs-1.pdf" >
-LaTeX Info: Redefining \. on input line 2291.
-LaTeX Info: Redefining \% on input line 2291.
+LaTeX Info: Redefining \. on input line 2293.
+LaTeX Info: Redefining \% on input line 2293.
 [44]
-LaTeX Info: Redefining \. on input line 2314.
-LaTeX Info: Redefining \% on input line 2314.
+LaTeX Info: Redefining \. on input line 2316.
+LaTeX Info: Redefining \% on input line 2316.
 [45]
 File: images/IC412528.png Graphic file (type QTm)
 <use  "images/IC412528.png" >
-LaTeX Info: Redefining \. on input line 2372.
-LaTeX Info: Redefining \% on input line 2372.
+LaTeX Info: Redefining \. on input line 2374.
+LaTeX Info: Redefining \% on input line 2374.
 [46]
 File: Graficos_con_R_files/figure-latex/ex1persp-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/ex1persp-1.pdf" >
-Overfull \vbox (1.06009pt too high) detected at line 2444
+Overfull \vbox (1.06009pt too high) detected at line 2446
  []
 
-LaTeX Info: Redefining \. on input line 2444.
-LaTeX Info: Redefining \% on input line 2444.
+LaTeX Info: Redefining \. on input line 2446.
+LaTeX Info: Redefining \% on input line 2446.
 [47]
 File: Graficos_con_R_files/figure-latex/ex2persp-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/ex2persp-1.pdf" >
-LaTeX Info: Redefining \. on input line 2456.
-LaTeX Info: Redefining \% on input line 2456.
+LaTeX Info: Redefining \. on input line 2458.
+LaTeX Info: Redefining \% on input line 2458.
 [48]
-LaTeX Info: Redefining \. on input line 2496.
-LaTeX Info: Redefining \% on input line 2496.
+LaTeX Info: Redefining \. on input line 2498.
+LaTeX Info: Redefining \% on input line 2498.
 [49]
 File: Graficos_con_R_files/figure-latex/contour1-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/contour1-1.pdf" >
-LaTeX Info: Redefining \. on input line 2562.
-LaTeX Info: Redefining \% on input line 2562.
+LaTeX Info: Redefining \. on input line 2564.
+LaTeX Info: Redefining \% on input line 2564.
 [50]
-LaTeX Info: Redefining \. on input line 2592.
-LaTeX Info: Redefining \% on input line 2592.
+LaTeX Info: Redefining \. on input line 2594.
+LaTeX Info: Redefining \% on input line 2594.
 [51]
 File: Graficos_con_R_files/figure-latex/image1-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/image1-1.pdf" >
-LaTeX Info: Redefining \. on input line 2634.
-LaTeX Info: Redefining \% on input line 2634.
+LaTeX Info: Redefining \. on input line 2636.
+LaTeX Info: Redefining \% on input line 2636.
 [52]
 File: Graficos_con_R_files/figure-latex/contour2-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/contour2-1.pdf" >
-LaTeX Info: Redefining \. on input line 2708.
-LaTeX Info: Redefining \% on input line 2708.
+LaTeX Info: Redefining \. on input line 2710.
+LaTeX Info: Redefining \% on input line 2710.
 [53]
-LaTeX Info: Redefining \. on input line 2737.
-LaTeX Info: Redefining \% on input line 2737.
+LaTeX Info: Redefining \. on input line 2739.
+LaTeX Info: Redefining \% on input line 2739.
 [54]
 File: Graficos_con_R_files/figure-latex/den2d1-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/den2d1-1.pdf" >
-Overfull \vbox (1.77689pt too high) detected at line 2766
+Overfull \vbox (1.77689pt too high) detected at line 2768
  []
 
-LaTeX Info: Redefining \. on input line 2766.
-LaTeX Info: Redefining \% on input line 2766.
+LaTeX Info: Redefining \. on input line 2768.
+LaTeX Info: Redefining \% on input line 2768.
 [55]
 File: Graficos_con_R_files/figure-latex/intplot1-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/intplot1-1.pdf" >
-LaTeX Info: Redefining \. on input line 2833.
-LaTeX Info: Redefining \% on input line 2833.
+LaTeX Info: Redefining \. on input line 2835.
+LaTeX Info: Redefining \% on input line 2835.
 [56]
-LaTeX Info: Redefining \. on input line 2844.
-LaTeX Info: Redefining \% on input line 2844.
+LaTeX Info: Redefining \. on input line 2846.
+LaTeX Info: Redefining \% on input line 2846.
 [57]
 File: Graficos_con_R_files/figure-latex/intplot2-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/intplot2-1.pdf" >
-LaTeX Info: Redefining \. on input line 2863.
-LaTeX Info: Redefining \% on input line 2863.
+LaTeX Info: Redefining \. on input line 2865.
+LaTeX Info: Redefining \% on input line 2865.
 [58]
-Underfull \vbox (badness 10000) detected at line 2863
+Underfull \vbox (badness 10000) detected at line 2865
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 2863
+Overfull \hbox (336.25pt too wide) detected at line 2865
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2863
+Underfull \vbox (badness 10000) detected at line 2865
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 2863
+Overfull \hbox (336.25pt too wide) detected at line 2865
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2863
+Underfull \vbox (badness 10000) detected at line 2865
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 2863
+Overfull \hbox (336.25pt too wide) detected at line 2865
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2863
+Underfull \vbox (badness 10000) detected at line 2865
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 2863
+Overfull \hbox (336.25pt too wide) detected at line 2865
 []
  []
 
@@ -2143,43 +2139,43 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 ]
 File: Graficos_con_R_files/figure-latex/barra1-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/barra1-1.pdf" >
-LaTeX Info: Redefining \. on input line 2960.
-LaTeX Info: Redefining \% on input line 2960.
+LaTeX Info: Redefining \. on input line 2962.
+LaTeX Info: Redefining \% on input line 2962.
 [60]
 File: Graficos_con_R_files/figure-latex/barra2-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/barra2-1.pdf" >
-LaTeX Info: Redefining \. on input line 2998.
-LaTeX Info: Redefining \% on input line 2998.
+LaTeX Info: Redefining \. on input line 3000.
+LaTeX Info: Redefining \% on input line 3000.
 [61]
 File: Graficos_con_R_files/figure-latex/barra3-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/barra3-1.pdf" >
 File: Graficos_con_R_files/figure-latex/barra4-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/barra4-1.pdf" >
-LaTeX Info: Redefining \. on input line 3070.
-LaTeX Info: Redefining \% on input line 3070.
+LaTeX Info: Redefining \. on input line 3072.
+LaTeX Info: Redefining \% on input line 3072.
 [62]
-LaTeX Info: Redefining \. on input line 3070.
-LaTeX Info: Redefining \% on input line 3070.
+LaTeX Info: Redefining \. on input line 3072.
+LaTeX Info: Redefining \% on input line 3072.
 [63]
 File: Graficos_con_R_files/figure-latex/barra5-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/barra5-1.pdf" >
-LaTeX Info: Redefining \. on input line 3113.
-LaTeX Info: Redefining \% on input line 3113.
+LaTeX Info: Redefining \. on input line 3115.
+LaTeX Info: Redefining \% on input line 3115.
 [64]
 File: Graficos_con_R_files/figure-latex/barra6-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/barra6-1.pdf" >
-LaTeX Info: Redefining \. on input line 3150.
-LaTeX Info: Redefining \% on input line 3150.
+LaTeX Info: Redefining \. on input line 3152.
+LaTeX Info: Redefining \% on input line 3152.
 [65]
 File: images/warning.png Graphic file (type QTm)
 <use  "images/warning.png" >
 File: Graficos_con_R_files/figure-latex/pie-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/pie-1.pdf" >
-LaTeX Info: Redefining \. on input line 3215.
-LaTeX Info: Redefining \% on input line 3215.
+LaTeX Info: Redefining \. on input line 3217.
+LaTeX Info: Redefining \% on input line 3217.
 [66]
-LaTeX Info: Redefining \. on input line 3246.
-LaTeX Info: Redefining \% on input line 3246.
+LaTeX Info: Redefining \. on input line 3248.
+LaTeX Info: Redefining \% on input line 3248.
 [67]
 File: Graficos_con_R_files/figure-latex/dotchart2-1.pdf Graphic file (type QTm)
 
@@ -2187,96 +2183,96 @@ File: Graficos_con_R_files/figure-latex/dotchart2-1.pdf Graphic file (type QTm)
 File: Graficos_con_R_files/figure-latex/dotchart3-1.pdf Graphic file (type QTm)
 
 <use  "Graficos_con_R_files/figure-latex/dotchart3-1.pdf" >
-LaTeX Info: Redefining \. on input line 3325.
-LaTeX Info: Redefining \% on input line 3325.
+LaTeX Info: Redefining \. on input line 3327.
+LaTeX Info: Redefining \% on input line 3327.
 [68]
-LaTeX Info: Redefining \. on input line 3325.
-LaTeX Info: Redefining \% on input line 3325.
+LaTeX Info: Redefining \. on input line 3327.
+LaTeX Info: Redefining \% on input line 3327.
 [69]
-Underfull \hbox (badness 10000) detected at line 3334
+Underfull \hbox (badness 10000) detected at line 3336
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3334
+Underfull \hbox (badness 10000) detected at line 3336
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3337
+Underfull \hbox (badness 10000) detected at line 3339
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3337
+Underfull \hbox (badness 10000) detected at line 3339
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3341
+Underfull \hbox (badness 10000) detected at line 3343
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3341
+Underfull \hbox (badness 10000) detected at line 3343
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3344
+Underfull \hbox (badness 10000) detected at line 3346
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3344
+Underfull \hbox (badness 10000) detected at line 3346
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3347
+Underfull \hbox (badness 10000) detected at line 3349
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 3347
+Underfull \hbox (badness 10000) detected at line 3349
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 3351.
-LaTeX Info: Redefining \% on input line 3351.
+LaTeX Info: Redefining \. on input line 3353.
+LaTeX Info: Redefining \% on input line 3353.
 [70]
-Underfull \vbox (badness 10000) detected at line 3351
+Underfull \vbox (badness 10000) detected at line 3353
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 3351
+Overfull \hbox (336.25pt too wide) detected at line 3353
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3351
+Underfull \vbox (badness 10000) detected at line 3353
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 3351
+Overfull \hbox (336.25pt too wide) detected at line 3353
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3351
+Underfull \vbox (badness 10000) detected at line 3353
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 3351
+Overfull \hbox (336.25pt too wide) detected at line 3353
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3351
+Underfull \vbox (badness 10000) detected at line 3353
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 3351
+Overfull \hbox (336.25pt too wide) detected at line 3353
 []
  []
 
@@ -2293,95 +2289,95 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 ]
 File: Graficos_con_R_files/figure-latex/ann-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/ann-1.pdf" >
-LaTeX Info: Redefining \. on input line 3429.
-LaTeX Info: Redefining \% on input line 3429.
+LaTeX Info: Redefining \. on input line 3431.
+LaTeX Info: Redefining \% on input line 3431.
 [72]
 File: images/note.png Graphic file (type QTm)
 <use  "images/note.png" >
 File: Graficos_con_R_files/figure-latex/adj-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/adj-1.pdf" >
-LaTeX Info: Redefining \. on input line 3490.
-LaTeX Info: Redefining \% on input line 3490.
+LaTeX Info: Redefining \. on input line 3492.
+LaTeX Info: Redefining \% on input line 3492.
 [73]
 File: Graficos_con_R_files/figure-latex/bg-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/bg-1.pdf" >
-LaTeX Info: Redefining \. on input line 3525.
-LaTeX Info: Redefining \% on input line 3525.
+LaTeX Info: Redefining \. on input line 3527.
+LaTeX Info: Redefining \% on input line 3527.
 [74]
-LaTeX Info: Redefining \. on input line 3542.
-LaTeX Info: Redefining \% on input line 3542.
+LaTeX Info: Redefining \. on input line 3544.
+LaTeX Info: Redefining \% on input line 3544.
 [75]
 File: Graficos_con_R_files/figure-latex/mfrow-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/mfrow-1.pdf" >
 File: images/note.png Graphic file (type QTm)
 <use  "images/note.png" >
-LaTeX Info: Redefining \. on input line 3584.
-LaTeX Info: Redefining \% on input line 3584.
+LaTeX Info: Redefining \. on input line 3586.
+LaTeX Info: Redefining \% on input line 3586.
 [76]
 File: Graficos_con_R_files/figure-latex/par2-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/par2-1.pdf" >
-LaTeX Info: Redefining \. on input line 3633.
-LaTeX Info: Redefining \% on input line 3633.
+LaTeX Info: Redefining \. on input line 3635.
+LaTeX Info: Redefining \% on input line 3635.
 [77]
-LaTeX Info: Redefining \. on input line 3647.
-LaTeX Info: Redefining \% on input line 3647.
+LaTeX Info: Redefining \. on input line 3649.
+LaTeX Info: Redefining \% on input line 3649.
 [78]
 File: Graficos_con_R_files/figure-latex/cex-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/cex-1.pdf" >
-LaTeX Info: Redefining \. on input line 3691.
-LaTeX Info: Redefining \% on input line 3691.
+LaTeX Info: Redefining \. on input line 3693.
+LaTeX Info: Redefining \% on input line 3693.
 [79]
 File: Graficos_con_R_files/figure-latex/cexs-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/cexs-1.pdf" >
-Underfull \hbox (badness 3364) in paragraph at lines 3724--3724
+Underfull \hbox (badness 3364) in paragraph at lines 3726--3726
 []\EU1/lmr/bx/n/12 Parámetro \EU1/lmtt/b/n/12 col\EU1/lmr/bx/n/12 , \EU1/lmtt/b
 /n/12 col.axis\EU1/lmr/bx/n/12 , \EU1/lmtt/b/n/12 col.lab\EU1/lmr/bx/n/12 , \EU
 1/lmtt/b/n/12 col.main \EU1/lmr/bx/n/12 y
  []
 
-LaTeX Info: Redefining \. on input line 3741.
-LaTeX Info: Redefining \% on input line 3741.
+LaTeX Info: Redefining \. on input line 3743.
+LaTeX Info: Redefining \% on input line 3743.
 [80]
 File: Graficos_con_R_files/figure-latex/cols-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/cols-1.pdf" >
-LaTeX Info: Redefining \. on input line 3763.
-LaTeX Info: Redefining \% on input line 3763.
+LaTeX Info: Redefining \. on input line 3765.
+LaTeX Info: Redefining \% on input line 3765.
 [81]
-LaTeX Info: Redefining \. on input line 3763.
-LaTeX Info: Redefining \% on input line 3763.
+LaTeX Info: Redefining \. on input line 3765.
+LaTeX Info: Redefining \% on input line 3765.
 [82]
-Underfull \vbox (badness 10000) detected at line 3763
+Underfull \vbox (badness 10000) detected at line 3765
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 3763
+Overfull \hbox (336.25pt too wide) detected at line 3765
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3763
+Underfull \vbox (badness 10000) detected at line 3765
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 3763
+Overfull \hbox (336.25pt too wide) detected at line 3765
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3763
+Underfull \vbox (badness 10000) detected at line 3765
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 3763
+Overfull \hbox (336.25pt too wide) detected at line 3765
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3763
+Underfull \vbox (badness 10000) detected at line 3765
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 3763
+Overfull \hbox (336.25pt too wide) detected at line 3765
 []
  []
 
@@ -2396,143 +2392,143 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
-Underfull \hbox (badness 3826) in paragraph at lines 3850--3854
+Underfull \hbox (badness 3826) in paragraph at lines 3852--3856
 []\EU1/lmtt/m/n/10 border\EU1/lmr/m/n/10 : color para el borde del rectángulo, 
 un valor posible es
  []
 
-LaTeX Info: Redefining \. on input line 3861.
-LaTeX Info: Redefining \% on input line 3861.
+LaTeX Info: Redefining \. on input line 3863.
+LaTeX Info: Redefining \% on input line 3863.
 [84]
 File: Graficos_con_R_files/figure-latex/rect1-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/rect1-1.pdf" >
-LaTeX Info: Redefining \. on input line 3891.
-LaTeX Info: Redefining \% on input line 3891.
+LaTeX Info: Redefining \. on input line 3893.
+LaTeX Info: Redefining \% on input line 3893.
 [85]
 File: Graficos_con_R_files/figure-latex/rect2-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/rect2-1.pdf" >
-LaTeX Info: Redefining \. on input line 3918.
-LaTeX Info: Redefining \% on input line 3918.
+LaTeX Info: Redefining \. on input line 3920.
+LaTeX Info: Redefining \% on input line 3920.
 [86]
 File: Graficos_con_R_files/figure-latex/poly1-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/poly1-1.pdf" >
-LaTeX Info: Redefining \. on input line 3979.
-LaTeX Info: Redefining \% on input line 3979.
+LaTeX Info: Redefining \. on input line 3981.
+LaTeX Info: Redefining \% on input line 3981.
 [87]
-LaTeX Info: Redefining \. on input line 4018.
-LaTeX Info: Redefining \% on input line 4018.
+LaTeX Info: Redefining \. on input line 4020.
+LaTeX Info: Redefining \% on input line 4020.
 [88]
 File: Graficos_con_R_files/figure-latex/abline1-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/abline1-1.pdf" >
 File: Graficos_con_R_files/figure-latex/abline2-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/abline2-1.pdf" >
-LaTeX Info: Redefining \. on input line 4058.
-LaTeX Info: Redefining \% on input line 4058.
+LaTeX Info: Redefining \. on input line 4060.
+LaTeX Info: Redefining \% on input line 4060.
 [89]
 File: Graficos_con_R_files/figure-latex/circ1-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/circ1-1.pdf" >
-LaTeX Info: Redefining \. on input line 4085.
-LaTeX Info: Redefining \% on input line 4085.
+LaTeX Info: Redefining \. on input line 4087.
+LaTeX Info: Redefining \% on input line 4087.
 [90]
-LaTeX Info: Redefining \. on input line 4103.
-LaTeX Info: Redefining \% on input line 4103.
+LaTeX Info: Redefining \. on input line 4105.
+LaTeX Info: Redefining \% on input line 4105.
 [91]
 File: Graficos_con_R_files/figure-latex/arrow1-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/arrow1-1.pdf" >
 File: Graficos_con_R_files/figure-latex/arrow2-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/arrow2-1.pdf" >
-LaTeX Info: Redefining \. on input line 4176.
-LaTeX Info: Redefining \% on input line 4176.
+LaTeX Info: Redefining \. on input line 4178.
+LaTeX Info: Redefining \% on input line 4178.
 [92]
-LaTeX Info: Redefining \. on input line 4208.
-LaTeX Info: Redefining \% on input line 4208.
+LaTeX Info: Redefining \. on input line 4210.
+LaTeX Info: Redefining \% on input line 4210.
 [93]
 File: Graficos_con_R_files/figure-latex/grid1-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/grid1-1.pdf" >
 File: images/tip.png Graphic file (type QTm)
 <use  "images/tip.png" >
-LaTeX Info: Redefining \. on input line 4237.
-LaTeX Info: Redefining \% on input line 4237.
+LaTeX Info: Redefining \. on input line 4239.
+LaTeX Info: Redefining \% on input line 4239.
 [94]
 File: Graficos_con_R_files/figure-latex/point1-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/point1-1.pdf" >
-LaTeX Info: Redefining \. on input line 4279.
-LaTeX Info: Redefining \% on input line 4279.
+LaTeX Info: Redefining \. on input line 4281.
+LaTeX Info: Redefining \% on input line 4281.
 [95]
 File: Graficos_con_R_files/figure-latex/point2-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/point2-1.pdf" >
-LaTeX Info: Redefining \. on input line 4302.
-LaTeX Info: Redefining \% on input line 4302.
+LaTeX Info: Redefining \. on input line 4304.
+LaTeX Info: Redefining \% on input line 4304.
 [96]
-LaTeX Info: Redefining \. on input line 4355.
-LaTeX Info: Redefining \% on input line 4355.
+LaTeX Info: Redefining \. on input line 4357.
+LaTeX Info: Redefining \% on input line 4357.
 [97]
 File: Graficos_con_R_files/figure-latex/curve1-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/curve1-1.pdf" >
-LaTeX Info: Redefining \. on input line 4388.
-LaTeX Info: Redefining \% on input line 4388.
+LaTeX Info: Redefining \. on input line 4390.
+LaTeX Info: Redefining \% on input line 4390.
 [98]
 File: Graficos_con_R_files/figure-latex/curve2-1.pdf Graphic file (type QTm)
 <use  "Graficos_con_R_files/figure-latex/curve2-1.pdf" >
-Underfull \hbox (badness 10000) detected at line 4421
+Underfull \hbox (badness 10000) detected at line 4423
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4421
+Underfull \hbox (badness 10000) detected at line 4423
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 4425.
-LaTeX Info: Redefining \% on input line 4425.
+LaTeX Info: Redefining \. on input line 4427.
+LaTeX Info: Redefining \% on input line 4427.
 [99]
-Underfull \hbox (badness 10000) detected at line 4425
+Underfull \hbox (badness 10000) detected at line 4427
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4425
+Underfull \hbox (badness 10000) detected at line 4427
 [][][]
  []
 
 File: Graficos_con_R_files/figure-latex/plantilla-1.pdf Graphic file (type QTm)
 
 <use  "Graficos_con_R_files/figure-latex/plantilla-1.pdf" >
-Underfull \hbox (badness 10000) detected at line 4443
+Underfull \hbox (badness 10000) detected at line 4445
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4443
+Underfull \hbox (badness 10000) detected at line 4445
 [][][]
  []
 
 File: images/casita.png Graphic file (type QTm)
 <use  "images/casita.png" >
-Underfull \hbox (badness 10000) detected at line 4463
+Underfull \hbox (badness 10000) detected at line 4465
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4463
+Underfull \hbox (badness 10000) detected at line 4465
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4471
+Underfull \hbox (badness 10000) detected at line 4473
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4471
+Underfull \hbox (badness 10000) detected at line 4473
 [][][]
  []
 
-LaTeX Info: Redefining \. on input line 4473.
-LaTeX Info: Redefining \% on input line 4473.
+LaTeX Info: Redefining \. on input line 4475.
+LaTeX Info: Redefining \% on input line 4475.
 [100]
-LaTeX Info: Redefining \. on input line 4479.
-LaTeX Info: Redefining \% on input line 4479.
+LaTeX Info: Redefining \. on input line 4481.
+LaTeX Info: Redefining \% on input line 4481.
 [101]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -2573,43 +2569,44 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [102
 
 ]
-Underfull \vbox (badness 10000) detected at line 4479
+Underfull \vbox (badness 10000) detected at line 4481
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4479
+Overfull \hbox (336.25pt too wide) detected at line 4481
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4479
+Underfull \vbox (badness 10000) detected at line 4481
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4479
+Overfull \hbox (336.25pt too wide) detected at line 4481
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4479
+Underfull \vbox (badness 10000) detected at line 4481
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4479
+Overfull \hbox (336.25pt too wide) detected at line 4481
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4479
+Underfull \vbox (badness 10000) detected at line 4481
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4479
+Overfull \hbox (336.25pt too wide) detected at line 4481
 []
  []
 
 Capítulo 7.
-
+File: Graficos_con_R_files/figure-latex/empty1-1.pdf Graphic file (type QTm)
+<use  "Graficos_con_R_files/figure-latex/empty1-1.pdf" >
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
@@ -2617,6 +2614,50 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [103
 
 ]
+LaTeX Info: Redefining \. on input line 4558.
+LaTeX Info: Redefining \% on input line 4558.
+[104]
+File: Graficos_con_R_files/figure-latex/faq1-1.pdf Graphic file (type QTm)
+<use  "Graficos_con_R_files/figure-latex/faq1-1.pdf" >
+LaTeX Info: Redefining \. on input line 4593.
+LaTeX Info: Redefining \% on input line 4593.
+[105]
+File: Graficos_con_R_files/figure-latex/faq2-1.pdf Graphic file (type QTm)
+<use  "Graficos_con_R_files/figure-latex/faq2-1.pdf" >
+LaTeX Info: Redefining \. on input line 4626.
+LaTeX Info: Redefining \% on input line 4626.
+[106]
+File: Graficos_con_R_files/figure-latex/faq3-1.pdf Graphic file (type QTm)
+<use  "Graficos_con_R_files/figure-latex/faq3-1.pdf" >
+LaTeX Info: Redefining \. on input line 4659.
+LaTeX Info: Redefining \% on input line 4659.
+[107]
+File: Graficos_con_R_files/figure-latex/rejilla-1.pdf Graphic file (type QTm)
+<use  "Graficos_con_R_files/figure-latex/rejilla-1.pdf" >
+LaTeX Info: Redefining \. on input line 4689.
+LaTeX Info: Redefining \% on input line 4689.
+[108]
+File: Graficos_con_R_files/figure-latex/faq4-1.pdf Graphic file (type QTm)
+<use  "Graficos_con_R_files/figure-latex/faq4-1.pdf" >
+LaTeX Info: Redefining \. on input line 4722.
+LaTeX Info: Redefining \% on input line 4722.
+[109]
+File: Graficos_con_R_files/figure-latex/faq5-1.pdf Graphic file (type QTm)
+<use  "Graficos_con_R_files/figure-latex/faq5-1.pdf" >
+LaTeX Info: Redefining \. on input line 4758.
+LaTeX Info: Redefining \% on input line 4758.
+[110]
+File: Graficos_con_R_files/figure-latex/faq6-1.pdf Graphic file (type QTm)
+<use  "Graficos_con_R_files/figure-latex/faq6-1.pdf" >
+LaTeX Info: Redefining \. on input line 4788.
+LaTeX Info: Redefining \% on input line 4788.
+
+Overfull \hbox (25.76227pt too wide) has occurred while \output is active
+ [][][][]  \EU1/lmr/m/it/10 7.8¿Cómo incluir colores dependiendo de los valores
+ de una variable cualitativa?  \EU1/lmr/m/n/10 111
+ []
+
+[111]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -2653,98 +2694,53 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[104
+[112
 
 ]
-Underfull \vbox (badness 10000) detected at line 4490
+Underfull \vbox (badness 10000) detected at line 4788
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4490
+Overfull \hbox (336.25pt too wide) detected at line 4788
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4490
+Underfull \vbox (badness 10000) detected at line 4788
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4490
+Overfull \hbox (336.25pt too wide) detected at line 4788
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4490
+Underfull \vbox (badness 10000) detected at line 4788
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4490
+Overfull \hbox (336.25pt too wide) detected at line 4788
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4490
+Underfull \vbox (badness 10000) detected at line 4788
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4490
+Overfull \hbox (336.25pt too wide) detected at line 4788
 []
  []
 
 Capítulo 8.
-File: Graficos_con_R_files/figure-latex/empty1-1.pdf Graphic file (type QTm)
-<use  "Graficos_con_R_files/figure-latex/empty1-1.pdf" >
+(Graficos_con_R.bbl
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[105
+[113
 
 ]
-LaTeX Info: Redefining \. on input line 4567.
-LaTeX Info: Redefining \% on input line 4567.
-[106]
-File: Graficos_con_R_files/figure-latex/faq1-1.pdf Graphic file (type QTm)
-<use  "Graficos_con_R_files/figure-latex/faq1-1.pdf" >
-LaTeX Info: Redefining \. on input line 4602.
-LaTeX Info: Redefining \% on input line 4602.
-[107]
-File: Graficos_con_R_files/figure-latex/faq2-1.pdf Graphic file (type QTm)
-<use  "Graficos_con_R_files/figure-latex/faq2-1.pdf" >
-LaTeX Info: Redefining \. on input line 4635.
-LaTeX Info: Redefining \% on input line 4635.
-[108]
-File: Graficos_con_R_files/figure-latex/faq3-1.pdf Graphic file (type QTm)
-<use  "Graficos_con_R_files/figure-latex/faq3-1.pdf" >
-LaTeX Info: Redefining \. on input line 4668.
-LaTeX Info: Redefining \% on input line 4668.
-[109]
-File: Graficos_con_R_files/figure-latex/rejilla-1.pdf Graphic file (type QTm)
-<use  "Graficos_con_R_files/figure-latex/rejilla-1.pdf" >
-LaTeX Info: Redefining \. on input line 4698.
-LaTeX Info: Redefining \% on input line 4698.
-[110]
-File: Graficos_con_R_files/figure-latex/faq4-1.pdf Graphic file (type QTm)
-<use  "Graficos_con_R_files/figure-latex/faq4-1.pdf" >
-LaTeX Info: Redefining \. on input line 4731.
-LaTeX Info: Redefining \% on input line 4731.
-[111]
-File: Graficos_con_R_files/figure-latex/faq5-1.pdf Graphic file (type QTm)
-<use  "Graficos_con_R_files/figure-latex/faq5-1.pdf" >
-LaTeX Info: Redefining \. on input line 4767.
-LaTeX Info: Redefining \% on input line 4767.
-[112]
-File: Graficos_con_R_files/figure-latex/faq6-1.pdf Graphic file (type QTm)
-<use  "Graficos_con_R_files/figure-latex/faq6-1.pdf" >
-LaTeX Info: Redefining \. on input line 4797.
-LaTeX Info: Redefining \% on input line 4797.
-
-Overfull \hbox (25.76227pt too wide) has occurred while \output is active
- [][][][]  \EU1/lmr/m/it/10 8.8¿Cómo incluir colores dependiendo de los valores
- de una variable cualitativa?  \EU1/lmr/m/n/10 113
- []
-
-[113]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -2784,43 +2780,47 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [114
 
 ]
-Underfull \vbox (badness 10000) detected at line 4797
+Underfull \vbox (badness 10000) detected at line 1
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4797
+Overfull \hbox (336.25pt too wide) detected at line 1
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4797
+Underfull \vbox (badness 10000) detected at line 1
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4797
+Overfull \hbox (336.25pt too wide) detected at line 1
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4797
+Underfull \vbox (badness 10000) detected at line 1
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4797
+Overfull \hbox (336.25pt too wide) detected at line 1
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4797
+Underfull \vbox (badness 10000) detected at line 1
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 4797
+Overfull \hbox (336.25pt too wide) detected at line 1
 []
  []
 
-Capítulo 9.
-(Graficos_con_R.bbl
+
+Underfull \hbox (badness 10000) detected at line 1
+[]
+ []
+
+)
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
@@ -2866,93 +2866,6 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [116
 
-]
-Underfull \vbox (badness 10000) detected at line 1
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 1
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 1
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 1
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1
- []
-
-
-Overfull \hbox (336.25pt too wide) detected at line 1
-[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 1
-[]
- []
-
-)
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[117
-
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (336.25pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[118
-
 ] (Graficos_con_R.ind
 Underfull \hbox (badness 10000) detected at line 1
 []
@@ -2967,36 +2880,39 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[119
+[117
 
 
 ]
 LaTeX Info: Redefining \. on input line 134.
 LaTeX Info: Redefining \% on input line 134.
-[120
+[118
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4829.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 4829.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4820.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 4820.
 (Graficos_con_R.aux
 LaTeX Info: Redefining \. on input line 24.
 LaTeX Info: Redefining \% on input line 24.
 LaTeX Info: Redefining \. on input line 28.
 LaTeX Info: Redefining \% on input line 28.
 )
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4829.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 4829.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4820.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 4820.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 27909 strings out of 428408
- 484326 string characters out of 3160621
- 567857 words of memory out of 3000000
- 30928 multiletter control sequences out of 15000+200000
+ 27906 strings out of 428408
+ 484283 string characters out of 3160621
+ 567594 words of memory out of 3000000
+ 30925 multiletter control sequences out of 15000+200000
  35255 words of font info for 74 fonts, out of 3000000 for 9000
  1328 hyphenation exceptions out of 8191
  53i,14n,92p,10414b,669s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on Graficos_con_R.pdf (136 pages).
+Output written on Graficos_con_R.pdf (134 pages).

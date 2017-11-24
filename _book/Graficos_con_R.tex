@@ -229,7 +229,7 @@
 \title{Gráficos con R}
 \author{Freddy Hernández Barajas\\
 Juan Carlos Correa Morales}
-\date{2017-10-04}
+\date{2017-11-24}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -431,7 +431,7 @@ sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics[width=4.54in]{images/cran} 
+{\centering \includegraphics{images/cran} 
 
 }
 
@@ -449,7 +449,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics[width=5.31in]{images/instalacion1} 
+{\centering \includegraphics{images/instalacion1} 
 
 }
 
@@ -507,7 +507,7 @@ consola, para hacer esto se deben explorar las opciones de
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
+{\centering \includegraphics{images/Rpantallazo} 
 
 }
 
@@ -1006,11 +1006,10 @@ una sola variable cuantitativa.
 \section{\texorpdfstring{Función \texttt{stem} \index{stem}
 \index{tallo y hoja}}{Función stem  }}\label{funcion-stem}
 
-Nos permite obtener el gráfico llamado de tallo y hoja debido a su
-apariencia. Este gráfico fue propuesto por Tukey (1977) y a pesar de no
-ser un gráfico para presentación definitiva se utiliza a la vez que el
-analista recoge la información para ver rápidamente la distribución de
-los datos.
+Esta función permite crear el gráfico llamado de tallo y hoja. Este
+gráfico fue propuesto por Tukey (1977) y a pesar de no ser un gráfico
+para presentación definitiva, se utiliza a la vez que el analista recoge
+la información para ver rápidamente la distribución de los datos.
 
 ¿Qué muestra este gráfico?
 
@@ -1212,8 +1211,8 @@ de cada boxplot por medio del argumento \texttt{names} y la orientación.
 
 \index{boxplot comparativo} Es posible crear boxplots comparativos
 usando 1 o 2 variables cualitativas. A continuación se construyen dos
-boxplots para la variable precio de los apartamentos usados en Medellín;
-en el primero de ellos se diferencia por la variable balcón y en el
+boxplots para la variable precio de apartamentos usados en Medellín. En
+el primer boxtplot diferencia por la variable balcón (no, si) y en el
 segundo se diferencia por los cruces de las variables parqueadero y
 ubicación (en Laureles y Poblado).
 
@@ -1236,21 +1235,24 @@ aparezcan las otras ubicaciones.
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
 \KeywordTok{boxplot}\NormalTok{(precio }\OperatorTok{~}\StringTok{ }\NormalTok{balcon, }\DataTypeTok{data=}\NormalTok{datos,}
         \DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'lightblue'}\NormalTok{, }\StringTok{'pink'}\NormalTok{),}
-        \DataTypeTok{xlab=}\StringTok{'¿Tiene balcón?'}\NormalTok{,}
+        \DataTypeTok{xlab=}\StringTok{'¿Tiene balcón?'}\NormalTok{, }\DataTypeTok{main=}\StringTok{'(a)'}\NormalTok{,}
         \DataTypeTok{ylab=}\StringTok{'Precio (millones $)'}\NormalTok{)}
 
 \KeywordTok{boxplot}\NormalTok{(precio }\OperatorTok{~}\StringTok{ }\NormalTok{ubicacion }\OperatorTok{*}\StringTok{ }\NormalTok{parqueadero,}
         \DataTypeTok{data=}\NormalTok{datos, }\DataTypeTok{drop=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{col=}\KeywordTok{c}\NormalTok{(}\StringTok{'lightblue'}\NormalTok{, }\StringTok{'pink'}\NormalTok{),}
         \DataTypeTok{subset=}\NormalTok{ubicacion }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'laureles'}\NormalTok{, }\StringTok{'aburra sur'}\NormalTok{),}
         \DataTypeTok{xlab=}\StringTok{'Ubicación y parqueadero'}\NormalTok{,}
-        \DataTypeTok{ylab=}\StringTok{'Precio (millones $)'}\NormalTok{)}
+        \DataTypeTok{ylab=}\StringTok{'Precio (millones $)'}\NormalTok{, }\DataTypeTok{main=}\StringTok{'(b)'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{figure}
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/boxplots2-1.pdf}
-\caption{\label{fig:boxplots2}Boxplot para la variable altura.}
+\caption{\label{fig:boxplots2}Boxplot para la variable precio del
+apartamento. En el pánel (a) de condiciona por la variable balcón y en
+el pánel (b) por las combinaciones de las variables ubicación y
+parqueadero.}
 \end{figure}
 
 En la Figura \ref{fig:boxplots2} se muestran los boxplots. Se le
@@ -1744,8 +1746,8 @@ el panel izquierdo están la densidades del peso corporal para hombres y
 mujeres, aquí se observa claramente la diferencia entre los pesos de
 hombres y mujeres.
 
-\chapter{Gráficos para varias variables
-cuantitativas}\label{graficos-para-varias-variables-cuantitativas}
+\chapter{Gráficos para varias variables cuantitativas
+holaaaaa}\label{graficos-para-varias-variables-cuantitativas-holaaaaa}
 
 En este capítulo se presentan funciones para la creación de gráficos que
 involucran varias variables.
@@ -4448,7 +4450,7 @@ y se muestra a continuación.
 
 \begin{figure}
 
-{\centering \includegraphics[width=3.26in]{images/casita} 
+{\centering \includegraphics{images/casita} 
 
 }
 
@@ -4475,17 +4477,6 @@ y se muestra a continuación.
   y &=  \sen(t)
   \end{align*}
 \end{enumerate}
-
-\chapter{Animaciones básicas}\label{animaciones-basicas}
-
-En este capítulo se presentan algunos ejemplos de cómo crear gráficos
-animados.
-
-\section{\texorpdfstring{Función \texttt{segments} \index{segments}
-\index{segmentos}}{Función segments  }}\label{funcion-segments-1}
-
-Esta función es muy útil para digujar segmentos. La estructura de la
-función se muestra a continuación.
 
 \chapter{Respuestas a preguntas
 frecuentes}\label{respuestas-a-preguntas-frecuentes}

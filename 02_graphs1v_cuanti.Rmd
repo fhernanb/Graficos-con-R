@@ -4,7 +4,7 @@ En este capítulo se presentan funciones para la creación de gráficos con una 
 
 ## Función `stem` \index{stem} \index{tallo y hoja}
 
-Nos permite obtener el gráfico llamado de tallo y hoja debido a su apariencia. Este gráfico fue propuesto por Tukey (1977) y a pesar de no ser un gráfico para presentación definitiva se utiliza a la vez que el analista recoge la información para ver rápidamente la distribución de los datos.
+Esta función permite crear el gráfico llamado de tallo y hoja. Este gráfico fue propuesto por Tukey (1977) y a pesar de no ser un gráfico para presentación definitiva, se utiliza a la vez que el analista recoge la información para ver rápidamente la distribución de los datos.
 
 ¿Qué muestra este gráfico? 
 
@@ -81,25 +81,25 @@ En la Figura \@ref(fig:boxplots) se presentan los boxplots obtenidos con las ins
 
 ### Ejemplo {-}
 \index{boxplot comparativo}
-Es posible crear boxplots comparativos usando 1 o 2 variables cualitativas. A continuación se construyen dos boxplots para la variable precio de los apartamentos usados en Medellín; en el primero de ellos se diferencia por la variable balcón y en el segundo se diferencia por los cruces de las variables parqueadero y ubicación (en Laureles y Poblado).
+Es posible crear boxplots comparativos usando 1 o 2 variables cualitativas. A continuación se construyen dos boxplots para la variable precio de apartamentos usados en Medellín. En el primer boxtplot diferencia por la variable balcón (no, si) y en el segundo se diferencia por los cruces de las variables parqueadero y ubicación (en Laureles y Poblado).
 
 A continuación se muestra el código necesario para construir los boxplots. En el primero se usa la fórmula `precio ~ balcon` para crear el boxplot del precio diferenciando por los dos niveles de la variable balcón. En el segundo se usa la fórmula `precio ~ ubicacion * parqueadero` pero se limitan las ubicaciones a sólo dos, Laureles y Aburrá sur, por esa razón se usa el parámetro `subset` para incluir la restricción. Se agregó también `drop=TRUE` para que en el segundo boxplot no aparezcan las otras ubicaciones.
 
-```{r boxplots2, fig.cap='Boxplot para la variable altura.', fig.asp=0.7, fig.width =9}
+```{r boxplots2, fig.cap='Boxplot para la variable precio del apartamento. En el pánel (a) de condiciona por la variable balcón y en el pánel (b) por las combinaciones de las variables ubicación y parqueadero.', fig.asp=0.5, fig.width =12}
 url <- 'https://tinyurl.com/hwhb769'
 datos <- read.table(url, header=T)
 
 par(mfrow=c(1, 2))
 boxplot(precio ~ balcon, data=datos,
         col=c('lightblue', 'pink'),
-        xlab='¿Tiene balcón?',
+        xlab='¿Tiene balcón?', main='(a)',
         ylab='Precio (millones $)')
 
 boxplot(precio ~ ubicacion * parqueadero,
         data=datos, drop=TRUE, col=c('lightblue', 'pink'),
         subset=ubicacion %in% c('laureles', 'aburra sur'),
         xlab='Ubicación y parqueadero',
-        ylab='Precio (millones $)')
+        ylab='Precio (millones $)', main='(b)')
 ```
 
 En la Figura \@ref(fig:boxplots2) se muestran los boxplots. Se le recomienda al lector construir nuevamente el segundo boxplot pero eliminando `drop=TRUE` para que vea el efecto que tiene sobre el dibujo.
