@@ -1863,13 +1863,14 @@ construir el diagrama de dispersión se muestra a continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015'}
+\NormalTok{url <-}\StringTok{ 'https://tinyurl.com/hwhb769'}
 \NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
 
 \KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
 \KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos}\OperatorTok{$}\NormalTok{mt2, }\DataTypeTok{y=}\NormalTok{datos}\OperatorTok{$}\NormalTok{precio)}
 \KeywordTok{plot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos}\OperatorTok{$}\NormalTok{mt2, }\DataTypeTok{y=}\NormalTok{datos}\OperatorTok{$}\NormalTok{precio, }\DataTypeTok{pch=}\StringTok{'.'}\NormalTok{,}
-     \DataTypeTok{xlab=}\StringTok{'Área del apartamento (m2)'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Precio (millones de pesos)'}\NormalTok{)}
+     \DataTypeTok{xlab=}\StringTok{'Área del apartamento (m2)'}\NormalTok{,}
+     \DataTypeTok{ylab=}\StringTok{'Precio (millones de pesos)'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1889,6 +1890,12 @@ dispersión de la derecha se usó el parámetro
 \texttt{pch=\textquotesingle{}.\textquotesingle{}} con el objetivo de
 obtener pequeños puntos que representen cada apartamento y que no se
 traslapen debido a que se tienen 694 observaciones en la base de datos.
+
+\section{\texorpdfstring{Función \texttt{sunflowerplot}
+\index{sunflowerplot}}{Función sunflowerplot }}\label{funcion-sunflowerplot}
+
+La función \texttt{sunflowerplot} sirve para crear gráficos de
+dispersión para dos variables cuantitativas.
 
 \section{\texorpdfstring{Función \texttt{symbols}
 \index{symbols}}{Función symbols }}\label{funcion-symbols}
@@ -2556,58 +2563,6 @@ aproximadamente 50 niveles.
 log-verosimilitud para el ejemplo sobre normal.}
 \end{figure}
 
-\section{\texorpdfstring{Función \texttt{image}
-\index{image}}{Función image }}\label{funcion-image}
-
-La función \texttt{image} dibuja un gráfico de perspectiva en dos
-dimensiones y visto paralelo a la tercer variable de altura, es una
-especie de gráfico de calor. La estructura de la función \texttt{image}
-con los argumentos más usuales se muestran a continuación.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{image}\NormalTok{(x, y, z)}
-\end{Highlighting}
-\end{Shaded}
-
-Los argumentos de la función son:
-
-\begin{itemize}
-\tightlist
-\item
-  \texttt{x,\ y}: vectores numéricos en los cuales se evaluó la función
-  de interés para construir el objeto \texttt{z}. Ambos vectores deben
-  estar ordenados.
-\item
-  \texttt{z}: matriz con las alturas de la función de interés, por lo
-  general creada con la función \texttt{outer}.
-\end{itemize}
-
-\subsection*{Ejemplo}\label{ejemplo-20}
-
-
-Para la muestra aleatoria obtenida en el ejemplo anterior, dibujar un
-gráfico con \texttt{image} para la superficie de log-verosimilitud.
-
-Usando los objetos \texttt{xx}, \texttt{yy} e \texttt{zz} creados en el
-ejemplo anterior se puede construir el gráfico solicitado, a
-continuación el código utilizado. En la Figura \ref{fig:image1} se
-muestra el gráfico.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{image}\NormalTok{(}\DataTypeTok{x=}\NormalTok{xx, }\DataTypeTok{y=}\NormalTok{yy, }\DataTypeTok{z=}\NormalTok{zz,}
-      \DataTypeTok{xlab=}\KeywordTok{expression}\NormalTok{(mu), }\DataTypeTok{ylab=}\KeywordTok{expression}\NormalTok{(sigma))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\centering
-\includegraphics{Graficos_con_R_files/figure-latex/image1-1.pdf}
-\caption{\label{fig:image1}Gráfico para la función de log-verosimilitud para
-el ejemplo sobre normal.}
-\end{figure}
-
 \section{\texorpdfstring{Función \texttt{filled.contour}
 \index{filled.contour}
 \index{gráfico de nivel}}{Función filled.contour  }}\label{funcion-filled.contour}
@@ -2653,7 +2608,7 @@ La función \texttt{filled.contour} tiene otros parámetros adicionales
 que el lector puede consultar en la ayuda usando
 \texttt{help(filled.contour)}.
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-20}
 
 
 Para la muestra aleatoria obtenida en el ejemplo anterior, dibujar un
@@ -2677,6 +2632,58 @@ muestra el gráfico de niveles con aproximadamente 20 niveles.
 \includegraphics{Graficos_con_R_files/figure-latex/contour2-1.pdf}
 \caption{\label{fig:contour2}Gráfico de nivel para la función de
 log-verosimilitud para el ejemplo sobre normal.}
+\end{figure}
+
+\section{\texorpdfstring{Función \texttt{image}
+\index{image}}{Función image }}\label{funcion-image}
+
+La función \texttt{image} dibuja un gráfico de perspectiva en dos
+dimensiones y visto paralelo a la tercer variable de altura, es una
+especie de gráfico de calor. La estructura de la función \texttt{image}
+con los argumentos más usuales se muestran a continuación.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{image}\NormalTok{(x, y, z)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x,\ y}: vectores numéricos en los cuales se evaluó la función
+  de interés para construir el objeto \texttt{z}. Ambos vectores deben
+  estar ordenados.
+\item
+  \texttt{z}: matriz con las alturas de la función de interés, por lo
+  general creada con la función \texttt{outer}.
+\end{itemize}
+
+\subsection*{Ejemplo}\label{ejemplo-21}
+
+
+Para la muestra aleatoria obtenida en el ejemplo anterior, dibujar un
+gráfico con \texttt{image} para la superficie de log-verosimilitud.
+
+Usando los objetos \texttt{xx}, \texttt{yy} e \texttt{zz} creados en el
+ejemplo anterior se puede construir el gráfico solicitado, a
+continuación el código utilizado. En la Figura \ref{fig:image1} se
+muestra el gráfico.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{image}\NormalTok{(}\DataTypeTok{x=}\NormalTok{xx, }\DataTypeTok{y=}\NormalTok{yy, }\DataTypeTok{z=}\NormalTok{zz,}
+      \DataTypeTok{xlab=}\KeywordTok{expression}\NormalTok{(mu), }\DataTypeTok{ylab=}\KeywordTok{expression}\NormalTok{(sigma))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/image1-1.pdf}
+\caption{\label{fig:image1}Gráfico para la función de log-verosimilitud para
+el ejemplo sobre normal.}
 \end{figure}
 
 \section{\texorpdfstring{Función \texttt{kde2d} \index{kde2d}
