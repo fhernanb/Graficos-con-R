@@ -50,16 +50,21 @@ plot(x=x, y=y, type='n', main="con type='n'")
 Como ilustración vamos a crear un diagrama de dispersión entre el precio de apartamentos usados en la ciudad de Medellín y el área de los apartamentos. El código necesario para cargar la base de datos y construir el diagrama de dispersión se muestra a continuación.
 
 ```{r ex2plot, fig.cap='Diagrama de dispersión del precio del apartamento versus área del apartamento. A la izquierda el diagrama de dispersión sin editar y a la derecha el diagrama de dispersión mejorado', fig.asp=0.7, fig.width=6}
-url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015'
+url <- 'https://tinyurl.com/hwhb769'
 datos <- read.table(file=url, header=T)
 
 par(mfrow=c(1, 2))
 plot(x=datos$mt2, y=datos$precio)
 plot(x=datos$mt2, y=datos$precio, pch='.',
-     xlab='Área del apartamento (m2)', ylab='Precio (millones de pesos)')
+     xlab='Área del apartamento (m2)',
+     ylab='Precio (millones de pesos)')
 ```
 
 En la Figura \@ref(fig:ex2plot) se presenta el diagrama de dispersión entre precio y área de los apartamentos, de este diagrama se observa claramente que a medida que los apartamentos tienen mayor área el precio promedio y la variabilidad del precio aumentan. Para el diagrama de dispersión de la derecha se usó el parámetro `pch='.'` con el objetivo de obtener pequeños puntos que representen cada apartamento y que no se traslapen debido a que se tienen `r nrow(datos)` observaciones en la base de datos.
+
+## Función `sunflowerplot` \index{sunflowerplot}
+
+La función `sunflowerplot` sirve para crear gráficos de dispersión para dos variables cuantitativas en los cuales hay parejas de puntos repetidos y que no se visualizan bien con la función `plot`. 
 
 ## Función `symbols` \index{symbols}
 La función `symbols` sirve para construir diagramas de dispersión pero incluyendo información de variables adicionales.
@@ -104,8 +109,6 @@ with(subdat, symbols(x=mt2, y=precio,
                      main='Estrato, alcobas y n° baños'))
 ```
 
-
-
 ## Función `pairs` \index{pairs} 
 Las matrices de dispersión obtenidas con la función `pairs` proporcionan un método simple de presentar las relaciones entre pares de variables cuantitativas y son la versión múltiple de la función `plot`. Este gráfico consiste en una matriz donde cada entrada presenta un gráfico de dispersión sencillo. Un inconveniente es que si tenemos muchas variables el tamaño de cada entrada se reduce demasiado impidiendo ver con claridad las relaciones entre los pares de variables. La celda $(i,j)$ de una matriz de dispersión contiene el gráfico de dispersión de la columna $i$ versus la columna $j$ de la matriz de datos. 
 
@@ -114,7 +117,6 @@ En la Figura \@ref(fig:ex0pairs) se muestra un ejemplo de una matriz de dispersi
 ```{r, ex0pairs, echo=F, fig.cap='Ilustración de una matriz de dispersión.', fig.asp=0.8, fig.width=6}
 pairs(USJudgeRatings[,c(2:3,6,1,7)])
 ```
-
 
 La estructura de la función `pairs` con los argumentos más usuales se muestran a continuación.
 
@@ -390,28 +392,6 @@ contour(x=xx, y=yy, z=zz, nlevels=50,
         xlab=expression(mu), ylab=expression(sigma))
 ```
 
-## Función `image` \index{image} 
-La función `image` dibuja un gráfico de perspectiva en dos dimensiones y visto paralelo a la tercer variable de altura, es una especie de gráfico de calor. La estructura de la función `image` con los argumentos más usuales se muestran a continuación.
-
-```{r, eval=FALSE}
-image(x, y, z)
-```
-
-Los argumentos de la función son:
-
-- `x, y`: vectores numéricos en los cuales se evaluó la función de interés para construir el objeto `z`. Ambos vectores deben estar ordenados.
-- `z`: matriz con las alturas de la función de interés, por lo general creada con la función `outer`.
-
-### Ejemplo {-}
-Para la muestra aleatoria obtenida en el ejemplo anterior, dibujar un gráfico con `image` para la superficie de log-verosimilitud.
-
-Usando los objetos `xx`, `yy` e `zz` creados en el ejemplo anterior se puede construir el gráfico solicitado, a continuación el código utilizado. En la Figura \@ref(fig:image1) se muestra el gráfico.
-
-```{r image1, fig.cap='Gráfico para la función de log-verosimilitud para el ejemplo sobre normal.', fig.asp=0.6, fig.width=9}
-image(x=xx, y=yy, z=zz,
-      xlab=expression(mu), ylab=expression(sigma))
-```
-
 ## Función `filled.contour` \index{filled.contour} \index{gráfico de nivel}
 La función `filled.contour` dibuja gráficos contornos pero usando una paleta de colores.  La estructura de la función `filled.contour` con los argumentos más usuales se muestran a continuación.
 
@@ -441,6 +421,28 @@ Usando los objetos `xx`, `yy` e `zz` creados en el ejemplo anterior se puede con
 filled.contour(x=xx, y=yy, z=zz, nlevels=20,
                xlab=expression(mu), ylab=expression(sigma),
                color = topo.colors)
+```
+
+## Función `image` \index{image} 
+La función `image` dibuja un gráfico de perspectiva en dos dimensiones y visto paralelo a la tercer variable de altura, es una especie de gráfico de calor. La estructura de la función `image` con los argumentos más usuales se muestran a continuación.
+
+```{r, eval=FALSE}
+image(x, y, z)
+```
+
+Los argumentos de la función son:
+
+- `x, y`: vectores numéricos en los cuales se evaluó la función de interés para construir el objeto `z`. Ambos vectores deben estar ordenados.
+- `z`: matriz con las alturas de la función de interés, por lo general creada con la función `outer`.
+
+### Ejemplo {-}
+Para la muestra aleatoria obtenida en el ejemplo anterior, dibujar un gráfico con `image` para la superficie de log-verosimilitud.
+
+Usando los objetos `xx`, `yy` e `zz` creados en el ejemplo anterior se puede construir el gráfico solicitado, a continuación el código utilizado. En la Figura \@ref(fig:image1) se muestra el gráfico.
+
+```{r image1, fig.cap='Gráfico para la función de log-verosimilitud para el ejemplo sobre normal.', fig.asp=0.6, fig.width=9}
+image(x=xx, y=yy, z=zz,
+      xlab=expression(mu), ylab=expression(sigma))
 ```
 
 ## Función `kde2d` \index{kde2d} \index{densidad en 2d}
