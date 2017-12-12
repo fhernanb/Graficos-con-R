@@ -1,4 +1,4 @@
-# Gráficos para varias variables cuantitativas holaaaaa
+# Gráficos para varias variables cuantitativas
 
 En este capítulo se presentan funciones para la creación de gráficos que involucran varias variables.
 
