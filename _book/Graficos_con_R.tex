@@ -229,7 +229,7 @@
 \title{Gráficos con R}
 \author{Freddy Hernández Barajas\\
 Juan Carlos Correa Morales}
-\date{2017-12-12}
+\date{2017-12-14}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -1760,8 +1760,8 @@ involucran varias variables.
 Los gráficos de dispersión son muy útiles porque permiten ver la
 relación que existe entre dos variables cuantitativas, la función
 \texttt{plot} permite crear este tipo de gráficos. La estructura de la
-función \texttt{plot} con los argumentos más usuales se muestran a
-continuación
+función \texttt{plot} con los argumentos más usuales se muestra a
+continuación:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1776,7 +1776,7 @@ Los argumentos de la función \texttt{plot} son:
 \item
   \texttt{x}: vector numérico con las coordenadas del eje horizontal.
 \item
-  \texttt{y}: vector numérico con las coordenadas del eje vertical
+  \texttt{y}: vector numérico con las coordenadas del eje vertical.
 \item
   \texttt{type}: tipo de gráfico a dibujar. Las opciones son:
   \label{type}
@@ -1856,10 +1856,13 @@ dispersión.
 \subsection*{Ejemplo}\label{ejemplo-10}
 
 
-Como ilustración vamos a crear un diagrama de dispersión entre el precio
-de apartamentos usados en la ciudad de Medellín y el área de los
-apartamentos. El código necesario para cargar la base de datos y
-construir el diagrama de dispersión se muestra a continuación.
+Como ilustración vamos a crear dos diagramas de dispersión entre el
+precio de apartamentos usados en la ciudad de Medellín y el área de los
+apartamentos. El primer diagrama es un gráfico básico mientras que el
+segundo es un diagrama mejorado.
+
+El código necesario para cargar la base de datos y construir los
+diagramas de dispersión se muestra a continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1879,14 +1882,18 @@ construir el diagrama de dispersión se muestra a continuación.
 \includegraphics{Graficos_con_R_files/figure-latex/ex2plot-1.pdf}
 \caption{\label{fig:ex2plot}Diagrama de dispersión del precio del
 apartamento versus área del apartamento. A la izquierda el diagrama de
-dispersión sin editar y a la derecha el diagrama de dispersión mejorado}
+dispersión sin editar y a la derecha el diagrama de dispersión
+mejorado.}
 \end{figure}
 
-En la Figura \ref{fig:ex2plot} se presenta el diagrama de dispersión
-entre precio y área de los apartamentos, de este diagrama se observa
-claramente que a medida que los apartamentos tienen mayor área el precio
-promedio y la variabilidad del precio aumentan. Para el diagrama de
-dispersión de la derecha se usó el parámetro
+En la Figura \ref{fig:ex2plot} se presentan los diagramas de dispersión
+entre precio y área de los apartamentos. En el panel de la izquierda
+está el diagrama básico, de este diagrama se observa claramente que a
+medida que los apartamentos tienen mayor área el precio promedio y la
+variabilidad del precio aumentan. En la parte inferior izquierda de este
+diagrama se tiene una zona de alta densidad de puntos y por esa razón se
+observa una mancha en el diagrama. Para la construcción del diagrama de
+dispersión mostrado en el panel derecho se usó el parámetro
 \texttt{pch=\textquotesingle{}.\textquotesingle{}} con el objetivo de
 obtener pequeños puntos que representen cada apartamento y que no se
 traslapen debido a que se tienen 694 observaciones en la base de datos.
@@ -1895,15 +1902,101 @@ traslapen debido a que se tienen 694 observaciones en la base de datos.
 \index{sunflowerplot}}{Función sunflowerplot }}\label{funcion-sunflowerplot}
 
 La función \texttt{sunflowerplot} sirve para crear gráficos de
-dispersión para dos variables cuantitativas.
+dispersión en los cuales hay parejas repetidas que se superponen y que
+por lo tanto no se podrían apreciar.
+
+Si una pareja está una sola vez se representará por un punto; si la
+pareja se repite dos veces se representará por un punto y dos rayitas
+rojas (pétalos); si la pareja se repite tres veces se representará por
+un punto y tres rayitas rojas (pétalos) y así sucesivamente.
+
+La estructura de la función \texttt{sunflowerplot} con los argumentos
+más usuales se muestra a continuación:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sunflowerplot}\NormalTok{(x, y, pch, seg.col, seg.lwd, ...)}
+\end{Highlighting}
+\end{Shaded}
+
+Los argumentos de la función \texttt{plot} son:
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{x}: vector numérico con las coordenadas del eje horizontal.
+\item
+  \texttt{y}: vector numérico con las coordenadas del eje vertical.
+\item
+  \texttt{pch}: valor o vector numérico con el tipo de punto a usar, por
+  defecto \texttt{pch=1}. Para conocer los diferentes símbolos que se
+  pueden obtener con el parámetro \texttt{pch} se recomienda consultar
+  la Figura \ref{fig:point1}.
+\item
+  \texttt{seg.col}: color de los pétalos.
+\item
+  \texttt{seg.lwd}: ancho de los pétalos.
+\item
+  \texttt{...}: otros parámetros gráficos que pueden ser pasados como
+  argumentos para \texttt{plot}.
+\end{itemize}
+
+A continuación se presenta un ejemplo en los cuales se usa la función
+\texttt{sunflowerplot} para crear gráficos de dispersión.
+
+\subsection*{Ejemplo}\label{ejemplo-11}
+
+
+Suponga que se tiene el punto (1, 1) una sola vez, el punto (2, 3)
+repetido cuatro veces, el punto (3, 2) repetido seis veces y el punto
+(4, 5) repetido dos veces. El objetivo es crear dos gráficos de
+dispersión con los trece puntos, uno con la función \texttt{plot} y el
+otro con la función \texttt{sunflowerplot} para comparar los resultados.
+
+A continuación se muestra el código con la creación de los vectores y
+los dos gráficos de dispersión con \texttt{plot} y
+\texttt{sunflowerplot}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{)}
+\NormalTok{y <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{, }\DecValTok{5}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow=}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(x, y, }\DataTypeTok{main=}\StringTok{'a) Usando plot'}\NormalTok{)}
+\KeywordTok{sunflowerplot}\NormalTok{(x, y, }\DataTypeTok{seg.col=}\StringTok{'blue'}\NormalTok{, }\DataTypeTok{seg.lwd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{1.5}\NormalTok{,}
+              \DataTypeTok{main=}\StringTok{'b) Usando sunflowerplot'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/sunflower1-1.pdf}
+\caption{\label{fig:sunflower1}Gráfico de dispersión para datos hipotéticos.
+En la izquierda el gráfico obtenido con \texttt{plot} y a la derecha el
+obtenido con \texttt{sunflowerplot}.}
+\end{figure}
+
+En la Figura \ref{fig:sunflower1} se muestran los dos gráficos de
+dispersión para los datos. En el panel de la izquierda está el diagrama
+obtenido con la función \texttt{plot} pero sólo se observan 4 puntos
+cuando en realidad eran 13, esto se debe a que hay puntos repetidos y
+éstos quedan unos sobre otros. En el panel de la derecha está el
+diagrama obtenido con la función \texttt{sunflowerplot}, en este
+diagrama se observan cuatro objetos: el punto con coordenadas (1, 1) se
+representó con un punto ya que él no se repite, el punto (2, 3) está
+representado por un punto y cuatro pétalos de color azul ya que él se
+repite cuatro veces, y los puntos (3, 2) y (4, 5) se represetan con seis
+y dos pétalos porque esas son las veces que ellos se repiten.
 
 \section{\texorpdfstring{Función \texttt{symbols}
 \index{symbols}}{Función symbols }}\label{funcion-symbols}
 
 La función \texttt{symbols} sirve para construir diagramas de dispersión
-pero incluyendo información de variables adicionales.
+en dos dimensiones incluyendo información adicional de variables
+cuantitativas.
 
-\subsection*{Ejemplo}\label{ejemplo-11}
+\subsection*{Ejemplo}\label{ejemplo-12}
 
 
 Como ilustración vamos a crear un diagrama de dispersión entre el precio
@@ -1989,7 +2082,7 @@ dispersión para cada combinación de variables.
 \end{figure}
 
 La estructura de la función \texttt{pairs} con los argumentos más
-usuales se muestran a continuación.
+usuales se muestra a continuación:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2050,7 +2143,7 @@ Los argumentos de la función \texttt{pairs} son:
   base. Por defecto es lo primero.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-12}
+\subsection*{Ejemplo}\label{ejemplo-13}
 
 
 Dibujar una matriz de dispersión para las variables precio, área, número
@@ -2084,7 +2177,7 @@ apartamentos en Medellín.}
 En la Figura \ref{fig:ex1pairs} se muestra la matriz de dispersión para
 las variables del marco de datos \texttt{datos.num}.
 
-\subsection*{Ejemplo}\label{ejemplo-13}
+\subsection*{Ejemplo}\label{ejemplo-14}
 
 
 Volver a construir la Figura \ref{fig:ex1pairs} editando los nombres de
@@ -2112,7 +2205,7 @@ la nueva matriz de dispersión.
 adicionales de la función pairs.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-14}
+\subsection*{Ejemplo}\label{ejemplo-15}
 
 
 Construir una matriz de dispersión con las variables precio, área y
@@ -2158,7 +2251,7 @@ solicitada, los puntos rojos representan los apartamento sin parqueadero
 mientras que los puntos verdes son los apartamento que si tienen
 parqueadero.
 
-\subsection*{Ejemplo}\label{ejemplo-15}
+\subsection*{Ejemplo}\label{ejemplo-16}
 
 
 ¿Es posible agregar una leyenda a una matriz de dispersión?
@@ -2187,7 +2280,7 @@ A continuación se muestra el código para el ejemplo y en la Figura
 \caption{\label{fig:expairs}Matriz de dispersión con leyenda.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-16}
+\subsection*{Ejemplo}\label{ejemplo-17}
 
 
 ¿Es posible modificar el contenido de los páneles de una matriz de
@@ -2297,7 +2390,7 @@ panel.smooth.}
 La función \texttt{persp} dibuja superfices en tres dimensiones y es
 posible rotar la superficie para obtener una perpectiva apropiada. La
 estructura de la función \texttt{persp} con los argumentos más usuales
-se muestran a continuación.
+se muestra a continuación:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2362,7 +2455,7 @@ Los argumentos de la función \texttt{plot} son:
 \caption{Ilustración de los ángulos theta y phi para la función persp. Figura tomada de https://i-msdn.sec.s-msft.com/dynimg/IC412528.png}\label{fig:globo}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-17}
+\subsection*{Ejemplo}\label{ejemplo-18}
 
 
 Dibujar la superficie asociada a la función \(f(x, y)=sen(x^2+y^2)\)
@@ -2415,7 +2508,7 @@ los vectores \texttt{x} e \texttt{y} se obtendrá una rejilla más tupida,
 se recomienda modificar este valor para obtener una superficie
 apropiada.
 
-\subsection*{Ejemplo}\label{ejemplo-18}
+\subsection*{Ejemplo}\label{ejemplo-19}
 
 
 Dibujar la superficie de una distribución normal bivariada con vector de
@@ -2469,8 +2562,8 @@ de las perspectivas.
 \index{gráfico de contornos}}{Función contour  }}\label{funcion-contour}
 
 La función \texttt{contour} dibuja gráficos contornos. La estructura de
-la función \texttt{contour} con los argumentos más usuales se muestran a
-continuación.
+la función \texttt{contour} con los argumentos más usuales se muestra a
+continuación:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2504,7 +2597,7 @@ Los argumentos de la función son:
 La función \texttt{contour} tiene otros parámetros adicionales que el
 lector puede consultar en la ayuda usando \texttt{help(contour)}.
 
-\subsection*{Ejemplo}\label{ejemplo-19}
+\subsection*{Ejemplo}\label{ejemplo-20}
 
 
 Generar una muestra aleatoria de 50 observaciones de una distribución
@@ -2569,8 +2662,8 @@ log-verosimilitud para el ejemplo sobre normal.}
 
 La función \texttt{filled.contour} dibuja gráficos contornos pero usando
 una paleta de colores. La estructura de la función
-\texttt{filled.contour} con los argumentos más usuales se muestran a
-continuación.
+\texttt{filled.contour} con los argumentos más usuales se muestra a
+continuación:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2608,7 +2701,7 @@ La función \texttt{filled.contour} tiene otros parámetros adicionales
 que el lector puede consultar en la ayuda usando
 \texttt{help(filled.contour)}.
 
-\subsection*{Ejemplo}\label{ejemplo-20}
+\subsection*{Ejemplo}\label{ejemplo-21}
 
 
 Para la muestra aleatoria obtenida en el ejemplo anterior, dibujar un
@@ -2640,7 +2733,7 @@ log-verosimilitud para el ejemplo sobre normal.}
 La función \texttt{image} dibuja un gráfico de perspectiva en dos
 dimensiones y visto paralelo a la tercer variable de altura, es una
 especie de gráfico de calor. La estructura de la función \texttt{image}
-con los argumentos más usuales se muestran a continuación.
+con los argumentos más usuales se muestra a continuación:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2661,7 +2754,7 @@ Los argumentos de la función son:
   general creada con la función \texttt{outer}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-21}
+\subsection*{Ejemplo}\label{ejemplo-22}
 
 
 Para la muestra aleatoria obtenida en el ejemplo anterior, dibujar un
@@ -2692,7 +2785,7 @@ el ejemplo sobre normal.}
 La función \texttt{kde2d} pertenece al paquete \texttt{MASS} y es
 utilizada para crear densidades para dos variables cuantitativas. La
 estructura de la función \texttt{kde2d} con los argumentos más usuales
-se muestran a continuación.
+se muestra a continuación:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2718,7 +2811,7 @@ Los argumentos de la función son:
   por defecto es \texttt{c(range(x),\ range(y))}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-22}
+\subsection*{Ejemplo}\label{ejemplo-23}
 
 
 La base de datos medidas del cuerpo cuenta con 6 variables registradas a
@@ -2767,7 +2860,7 @@ densidad con \texttt{n=5} y a la derecha con \texttt{n=50}.}
 
 La función \texttt{interaction.plot} dibuja gráficos de interacción. La
 estructura de la función \texttt{interaction.plot} con los argumentos
-más usuales se muestran a continuación.
+más usuales se muestra a continuación:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2799,7 +2892,7 @@ La función \texttt{interaction.plot} tiene otros parámetros adicionales
 que el lector puede consultar en la ayuda usando
 \texttt{help(interaction.plot)}.
 
-\subsection*{Ejemplo}\label{ejemplo-23}
+\subsection*{Ejemplo}\label{ejemplo-24}
 
 
 Se realizó un experimento para determinar cómo influye el material de la
@@ -2842,7 +2935,7 @@ una variable medida para un grupo de sujetos en diferentes momentos del
 tiempo. La función \texttt{interaction.plot} se puede usar para obtener
 este tipo de gráficos, a continuación un ejemplo.
 
-\subsection*{Ejemplo}\label{ejemplo-24}
+\subsection*{Ejemplo}\label{ejemplo-25}
 
 
 El ejemplo aquí presentado fue tomado de este
@@ -2912,7 +3005,7 @@ La función \texttt{barplot} tiene otros parámetros que pueden ser
 consultados en la ayuda de la función por medio de la instrucción
 \texttt{?barplot}.
 
-\subsection*{Ejemplo}\label{ejemplo-25}
+\subsection*{Ejemplo}\label{ejemplo-26}
 
 
 Suponga que queremos construir un diagrama de barras para las
@@ -3006,7 +3099,7 @@ En la Figura \ref{fig:barra2} se muestra el diagrama de barras
 modificado. Note que si no se hubiese usado \texttt{ylim=c(0,\ 0.45)} al
 dibujar el diagrama, la marca sobre la última barra no se podría ver.
 
-\subsection*{Ejemplo}\label{ejemplo-26}
+\subsection*{Ejemplo}\label{ejemplo-27}
 
 
 Suponga que queremos construir un diagrama de barras para comparar la
@@ -3185,7 +3278,7 @@ Los argumentos de la función \texttt{pie} son:
   pastel, por defecto se usan los nombres del vector \texttt{x}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-27}
+\subsection*{Ejemplo}\label{ejemplo-28}
 
 
 Dibujar un gráfico de pastel para las frecuencias relativas de la
@@ -3258,7 +3351,7 @@ Los argumentos de la función \texttt{dotchart} son:
   argumentos.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-28}
+\subsection*{Ejemplo}\label{ejemplo-29}
 
 
 Suponga que se tiene una tabla de contingencia con la información del
@@ -3410,7 +3503,7 @@ se mostrará por medio de ejemplos.
 Este parámetro sirve para indicar si se quiere un gráfico con nombres en
 los ejes y título principal, por defecto asume el valor \texttt{TRUE}.
 
-\subsection*{Ejemplo}\label{ejemplo-29}
+\subsection*{Ejemplo}\label{ejemplo-30}
 
 
 Dibujar la densidad para una distribución \(\chi^2_1\) usando
@@ -3454,7 +3547,7 @@ valor por defecto es 0.5 que indica que el texto debe quedar centrado en
 las coordenadas x e y indicadas, un valor de 0 significa justificación a
 izquierda mientras que 1 significa justificación a derecha.
 
-\subsection*{Ejemplo}\label{ejemplo-30}
+\subsection*{Ejemplo}\label{ejemplo-31}
 
 
 Dibujar un gráfico vacío, ubicar las palabra \emph{hola mi mundo}
@@ -3498,7 +3591,7 @@ del texto.
 Este parámetro sirve para modificar el color del fondo donde se va a
 dibujar.
 
-\subsection*{Ejemplo}\label{ejemplo-31}
+\subsection*{Ejemplo}\label{ejemplo-32}
 
 
 Dibujar la densidad de una normal estándar usando un color verde para el
@@ -3534,7 +3627,7 @@ modificar este parámetro es \texttt{mfrow=c(nf,\ nc)}, donde \texttt{nf}
 es el número de filas y \texttt{nc} el número de columnas en las cuales
 se va a dividir la ventana gráfica.
 
-\subsection*{Ejemplo}\label{ejemplo-32}
+\subsection*{Ejemplo}\label{ejemplo-33}
 
 
 Dibujar la distribución de probabilidad para una distribución Poisson
@@ -3593,7 +3686,7 @@ obtener la caja usual; se pueden usar también los símboloes
 caja con la forma del símbolo; se puede usar
 \texttt{\textquotesingle{}n\textquotesingle{}} para suprimir la caja.
 
-\subsection*{Ejemplo}\label{ejemplo-33}
+\subsection*{Ejemplo}\label{ejemplo-34}
 
 
 Dibujar la densidad de una \(\chi^2_5\) modificando el parámetro
@@ -3641,7 +3734,7 @@ este parámetro permiten obtener mejores figuras. A continuación un
 ejemplo para ver el efecto que tiene este parámetro sobre las figuras
 obtenidas.
 
-\subsection*{Ejemplo}\label{ejemplo-34}
+\subsection*{Ejemplo}\label{ejemplo-35}
 
 
 Hacer un gráfico de dispersión sencillo para explorar el efecto del
@@ -3691,7 +3784,7 @@ anteriores elementos simultáneamente mientras que los parámetros
 explicados en esta sección modifican cada uno de los elementos por
 aparte.
 
-\subsection*{Ejemplo}\label{ejemplo-35}
+\subsection*{Ejemplo}\label{ejemplo-36}
 
 
 Hacer un gráfico cualquiera y modificar los parámetros
@@ -3737,7 +3830,7 @@ personalizados en \proglang{R}.
 Estos parámetros sirven para definir el color a usar en los ejes, en los
 nombres de los ejes, en el título y en el subtítulo.
 
-\subsection*{Ejemplo}\label{ejemplo-36}
+\subsection*{Ejemplo}\label{ejemplo-37}
 
 
 Hacer un gráfico cualquiera y modificar los parámetros \texttt{col},
@@ -4259,8 +4352,8 @@ Los argumentos de la función son:
   \texttt{x,\ y}: vectores con las coordenadas de ubicación de los
   puntos.
 \item
-  \texttt{pch}: vector numérico con el tipo de punto a usar, por defecto
-  \texttt{pch=1}.
+  \texttt{pch}: valor o vector numérico con el tipo de punto a usar, por
+  defecto \texttt{pch=1}.
 \item
   \texttt{col}: vector con los colores para cada punto.
 \item
@@ -4341,7 +4434,7 @@ Los argumentos de la función son:
   confundir con \texttt{from} y \texttt{to}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-37}
+\subsection*{Ejemplo}\label{ejemplo-38}
 
 
 Dibujar las funciones \(f_1\), \(f_2\) y \(f_3\) usando la función
@@ -4390,7 +4483,7 @@ ventana gráfica en ese intervalo para el eje horizontal. En la Figura
 \caption{\label{fig:curve1}Dibujo de varias funciones en una misma ventana.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-38}
+\subsection*{Ejemplo}\label{ejemplo-39}
 
 
 Dibujar la figura de la relación entre las variables \(x\) y \(y\) dada
