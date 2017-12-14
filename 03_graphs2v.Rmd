@@ -104,6 +104,20 @@ sunflowerplot(x, y, seg.col='blue', seg.lwd=2, cex=1.5,
 
 En la Figura \@ref(fig:sunflower1) se muestran los dos gráficos de dispersión para los datos. En el panel de la izquierda está el diagrama obtenido con la función `plot` pero sólo se observan 4 puntos cuando en realidad eran 13, esto se debe a que hay puntos repetidos y éstos quedan unos sobre otros. En el panel de la derecha está el diagrama obtenido con la función `sunflowerplot`, en este diagrama se observan cuatro objetos: el punto con coordenadas (1, 1) se representó con un punto ya que él no se repite, el punto (2, 3) está representado por un punto y cuatro pétalos de color azul ya que él se repite cuatro veces, y los puntos (3, 2) y (4, 5) se represetan con seis y dos pétalos porque esas son las veces que ellos se repiten.
 
+### Ejemplo {-}
+Como ilustración vamos a crear un diagrama de dispersión con la función `sunflowerplot` para las variables número de alcobas y número de baños de la base de datos de apartamentos usados.
+
+El código necesario para cargar la base de datos y construir el diagrama de dispersión se muestra a continuación. El diagrama de dispersión se construyó excluyendo la información del apartamento 594 porque éste aparece con 14 alcobas.
+
+```{r sunflower2, fig.cap='Diagrama de dispersión para número de baños versus número de alcobas.', fig.height=4, fig.width=4}
+url <- 'https://tinyurl.com/hwhb769'
+datos <- read.table(file=url, header=T)
+datos <- datos[-594, ]
+sunflowerplot(x=datos$alcobas, y=datos$banos)
+```
+
+En la Figura \@ref(fig:sunflower2) se muestra el diagrama de dispersión entre número de baños y número de alcobas. De este diagrama se observa que la mayor parte de los apartamentos de la base de datos tienen 2 o 3 alcobas con 2 o 3 baños, se nota que sólo 8 apartamentos tiene 5 alcobas y que sólo un apatamento tiene seis baños.
+
 
 ## Función `symbols` \index{symbols}
 La función `symbols` sirve para construir diagramas de dispersión en dos dimensiones incluyendo información adicional de variables cuantitativas.
