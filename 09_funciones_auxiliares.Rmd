@@ -253,7 +253,7 @@ points(x, y, pch, col, cex)
 Los argumentos de la función son:
 
 - `x, y`: vectores con las coordenadas de ubicación de los puntos.
-- `pch`: vector numérico con el tipo de punto a usar, por defecto `pch=1`.
+- `pch`: valor o vector numérico con el tipo de punto a usar, por defecto `pch=1`.
 - `col`: vector con los colores para cada punto.
 - `cex`: número para modificar el tamaño de los puntos, por defecto es `cex=1` y al aumentar su valor aumenta el tamaño de los puntos.
 
