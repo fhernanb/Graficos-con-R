@@ -4,7 +4,7 @@ En este capítulo se presentan funciones para la creación de gráficos que invo
 
 ## Función `plot` \index{plot} \index{diagrama de dispersión}
 
-Los gráficos de dispersión son muy útiles porque permiten ver la relación que existe entre dos variables cuantitativas, la función `plot` permite crear este tipo de gráficos. La estructura de la función `plot` con los argumentos más usuales se muestran a continuación
+Los gráficos de dispersión son muy útiles porque permiten ver la relación que existe entre dos variables cuantitativas, la función `plot` permite crear este tipo de gráficos. La estructura de la función `plot` con los argumentos más usuales se muestra a continuación:
 
 ```{r, eval=F}
 plot(x, y, type, main, sub, xlab, ylab)
@@ -13,7 +13,7 @@ plot(x, y, type, main, sub, xlab, ylab)
 Los argumentos de la función `plot` son:
 
 - `x`: vector numérico con las coordenadas del eje horizontal.
-- `y`: vector numérico con las coordenadas del eje vertical
+- `y`: vector numérico con las coordenadas del eje vertical.
 - `type`: tipo de gráfico a dibujar. Las opciones son: \label{type}
     - `'p'` para obtener puntos, esta es la opción por defecto.
     - `'l'` para obtener líneas.
@@ -31,7 +31,7 @@ Crear 16 parejas de puntos tales que $x=-5, -4, \ldots, 9, 10$ con $y=-10+(x-3)^
 
 A continuación se muestra el código para crear las 16 parejas de $x$ e $y$. Los nueve diagramas de dispersión se observan en la Figura \@ref(fig:ex1plot), de esta figura se observa claramente el efecto que tiene el parámetro `type` en la construcción del diagrama de dispersión.
 
-```{r ex1plot, fig.cap='Efecto del parámetro `type` en la función `plot`.', fig.asp=1.2, fig.width=5}
+```{r ex1plot, fig.cap='Efecto del parámetro `type` en la función `plot`.', fig.height=6, fig.width=5}
 x <- -5:10
 y <- -10 + (x-3)^2
 par(mfrow=c(3, 3))
@@ -47,9 +47,11 @@ plot(x=x, y=y, type='n', main="con type='n'")
 ```
 
 ### Ejemplo {-}
-Como ilustración vamos a crear un diagrama de dispersión entre el precio de apartamentos usados en la ciudad de Medellín y el área de los apartamentos. El código necesario para cargar la base de datos y construir el diagrama de dispersión se muestra a continuación.
+Como ilustración vamos a crear dos diagramas de dispersión entre el precio de apartamentos usados en la ciudad de Medellín y el área de los apartamentos. El primer diagrama es un gráfico básico mientras que el segundo es un diagrama mejorado.
 
-```{r ex2plot, fig.cap='Diagrama de dispersión del precio del apartamento versus área del apartamento. A la izquierda el diagrama de dispersión sin editar y a la derecha el diagrama de dispersión mejorado', fig.asp=0.7, fig.width=6}
+El código necesario para cargar la base de datos y construir los diagramas de dispersión se muestra a continuación.
+
+```{r ex2plot, fig.cap='Diagrama de dispersión del precio del apartamento versus área del apartamento. A la izquierda el diagrama de dispersión sin editar y a la derecha el diagrama de dispersión mejorado.', fig.height=4, fig.width=8}
 url <- 'https://tinyurl.com/hwhb769'
 datos <- read.table(file=url, header=T)
 
@@ -60,14 +62,51 @@ plot(x=datos$mt2, y=datos$precio, pch='.',
      ylab='Precio (millones de pesos)')
 ```
 
-En la Figura \@ref(fig:ex2plot) se presenta el diagrama de dispersión entre precio y área de los apartamentos, de este diagrama se observa claramente que a medida que los apartamentos tienen mayor área el precio promedio y la variabilidad del precio aumentan. Para el diagrama de dispersión de la derecha se usó el parámetro `pch='.'` con el objetivo de obtener pequeños puntos que representen cada apartamento y que no se traslapen debido a que se tienen `r nrow(datos)` observaciones en la base de datos.
+En la Figura \@ref(fig:ex2plot) se presentan los diagramas de dispersión entre precio y área de los apartamentos. En el panel de la izquierda está el diagrama básico, de este diagrama se observa claramente que a medida que los apartamentos tienen mayor área el precio promedio y la variabilidad del precio aumentan. En la parte inferior izquierda de este diagrama se tiene una zona de alta densidad de puntos y por esa razón se observa una mancha en el diagrama. Para la construcción del diagrama de dispersión mostrado en el panel derecho se usó el parámetro `pch='.'` con el objetivo de obtener pequeños puntos que representen cada apartamento y que no se traslapen debido a que se tienen `r nrow(datos)` observaciones en la base de datos.
 
 ## Función `sunflowerplot` \index{sunflowerplot}
 
-La función `sunflowerplot` sirve para crear gráficos de dispersión para dos variables cuantitativas en los cuales hay parejas de puntos repetidos y que no se visualizan bien con la función `plot`. 
+La función `sunflowerplot` sirve para crear gráficos de dispersión en los cuales hay parejas repetidas que se superponen y que por lo tanto no se podrían apreciar.
+
+Si una pareja está una sola vez se representará por un punto; si la pareja se repite dos veces se representará por un punto y dos rayitas rojas (pétalos); si la pareja se repite tres veces se representará por un punto y tres rayitas rojas (pétalos) y así sucesivamente.
+
+La estructura de la función `sunflowerplot` con los argumentos más usuales se muestra a continuación:
+
+```{r, eval=F}
+sunflowerplot(x, y, pch, seg.col, seg.lwd, ...)
+```
+
+Los argumentos de la función `plot` son:
+
+- `x`: vector numérico con las coordenadas del eje horizontal.
+- `y`: vector numérico con las coordenadas del eje vertical.
+- `pch`: valor o vector numérico con el tipo de punto a usar, por defecto `pch=1`. Para conocer los diferentes símbolos que se pueden obtener con el parámetro `pch` se recomienda consultar la Figura \@ref(fig:point1).
+- `seg.col`: color de los pétalos.
+- `seg.lwd`: ancho de los pétalos.
+- `...`: otros parámetros gráficos que pueden ser pasados como argumentos para `plot`.
+
+A continuación se presenta un ejemplo en los cuales se usa la función `sunflowerplot` para crear gráficos de dispersión.
+
+### Ejemplo {-}
+Suponga que se tiene el punto (1, 1) una sola vez, el punto (2, 3) repetido cuatro veces, el punto (3, 2) repetido seis veces y el punto (4, 5) repetido dos veces. El objetivo es crear dos gráficos de dispersión con los trece puntos, uno con la función `plot` y el otro con la función `sunflowerplot` para comparar los resultados.
+
+A continuación se muestra el código con la creación de los vectores y los dos gráficos de dispersión con `plot` y `sunflowerplot`.
+
+```{r sunflower1, fig.cap='Gráfico de dispersión para datos hipotéticos. En la izquierda el gráfico obtenido con `plot` y a la derecha el obtenido con `sunflowerplot`.', fig.asp=0.5, fig.width=8}
+x <- c(1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4)
+y <- c(1, 3, 3, 3, 3, 2, 2, 2, 2, 2, 2, 5, 5)
+
+par(mfrow=c(1, 2))
+plot(x, y, main='a) Usando plot')
+sunflowerplot(x, y, seg.col='blue', seg.lwd=2, cex=1.5,
+              main='b) Usando sunflowerplot')
+```
+
+En la Figura \@ref(fig:sunflower1) se muestran los dos gráficos de dispersión para los datos. En el panel de la izquierda está el diagrama obtenido con la función `plot` pero sólo se observan 4 puntos cuando en realidad eran 13, esto se debe a que hay puntos repetidos y éstos quedan unos sobre otros. En el panel de la derecha está el diagrama obtenido con la función `sunflowerplot`, en este diagrama se observan cuatro objetos: el punto con coordenadas (1, 1) se representó con un punto ya que él no se repite, el punto (2, 3) está representado por un punto y cuatro pétalos de color azul ya que él se repite cuatro veces, y los puntos (3, 2) y (4, 5) se represetan con seis y dos pétalos porque esas son las veces que ellos se repiten.
+
 
 ## Función `symbols` \index{symbols}
-La función `symbols` sirve para construir diagramas de dispersión pero incluyendo información de variables adicionales.
+La función `symbols` sirve para construir diagramas de dispersión en dos dimensiones incluyendo información adicional de variables cuantitativas.
 
 ### Ejemplo {-}
 Como ilustración vamos a crear un diagrama de dispersión entre el precio de apartamentos usados en la ciudad de Medellín y el área de los apartamentos pero incluyendo otras variables.
@@ -118,7 +157,7 @@ En la Figura \@ref(fig:ex0pairs) se muestra un ejemplo de una matriz de dispersi
 pairs(USJudgeRatings[,c(2:3,6,1,7)])
 ```
 
-La estructura de la función `pairs` con los argumentos más usuales se muestran a continuación.
+La estructura de la función `pairs` con los argumentos más usuales se muestra a continuación:
 
 ```{r, eval=F}
 pairs(x, labels, panel = points, ...,
@@ -265,7 +304,7 @@ pairs(datos.num,
 ```
 
 ## Función `persp` \index{persp}
-La función `persp` dibuja superfices en tres dimensiones y es posible rotar la superficie para obtener una perpectiva apropiada. La estructura de la función `persp` con los argumentos más usuales se muestran a continuación.
+La función `persp` dibuja superfices en tres dimensiones y es posible rotar la superficie para obtener una perpectiva apropiada. La estructura de la función `persp` con los argumentos más usuales se muestra a continuación:
 
 ```{r, eval=F}
 persp(x, y, z, main, sub, theta, phi, r, col,
@@ -347,7 +386,7 @@ En la Figura \@ref(fig:ex2persp) se presentan las 3 perspectivas para la densida
 
 
 ## Función `contour` \index{contour} \index{gráfico de contornos}
-La función `contour` dibuja gráficos contornos. La estructura de la función `contour` con los argumentos más usuales se muestran a continuación.
+La función `contour` dibuja gráficos contornos. La estructura de la función `contour` con los argumentos más usuales se muestra a continuación:
 
 ```{r, eval=FALSE}
 contour(x, y, z,
@@ -393,7 +432,7 @@ contour(x=xx, y=yy, z=zz, nlevels=50,
 ```
 
 ## Función `filled.contour` \index{filled.contour} \index{gráfico de nivel}
-La función `filled.contour` dibuja gráficos contornos pero usando una paleta de colores.  La estructura de la función `filled.contour` con los argumentos más usuales se muestran a continuación.
+La función `filled.contour` dibuja gráficos contornos pero usando una paleta de colores.  La estructura de la función `filled.contour` con los argumentos más usuales se muestra a continuación:
 
 ```{r, eval=FALSE}
 filled.contour(x, y, z,
@@ -424,7 +463,7 @@ filled.contour(x=xx, y=yy, z=zz, nlevels=20,
 ```
 
 ## Función `image` \index{image} 
-La función `image` dibuja un gráfico de perspectiva en dos dimensiones y visto paralelo a la tercer variable de altura, es una especie de gráfico de calor. La estructura de la función `image` con los argumentos más usuales se muestran a continuación.
+La función `image` dibuja un gráfico de perspectiva en dos dimensiones y visto paralelo a la tercer variable de altura, es una especie de gráfico de calor. La estructura de la función `image` con los argumentos más usuales se muestra a continuación:
 
 ```{r, eval=FALSE}
 image(x, y, z)
@@ -446,7 +485,7 @@ image(x=xx, y=yy, z=zz,
 ```
 
 ## Función `kde2d` \index{kde2d} \index{densidad en 2d}
-La función `kde2d` pertenece al paquete `MASS` y es utilizada para crear densidades para dos variables cuantitativas. La estructura de la función `kde2d` con los argumentos más usuales se muestran a continuación.
+La función `kde2d` pertenece al paquete `MASS` y es utilizada para crear densidades para dos variables cuantitativas. La estructura de la función `kde2d` con los argumentos más usuales se muestra a continuación:
 
 ```{r, eval=FALSE}
 kde2d(x, y, h, n = 25, lims = c(range(x), range(y)))
@@ -485,7 +524,7 @@ image(f2, xlab='Peso', ylab='Estatura', main='n=50')
 
 
 ## Función `interaction.plot` \index{interaction.plot} \index{gráfico de interacción}
-La función `interaction.plot` dibuja gráficos de interacción. La estructura de la función `interaction.plot` con los argumentos más usuales se muestran a continuación.
+La función `interaction.plot` dibuja gráficos de interacción. La estructura de la función `interaction.plot` con los argumentos más usuales se muestra a continuación:
 
 ```{r, eval=FALSE}
 interaction.plot(response, x.factor, trace.factor, fun,
