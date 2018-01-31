@@ -229,7 +229,7 @@
 \title{Gráficos con R}
 \author{Freddy Hernández Barajas\\
 Juan Carlos Correa Morales}
-\date{2017-12-14}
+\date{2018-01-31}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -431,7 +431,7 @@ sistemas operativos Linux, Mac y Windows.
 
 \begin{figure}
 
-{\centering \includegraphics{images/cran} 
+{\centering \includegraphics[width=4.54in]{images/cran} 
 
 }
 
@@ -449,7 +449,7 @@ por la flecha roja en la Figura \ref{fig:inst1}.
 
 \begin{figure}
 
-{\centering \includegraphics{images/instalacion1} 
+{\centering \includegraphics[width=5.31in]{images/instalacion1} 
 
 }
 
@@ -507,7 +507,7 @@ consola, para hacer esto se deben explorar las opciones de
 
 \begin{figure}
 
-{\centering \includegraphics{images/Rpantallazo} 
+{\centering \includegraphics[width=3.6in]{images/Rpantallazo} 
 
 }
 
@@ -3346,9 +3346,8 @@ instrucción anterior.
 \index{dotchart}}{Función dotchart  }}\label{funcion-dotchart}
 
 Los gráficos de puntos son útiles para representar tablas de frecuencia
-(de 1 o 2 vías) o tablas de resumen de en relación a una o dos
-variables. La estructura de la función \texttt{dotchart} se muestra a
-continuación.
+(de 1 o 2 vías) o tablas de resumen en relación a una o dos variables.
+La estructura de la función \texttt{dotchart} se muestra a continuación.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3372,6 +3371,8 @@ Los argumentos de la función \texttt{dotchart} son:
   \texttt{groups}: vector con los nombres a usar para los grupos, por
   defecto toma los nombres de las columnas de la matriz \texttt{x}.
 \item
+  \texttt{cex}: tamaño de los nombres a mostrar en los ejes.
+\item
   \texttt{pt.cex}: tamaño del punto.
 \item
   \texttt{pch}: tipo de punto a usar, las diferentes opciones para
@@ -3386,6 +3387,36 @@ Los argumentos de la función \texttt{dotchart} son:
 \end{itemize}
 
 \subsection*{Ejemplo}\label{ejemplo-30}
+
+
+Suponga que queremos explorar el rendimiento de del combustible
+(\texttt{mpg}) para los 32 autos de la base de datos \texttt{mtcars}
+usando un diagrama de puntos.
+
+A continuación se muestra el código necesario para crear el gráfico de
+puntos deseado.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mtcars <-}\StringTok{ }\NormalTok{mtcars[}\KeywordTok{order}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{mpg), ]  }\CommentTok{# Para re-ordenar la base}
+\KeywordTok{dotchart}\NormalTok{(mtcars}\OperatorTok{$}\NormalTok{mpg, }\DataTypeTok{labels=}\KeywordTok{row.names}\NormalTok{(mtcars), }
+         \DataTypeTok{cex=}\FloatTok{0.6}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"mpg"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/dotchart1-1.pdf}
+\caption{\label{fig:dotchart1}Gráfico de puntos para el rendimiento de
+combustible (\texttt{mpg}) en la base de datos \texttt{mtcars}.}
+\end{figure}
+
+En la Figura \ref{fig:dotchart1} se tiene el gráfico de puntos para la
+variable \texttt{mpg}, de esta figura se observa fácilmente que el
+Toyota Corolla tiene el mayor rendimiento de combustible y que el
+Cadillac Fleetwood el menor.
+
+\subsection*{Ejemplo}\label{ejemplo-31}
 
 
 Suponga que se tiene una tabla de contingencia con la información del
@@ -3415,10 +3446,10 @@ sufren de la enfermedad, las demás columnas se interpretan de forma
 similar.
 
 Para construir un gráfico de puntos con el objetivo de presentar la
-información de la matriz \texttt{x} se utiliza el siguiente código. En
-la Figura \ref{fig:dotchart2} se presenta el gráfico de puntos, de esta
-figura se nota claramente que en París es donde hay más personas que
-sufren de la enfermedad.
+información de la matriz \texttt{x} se utiliza el código mostrado abajo.
+En la Figura \ref{fig:dotchart2} se presenta el gráfico de puntos
+obtenido y de esta figura se nota claramente que en París es donde hay
+más personas que sufren de la enfermedad.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3537,7 +3568,7 @@ se mostrará por medio de ejemplos.
 Este parámetro sirve para indicar si se quiere un gráfico con nombres en
 los ejes y título principal, por defecto asume el valor \texttt{TRUE}.
 
-\subsection*{Ejemplo}\label{ejemplo-31}
+\subsection*{Ejemplo}\label{ejemplo-32}
 
 
 Dibujar la densidad para una distribución \(\chi^2_1\) usando
@@ -3581,7 +3612,7 @@ valor por defecto es 0.5 que indica que el texto debe quedar centrado en
 las coordenadas x e y indicadas, un valor de 0 significa justificación a
 izquierda mientras que 1 significa justificación a derecha.
 
-\subsection*{Ejemplo}\label{ejemplo-32}
+\subsection*{Ejemplo}\label{ejemplo-33}
 
 
 Dibujar un gráfico vacío, ubicar las palabra \emph{hola mi mundo}
@@ -3625,7 +3656,7 @@ del texto.
 Este parámetro sirve para modificar el color del fondo donde se va a
 dibujar.
 
-\subsection*{Ejemplo}\label{ejemplo-33}
+\subsection*{Ejemplo}\label{ejemplo-34}
 
 
 Dibujar la densidad de una normal estándar usando un color verde para el
@@ -3661,7 +3692,7 @@ modificar este parámetro es \texttt{mfrow=c(nf,\ nc)}, donde \texttt{nf}
 es el número de filas y \texttt{nc} el número de columnas en las cuales
 se va a dividir la ventana gráfica.
 
-\subsection*{Ejemplo}\label{ejemplo-34}
+\subsection*{Ejemplo}\label{ejemplo-35}
 
 
 Dibujar la distribución de probabilidad para una distribución Poisson
@@ -3720,7 +3751,7 @@ obtener la caja usual; se pueden usar también los símboloes
 caja con la forma del símbolo; se puede usar
 \texttt{\textquotesingle{}n\textquotesingle{}} para suprimir la caja.
 
-\subsection*{Ejemplo}\label{ejemplo-35}
+\subsection*{Ejemplo}\label{ejemplo-36}
 
 
 Dibujar la densidad de una \(\chi^2_5\) modificando el parámetro
@@ -3768,7 +3799,7 @@ este parámetro permiten obtener mejores figuras. A continuación un
 ejemplo para ver el efecto que tiene este parámetro sobre las figuras
 obtenidas.
 
-\subsection*{Ejemplo}\label{ejemplo-36}
+\subsection*{Ejemplo}\label{ejemplo-37}
 
 
 Hacer un gráfico de dispersión sencillo para explorar el efecto del
@@ -3818,7 +3849,7 @@ anteriores elementos simultáneamente mientras que los parámetros
 explicados en esta sección modifican cada uno de los elementos por
 aparte.
 
-\subsection*{Ejemplo}\label{ejemplo-37}
+\subsection*{Ejemplo}\label{ejemplo-38}
 
 
 Hacer un gráfico cualquiera y modificar los parámetros
@@ -3864,7 +3895,7 @@ personalizados en \proglang{R}.
 Estos parámetros sirven para definir el color a usar en los ejes, en los
 nombres de los ejes, en el título y en el subtítulo.
 
-\subsection*{Ejemplo}\label{ejemplo-38}
+\subsection*{Ejemplo}\label{ejemplo-39}
 
 
 Hacer un gráfico cualquiera y modificar los parámetros \texttt{col},
@@ -4468,7 +4499,7 @@ Los argumentos de la función son:
   confundir con \texttt{from} y \texttt{to}.
 \end{itemize}
 
-\subsection*{Ejemplo}\label{ejemplo-39}
+\subsection*{Ejemplo}\label{ejemplo-40}
 
 
 Dibujar las funciones \(f_1\), \(f_2\) y \(f_3\) usando la función
@@ -4517,7 +4548,7 @@ ventana gráfica en ese intervalo para el eje horizontal. En la Figura
 \caption{\label{fig:curve1}Dibujo de varias funciones en una misma ventana.}
 \end{figure}
 
-\subsection*{Ejemplo}\label{ejemplo-40}
+\subsection*{Ejemplo}\label{ejemplo-41}
 
 
 Dibujar la figura de la relación entre las variables \(x\) y \(y\) dada
@@ -4586,7 +4617,7 @@ y se muestra a continuación.
 
 \begin{figure}
 
-{\centering \includegraphics{images/casita} 
+{\centering \includegraphics[width=3.26in]{images/casita} 
 
 }
 
