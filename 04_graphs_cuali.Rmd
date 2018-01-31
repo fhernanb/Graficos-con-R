@@ -140,7 +140,7 @@ pie(x=tabla1, labels=nombres,
 La Figura \@ref(fig:pie) presenta el gráfico de pastel construído con la instrucción anterior.
 
 ## Función `dotchart` \index{gráfico de puntos} \index{dotchart}
-Los gráficos de puntos son útiles para representar tablas de frecuencia (de 1 o 2 vías) o tablas de resumen de en relación a una o dos variables. La estructura de la función `dotchart` se muestra a continuación.
+Los gráficos de puntos son útiles para representar tablas de frecuencia (de 1 o 2 vías) o tablas de resumen en relación a una o dos variables. La estructura de la función `dotchart` se muestra a continuación.
 
 ```{r, eval=F}
 dotchart(x, labels=NULL, groups=NULL, gdata=NULL,
@@ -152,11 +152,25 @@ Los argumentos de la función `dotchart` son:
 - `x`: vector o matriz con la información de las frecuencias o medida de resumen a representar. Si `x` es una matriz las columnas representarán agrupaciones.
 - `labels`: vector con los nombres a usar para los puntos, por defecto toma los nombres de las filas de la matriz `x`.
 - `groups`: vector con los nombres a usar para los grupos, por defecto toma los nombres de las columnas de la matriz `x`.
+- `cex`: tamaño de los nombres a mostrar en los ejes.
 - `pt.cex`: tamaño del punto.
 - `pch`: tipo de punto a usar, las diferentes opciones para `pch` están disponibles en la Figura \@ref(fig:point1).
 - `color`: tipo de color usar para los puntos.
 - `lcolor`: color para la línea asociada a cada punto.
 - `...`: otros parámetros gráficos que pueden ser pasados como argumentos.
+
+### Ejemplo {-}
+Suponga que queremos explorar el rendimiento de del combustible (`mpg`) para los 32 autos de la base de datos `mtcars` usando un diagrama de puntos.
+
+A continuación se muestra el código necesario para crear el gráfico de puntos deseado.
+
+```{r dotchart1, fig.cap='Gráfico de puntos para el rendimiento de combustible (`mpg`) en la base de datos `mtcars`.', fig.asp=0.7, fig.width=6, echo=TRUE}
+mtcars <- mtcars[order(mtcars$mpg), ]  # Para re-ordenar la base
+dotchart(mtcars$mpg, labels=row.names(mtcars), 
+         cex=0.6, xlab="mpg")
+```
+
+En la Figura \@ref(fig:dotchart1) se tiene el gráfico de puntos para la variable `mpg`, de esta figura se observa fácilmente que el Toyota Corolla tiene el mayor rendimiento de combustible y que el Cadillac Fleetwood el menor.
 
 ### Ejemplo {-}
 Suponga que se tiene una tabla de contingencia con la información del número de hombres y mujeres que sufren de una enfermedad rara en cuatro ciudades importantes del mundo, a continuación la matriz `x` con la información recolectada.
@@ -168,9 +182,10 @@ colnames(x) <- c('Madrid', 'Londres', 'Paris', 'Miami')
 rownames(x) <- c('Hombre', 'Mujer')
 x
 ```
+
 En la salida anterior se presenta la matriz `x`, de esta matriz se observa que en Madrid hay 11 personas, 4 hombres y 7 mujeres que sufren de la enfermedad, las demás columnas se interpretan de forma similar.
 
-Para construir un gráfico de puntos con el objetivo de presentar la información de la matriz `x` se utiliza el siguiente código. En la Figura \@ref(fig:dotchart2) se presenta el gráfico de puntos, de esta figura se nota claramente que en París es donde hay más personas que sufren de la enfermedad.
+Para construir un gráfico de puntos con el objetivo de presentar la información de la matriz `x` se utiliza el código mostrado abajo. En la Figura \@ref(fig:dotchart2) se presenta el gráfico de puntos obtenido y de esta figura se nota claramente que en París es donde hay más personas que sufren de la enfermedad.
 
 ```{r dotchart2, fig.cap='Gráfico de puntos para una tabla de contingencia de 2 variables.', fig.asp=0.7, fig.width=6, echo=TRUE}
 dotchart(x=x)
