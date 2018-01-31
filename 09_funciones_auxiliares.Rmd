@@ -243,6 +243,10 @@ grid(nx=3, ny=4, col="pink", lwd=2, lty="longdash")
 Para dibujar rejillas en puntos seleccionados por el usuario se puede utilizar el procedimiento explicado en la sección \@ref(rejper).
 ```
 
+```{block2, type='rmdwarning'}
+Se recomienda agregar la rejilla a un gráfico antes de poner el contenido (puntos o líneas) para que no interfiera.
+```
+
 ## Función `points` \index{points} \index{puntos}
 Esta función es útil para agregar puntos a una figura ya creada. La estructura de la función es la siguiente.
 

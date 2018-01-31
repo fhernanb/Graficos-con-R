@@ -4397,6 +4397,11 @@ Para dibujar rejillas en puntos seleccionados por el usuario se puede
 utilizar el procedimiento explicado en la sección \ref{rejper}.
 \EndKnitrBlock{rmdtip}
 
+\BeginKnitrBlock{rmdwarning}
+Se recomienda agregar la rejilla a un gráfico antes de poner el
+contenido (puntos o líneas) para que no interfiera.
+\EndKnitrBlock{rmdwarning}
+
 \section{\texorpdfstring{Función \texttt{points} \index{points}
 \index{puntos}}{Función points  }}\label{funcion-points}
 
@@ -4812,6 +4817,33 @@ muestras aleatorias \texttt{m1} y \texttt{m2}. En la Figura
 \centering
 \includegraphics{Graficos_con_R_files/figure-latex/faq3-1.pdf}
 \caption{\label{fig:faq3}Densidades simultáneas.}
+\end{figure}
+
+\section{¿Cómo dibujar varias densidades transparentes en una misma
+figura?}\label{como-dibujar-varias-densidades-transparentes-en-una-misma-figura}
+
+Para dibujar varias densidades con colores transparentes se procede de
+forma similar al ejemplo anterior. Se construyen las densidades, luego
+se dibujan y por último se agregan polígonos que representan las
+densidades y para ellos se elige el color del fondo y del borde.
+
+A continuación se repite la Figura \ref{fig:faq3} pero usando colores
+transparentes por medio de la función \texttt{rgb}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(f1, }\DataTypeTok{main=}\StringTok{''}\NormalTok{, }\DataTypeTok{las=}\DecValTok{1}\NormalTok{, }\DataTypeTok{lwd=}\DecValTok{2}\NormalTok{, }\DataTypeTok{type=}\StringTok{'n'}\NormalTok{,}
+     \DataTypeTok{xlim=}\KeywordTok{range}\NormalTok{(f1}\OperatorTok{$}\NormalTok{x, f2}\OperatorTok{$}\NormalTok{x), }\DataTypeTok{ylim=}\KeywordTok{range}\NormalTok{(f1}\OperatorTok{$}\NormalTok{y, f2}\OperatorTok{$}\NormalTok{y),}
+     \DataTypeTok{xlab=}\StringTok{'Variable'}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{'Densidad'}\NormalTok{)}
+\KeywordTok{polygon}\NormalTok{(f1, }\DataTypeTok{col=}\KeywordTok{rgb}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{0}\NormalTok{, }\FloatTok{0.7}\NormalTok{), }\DataTypeTok{border=}\StringTok{'black'}\NormalTok{)}
+\KeywordTok{polygon}\NormalTok{(f2, }\DataTypeTok{col=}\KeywordTok{rgb}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{0.4}\NormalTok{), }\DataTypeTok{border=}\StringTok{'black'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{Graficos_con_R_files/figure-latex/faq31-1.pdf}
+\caption{\label{fig:faq31}Densidades transparentes.}
 \end{figure}
 
 \section{\texorpdfstring{¿Cómo incluir una rejilla a una figura en

@@ -80,6 +80,20 @@ legend('topright', col=c('black', 'red'),
        lwd=2, bty='n', legend=c('Muestra 1', 'Muestra2'))
 ```
 
+## ¿Cómo dibujar varias densidades transparentes en una misma figura?
+Para dibujar varias densidades con colores transparentes se procede de forma similar al ejemplo anterior. Se construyen las densidades, luego se dibujan y por último se agregan polígonos que representan las densidades y para ellos se elige el color del fondo y del borde.
+
+A continuación se repite la Figura \@ref(fig:faq3) pero usando colores transparentes por medio de la función `rgb`.
+
+```{r faq31, fig.cap='Densidades transparentes.', fig.asp=0.7, fig.width=4}
+plot(f1, main='', las=1, lwd=2, type='n',
+     xlim=range(f1$x, f2$x), ylim=range(f1$y, f2$y),
+     xlab='Variable', ylab='Densidad')
+polygon(f1, col=rgb(1, 1, 0, 0.7), border='black')
+polygon(f2, col=rgb(0, 1, 1, 0.4), border='black')
+```
+
+
 ## ¿Cómo incluir una rejilla a una figura en ciertos puntos? \label{rejper}
 La función `grid` explicada en la sección \@ref(grid) se usa para incluir una cuadrícula o rejilla, sin embargo, no se le puede indicar los sitios donde queremos que aparezcan las líneas de referencia. La función `abline` es útil en este caso.
 
