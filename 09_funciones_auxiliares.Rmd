@@ -151,17 +151,18 @@ abline(h=c(5, -3), v=2,
 ```
 
 ## Para dibujar un círculo \index{círculos}
-En la base de \proglang{R} no hay una función específica para crear círculos, sin embargo, es posible usar unas pocas líneas para obtener el círculo con un radio y centro deseado por medio de la función `polygon`. A continuación se muestra el código para dibujar un círculo de radio 7 unidades con centro en el punto (-2, 1) con fondo azul claro y borde de color azul obscuro. En la Figura \@ref(fig:circ1) se muestra el círculo solicitado.
+En la base de \proglang{R} no hay una función específica para crear círculos, sin embargo, es posible usar unas pocas líneas para obtener el círculo con un radio y centro deseado por medio de la función `polygon`. A continuación se muestra el código para dibujar un círculo de radio 7 unidades con centro en el punto (-2, 1) con fondo azul claro y borde de color azul obscuro. En la Figura \@ref(fig:circ1) se muestra el círculo construído.
 
-```{r circ1, fig.cap='Ejemplo de un círculo.', fig.asp=1, fig.width=6}
+```{r circ1, fig.cap='Ejemplo de un círculo.', fig.asp=1, fig.width=4}
 rad     <- 7   # Valor del radio
 xcenter <- -2  # Coordenada en x del centro
 ycenter <- 1   # Coordenada en y del centro
 
-plot(c(-10, 10), c(-10, 10), type="n", xlab="", ylab="")
+plot(c(-10, 10), c(-10, 10), type="n", xlab="", ylab="", asp=1)
 theta <- seq(0, 2 * pi, length = 200)
-polygon(x=rad * cos(theta) + xcenter, y=rad * sin(theta) + ycenter,
-      lwd=3, col='steelblue1', border='steelblue4')
+polygon(x=rad * cos(theta) + xcenter,
+        y=rad * sin(theta) + ycenter,
+        lwd=3, col='steelblue1', border='steelblue4')
 grid()  # Para incluir una cuadrícula de guía
 ```
 

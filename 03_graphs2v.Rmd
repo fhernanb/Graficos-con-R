@@ -1,6 +1,6 @@
 # Gráficos para varias variables cuantitativas
 
-En este capítulo se presentan funciones para la creación de gráficos que involucran varias variables.
+En este capítulo se presentan funciones para la creación de gráficos que involucran varias variables cuantitativas.
 
 ## Función `plot` \index{plot} \index{diagrama de dispersión}
 
@@ -203,7 +203,7 @@ Dibujar una matriz de dispersión para las variables precio, área, número de a
 A continuación se muestra el código usado para crear el gráfico solicitado. El objeto `datos` corresponde a la base de datos completa mientras que `datos.num` es el marco de datos sólo con las variables de interés precio, área, número de alcobas y número de baños.
 
 ```{r ex1pairs, fig.cap='Matriz de dispersión para las variables precio, área, número de alcobas y número de baños de la base de datos sobre apartamentos en Medellín.', fig.asp=0.8, fig.width=6}
-url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015'
+url <- 'https://tinyurl.com/hwhb769'
 datos <- read.table(file=url, header=T)
 datos.num <- datos[, c('precio', 'mt2', 'alcobas', 'banos')]
 
@@ -213,15 +213,15 @@ pairs(datos.num)
 En la Figura \@ref(fig:ex1pairs) se muestra la matriz de dispersión para las variables del marco de datos `datos.num`.
 
 ### Ejemplo {-}
-Volver a construir la Figura \@ref(fig:ex1pairs) editando los nombres de las variables, usando cruces rojas en lugar de puntos, en escala logaritmica, con marcas horizontales en el eje vertical y eliminando los diagramas de dispersión abajo de la diagonal.
+Volver a construir la Figura \@ref(fig:ex1pairs) editando los nombres de las variables, usando cruces azules en lugar de puntos, en escala logaritmica, con marcas horizontales en el eje vertical y eliminando los diagramas de dispersión abajo de la diagonal.
 
 Para obtener la nueva matriz de dispersión con los cambios solicitados se usa el siguiente código. En la Figura \@ref(fig:ex2pairs) se presenta la nueva matriz de dispersión.
 
-```{r ex2pairs, fig.cap='Matriz de dispersión modificando los parámetros adicionales de la función pairs.', fig.asp=0.8, fig.width=6}
+```{r ex2pairs, fig.cap='Matriz de dispersión modificando los parámetros adicionales de la función `pairs`.', fig.asp=0.8, fig.width=6}
 pairs(datos.num, lower.panel=NULL, cex.labels=1.5, log='xy',
       main='Matriz de dispersión', las=1,
       labels=c('Precio', 'Área', 'Num alcobas', 'Num baños'),
-      pch=3, cex=0.6, col='red')
+      pch=3, cex=0.6, col='dodgerblue2')
 ```
 
 ### Ejemplo {-}
@@ -315,6 +315,10 @@ pairs(datos.num,
       upper.panel = panel.reg,
       diag.panel = panel.hist,
       lower.panel = panel.smooth)
+```
+
+```{block2, type='rmdtip'}
+Al construir un gráfico con `pairs` se recomienda no incluir demasiadas variables porque el gráfico se satura y no se pueden apreciar los patrones con facilidad. Se recomienda máximo 10 variables.
 ```
 
 ## Función `persp` \index{persp}
@@ -436,7 +440,7 @@ ll <- Vectorize(ll)  # Para vectorizar la función
 
 Una vez construída la función `ll` se deben construir los vectores con las coordenadas horizontal y vertical donde se evalua la función `ll`. En el código mostrado abajo se tienen dos vectores `xx` e `yy` obtenidos como secuencias desde el menor valor hasta el mayor valor para cada uno de los parámetros $\mu$ y $\sigma$ de la distribución normal, el valor `by=0.5` indica el tamaño de paso de la secuencia. Luego se construye la matriz `zz` usando la función `outer` evaluando `ll` en `xx` e `yy`. Por último la función `contour` se aplica sobre los elementos `xx`, `yy` e `zz`. En la Figura \@ref(fig:contour1) se muestra el gráfico de contornos con aproximadamente 50 niveles.
 
-```{r contour1, fig.cap='Gráfico de contornos para la función de log-verosimilitud para el ejemplo sobre normal.', fig.asp=0.6, fig.width=9}
+```{r contour1, fig.cap='Gráfico de contornos para la función de log-verosimilitud para el ejemplo sobre normal.', fig.height=4, fig.width=7}
 xx <- seq(from=160, to=180, by=0.5)
 yy <- seq(from=3, to=7, by=0.5)
 zz <- outer(X=xx, Y=yy, ll)
@@ -446,7 +450,7 @@ contour(x=xx, y=yy, z=zz, nlevels=50,
 ```
 
 ## Función `filled.contour` \index{filled.contour} \index{gráfico de nivel}
-La función `filled.contour` dibuja gráficos contornos pero usando una paleta de colores.  La estructura de la función `filled.contour` con los argumentos más usuales se muestra a continuación:
+La función `filled.contour` dibuja gráficos contornos pero usando una paleta de colores, este tipo de representación se denomina gráfico de nivel.  La estructura de la función `filled.contour` con los argumentos más usuales se muestra a continuación:
 
 ```{r, eval=FALSE}
 filled.contour(x, y, z,
@@ -466,18 +470,27 @@ Los argumentos de la función son:
 La función `filled.contour` tiene otros parámetros adicionales que el lector puede consultar en la ayuda usando `help(filled.contour)`.
 
 ### Ejemplo {-}
-Para la muestra aleatoria obtenida en el ejemplo anterior, dibujar un gráfico de nivel para la superficie de log-verosimilitud.
+Abajo se muestra el código para crear un gráfico de nivel usando los datos del ejemplo anterior. Observe que las figuras \@ref(fig:contour1) y \@ref(fig:contour2) son bastante similares.
 
-Usando los objetos `xx`, `yy` e `zz` creados en el ejemplo anterior se puede construir el gráfico de niveles, a continuación el código utilizado. En la Figura \@ref(fig:contour2) se muestra el gráfico de niveles con aproximadamente 20 niveles.
-
-```{r contour2, fig.cap='Gráfico de nivel para la función de log-verosimilitud para el ejemplo sobre normal.', fig.asp=0.6, fig.width=9}
+```{r contour2, fig.cap='Gráfico de nivel para la función de log-verosimilitud para el ejemplo sobre normal.', fig.height=4, fig.width=7}
 filled.contour(x=xx, y=yy, z=zz, nlevels=20,
                xlab=expression(mu), ylab=expression(sigma),
                color = topo.colors)
 ```
 
+### Ejemplo {-}
+¿Es posible crear un gráfico de contornos y de niveles en la misma figura?
+
+Claro que si, abajo se muestra el código para crear primero el gráfico de niveles (en colores) y luego superponer el gráficos de contornos (las lineas). En la Figura \@ref(fig:contour3) se muestra el gráfico resultante.
+
+```{r contour3, fig.cap='Gráfico de nivel y contornos para la función de log-verosimilitud para el ejemplo sobre normal.', fig.height=4, fig.width=7}
+filled.contour(x=xx, y=yy, z=zz,  nlevels=20,
+               color.palette = topo.colors, 
+               plot.axes=contour(xx, yy, zz, nlevels=20, add=TRUE))
+```
+
 ## Función `image` \index{image} 
-La función `image` dibuja un gráfico de perspectiva en dos dimensiones y visto paralelo a la tercer variable de altura, es una especie de gráfico de calor. La estructura de la función `image` con los argumentos más usuales se muestra a continuación:
+La función `image` dibuja un gráfico de calor similar al obtenido con la función `filled.contour`. La estructura de la función `image` con los argumentos más usuales se muestra a continuación:
 
 ```{r, eval=FALSE}
 image(x, y, z)
@@ -530,7 +543,7 @@ f2 <- kde2d(x=datos$peso, y=datos$altura, n=50)
 
 En el código mostrado a continuación se dibujan las dos densidades usando un gráfico de calor usando la función `image`.
 
-```{r den2d1, fig.cap='Gráfico de densidad bivariada para el peso corporal y la estatura de un grupo de estudiantes. A la izquierda la densidad con `n=5` y a la derecha con `n=50`.', fig.asp=0.7, fig.width=7}
+```{r den2d1, fig.cap='Gráfico de densidad bivariada para el peso corporal y la estatura de un grupo de estudiantes. A la izquierda la densidad con `n=5` y a la derecha con `n=50`.', fig.height=5, fig.width=10}
 par(mfrow=c(1, 2))
 image(f1, xlab='Peso', ylab='Estatura', main='n=5')
 image(f2, xlab='Peso', ylab='Estatura', main='n=50')
@@ -559,7 +572,7 @@ La función `interaction.plot` tiene otros parámetros adicionales que el lector
 ### Ejemplo {-}
 Se realizó un experimento para determinar cómo influye el material de la batería y la temperatura del medio ambiente sobre la duración en horas de la batería. Se desea construir un gráfico de interacción entre Temperatura y Material para ver el efecto sobre la duración promedio de las baterías. Los datos y el código para generar el gráfico solicitado se muestran a continuación.
 
-```{r intplot1, fig.cap='Gráfico de interacción entre Temperatura y Material sobre la duración promedio de las baterías.', fig.asp=0.8, fig.width=6}
+```{r intplot1, fig.cap='Gráfico de interacción entre Temperatura y Material sobre la duración promedio de las baterías.', fig.height=5, fig.width=7}
 horas <- c(130, 155, 74, 180, 150, 188, 159, 126, 138, 110, 168, 
            160, 34, 40, 80, 75, 136, 122, 106, 115, 174, 120, 150, 
            139, 20, 70, 82, 58, 25, 70, 58, 45, 96, 104, 82, 60)
@@ -571,8 +584,8 @@ interaction.plot(x.factor=temperatura, trace.factor=material,
                  response=horas, trace.label='Material',
                  xlab='Temperatura',
                  ylab='Duración promedio (horas)',
-                 col=c('blue', 'black', 'red'),
-                 fun=mean, lwd=3, las=1, fixed=T)
+                 col=c('dodgerblue3', 'chartreuse4', 'salmon3'),
+                 fun=mean, lwd=2, las=1, fixed=T)
 ```
 
 
@@ -582,12 +595,15 @@ Los gráficos de espagueti son usados para representar la evolución de una vari
 ### Ejemplo {-}
 El ejemplo aquí presentado fue tomado de este [enlace](http://stats.idre.ucla.edu/r/faq/how-can-i-make-spaghetti-plots/). El objetivo es crear un gráfico de espagueti para mostrar la evolución de la variable tolerancia a través del tiempo para cada uno de los 16 individuos estudiados. El código para descargar la base de datos y construir el gráfico se muestran a continuación.
 
-```{r intplot2, fig.cap='Gráfico de espagueti para ver la evolución de la variable tolerancia.', fig.asp=0.8, fig.width=6}
+```{r intplot2, fig.cap='Gráfico de espagueti para ver la evolución de la variable tolerancia.', fig.height=5, fig.width=7, message=FALSE}
 dt <- read.table("https://stats.idre.ucla.edu/stat/r/faq/tolpp.csv",
                  sep=",", header=T)
 
+require(gplots)           # Paquete especial para crear una paleta
+palette(rich.colors(16))  # de 16 colores diferentes y suaves
+
 interaction.plot(response=dt$tolerance,
-                 x.factor=dt$time, col=1:8, lwd=2,
+                 x.factor=dt$time, col=1:16, lwd=2,
                  trace.factor=dt$id, las=1, lty=1, 
                  xlab="Tiempo", ylab="Tolerancia", legend=F)
 ```
