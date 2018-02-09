@@ -46,6 +46,8 @@ plot(x=x, y=y, type='S', main="con type='S'")
 plot(x=x, y=y, type='n', main="con type='n'")
 ```
 
+\newpage
+
 ### Ejemplo {-}
 Como ilustración vamos a crear dos diagramas de dispersión entre el precio de apartamentos usados en la ciudad de Medellín y el área de los apartamentos. El primer diagrama es un gráfico básico mientras que el segundo es un diagrama mejorado.
 
@@ -109,10 +111,10 @@ Como ilustración vamos a crear un diagrama de dispersión con la función `sunf
 
 El código necesario para cargar la base de datos y construir el diagrama de dispersión se muestra a continuación. El diagrama de dispersión se construyó excluyendo la información del apartamento 594 porque éste aparece con 14 alcobas.
 
-```{r sunflower2, fig.cap='Diagrama de dispersión para número de baños versus número de alcobas.', fig.height=4, fig.width=4}
+```{r sunflower2, fig.cap='Diagrama de dispersión para número de baños versus número de alcobas.', fig.height=3.5, fig.width=3.5}
 url <- 'https://tinyurl.com/hwhb769'
 datos <- read.table(file=url, header=T)
-datos <- datos[-594, ]
+datos <- datos[-594, ]  # Sacando el apto 594
 sunflowerplot(x=datos$alcobas, y=datos$banos)
 ```
 

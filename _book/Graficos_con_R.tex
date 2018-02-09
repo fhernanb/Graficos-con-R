@@ -229,7 +229,7 @@
 \title{Gráficos con R}
 \author{Freddy Hernández Barajas\\
 Juan Carlos Correa Morales}
-\date{2018-02-01}
+\date{2018-02-09}
 
 \let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
 \begin{document}
@@ -1857,6 +1857,8 @@ dispersión.
 \texttt{plot}.}
 \end{figure}
 
+\newpage
+
 \subsection*{Ejemplo}\label{ejemplo-10}
 
 
@@ -2009,7 +2011,7 @@ aparece con 14 alcobas.
 \begin{Highlighting}[]
 \NormalTok{url <-}\StringTok{ 'https://tinyurl.com/hwhb769'}
 \NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
-\NormalTok{datos <-}\StringTok{ }\NormalTok{datos[}\OperatorTok{-}\DecValTok{594}\NormalTok{, ]}
+\NormalTok{datos <-}\StringTok{ }\NormalTok{datos[}\OperatorTok{-}\DecValTok{594}\NormalTok{, ]  }\CommentTok{# Sacando el apto 594}
 \KeywordTok{sunflowerplot}\NormalTok{(}\DataTypeTok{x=}\NormalTok{datos}\OperatorTok{$}\NormalTok{alcobas, }\DataTypeTok{y=}\NormalTok{datos}\OperatorTok{$}\NormalTok{banos)}
 \end{Highlighting}
 \end{Shaded}
@@ -3091,7 +3093,7 @@ objeto \texttt{tabla1}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{url <-}\StringTok{ 'https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015'}
+\NormalTok{url <-}\StringTok{ 'https://tinyurl.com/hwhb769'}
 \NormalTok{datos <-}\StringTok{ }\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\NormalTok{url, }\DataTypeTok{header=}\NormalTok{T)}
 \NormalTok{tabla1 <-}\StringTok{ }\KeywordTok{table}\NormalTok{(datos}\OperatorTok{$}\NormalTok{estrato)}
 \NormalTok{tabla1 <-}\StringTok{ }\KeywordTok{prop.table}\NormalTok{(tabla1)}

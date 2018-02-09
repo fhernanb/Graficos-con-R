@@ -23,7 +23,7 @@ Suponga que queremos construir un diagrama de barras para las frecuencias relati
 A continuación se muestra el código necesario para cargar la base de datos `aptos2015`. Antes de construir el diagrama de barras solicitado es necesario construir la tabla de frecuencias para la variable estrato, para esto se usa la función `table` y los resultados se almacenan en el objeto `tabla1` que contiene las frecuencias __absolutas__. Para obtener las frecuencias __relativas__ se usa luego la función `prop.table` sobre el objeto `tabla1`.
 
 ```{r}
-url <- 'https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015'
+url <- 'https://tinyurl.com/hwhb769'
 datos <- read.table(file=url, header=T)
 tabla1 <- table(datos$estrato)
 tabla1 <- prop.table(tabla1)
