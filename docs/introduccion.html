@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>1 Introducción  | Gráficos con R</title>
+  <meta name="description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="1 Introducción  | Gráficos con R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.png" />
+  <meta property="og:description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta name="github-repo" content="fhernanb/Graficos-con-R" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Introducción  | Gráficos con R" />
+  
+  <meta name="twitter:description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta name="twitter:image" content="images/cover.png" />
+
+<meta name="author" content="Freddy Hernández">
+<meta name="author" content="Juan Carlos Correa">
+
+
+<meta name="date" content="2019-07-04">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Gráficos con R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenido</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-y-convenciones"><i class="fa fa-check"></i>Software y convenciones</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#bloques-informativos"><i class="fa fa-check"></i>Bloques informativos</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduccion.html"><a href="introduccion.html"><i class="fa fa-check"></i><b>1</b> Introducción </a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Gráficos con R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduccion" class="section level1">
+<h1><span class="header-section-number">1</span> Introducción </h1>
+
+<p>R es un lenguaje de programación usado para realizar procedimientos estadísticos y gráficos de alto nivel, este lenguaje fue creado en 1993 por los profesores e investigadores Robert Gentleman y Ross Ihaka. Inicialmente el lenguaje se usó para apoyar los cursos que tenían a su cargo los profesores, pero luego de ver la utilidad de la herramienta desarrollada, decidieron colocar copias de R en StatLib. A partir de 1995 el código fuente de R está disponible bajo licencia GNU GPL para sistemas operativos Windows, Macintosh y distribuciones Unix/Linux. La comunidad de usuarios de R en el mundo es muy grande y los usuarios cuentan con diferentes espacios para interactuar, a continuación una lista no exhaustiva de los sitios más populares relacionados con R:</p>
+<ul>
+<li><a href="https://www.r-bloggers.com/">Rbloggers</a>.</li>
+<li><a href="http://r-es.org/">Comunidad hispana de R</a>.</li>
+<li><a href="http://r.789695.n4.nabble.com/">Nabble</a>.</li>
+<li><a href="http://r-br.2285057.n4.nabble.com/">Foro en portugués</a>.</li>
+<li><a href="http://stackoverflow.com/questions/tagged/r">Stackoverflow</a>.</li>
+<li><a href="http://stats.stackexchange.com/questions/tagged/r">Cross Validated</a>.</li>
+<li><a href="https://stat.ethz.ch/mailman/listinfo/r-help">R-Help Mailing List</a>.</li>
+<li><a href="http://blog.revolutionanalytics.com/">Revolutions</a>.</li>
+<li><a href="https://www.r-statistics.com/">R-statistics blog</a>.</li>
+<li><a href="https://rdatamining.wordpress.com/">RDataMining</a>.</li>
+</ul>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<img src="images/Robert_Roos.png" alt="Robert Gentleman (izquierda) y Ross Ihaka (derecha) creadores de R." width="50%" />
+<p class="caption">
+Figure 1.1: Robert Gentleman (izquierda) y Ross Ihaka (derecha) creadores de R.
+</p>
+</div>
+
+<p>Para realizar la instalación de R usted debe visitar la página del CRAN () disponible en este <a href="https://cran.r-project.org/">enlace</a>. Una vez ingrese a la página encontrará un cuadro similar al mostrado en la Figura <a href="introduccion.html#fig:cran">1.2</a> donde aparecen los enlaces de la instalación para los sistemas operativos Linux, Mac y Windows.</p>
+<div class="figure" style="text-align: center"><span id="fig:cran"></span>
+<img src="images/cran.PNG" alt="Página del Cran." width="218" />
+<p class="caption">
+Figure 1.2: Página del Cran.
+</p>
+</div>
+<p>Supongamos que se desea instalar R en Windows, para esto se debe dar clic sobre el hiperenlace  de la Figura <a href="introduccion.html#fig:cran">1.2</a>. Una vez hecho esto se abrirá una página con el contenido mostrado en la Figura <a href="introduccion.html#fig:inst1">1.3</a>. Una vez ingrese a esa nueva página usted debe dar clic sobre el hiperenlace  como es señalado por la flecha roja en la Figura <a href="introduccion.html#fig:inst1">1.3</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:inst1"></span>
+<img src="images/instalacion1.png" alt="Página de instalación para la primera ocasión." width="255" />
+<p class="caption">
+Figure 1.3: Página de instalación para la primera ocasión.
+</p>
+</div>
+<p>Luego de esto se abrirá otra página con un encabezado similar al mostrado en la Figura <a href="introduccion.html#fig:inst2">1.4</a>, al momento de capturar la figura la versión actual de R era 3.2.5 pero seguramente en este momento usted tendrá disponible una versión actualizada. Una vez allí uste debe dar clic sobre  como es señalado por la flecha verde. Luego de esto se descargará el instalador R en el computador el cual deberá ser instalado con las opciones que vienen por defecto.</p>
+<div class="figure" style="text-align: center"><span id="fig:inst2"></span>
+<img src="images/instalacion2.png" alt="Página de descarga." width="50%" />
+<p class="caption">
+Figure 1.4: Página de descarga.
+</p>
+</div>
+<p>Se recomienda observar el siguiente video didáctico de instalación de R disponible en este <a href="http://tinyurl.com/jd7b9ks">enlace</a> para facilitar la tarea de instalación.</p>
+
+<p>Una vez que esté instalado R en su computador, usted podrá acceder a él por la lista de programas o por medio del acceso directo que quedó en el escritorio, en la Figura <a href="introduccion.html#fig:rlogo">1.5</a> se muestra la apariencia del acceso directo para ingresar a R.</p>
+<div class="figure" style="text-align: center"><span id="fig:rlogo"></span>
+<img src="images/rlogo.png" alt="Apariencia del acceso directo para ingresar a R." width="33%" />
+<p class="caption">
+Figure 1.5: Apariencia del acceso directo para ingresar a R.
+</p>
+</div>
+<p>Al abrir R aparecerá en la pantalla de su computador algo similar a lo que está en la Figura <a href="introduccion.html#fig:pantalla">1.6</a>. La ventana izquierda se llama consola y es donde se ingresan las instrucciones, una vez que se construye un gráfico se activa otra ventana llamada ventana gráfica. Cualquier usuario puede modificar la posición y tamaños de estas ventanas, puede cambiar el tipo y tamaño de las letras en la consola, para hacer esto se deben explorar las opciones de  en la barra de herramientas.</p>
+<div class="figure" style="text-align: center"><span id="fig:pantalla"></span>
+<img src="images/Rpantallazo.png" alt="Apariencia de R." width="173" />
+<p class="caption">
+Figure 1.6: Apariencia de R.
+</p>
+</div>
+
+<p>En R existen varios tipos de objectos  que permiten que el usuario pueda almacenar la información para realizar procedimientos estadísticos y gráficos. Los principales objetos en R son vectores, matrices, arreglos, marcos de datos y listas. A continuación se presentan las características de estos objetos y la forma para crearlos.</p>
+
+<p>Los vectores  son arreglos ordenados en los cuales se puede almacenar información de tipo numérico (variable cuantitativa), alfanumérico (variable cualitativa) o lógico (<code>TRUE</code> o <code>FALSE</code>), pero no mezclas de éstos. La función de R para crear un vector es <code>c()</code> y que significa concatenar; dentro de los paréntesis de esta función se ubica la información a almacenar. Una vez construído el vector se acostumbra a etiquetarlo con un nombre corto y representativo de la información que almacena, la asignación se hace por medio del operador <code>&lt;-</code> entre el nombre y el vector.</p>
+<p>A continuación se presenta un ejemplo de cómo crear tres vectores que contienen las respuestas de cinco personas a tres preguntas que se les realizaron.</p>
+<pre class="sourceCode r"><code class="sourceCode r">edad &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">15</span>, <span class="dv">19</span>, <span class="dv">13</span>, <span class="ot">NA</span>, <span class="dv">20</span>)
+deporte &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">TRUE</span>, <span class="ot">TRUE</span>, <span class="ot">NA</span>, <span class="ot">FALSE</span>, <span class="ot">TRUE</span>)
+comic.fav &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="ot">NA</span>, <span class="st">&#39;Superman&#39;</span>, <span class="st">&#39;Batman&#39;</span>, <span class="ot">NA</span>, <span class="st">&#39;Batman&#39;</span>)</code></pre>
+<p>El vector <code>edad</code> es un vector cuantitativo y contiene las edades de las 5 personas. En la cuarta posición del vector se colocó el símbolo <code>NA</code> que significa  debido a que no se registró la edad para esa persona. Al hacer una asignación se acostumbra a dejar un espacio antes y después del operador <code>&lt;-</code> de asignación. El segundo vector es llamado <code>deporte</code> y es un vector lógico que almacena las respuestas a la pregunta de si la persona practica deporte, nuevamente aquí hay un <code>NA</code> para la tercera persona. El último vector <code>comic.fav</code> contiene la información del cómic favorito de cada persona, como esta variable es cualitativa es necesario usar las comillas <code>' '</code> para encerrar las respuestas.</p>
+
+<div class="rmdwarning">
+Cuando se usa <code>NA</code> para representar una información  no se deben usar comillas.
+</div>
+
+
+<div class="rmdnote">
+Es posible usar comillas sencillas <code>'foo'</code> o comillas dobles <code>"foo"</code> para ingresar valores de una variable cualitativa.
+</div>
+
+<p>Si se desea ver lo que está almacenado en cada uno de estos vectores, se debe escribir en la consola de R el nombre de uno de los objetos y luego se presiona la tecla  o , al realizar esto lo que se obtiene se muestra a continuación.</p>
+<pre class="sourceCode r"><code class="sourceCode r">edad</code></pre>
+<pre><code>## [1] 15 19 13 NA 20</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">deporte</code></pre>
+<pre><code>## [1]  TRUE  TRUE    NA FALSE  TRUE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">comic.fav</code></pre>
+<pre><code>## [1] NA         &quot;Superman&quot; &quot;Batman&quot;   NA         &quot;Batman&quot;</code></pre>
+
+<p>Las matrices  son arreglos rectangulares de filas y columnas con información numérica, alfanumérica o lógica. Para construir una matriz se usa la función <code>matrix( )</code>. Por ejemplo, para crear una matriz de 4 filas y 5 columnas (de dimensión <span class="math inline">\(4 \times 5\)</span>) con los primeros 20 números positivos se escribe el código siguiente en la consola.</p>
+<pre class="sourceCode r"><code class="sourceCode r">mimatriz &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data=</span><span class="dv">1</span><span class="op">:</span><span class="dv">20</span>, <span class="dt">nrow=</span><span class="dv">4</span>, <span class="dt">ncol=</span><span class="dv">5</span>, <span class="dt">byrow=</span><span class="ot">FALSE</span>)</code></pre>
+<p>El argumento <code>data</code> de la función sirve para indicar los datos que se van a almacenar en la matriz, los argumentos <code>nrow</code> y <code>ncol</code> sirven para definir la dimensión de la matriz y por último el argumento <code>byrow</code> sirve para indicar si la información contenida en <code>data</code> se debe ingresar por filas o no. Para observar lo que quedó almacenado en el objeto <code>mimatriz</code> se escribe en la consola el nombre del objeto seguido de la tecla  o .</p>
+<pre class="sourceCode r"><code class="sourceCode r">mimatriz</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5]
+## [1,]    1    5    9   13   17
+## [2,]    2    6   10   14   18
+## [3,]    3    7   11   15   19
+## [4,]    4    8   12   16   20</code></pre>
+
+<p>Un arreglo  es una matriz de varias dimensiones con información numérica, alfanumérica o lógica. Para construir una arreglo se usa la función <code>array( )</code>. Por ejemplo, para crear un arreglo de <span class="math inline">\(3 \times 4 \times 2\)</span> con las primeras 24 letras minúsculas del alfabeto se escribe el siguiente código.</p>
+<pre class="sourceCode r"><code class="sourceCode r">miarray &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="dt">data=</span>letters[<span class="dv">1</span><span class="op">:</span><span class="dv">24</span>], <span class="dt">dim=</span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">2</span>))</code></pre>
+<p>El argumento <code>data</code> de la función sirve para indicar los datos que se van a almacenar en el arreglo y el argumento <code>dim</code> sirve para indicar las dimensiones del arreglo. Para observar lo que quedó almacenado en el objeto <code>miarray</code> se escribe en la consola lo siguiente.</p>
+<pre class="sourceCode r"><code class="sourceCode r">miarray</code></pre>
+<pre><code>## , , 1
+## 
+##      [,1] [,2] [,3] [,4]
+## [1,] &quot;a&quot;  &quot;d&quot;  &quot;g&quot;  &quot;j&quot; 
+## [2,] &quot;b&quot;  &quot;e&quot;  &quot;h&quot;  &quot;k&quot; 
+## [3,] &quot;c&quot;  &quot;f&quot;  &quot;i&quot;  &quot;l&quot; 
+## 
+## , , 2
+## 
+##      [,1] [,2] [,3] [,4]
+## [1,] &quot;m&quot;  &quot;p&quot;  &quot;s&quot;  &quot;v&quot; 
+## [2,] &quot;n&quot;  &quot;q&quot;  &quot;t&quot;  &quot;w&quot; 
+## [3,] &quot;o&quot;  &quot;r&quot;  &quot;u&quot;  &quot;x&quot;</code></pre>
+
+<p>El marco de datos  o  es uno de los objetos más utilizados porque permite agrupar vectores con información de diferente tipo (numérica, alfanumérica o lógica) en un mismo objeto, la única restricción es que los vectores deben tener la misma longitud. Para crear un marco de datos se usa la función <code>data.frame( )</code>, como ejemplo vamos a crear un marco de datos con los vectores <code>edad</code>, <code>deporte</code> y <code>comic.fav</code> definidos anteriormente.</p>
+<pre class="sourceCode r"><code class="sourceCode r">mimarco &lt;-<span class="st"> </span><span class="kw">data.frame</span>(edad, deporte, comic.fav)</code></pre>
+<p>Una vez creado el objeto <code>mimarco</code> podemos ver el objeto escribiendo su nombre en la consola, a continuación se muestra lo que se obtiene.</p>
+<pre class="sourceCode r"><code class="sourceCode r">mimarco</code></pre>
+<pre><code>##   edad deporte comic.fav
+## 1   15    TRUE      &lt;NA&gt;
+## 2   19    TRUE  Superman
+## 3   13      NA    Batman
+## 4   NA   FALSE      &lt;NA&gt;
+## 5   20    TRUE    Batman</code></pre>
+<p>De la salida anterior vemos que el marco de datos tiene 3 variables (columnas) cuyos nombres coinciden con los nombres de los vectores creados anteriormente, los números consecutivos al lado izquierdo son sólo de referencia y permiten identificar la información para cada persona en la base de datos.</p>
+
+<p>Las listas  son otro tipo de objeto muy usado para almacenar objetos de diferente tipo. La instrucción para crear una lista es <code>list( )</code>. A continuación vamos a crear una lista que contiene tres objetos: un vector con 5 números aleatorios llamado <code>mivector</code>, una matriz de dimensión <span class="math inline">\(6 \times 2\)</span> con los primeros doce números enteros positivos llamada <code>matriz2</code> y el tercer objeto será el marco de datos <code>mimarco</code> creado en el apartado anterior. Las instrucciones para crear la lista requerida se muestran a continuación.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">12345</span>)
+mivector &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dt">n=</span><span class="dv">5</span>)
+matriz2 &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="dt">data=</span><span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dt">ncol=</span><span class="dv">6</span>)
+milista &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">E1=</span>mivector, <span class="dt">E2=</span>matriz2, <span class="dt">E3=</span>mimarco)</code></pre>
+<p>La función <code>set.seed</code> de la línea número 1 sirve para fijar la semilla de tal manera que los números aleatorios generados en la segunda línea con la función <code>runif</code> sean siempre los mismos. En la última línea del código anterior se construye la lista, dentro de la función <code>list</code> se colocan los tres objetos <code>mivector</code>, <code>matriz2</code> y <code>mimarco</code>. Es posible colocarle un nombre especial a cada uno de los elementos de la lista, en este ejemplo se colocaron los nombres <code>E1</code>, <code>E2</code> y <code>E3</code> para cada uno de los tres elementos. Para observar lo que quedó almacenado en la lista se escribe <code>milista</code> en la consola y el resultado se muestra a continuación.</p>
+<pre class="sourceCode r"><code class="sourceCode r">milista</code></pre>
+<pre><code>## $E1
+## [1] 0.7209039 0.8757732 0.7609823 0.8861246 0.4564810
+## 
+## $E2
+##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]    1    3    5    7    9   11
+## [2,]    2    4    6    8   10   12
+## 
+## $E3
+##   edad deporte comic.fav
+## 1   15    TRUE      &lt;NA&gt;
+## 2   19    TRUE  Superman
+## 3   13      NA    Batman
+## 4   NA   FALSE      &lt;NA&gt;
+## 5   20    TRUE    Batman</code></pre>
+
+<p>Así como en el español existen reglas ortográficas, la escritura de códigos en R también tiene unas reglas que se recomienda seguir para evitar confusiones. Tener una buena guía de estilo  es importante para que el código creado por usted sea fácilmente entendido por sus lectores <span class="citation">(<span class="citeproc-not-found" data-reference-id="rpackages"><strong>???</strong></span>)</span>. No existe una única y mejor guía de estilo para escritura en R, sin embargo aquí vamos a mostrar unas sugerencias basadas en la guía llamada .</p>
+
+<p>Se sugiere que el nombre usado para nombrar un archivo tenga sentido y que termine con extensión .R. A continuación dos ejemplos de como nombrar mal y bien un archivo.</p>
+
+
+<p>Se recomienda no usar los símbolos <code>_</code> y <code>-</code> dentro de los nombres de objetos. Para las variables es preferible usar letras minúsculas y separar las palabras con puntos (<code>peso.maiz</code>) o utilizar la notación camello iniciando en minúscula (<code>pesoMaiz</code>). Para las funciones se recomienda usar la notación camello iniciando todas la palabras en mayúscula (<code>PlotRes</code>). Para los nombres de las constantes se recomienda que inicien con la letra k (<code>kPrecioBus</code>). A continuación ejemplos de buenas y malas prácticas.</p>
+<p>Para variables:</p>
+
+<p>Para funciones:</p>
+
+
+<p>Se recomienda que cada línea tenga como máximo 80 caracteres. Si una línea es muy larga se debe cortar siempre por una coma.</p>
+
+<p>Use espacios alrededor de todos los operadores binarios (=, +, -, &lt;-, etc.). Los espacios alrededor del símbolo ``=’’ son opcionales cuando se usan para ingresar valores dentro de una función. Así como en español, nunca coloque espacio antes de una coma, pero siempre use espacio luego de una coma. A continuación ejemplos de buenas y malas prácticas.</p>
+<pre class="sourceCode r"><code class="sourceCode r">tab &lt;-<span class="st"> </span><span class="kw">table</span>(df[df<span class="op">$</span>days <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">2</span>])  <span class="co"># Bien</span>
+tot &lt;-<span class="st"> </span><span class="kw">sum</span>(x[, <span class="dv">1</span>])                <span class="co"># Bien</span>
+tot &lt;-<span class="st"> </span><span class="kw">sum</span>(x[<span class="dv">1</span>, ])                <span class="co"># Bien</span>
+tab &lt;-<span class="st"> </span><span class="kw">table</span>(df[df<span class="op">$</span>days<span class="op">&lt;</span><span class="dv">0</span>, <span class="dv">2</span>])    <span class="co"># Faltan espacios alrededor &#39;&lt;&#39; </span>
+tab &lt;-<span class="st"> </span><span class="kw">table</span>(df[df<span class="op">$</span>days <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>,<span class="dv">2</span>])   <span class="co"># Falta espacio luego de coma</span>
+tab &lt;-<span class="st"> </span><span class="kw">table</span>(df[df<span class="op">$</span>days <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span> , <span class="dv">2</span>]) <span class="co"># Sobra espacio antes de coma</span>
+tab&lt;-<span class="st"> </span><span class="kw">table</span>(df[df<span class="op">$</span>days <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">2</span>])   <span class="co"># Falta espacio antes de &#39;&lt;-&#39;</span>
+tab&lt;-<span class="kw">table</span>(df[df<span class="op">$</span>days <span class="op">&lt;</span><span class="st"> </span><span class="dv">0</span>, <span class="dv">2</span>])    <span class="co"># Falta espacio alrededor de &#39;&lt;-&#39;</span>
+tot &lt;-<span class="st"> </span><span class="kw">sum</span>(x[,<span class="dv">1</span>])                 <span class="co"># Falta espacio luego de coma</span>
+tot &lt;-<span class="st"> </span><span class="kw">sum</span>(x[<span class="dv">1</span>,])                 <span class="co"># Falta espacio luego de coma</span></code></pre>
+<p>Otra buena práctica es colocar espacio antes de un paréntesis excepto cuando se llama una función.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (debug)    <span class="co"># Correcto</span>
+<span class="cf">if</span>(debug)     <span class="co"># Funciona pero no se recomienda</span>
+<span class="kw">colMeans</span> (x)  <span class="co"># Funciona pero no se recomienda</span></code></pre>
+<p>Espacios extras pueden ser usados si con esto se mejora la apariencia del código, ver el ejemplo siguiente.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dt">x    =</span> x.coord,
+     <span class="dt">y    =</span> data.mat[, <span class="kw">MakeColName</span>(metric, ptiles[<span class="dv">1</span>], <span class="st">&quot;roiOpt&quot;</span>)],
+     <span class="dt">ylim =</span> ylim,
+     <span class="dt">xlab =</span> <span class="st">&quot;dates&quot;</span>,
+     <span class="dt">ylab =</span> metric,
+     <span class="dt">main =</span> (<span class="kw">paste</span>(metric, <span class="st">&quot; for 3 samples &quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)))</code></pre>
+<p>No coloque espacios alrededor del código que esté dentro de paréntesis <code>( )</code> o corchetes <code>[ ]</code>, la única excepción es luego de una coma, ver el ejemplo siguiente.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (condicion)    <span class="co"># Correcto </span>
+x[<span class="dv">1</span>, ]            <span class="co"># Correcto</span>
+<span class="cf">if</span> ( condicion )  <span class="co"># Sobran espacios alrededor de condicion</span>
+x[<span class="dv">1</span>,]             <span class="co"># Se necesita espacio luego de coma</span></code></pre>
+<p>Los signos de agrupación llaves <code>{ }</code> se utilizan para agrupar bloques de código y se recomienda que nunca una llave abierta <code>{</code> esté sola en una línea; una llave cerrada <code>}</code> si debe ir sola en su propia línea. Se pueden omitir las llaves cuando el bloque de instrucciones esté formado por una sola línea pero esa línea de código NO debe ir en la misma línea de la condición. A continuación dos ejemplos de lo que se recomienda.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (<span class="kw">is.null</span>(ylim)) {                     <span class="co"># Correcto</span>
+  ylim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)
+}
+
+<span class="cf">if</span> (<span class="kw">is.null</span>(ylim))                       <span class="co"># Correcto</span>
+  ylim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)
+
+<span class="cf">if</span> (<span class="kw">is.null</span>(ylim)) ylim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)    <span class="co"># Aceptable</span>
+
+<span class="cf">if</span> (<span class="kw">is.null</span>(ylim))                       <span class="co"># No se recomienda</span>
+{        
+  ylim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)
+}
+    
+<span class="cf">if</span> (<span class="kw">is.null</span>(ylim)) {ylim &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.06</span>)}
+<span class="co"># Frente a la llave { no debe ir nada</span>
+<span class="co"># la llave de cierre } debe ir sola</span></code></pre>
+<p>La sentencia else debe ir siempre entre llaves <code>} {</code>, ver el siguiente ejemplo.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span> (condition) {         
+  one or more lines
+} <span class="cf">else</span> {                 <span class="co"># Correcto</span>
+  one or more lines
+}
+
+
+<span class="cf">if</span> (condition) {         
+  one or more lines
+}
+<span class="cf">else</span> {                   <span class="co"># Incorrecto</span>
+  one or more lines
+}
+
+
+<span class="cf">if</span> (condition)           
+  one line
+<span class="cf">else</span>                     <span class="co"># Incorrecto</span>
+  one line</code></pre>
+
+<p>Para realizar asignaciones se recomienda usar el símbolo <code>&lt;-</code>, el símbolo de igualdad <code>=</code> no se recomienda usarlo para asignaciones.</p>
+<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">5</span>  <span class="co"># Correcto</span>
+x =<span class="st"> </span><span class="dv">5</span>   <span class="co"># No recomendado</span></code></pre>
+<p>Para una explicación más detallada sobre el símbolo de asignación se recomienda visitar este <a href="http://www.win-vector.com/blog/2016/12/the-case-for-using-in-r/">enlace</a>.</p>
+
+<p>No se recomienda colocar varias instrucciones separadas por <code>;</code> en la misma línea, aunque funciona dificulta la revisión del código.</p>
+<pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="dv">100</span>; y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n, <span class="dt">mean=</span><span class="dv">5</span>); <span class="kw">hist</span>(y)  <span class="co"># No se recomienda</span>
+
+n &lt;-<span class="st"> </span><span class="dv">100</span>                                  <span class="co"># Correcto</span>
+y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(n, <span class="dt">mean=</span><span class="dv">5</span>)
+<span class="kw">hist</span>(y)</code></pre>
+<p>A pesar de la anterior advertencia es posible que en este libro usemos el <code>;</code> en algunas ocasiones, si lo hacemos es para ahorrar espacio en la presentación del código.</p>
+
+<div id="refs" class="references">
+<div>
+<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a>.</p>
+</div>
+<div>
+<p>———. 2018. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</p>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/fhernanb/Graficos-con-R/edit/master/01_intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
