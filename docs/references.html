@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Gráficos con R</title>
+  <title>References | Gráficos con R</title>
   <meta name="description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Gráficos con R" />
+  <meta property="og:title" content="References | Gráficos con R" />
   <meta property="og:type" content="book" />
   
   <meta property="og:image" content="images/cover.png" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="fhernanb/Graficos-con-R" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Gráficos con R" />
+  <meta name="twitter:title" content="References | Gráficos con R" />
   
   <meta name="twitter:description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="twitter:image" content="images/cover.png" />
@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="sobre-los-autores.html">
+<link rel="prev" href="funcion-par.html">
+<link rel="next" href="funciones-auxiliares.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -242,6 +242,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="" data-path="funcion-par.html"><a href="funcion-par.html#ejemplo-40"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="chapter" data-level="6" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html"><i class="fa fa-check"></i><b>6</b> Funciones auxiliares</a><ul>
 <li class="chapter" data-level="6.1" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#funcion-segments"><i class="fa fa-check"></i><b>6.1</b> Función <code>segments</code>  </a></li>
 <li class="chapter" data-level="6.2" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#funcion-rect"><i class="fa fa-check"></i><b>6.2</b> Función <code>rect</code>  </a></li>
@@ -289,72 +290,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Gráficos con R</h1>
-<p class="author"><em>Freddy Hernández</em></p>
-<p class="author"><em>Juan Carlos Correa</em></p>
-<p class="date"><em>2019-07-04</em></p>
-</div>
-<div id="bienvenido" class="section level1 unnumbered">
-<h1>Bienvenido</h1>
-<p><img src="images/cover.png" width="33%" style="display: block; margin: auto;" /></p>
-<p>Este libro está destinado para estudiantes de ingeniería y estadística que deseen aprender sobre modelos de regresión y la forma de aplicarlos por medio del lenguaje de programación R.</p>
-<p><a href="https://fhernanb.github.io/">Freddy Hernández</a><br />
-<a href="http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000063932">Juan Carlos Correa</a></p>
-<div id="estructura-del-libro" class="section level2 unnumbered">
-<h2>Estructura del libro</h2>
-<p>En el capítulo se presenta el modelo de regresión lineal simple y en el Capítulo se generaliza el modelo básico con varias covariables.</p>
-</div>
-<div id="software-y-convenciones" class="section level2 unnumbered">
-<h2>Software y convenciones</h2>
-<p>Para realizar este libro usamos los paquetes <strong>knitr</strong> <span class="citation">(Xie <a href="#ref-xie2015" role="doc-biblioref">2015</a>)</span> y <strong>bookdown</strong> <span class="citation">(Xie <a href="#ref-R-bookdown" role="doc-biblioref">2018</a>)</span> que permiten unir la ventajas de LaTeX y R en un mismo archivo.</p>
-<p>En todo el libro se presentarán códigos que el lector puede copiar y pegar en su consola de R para obtener los mismos resultados aquí del libro. Los códigos se destacan en una caja de color similar a la mostrada a continuación.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">4</span> <span class="op">+</span><span class="st"> </span><span class="dv">6</span>
-a &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span>)
-<span class="dv">5</span> <span class="op">*</span><span class="st"> </span>a
-<span class="dv">1</span><span class="op">:</span><span class="dv">10</span></code></pre>
-<p>Los resultados o salidas obtenidos de cualquier código se destacan con dos símbolos de númeral (<code>##</code>) al inicio de cada línea o renglón, esto quiere decir que todo lo que inicie con <code>##</code> son resultados obtenidos y <strong>NO</strong> los debe copiar. Abajo se muestran los resultados obtenidos luego de correr el código anterior.</p>
-<pre><code>## [1] 10</code></pre>
-<pre><code>## [1]  5 25 30</code></pre>
-<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-</div>
-<div id="bloques-informativos" class="section level2 unnumbered">
-<h2>Bloques informativos</h2>
-<p>En varias partes del libro usaremos bloques informativos para resaltar algún aspecto importante. Abajo se encuentra un ejemplo de los bloques y su significado.</p>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
 
-<div class="rmdnote">
-Nota aclaratoria.
-</div>
-
-
-<div class="rmdtip">
-Sugerencia.
-</div>
-
-
-<div class="rmdwarning">
-Advertencia.
-</div>
-
-
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-xie2015">
-<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a>.</p>
-</div>
-<div id="ref-R-bookdown">
-<p>Xie, Yihui. 2018. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</p>
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="sobre-los-autores.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="funcion-par.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="funciones-auxiliares.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -384,7 +330,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/fhernanb/Graficos-con-R/edit/master/index.Rmd",
+"link": "https://github.com/fhernanb/Graficos-con-R/edit/master/08-references.Rmd",
 "text": "Edit"
 },
 "history": {

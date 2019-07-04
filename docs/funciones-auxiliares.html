@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>6 Funciones auxiliares | Gráficos con R</title>
+  <meta name="description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="6 Funciones auxiliares | Gráficos con R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.png" />
+  <meta property="og:description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta name="github-repo" content="fhernanb/Graficos-con-R" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Funciones auxiliares | Gráficos con R" />
+  
+  <meta name="twitter:description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta name="twitter:image" content="images/cover.png" />
+
+<meta name="author" content="Freddy Hernández">
+<meta name="author" content="Juan Carlos Correa">
+
+
+<meta name="date" content="2019-07-04">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="funcion-par.html">
+<link rel="next" href="respuestas-a-preguntas-frecuentes.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Gráficos con R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenido</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-y-convenciones"><i class="fa fa-check"></i>Software y convenciones</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#bloques-informativos"><i class="fa fa-check"></i>Bloques informativos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sobre-los-autores.html"><a href="sobre-los-autores.html"><i class="fa fa-check"></i>Sobre los autores</a></li>
+<li class="chapter" data-level="1" data-path="introduccion.html"><a href="introduccion.html"><i class="fa fa-check"></i><b>1</b> Introducción </a></li>
+<li class="chapter" data-level="2" data-path="graficos-para-una-variable-cuantitativa.html"><a href="graficos-para-una-variable-cuantitativa.html"><i class="fa fa-check"></i><b>2</b> Gráficos para una variable cuantitativa</a><ul>
+<li class="chapter" data-level="2.1" data-path="graficos-para-una-variable-cuantitativa.html"><a href="graficos-para-una-variable-cuantitativa.html#funcion-stem"><i class="fa fa-check"></i><b>2.1</b> Función <code>stem</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable-cuantitativa.html"><a href="graficos-para-una-variable-cuantitativa.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="graficos-para-una-variable-cuantitativa.html"><a href="graficos-para-una-variable-cuantitativa.html#funcion-boxplot"><i class="fa fa-check"></i><b>2.2</b> Función <code>boxplot</code> </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable-cuantitativa.html"><a href="graficos-para-una-variable-cuantitativa.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable-cuantitativa.html"><a href="graficos-para-una-variable-cuantitativa.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="graficos-para-una-variable-cuantitativa.html"><a href="graficos-para-una-variable-cuantitativa.html#funcion-hist"><i class="fa fa-check"></i><b>2.3</b> Función <code>hist</code></a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable-cuantitativa.html"><a href="graficos-para-una-variable-cuantitativa.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="graficos-para-una-variable-cuantitativa.html"><a href="graficos-para-una-variable-cuantitativa.html#funcion-qqnorm-y-qqplot"><i class="fa fa-check"></i><b>2.4</b> Función <code>qqnorm</code> y <code>qqplot</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable-cuantitativa.html"><a href="graficos-para-una-variable-cuantitativa.html#ejemplo-4"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable-cuantitativa.html"><a href="graficos-para-una-variable-cuantitativa.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="graficos-para-una-variable-cuantitativa.html"><a href="graficos-para-una-variable-cuantitativa.html#funcion-density"><i class="fa fa-check"></i><b>2.5</b> Función <code>density</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable-cuantitativa.html"><a href="graficos-para-una-variable-cuantitativa.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable-cuantitativa.html"><a href="graficos-para-una-variable-cuantitativa.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable-cuantitativa.html"><a href="graficos-para-una-variable-cuantitativa.html#ejemplo-8"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html"><i class="fa fa-check"></i><b>3</b> Gráficos para varias variables cuantitativas</a><ul>
+<li class="chapter" data-level="3.1" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#funcion-plot"><i class="fa fa-check"></i><b>3.1</b> Función <code>plot</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-9"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-10"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#funcion-sunflowerplot"><i class="fa fa-check"></i><b>3.2</b> Función <code>sunflowerplot</code> </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-11"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-12"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#funcion-symbols"><i class="fa fa-check"></i><b>3.3</b> Función <code>symbols</code> </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-13"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#funcion-pairs"><i class="fa fa-check"></i><b>3.4</b> Función <code>pairs</code> </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-14"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-15"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-16"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-17"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-18"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#funcion-persp"><i class="fa fa-check"></i><b>3.5</b> Función <code>persp</code> </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-19"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-20"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#funcion-contour"><i class="fa fa-check"></i><b>3.6</b> Función <code>contour</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-21"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#funcion-filled.contour"><i class="fa fa-check"></i><b>3.7</b> Función <code>filled.contour</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-22"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-23"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#funcion-image"><i class="fa fa-check"></i><b>3.8</b> Función <code>image</code> </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-24"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#funcion-kde2d"><i class="fa fa-check"></i><b>3.9</b> Función <code>kde2d</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-25"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#funcion-interaction.plot"><i class="fa fa-check"></i><b>3.10</b> Función <code>interaction.plot</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-26"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#grafico-de-espagueti"><i class="fa fa-check"></i><b>3.11</b> Gráfico de espagueti </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas.html"><a href="graficos-para-varias-variables-cuantitativas.html#ejemplo-27"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html"><i class="fa fa-check"></i><b>4</b> Gráficos para variables cualitativas</a><ul>
+<li class="chapter" data-level="4.1" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html#funcion-barplot"><i class="fa fa-check"></i><b>4.1</b> Función <code>barplot</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html#ejemplo-28"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html#ejemplo-29"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html#funcion-pie"><i class="fa fa-check"></i><b>4.2</b> Función <code>pie</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html#ejemplo-30"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html#funcion-dotchart"><i class="fa fa-check"></i><b>4.3</b> Función <code>dotchart</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html#ejemplo-31"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html#ejemplo-32"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html#ejercicios"><i class="fa fa-check"></i>EJERCICIOS</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="funcion-par.html"><a href="funcion-par.html"><i class="fa fa-check"></i><b>5</b> Función <code>par</code></a><ul>
+<li class="chapter" data-level="5.1" data-path="funcion-par.html"><a href="funcion-par.html#parametro-ann"><i class="fa fa-check"></i><b>5.1</b> Parámetro <code>ann</code>  </a><ul>
+<li class="chapter" data-level="" data-path="funcion-par.html"><a href="funcion-par.html#ejemplo-33"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="funcion-par.html"><a href="funcion-par.html#parametro-adj"><i class="fa fa-check"></i><b>5.2</b> Parámetro <code>adj</code>  </a><ul>
+<li class="chapter" data-level="" data-path="funcion-par.html"><a href="funcion-par.html#ejemplo-34"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="funcion-par.html"><a href="funcion-par.html#parametro-bg"><i class="fa fa-check"></i><b>5.3</b> Parámetro <code>bg</code>  </a><ul>
+<li class="chapter" data-level="" data-path="funcion-par.html"><a href="funcion-par.html#ejemplo-35"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="funcion-par.html"><a href="funcion-par.html#parametro-mfrow"><i class="fa fa-check"></i><b>5.4</b> Parámetro <code>mfrow</code>  </a><ul>
+<li class="chapter" data-level="" data-path="funcion-par.html"><a href="funcion-par.html#ejemplo-36"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="funcion-par.html"><a href="funcion-par.html#parametro-bty"><i class="fa fa-check"></i><b>5.5</b> Parámetro <code>bty</code>  </a><ul>
+<li class="chapter" data-level="" data-path="funcion-par.html"><a href="funcion-par.html#ejemplo-37"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="funcion-par.html"><a href="funcion-par.html#parametro-cex"><i class="fa fa-check"></i><b>5.6</b> Parámetro <code>cex</code>  </a><ul>
+<li class="chapter" data-level="" data-path="funcion-par.html"><a href="funcion-par.html#ejemplo-38"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="funcion-par.html"><a href="funcion-par.html#parametros-cex.axis-cex.lab-cex.main-y-cex.sub"><i class="fa fa-check"></i><b>5.7</b> Parámetros <code>cex.axis</code>, <code>cex.lab</code>, <code>cex.main</code> y <code>cex.sub</code>    </a><ul>
+<li class="chapter" data-level="" data-path="funcion-par.html"><a href="funcion-par.html#ejemplo-39"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="funcion-par.html"><a href="funcion-par.html#parametro-col-col.axis-col.lab-col.main-y-col.sub"><i class="fa fa-check"></i><b>5.8</b> Parámetro <code>col</code>, <code>col.axis</code>, <code>col.lab</code>, <code>col.main</code> y <code>col.sub</code>  </a><ul>
+<li class="chapter" data-level="" data-path="funcion-par.html"><a href="funcion-par.html#ejemplo-40"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html"><i class="fa fa-check"></i><b>6</b> Funciones auxiliares</a><ul>
+<li class="chapter" data-level="6.1" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#funcion-segments"><i class="fa fa-check"></i><b>6.1</b> Función <code>segments</code>  </a></li>
+<li class="chapter" data-level="6.2" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#funcion-rect"><i class="fa fa-check"></i><b>6.2</b> Función <code>rect</code>  </a></li>
+<li class="chapter" data-level="6.3" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#funcion-polygon"><i class="fa fa-check"></i><b>6.3</b> Función <code>polygon</code>  </a></li>
+<li class="chapter" data-level="6.4" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#funcion-abline"><i class="fa fa-check"></i><b>6.4</b> Función <code>abline</code> </a></li>
+<li class="chapter" data-level="6.5" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#para-dibujar-un-circulo"><i class="fa fa-check"></i><b>6.5</b> Para dibujar un círculo </a></li>
+<li class="chapter" data-level="6.6" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#funcion-arrows"><i class="fa fa-check"></i><b>6.6</b> Función <code>arrows</code>  </a></li>
+<li class="chapter" data-level="6.7" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#funcion-grid"><i class="fa fa-check"></i><b>6.7</b> Función <code>grid</code>  </a></li>
+<li class="chapter" data-level="6.8" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#funcion-points"><i class="fa fa-check"></i><b>6.8</b> Función <code>points</code>  </a></li>
+<li class="chapter" data-level="6.9" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#funcion-curve"><i class="fa fa-check"></i><b>6.9</b> Función <code>curve</code>  </a><ul>
+<li class="chapter" data-level="" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#ejemplo-41"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#ejemplo-42"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#ejercicios-1"><i class="fa fa-check"></i>EJERCICIOS</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html"><i class="fa fa-check"></i><b>7</b> Respuestas a preguntas frecuentes</a><ul>
+<li class="chapter" data-level="7.1" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html#como-crear-un-grafico-vacio"><i class="fa fa-check"></i><b>7.1</b> ¿Cómo crear un gráfico vacío? </a></li>
+<li class="chapter" data-level="7.2" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html#como-personalizar-los-valores-a-mostrar-en-los-ejes"><i class="fa fa-check"></i><b>7.2</b> ¿Cómo personalizar los valores a mostrar en los ejes?</a></li>
+<li class="chapter" data-level="7.3" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html#como-dibujar-varios-qqplot-en-una-misma-figura"><i class="fa fa-check"></i><b>7.3</b> ¿Cómo dibujar varios QQplot en una misma figura?</a></li>
+<li class="chapter" data-level="7.4" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html#como-dibujar-varias-densidades-en-una-misma-figura"><i class="fa fa-check"></i><b>7.4</b> ¿Cómo dibujar varias densidades en una misma figura?</a></li>
+<li class="chapter" data-level="7.5" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html#como-dibujar-varias-densidades-transparentes-en-una-misma-figura"><i class="fa fa-check"></i><b>7.5</b> ¿Cómo dibujar varias densidades transparentes en una misma figura?</a></li>
+<li class="chapter" data-level="7.6" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html#como-incluir-una-rejilla-a-una-figura-en-ciertos-puntos"><i class="fa fa-check"></i><b>7.6</b> ¿Cómo incluir una rejilla a una figura en ciertos puntos? </a></li>
+<li class="chapter" data-level="7.7" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html#como-incluir-en-un-grafico-valores-en-forma-automatica"><i class="fa fa-check"></i><b>7.7</b> ¿Cómo incluir en un gráfico valores en forma automática?</a></li>
+<li class="chapter" data-level="7.8" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html#como-incluir-en-un-grafico-varios-valores-en-forma-automatica"><i class="fa fa-check"></i><b>7.8</b> ¿Cómo incluir en un gráfico varios valores en forma automática?</a></li>
+<li class="chapter" data-level="7.9" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html#como-incluir-colores-dependiendo-de-los-valores-de-una-variable-cualitativa"><i class="fa fa-check"></i><b>7.9</b> ¿Cómo incluir colores dependiendo de los valores de una variable cualitativa?</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="extras.html"><a href="extras.html"><i class="fa fa-check"></i><b>8</b> Extras</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Gráficos con R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="funciones-auxiliares" class="section level1">
+<h1><span class="header-section-number">6</span> Funciones auxiliares</h1>
+<p>En este capítulo se presentan funciones auxiliares que son útiles para complementar los gráficos generados en .</p>
+<div id="funcion-segments" class="section level2">
+<h2><span class="header-section-number">6.1</span> Función <code>segments</code>  </h2>
+<p>Esta función es muy útil para digujar segmentos. La estructura de la función se muestra a continuación.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">segments</span>(x0, y0, <span class="dt">x1 =</span> x0, <span class="dt">y1 =</span> y0, ...)</code></pre>
+<p>Los argumentos de la función son:</p>
+<ul>
+<li><code>xo, yo</code>: coordenadas del punto de inicio del segmento.</li>
+<li><code>x1, y1</code>: coordenadas del punto de fin del segmento.</li>
+<li><code>...</code>: otros parámetros gráficos.</li>
+</ul>
+<p>A continuación de muestra el código para dibujar con segmentos la sigla de la Universidad Nacional de Colombia (UN), en la Figura <a href="funciones-auxiliares.html#fig:seg1">6.1</a> se puede ver el resultado.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">11</span>, <span class="dv">3</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>)
+<span class="kw">grid</span>()
+
+<span class="kw">segments</span>(<span class="op">-</span><span class="dv">9</span>, <span class="dv">9</span>, <span class="dv">-9</span>, <span class="dv">-9</span>, <span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">col=</span><span class="dv">3</span>)
+<span class="kw">segments</span>(<span class="op">-</span><span class="dv">9</span>, <span class="dv">-9</span>, <span class="dv">-5</span>, <span class="dv">-9</span>, <span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">col=</span><span class="dv">3</span>)
+<span class="kw">segments</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">-9</span>, <span class="dv">-5</span>, <span class="dv">9</span>, <span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">col=</span><span class="dv">3</span>)
+
+<span class="kw">segments</span>(<span class="op">-</span><span class="dv">4</span>, <span class="dv">-9</span>, <span class="dv">-4</span>, <span class="dv">9</span>, <span class="dt">lwd=</span><span class="dv">4</span>)
+<span class="kw">segments</span>(<span class="op">-</span><span class="dv">4</span>, <span class="dv">9</span>, <span class="dv">0</span>, <span class="dv">-9</span>, <span class="dt">lwd=</span><span class="dv">4</span>)
+<span class="kw">segments</span>(<span class="dv">0</span>, <span class="dv">-9</span>, <span class="dv">0</span>, <span class="dv">9</span>, <span class="dt">lwd=</span><span class="dv">4</span>)</code></pre>
+<div class="figure"><span id="fig:seg1"></span>
+<img src="Graficos_con_R_files/figure-html/seg1-1.png" alt="Ejemplos de segmentos." width="576" />
+<p class="caption">
+Figure 6.1: Ejemplos de segmentos.
+</p>
+</div>
+</div>
+<div id="funcion-rect" class="section level2">
+<h2><span class="header-section-number">6.2</span> Función <code>rect</code>  </h2>
+<p>Esta función es muy útil para digujar rectángulos. La estructura de la función se muestra a continuación.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rect</span>(xleft, ybottom, xright, ytop,
+     <span class="dt">density =</span> <span class="ot">NULL</span>, <span class="dt">angle =</span> <span class="dv">45</span>, ...)</code></pre>
+<p>Los argumentos de la función son:</p>
+<ul>
+<li><code>xleft</code>: vector o escalar con la posición de x a izquierda.</li>
+<li><code>ybottom</code>: vector o escalar con la posición de y abajo.</li>
+<li><code>xright</code>: vector o escalar con la posición de x a derecha.</li>
+<li><code>ytop</code>: vector o escalar con la posición de y arriba.</li>
+<li><code>density</code>: número de líneas por pulgada con la cuales se rellenará el rectángulo.</li>
+<li><code>angle</code>: ángulo de inclinación de la líneas de relleno.</li>
+<li><code>col</code>: color para el fondo del rectángulo.</li>
+<li><code>border</code>: color para el borde del rectángulo, un valor posible es <code>'transparent'</code> cuando no se desea borde.</li>
+<li><code>...</code>: otros parámetros gráficos.</li>
+</ul>
+<p>En la Figura <a href="funciones-auxiliares.html#fig:rect1">6.2</a> se muestran 7 rectángulos de ejemplo que fueron obtenidos al variar los parámetros de la función <code>rect</code>, a continuación el código usado para obtener esa figura.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="ot">NA</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">20</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">10</span>, <span class="dv">30</span>), <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">xlab=</span><span class="st">&#39;&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;&#39;</span>)
+<span class="kw">rect</span>(<span class="dv">10</span>, <span class="dv">28</span>, <span class="dv">12</span>, <span class="dv">30</span>)
+<span class="kw">rect</span>(<span class="dv">11</span>, <span class="dv">25</span>, <span class="dv">13</span>, <span class="dv">27</span>, <span class="dt">col=</span><span class="st">&#39;red&#39;</span>)
+<span class="kw">rect</span>(<span class="dv">12</span>, <span class="dv">22</span>, <span class="dv">14</span>, <span class="dv">24</span>, <span class="dt">density=</span><span class="dv">5</span>)
+<span class="kw">rect</span>(<span class="dv">13</span>, <span class="dv">19</span>, <span class="dv">15</span>, <span class="dv">21</span>, <span class="dt">density=</span><span class="dv">5</span>, <span class="dt">angle=</span><span class="dv">15</span>)
+<span class="kw">rect</span>(<span class="dv">14</span>, <span class="dv">16</span>, <span class="dv">16</span>, <span class="dv">18</span>, <span class="dt">col=</span><span class="st">&#39;pink&#39;</span>, <span class="dt">border=</span><span class="st">&#39;blue&#39;</span>)
+<span class="kw">rect</span>(<span class="dv">15</span>, <span class="dv">13</span>, <span class="dv">17</span>, <span class="dv">15</span>, <span class="dt">lty=</span><span class="st">&#39;dashed&#39;</span>)
+<span class="kw">rect</span>(<span class="dv">16</span>, <span class="dv">10</span>, <span class="dv">18</span>, <span class="dv">12</span>, <span class="dt">lwd=</span><span class="dv">3</span>)
+
+<span class="kw">text</span>(<span class="dv">14</span>, <span class="dv">26</span>, <span class="st">&quot;col=&#39;red&#39;&quot;</span>)
+<span class="kw">text</span>(<span class="dv">15</span>, <span class="dv">23</span>, <span class="st">&quot;density=5&quot;</span>)
+<span class="kw">text</span>(<span class="dv">17</span>, <span class="dv">20</span>, <span class="st">&quot;density=5, angle=15&quot;</span>)
+<span class="kw">text</span>(<span class="fl">18.2</span>, <span class="dv">17</span>, <span class="st">&quot;col=&#39;pink&#39;, border=&#39;blue&#39;&quot;</span>)
+<span class="kw">text</span>(<span class="fl">18.2</span>, <span class="dv">14</span>, <span class="st">&quot;lty=&#39;dashed&#39;&quot;</span>)
+<span class="kw">text</span>(<span class="fl">18.8</span>, <span class="dv">11</span>, <span class="st">&quot;lwd=3&quot;</span>)</code></pre>
+<div class="figure"><span id="fig:rect1"></span>
+<img src="Graficos_con_R_files/figure-html/rect1-1.png" alt="Ejemplos de rectángulos." width="768" />
+<p class="caption">
+Figure 6.2: Ejemplos de rectángulos.
+</p>
+</div>
+<p>El código mostrado abajo pertenece a la ayuda de la función <code>rect</code> y el resultado es la Figura <a href="funciones-auxiliares.html#fig:rect2">6.3</a>. De esta figura se observa que es posible dibujar varios rectángulos ingresando las coordenadas como vectores.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">## set up the plot region:</span>
+<span class="kw">plot</span>(<span class="kw">c</span>(<span class="dv">100</span>, <span class="dv">250</span>), <span class="kw">c</span>(<span class="dv">300</span>, <span class="dv">450</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>,
+     <span class="dt">main=</span><span class="st">&quot;2 x 11 rectangles; &#39;rect(100+i,300+i, 150+i,380+i)&#39;&quot;</span>)
+i &lt;-<span class="st"> </span><span class="dv">4</span><span class="op">*</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">10</span>)
+<span class="co">## draw rectangles with bottom left (100, 300)+i</span>
+<span class="co">## and top right (150, 380)+i</span>
+<span class="kw">rect</span>(<span class="dv">100</span><span class="op">+</span>i, <span class="dv">300</span><span class="op">+</span>i, <span class="dv">150</span><span class="op">+</span>i, <span class="dv">380</span><span class="op">+</span>i, <span class="dt">col=</span><span class="kw">rainbow</span>(<span class="dv">11</span>, <span class="dt">start=</span><span class="fl">0.7</span>, <span class="dt">end=</span><span class="fl">0.1</span>))
+<span class="kw">rect</span>(<span class="dv">240</span><span class="op">-</span>i, <span class="dv">320</span><span class="op">+</span>i, <span class="dv">250</span><span class="op">-</span>i, <span class="dv">410</span><span class="op">+</span>i, <span class="dt">col=</span><span class="kw">heat.colors</span>(<span class="dv">11</span>), <span class="dt">lwd=</span>i<span class="op">/</span><span class="dv">5</span>)</code></pre>
+<div class="figure"><span id="fig:rect2"></span>
+<img src="Graficos_con_R_files/figure-html/rect2-1.png" alt="Ejemplo de rectángulos obtenidos con `rect`." width="768" />
+<p class="caption">
+Figure 6.3: Ejemplo de rectángulos obtenidos con <code>rect</code>.
+</p>
+</div>
+</div>
+<div id="funcion-polygon" class="section level2">
+<h2><span class="header-section-number">6.3</span> Función <code>polygon</code>  </h2>
+<p>Esta función es muy útil para dibujar polígonos. La estructura de la función se muestra a continuación.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">polygon</span>(x, y, <span class="dt">density =</span> <span class="ot">NULL</span>, <span class="dt">angle =</span> <span class="dv">45</span>,
+        border, col, lty, ...)</code></pre>
+<p>Los argumentos de la función son:</p>
+<ul>
+<li><code>x, y</code>: vectores con las coordenadas de ubicación de los puntos que forman el polígono.</li>
+<li><code>density</code>: número de líneas por pulgada con la cuales se rellenará el polígono.</li>
+<li><code>angle</code>: ángulo de inclinación de la líneas de relleno.</li>
+<li><code>border</code>: color para el borde del polígono, un valor posible es <code>'transparent'</code> cuando no se desea borde.</li>
+<li><code>col</code>: color para el fondo del rectángulo.</li>
+<li><code>lty</code>: tipo de línea a usar para el borde.</li>
+<li><code>...</code>: otros parámetros gráficos.</li>
+</ul>
+<p>A continuación se muestra como usar la función <code>polygon</code> para dibujar un triángulo y un cuadrilátero. En la Figura <a href="funciones-auxiliares.html#fig:poly1">6.4</a> se muestran las figuras obtenidas.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dv">0</span><span class="op">:</span><span class="dv">5</span>, <span class="dv">0</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>)
+<span class="kw">abline</span>(<span class="dt">v=</span><span class="dv">0</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">h=</span><span class="dv">0</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">col=</span><span class="kw">gray</span>(<span class="fl">0.8</span>), <span class="dt">lty=</span><span class="st">&#39;dashed&#39;</span>)
+
+<span class="kw">polygon</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">2</span>),         <span class="co"># Para el triangulo</span>
+        <span class="dt">col=</span><span class="st">&#39;blue&#39;</span>, <span class="dt">border=</span><span class="st">&#39;red&#39;</span>, <span class="dt">lwd=</span><span class="dv">4</span>)
+
+<span class="kw">polygon</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">2</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="co"># Para el cuadrilatero</span>
+        <span class="dt">col=</span><span class="st">&#39;orange&#39;</span>, <span class="dt">border=</span><span class="st">&#39;darkgreen&#39;</span>, <span class="dt">lwd=</span><span class="dv">4</span>)</code></pre>
+<div class="figure"><span id="fig:poly1"></span>
+<img src="Graficos_con_R_files/figure-html/poly1-1.png" alt="Ejemplo de formas obtenidas con `polygon`." width="336" />
+<p class="caption">
+Figure 6.4: Ejemplo de formas obtenidas con <code>polygon</code>.
+</p>
+</div>
+</div>
+<div id="funcion-abline" class="section level2">
+<h2><span class="header-section-number">6.4</span> Función <code>abline</code> </h2>
+<p>Esta función es muy útil para dibujar líneas rectas dada la ecuación <span class="math inline">\(y=a+bx\)</span>, donde <span class="math inline">\(a\)</span> representa el intercepto y <span class="math inline">\(b\)</span> la pendiente de la recta. La estructura de la función se muestra a continuación.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">abline</span>(<span class="dt">a =</span> <span class="ot">NULL</span>, <span class="dt">b =</span> <span class="ot">NULL</span>, <span class="dt">h =</span> <span class="ot">NULL</span>, <span class="dt">v =</span> <span class="ot">NULL</span>, <span class="dt">reg =</span> <span class="ot">NULL</span>,
+       <span class="dt">coef =</span> <span class="ot">NULL</span>, <span class="dt">untf =</span> <span class="ot">FALSE</span>, ...)</code></pre>
+<p>Los argumentos de la función son:</p>
+<ul>
+<li><code>a, b</code>: son los coeficientes de la ecuación, <code>a</code> representa el intercepto y <code>b</code> la pendiente.</li>
+<li><code>h</code>: es el valor del eje Y por donde queremos que pase una <strong>recta horizontal</strong>.</li>
+<li><code>v</code>: es el valor del eje X por donde queremos que pase una <strong>recta vertical</strong>.</li>
+<li><code>coef</code>: vector de dos elementos con el intercepto y pendiente.</li>
+<li><code>reg</code>: objeto de clase <code>lm</code> resultante de haber usado la función <code>lm</code>.</li>
+<li><code>...</code>: otros parámetros gráficos.</li>
+</ul>
+<p>A continuación de muestra el código para dibujar la recta <span class="math inline">\(y=-5+3x\)</span>. En la Figura <a href="funciones-auxiliares.html#fig:abline1">6.5</a> se puede ver el resultado.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>),    <span class="co"># Para crear el lienzo</span>
+     <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>, <span class="dt">type=</span><span class="st">&#39;n&#39;</span>)  <span class="co"># donde se ubicará la recta</span>
+
+<span class="kw">abline</span>(<span class="dt">a=</span><span class="op">-</span><span class="dv">5</span>, <span class="dt">b=</span><span class="dv">3</span>, <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)</code></pre>
+<div class="figure"><span id="fig:abline1"></span>
+<img src="Graficos_con_R_files/figure-html/abline1-1.png" alt="Ejemplo de una recta con la función abline." width="316.8" />
+<p class="caption">
+Figure 6.5: Ejemplo de una recta con la función abline.
+</p>
+</div>
+<p>A continuación de muestra el código para dibujar tres rectas, la de color verde debe ser horizontal y pasar por <span class="math inline">\(y=5\)</span>, la de color rojo debe ser horizontal y pasar por <span class="math inline">\(y=-3\)</span> y la última debe ser vertical, de color naranja y pasar por <span class="math inline">\(x=2\)</span>. En la Figura <a href="funciones-auxiliares.html#fig:abline2">6.6</a> se puede ver el resultado.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">5</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>),    <span class="co"># Para crear el lienzo</span>
+     <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>, <span class="dt">type=</span><span class="st">&#39;n&#39;</span>)  <span class="co"># donde se ubicará la recta</span>
+
+<span class="kw">abline</span>(<span class="dt">h=</span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">-3</span>), <span class="dt">v=</span><span class="dv">2</span>,
+       <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;darkgreen&#39;</span>, <span class="st">&#39;red&#39;</span>, <span class="st">&#39;orange&#39;</span>), <span class="dt">lwd=</span><span class="dv">5</span>)</code></pre>
+<div class="figure"><span id="fig:abline2"></span>
+<img src="Graficos_con_R_files/figure-html/abline2-1.png" alt="Ejemplo de una recta con la función abline." width="316.8" />
+<p class="caption">
+Figure 6.6: Ejemplo de una recta con la función abline.
+</p>
+</div>
+</div>
+<div id="para-dibujar-un-circulo" class="section level2">
+<h2><span class="header-section-number">6.5</span> Para dibujar un círculo </h2>
+<p>En la base de  no hay una función específica para crear círculos, sin embargo, es posible usar unas pocas líneas para obtener el círculo con un radio y centro deseado por medio de la función <code>polygon</code>. A continuación se muestra el código para dibujar un círculo de radio 7 unidades con centro en el punto (-2, 1) con fondo azul claro y borde de color azul obscuro. En la Figura <a href="funciones-auxiliares.html#fig:circ1">6.7</a> se muestra el círculo construído.</p>
+<pre class="sourceCode r"><code class="sourceCode r">rad     &lt;-<span class="st"> </span><span class="dv">7</span>   <span class="co"># Valor del radio</span>
+xcenter &lt;-<span class="st"> </span><span class="dv">-2</span>  <span class="co"># Coordenada en x del centro</span>
+ycenter &lt;-<span class="st"> </span><span class="dv">1</span>   <span class="co"># Coordenada en y del centro</span>
+
+<span class="kw">plot</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>, <span class="dt">asp=</span><span class="dv">1</span>)
+theta &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">2</span> <span class="op">*</span><span class="st"> </span>pi, <span class="dt">length =</span> <span class="dv">200</span>)
+<span class="kw">polygon</span>(<span class="dt">x=</span>rad <span class="op">*</span><span class="st"> </span><span class="kw">cos</span>(theta) <span class="op">+</span><span class="st"> </span>xcenter,
+        <span class="dt">y=</span>rad <span class="op">*</span><span class="st"> </span><span class="kw">sin</span>(theta) <span class="op">+</span><span class="st"> </span>ycenter,
+        <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">col=</span><span class="st">&#39;steelblue1&#39;</span>, <span class="dt">border=</span><span class="st">&#39;steelblue4&#39;</span>)
+<span class="kw">grid</span>()  <span class="co"># Para incluir una cuadrícula de guía</span></code></pre>
+<div class="figure"><span id="fig:circ1"></span>
+<img src="Graficos_con_R_files/figure-html/circ1-1.png" alt="Ejemplo de un círculo." width="384" />
+<p class="caption">
+Figure 6.7: Ejemplo de un círculo.
+</p>
+</div>
+</div>
+<div id="funcion-arrows" class="section level2">
+<h2><span class="header-section-number">6.6</span> Función <code>arrows</code>  </h2>
+<p>Esta función es muy útil para incluir flechas en una figura. La estructura de la función se muestra a continuación.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">arrows</span>(x0, y0, <span class="dt">x1=</span>x0, <span class="dt">y1=</span>y0, <span class="dt">length=</span><span class="fl">0.25</span>, <span class="dt">angle=</span><span class="dv">30</span>, ...)</code></pre>
+<p>Los argumentos de la función son:</p>
+<ul>
+<li><code>x0, y0</code>: coordenadas de inicio de la flecha.</li>
+<li><code>x1, y1</code>: coordenadas de fin de la flecha.</li>
+<li><code>length</code>: longitud (en pulgadas) de los bordes de punta de la flecha, el valor por defecto es 0.25.</li>
+<li><code>angle</code>: ángulo para la punta de la flecha, a mayor ángulo más abiertas las puntas.</li>
+<li><code>code</code>: número entero para indicar el tipo de flecha a dibujar. El valor de 0 para una flecha sin punta (entonces no sería una flecha), el valor de 1 para una flecha apuntando al revés (no es frecuente), el valor de 2 (valor por defecto) para una flecha usual y valor de 3 para colocar puntas a ambos lados de la flecha. El valor por defecto son 30 grados.</li>
+<li><code>...</code>: otros parámetros gráficos.</li>
+</ul>
+<p>En la Figura <a href="funciones-auxiliares.html#fig:arrow1">6.8</a> se muestran los cuatro tipos de flechas que se obtienen al variar el parámetro <code>code</code> de la función <code>arrows</code>. Note que la flecha de la derecha fue construída subiendo, pero como <code>code=1</code> ella quedó bajando.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="ot">NA</span>, <span class="dt">xlab=</span><span class="st">&#39;X&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Y&#39;</span>,      <span class="co"># Para crear un gráfico vacío</span>
+     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">6</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>))
+<span class="kw">arrows</span>(<span class="dt">x0=</span><span class="dv">2</span>, <span class="dt">y0=</span><span class="dv">1</span>, <span class="dt">x1=</span><span class="dv">4</span>, <span class="dt">y1=</span><span class="dv">1</span>, <span class="dt">code=</span><span class="dv">0</span>)
+<span class="kw">arrows</span>(<span class="dt">x0=</span><span class="dv">5</span>, <span class="dt">y0=</span><span class="dv">1</span>, <span class="dt">x1=</span><span class="dv">5</span>, <span class="dt">y1=</span><span class="dv">4</span>, <span class="dt">code=</span><span class="dv">1</span>)
+<span class="kw">arrows</span>(<span class="dt">x0=</span><span class="dv">2</span>, <span class="dt">y0=</span><span class="dv">4</span>, <span class="dt">x1=</span><span class="dv">4</span>, <span class="dt">y1=</span><span class="dv">4</span>, <span class="dt">code=</span><span class="dv">2</span>)
+<span class="kw">arrows</span>(<span class="dt">x0=</span><span class="dv">1</span>, <span class="dt">y0=</span><span class="dv">1</span>, <span class="dt">x1=</span><span class="dv">1</span>, <span class="dt">y1=</span><span class="dv">4</span>, <span class="dt">code=</span><span class="dv">3</span>)
+<span class="kw">text</span>(<span class="dv">3</span>, <span class="fl">0.8</span>, <span class="st">&#39;code=0&#39;</span>)
+<span class="kw">text</span>(<span class="fl">5.4</span>, <span class="fl">2.5</span>, <span class="st">&#39;code=1&#39;</span>)
+<span class="kw">text</span>(<span class="dv">3</span>, <span class="fl">4.2</span>, <span class="st">&#39;code=2&#39;</span>)
+<span class="kw">text</span>(<span class="fl">0.6</span>, <span class="fl">2.5</span>, <span class="st">&#39;code=3&#39;</span>)</code></pre>
+<div class="figure"><span id="fig:arrow1"></span>
+<img src="Graficos_con_R_files/figure-html/arrow1-1.png" alt="Ejemplos de flechas variando el parámetro `code`." width="576" />
+<p class="caption">
+Figure 6.8: Ejemplos de flechas variando el parámetro <code>code</code>.
+</p>
+</div>
+<p>En la Figura <a href="funciones-auxiliares.html#fig:arrow2">6.9</a> se muestran 4 flechas para varios valores del parámetro <code>angle</code>, de la figura se observa que entre mayor el ángulo, la punta de la fecha es más achatada.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="ot">NA</span>, <span class="dt">xlab=</span><span class="st">&#39;X&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Y&#39;</span>,      <span class="co"># Para crear un gráfico vacío</span>
+     <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">6</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">5</span>))
+
+<span class="kw">arrows</span>(<span class="dt">x0=</span><span class="dv">1</span>, <span class="dt">y0=</span><span class="dv">4</span>, <span class="dt">x1=</span><span class="dv">4</span>, <span class="dt">y1=</span><span class="dv">4</span>)
+<span class="kw">arrows</span>(<span class="dt">x0=</span><span class="dv">1</span>, <span class="dt">y0=</span><span class="dv">3</span>, <span class="dt">x1=</span><span class="dv">4</span>, <span class="dt">y1=</span><span class="dv">3</span>, <span class="dt">angle=</span><span class="dv">45</span>)
+<span class="kw">arrows</span>(<span class="dt">x0=</span><span class="dv">1</span>, <span class="dt">y0=</span><span class="dv">2</span>, <span class="dt">x1=</span><span class="dv">4</span>, <span class="dt">y1=</span><span class="dv">2</span>, <span class="dt">angle=</span><span class="dv">60</span>)
+<span class="kw">arrows</span>(<span class="dt">x0=</span><span class="dv">1</span>, <span class="dt">y0=</span><span class="dv">1</span>, <span class="dt">x1=</span><span class="dv">4</span>, <span class="dt">y1=</span><span class="dv">1</span>, <span class="dt">angle=</span><span class="dv">90</span>)
+<span class="kw">text</span>(<span class="fl">4.5</span>, <span class="dv">3</span>, <span class="st">&#39;angle=45&#39;</span>)
+<span class="kw">text</span>(<span class="fl">4.5</span>, <span class="dv">2</span>, <span class="st">&#39;angle=60&#39;</span>)
+<span class="kw">text</span>(<span class="fl">4.5</span>, <span class="dv">1</span>, <span class="st">&#39;angle=90&#39;</span>)</code></pre>
+<div class="figure"><span id="fig:arrow2"></span>
+<img src="Graficos_con_R_files/figure-html/arrow2-1.png" alt="Ejemplos de flechas variando el parámetro `angle`." width="576" />
+<p class="caption">
+Figure 6.9: Ejemplos de flechas variando el parámetro <code>angle</code>.
+</p>
+</div>
+</div>
+<div id="funcion-grid" class="section level2">
+<h2><span class="header-section-number">6.7</span> Función <code>grid</code>  </h2>
+<p>La función <code>grid</code> es muy útil para construir rejillas sobre un gráfico, estas rejillas se pueden usar como referencia para facilitar la interpretación o como guía para ubicar elementos en un dibujo.</p>
+<p>La estructura de la función se muestra a continuación.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">grid</span>(<span class="dt">nx =</span> <span class="ot">NULL</span>, <span class="dt">ny =</span> nx, <span class="dt">col =</span> <span class="st">&quot;lightgray&quot;</span>, <span class="dt">lty =</span> <span class="st">&quot;dotted&quot;</span>,
+     <span class="dt">lwd =</span> <span class="kw">par</span>(<span class="st">&quot;lwd&quot;</span>), <span class="dt">equilogs =</span> <span class="ot">TRUE</span>)</code></pre>
+<p>Los argumentos de la función son:</p>
+<ul>
+<li><code>nx, ny</code>: número de celdas a dibujar tanto en el eje horizontal y vertical.</li>
+<li><code>col</code>: color de la rejilla.</li>
+<li><code>lty</code>: tipo de línea a usar.</li>
+<li><code>lwd</code>: grosor de la rejilla.</li>
+</ul>
+<p>A continuación se muestran dos ejemplos de como usar <code>grid</code>. En el primer ejemplo se dibuja un gráfico vacío y se le agrega la rejila estándar que se puede obtener con <code>grid()</code> sin definir ningún parámetro. En el segundo ejemplo se tiene una rejilla que divide en 4 partes el eje horizontal (<code>nx=3</code>), en 4 partes el eje vertical (<code>ny=4</code>), de color rosado, grosor 2 y con guiones largos. Abajo el código utilizado y en la Figura <a href="funciones-auxiliares.html#fig:grid1">6.10</a> se observan los resultados.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>), <span class="dt">cex=</span><span class="fl">0.5</span>)
+<span class="kw">plot</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>)
+<span class="kw">grid</span>()
+
+<span class="kw">plot</span>(<span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>), <span class="kw">c</span>(<span class="op">-</span><span class="dv">10</span>, <span class="dv">10</span>), <span class="dt">type=</span><span class="st">&quot;n&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>)
+<span class="kw">grid</span>(<span class="dt">nx=</span><span class="dv">3</span>, <span class="dt">ny=</span><span class="dv">4</span>, <span class="dt">col=</span><span class="st">&quot;pink&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">lty=</span><span class="st">&quot;longdash&quot;</span>)</code></pre>
+<div class="figure"><span id="fig:grid1"></span>
+<img src="Graficos_con_R_files/figure-html/grid1-1.png" alt="Ejemplos de rejillas con `grid`." width="480" />
+<p class="caption">
+Figure 6.10: Ejemplos de rejillas con <code>grid</code>.
+</p>
+</div>
+
+<div class="rmdtip">
+Para dibujar rejillas en puntos seleccionados por el usuario se puede utilizar el procedimiento explicado en la sección <a href="#rejper"><strong>??</strong></a>.
+</div>
+
+
+<div class="rmdwarning">
+Se recomienda agregar la rejilla a un gráfico antes de poner el contenido (puntos o líneas) para que no interfiera.
+</div>
+
+</div>
+<div id="funcion-points" class="section level2">
+<h2><span class="header-section-number">6.8</span> Función <code>points</code>  </h2>
+<p>Esta función es útil para agregar puntos a una figura ya creada. La estructura de la función es la siguiente.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">points</span>(x, y, pch, col, cex)</code></pre>
+<p>Los argumentos de la función son:</p>
+<ul>
+<li><code>x, y</code>: vectores con las coordenadas de ubicación de los puntos.</li>
+<li><code>pch</code>: valor o vector numérico con el tipo de punto a usar, por defecto <code>pch=1</code>.</li>
+<li><code>col</code>: vector con los colores para cada punto.</li>
+<li><code>cex</code>: número para modificar el tamaño de los puntos, por defecto es <code>cex=1</code> y al aumentar su valor aumenta el tamaño de los puntos.</li>
+</ul>
+<p>Los diferentes tipos de puntos que se pueden obtener al variar el parámetro <code>pch</code> se muestran en la Figura <a href="funciones-auxiliares.html#fig:point1">6.11</a>.</p>
+<div class="figure"><span id="fig:point1"></span>
+<img src="Graficos_con_R_files/figure-html/point1-1.png" alt="Ejemplos de los tipos de puntos obtenidos al variar `pch`." width="576" />
+<p class="caption">
+Figure 6.11: Ejemplos de los tipos de puntos obtenidos al variar <code>pch</code>.
+</p>
+</div>
+<p>Es posible usar otros símbolos personalizados en el parámetro <code>pch</code>, a continuación se muestra el código para incluir 5 puntos usando los símbolos @, ., $, % y w. En la Figura <a href="funciones-auxiliares.html#fig:point2">6.12</a> se observan los 5 puntos con los símbolos usados. Observe que cuando se usó <code>pch='.'</code> aparece un pequeño punto, casi imperceptible, esta opción es muy usada cuando se tiene muchos puntos que se traslapan entre si.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">0</span>))
+<span class="kw">plot</span>(<span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">5.5</span>), <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">5.5</span>), <span class="dt">xlab=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;&quot;</span>, <span class="dt">type=</span><span class="st">&#39;n&#39;</span>)
+<span class="kw">points</span>(<span class="dt">x=</span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>, <span class="dt">y=</span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>,
+       <span class="dt">pch=</span><span class="kw">c</span>(<span class="st">&#39;@&#39;</span>, <span class="st">&#39;.&#39;</span>, <span class="st">&#39;$&#39;</span>, <span class="st">&#39;%&#39;</span>, <span class="st">&#39;w&#39;</span>),
+       <span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">5</span>)</code></pre>
+<div class="figure"><span id="fig:point2"></span>
+<img src="Graficos_con_R_files/figure-html/point2-1.png" alt="Ejemplos de símbolos personalizados con `pch`." width="288" />
+<p class="caption">
+Figure 6.12: Ejemplos de símbolos personalizados con <code>pch</code>.
+</p>
+</div>
+</div>
+<div id="funcion-curve" class="section level2">
+<h2><span class="header-section-number">6.9</span> Función <code>curve</code>  </h2>
+<p>Esta función sirve para dibujar una curva en un intervalo dado. La estructura de la función es la siguiente.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">curve</span>(expr, <span class="dt">from =</span> <span class="ot">NULL</span>, <span class="dt">to =</span> <span class="ot">NULL</span>, <span class="dt">n =</span> <span class="dv">101</span>, <span class="dt">add =</span> <span class="ot">FALSE</span>,
+      <span class="dt">type =</span> <span class="st">&quot;l&quot;</span>, <span class="dt">log =</span> <span class="ot">NULL</span>, <span class="dt">xlim =</span> <span class="ot">NULL</span>, ...)</code></pre>
+<p>Los argumentos de la función son:</p>
+<ul>
+<li><code>expr</code>: nombre de la función que se desea evaluar.</li>
+<li><code>from, to</code>: valores mínimo y máximo donde se va a evaluar la función.</li>
+<li><code>n</code>: número de puntos en los cuales se va a evaluar la función, su valor por defecto es 101.</li>
+<li><code>add</code>: valor lógico para indicar que se desea agregar la curva a un gráfico ya existente.</li>
+<li><code>type</code>: tipo de representación para la función, se disponen de 9 opciones que se pueden consultar en descripción de <code>type</code> para la función <code>plot</code> en la sección <a href="#type"><strong>??</strong></a>.</li>
+<li><code>xlim</code>: intervalo para construir la ventana gráfica, no confundir con <code>from</code> y <code>to</code>.</li>
+</ul>
+<div id="ejemplo-41" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Dibujar las funciones <span class="math inline">\(f_1\)</span>, <span class="math inline">\(f_2\)</span> y <span class="math inline">\(f_3\)</span> usando la función <code>curve</code>, las ecuaciones para las funciones son:</p>
+<p><span class="math display">\[\begin{align}
+f_1(x) &amp;= x^2-10 \\
+f_2(x) &amp;= \begin{cases} x^2-10, &amp; \mbox{si } x &lt; 1 \\ 5 x, &amp; \mbox{si } x \geq 1 \end{cases} \\
+f_3(x) &amp;=15-4x
+\end{align}\]</span></p>
+<p>Dibujar <span class="math inline">\(f_1\)</span> en el intervalo [-2, 7], <span class="math inline">\(f_2\)</span> en el intervalo [-2, 4] y <span class="math inline">\(f_3\)</span> en el intervalo [-5, 0].</p>
+<p>El código necesario para definir las dos funciones se muestra a continuación. Para dibujar <span class="math inline">\(f_2\)</span> y <span class="math inline">\(f_3\)</span> se usó <code>add=TRUE</code> con el objetivo de que quedaran en la misma ventana gráfica de <span class="math inline">\(f_1\)</span>. Note que se usó <code>xlim=c(-5, 10)</code> para indicar que se deseaba una ventana gráfica en ese intervalo para el eje horizontal. En la Figura <a href="funciones-auxiliares.html#fig:curve1">6.13</a> se muestra el dibujo de las tres funciones.</p>
+<pre class="sourceCode r"><code class="sourceCode r">f1 &lt;-<span class="st"> </span><span class="cf">function</span>(x) x<span class="op">^</span><span class="dv">2</span> <span class="op">-</span><span class="st"> </span><span class="dv">10</span>
+f2 &lt;-<span class="st"> </span><span class="cf">function</span>(x) <span class="kw">ifelse</span>(x <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>, <span class="op">-</span>x<span class="op">^</span><span class="dv">2</span>, <span class="dv">5</span><span class="op">*</span>x)
+f3 &lt;-<span class="st"> </span><span class="cf">function</span>(x) <span class="dv">15</span> <span class="op">-</span><span class="st"> </span><span class="dv">4</span> <span class="op">*</span><span class="st"> </span>x
+
+<span class="kw">curve</span>(<span class="dt">expr=</span>f1, <span class="dt">from=</span><span class="op">-</span><span class="dv">2</span>, <span class="dt">to=</span><span class="dv">7</span>, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>,
+      <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">ylab=</span><span class="st">&#39;f(x)&#39;</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">5</span>, <span class="dv">10</span>))
+
+<span class="kw">curve</span>(<span class="dt">expr=</span>f2, <span class="dt">from=</span><span class="op">-</span><span class="dv">2</span>, <span class="dt">to=</span><span class="dv">4</span>, <span class="dt">type=</span><span class="st">&quot;p&quot;</span>,
+      <span class="dt">col=</span><span class="st">&quot;green4&quot;</span>, <span class="dt">add=</span><span class="ot">TRUE</span>)
+
+<span class="kw">curve</span>(<span class="dt">expr=</span>f3, <span class="dt">from=</span><span class="op">-</span><span class="dv">5</span>, <span class="dt">to=</span><span class="dv">0</span>, <span class="dt">type=</span><span class="st">&quot;b&quot;</span>,
+      <span class="dt">col=</span><span class="st">&#39;red&#39;</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">n=</span><span class="dv">5</span>)
+
+<span class="kw">text</span>(<span class="dt">x=</span><span class="dv">7</span>, <span class="dt">y=</span><span class="dv">9</span>, <span class="st">&quot;f1(x) usando type=&#39;l&#39;&quot;</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)
+<span class="kw">text</span>(<span class="dt">x=</span><span class="op">-</span><span class="dv">2</span>, <span class="dt">y=</span><span class="dv">4</span>, <span class="st">&quot;f2(x) usando type=&#39;p&#39;&quot;</span>, <span class="dt">col=</span><span class="st">&quot;green4&quot;</span>)
+<span class="kw">text</span>(<span class="dt">x=</span><span class="op">-</span><span class="dv">1</span>, <span class="dt">y=</span><span class="dv">30</span>, <span class="st">&quot;f3(x) usando type=&#39;b&#39; y n=5&quot;</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</code></pre>
+<div class="figure"><span id="fig:curve1"></span>
+<img src="Graficos_con_R_files/figure-html/curve1-1.png" alt="Dibujo de varias funciones en una misma ventana." width="768" />
+<p class="caption">
+Figure 6.13: Dibujo de varias funciones en una misma ventana.
+</p>
+</div>
+</div>
+<div id="ejemplo-42" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Dibujar la figura de la relación entre las variables <span class="math inline">\(x\)</span> y <span class="math inline">\(y\)</span> dada por la siguiente expresión paramétrica:</p>
+<p><span class="math display">\[\begin{align}
+x &amp;= 16 \cos^3(t) \\
+y &amp;= 13 \cos(t)-5 \cos(2t)-2 \cos(3t)- \cos(4t)
+\end{align}\]</span></p>
+<p>El código para realizar la Figura <a href="funciones-auxiliares.html#fig:curve2">6.14</a> fue tomado de <a href="http://stackoverflow.com/questions/8082429/plot-a-heart-in-r">Stackoverflow</a> y se muestra a continuación.</p>
+<pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">t=</span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">2</span><span class="op">*</span>pi, <span class="dt">by=</span><span class="fl">0.1</span>))
+xhrt &lt;-<span class="st"> </span><span class="cf">function</span>(t) <span class="dv">16</span><span class="op">*</span><span class="kw">sin</span>(t)<span class="op">^</span><span class="dv">3</span>
+yhrt &lt;-<span class="st"> </span><span class="cf">function</span>(t) <span class="dv">13</span><span class="op">*</span><span class="kw">cos</span>(t)<span class="op">-</span><span class="dv">5</span><span class="op">*</span><span class="kw">cos</span>(<span class="dv">2</span><span class="op">*</span>t)<span class="op">-</span><span class="dv">2</span><span class="op">*</span><span class="kw">cos</span>(<span class="dv">3</span><span class="op">*</span>t)<span class="op">-</span><span class="kw">cos</span>(<span class="dv">4</span><span class="op">*</span>t)
+dat<span class="op">$</span>y &lt;-<span class="st"> </span><span class="kw">yhrt</span>(dat<span class="op">$</span>t)
+dat<span class="op">$</span>x &lt;-<span class="st"> </span><span class="kw">xhrt</span>(dat<span class="op">$</span>t)
+<span class="kw">with</span>(dat, <span class="kw">plot</span>(x,y, <span class="dt">type=</span><span class="st">&quot;l&quot;</span>, <span class="dt">lwd=</span><span class="dv">10</span>))
+<span class="kw">with</span>(dat, <span class="kw">polygon</span>(x, y, <span class="dt">col=</span><span class="st">&quot;hotpink&quot;</span>))</code></pre>
+<div class="figure"><span id="fig:curve2"></span>
+<img src="Graficos_con_R_files/figure-html/curve2-1.png" alt="Dibujo de un cardiode." width="336" />
+<p class="caption">
+Figure 6.14: Dibujo de un cardiode.
+</p>
+</div>
+</div>
+</div>
+<div id="ejercicios-1" class="section level2 unnumbered">
+<h2>EJERCICIOS</h2>
+<ol style="list-style-type: decimal">
+<li><p>Crear un gráfico vacío de manera que el eje horizontal tome valores desde 0 a 30 y el eje vertical valores de 0 a 20, usar los pasos de la sección <a href="#emptygraph"><strong>??</strong></a> para construir el gráfico solicitado.</p></li>
+<li><p>Para el gráfico vacío creado en el paso anterior, agregar una rejilla o cuadrícula que pase por los valores enteros, use los pasos de la sección <a href="#rejper"><strong>??</strong></a> para incluir la rejilla en los valores solicitados. El gráfico resultante de los ejercicios 1 y 2 debe ser similar al presentando en la Figura <a href="funciones-auxiliares.html#fig:plantilla">6.15</a>.</p></li>
+</ol>
+<div class="figure"><span id="fig:plantilla"></span>
+<img src="Graficos_con_R_files/figure-html/plantilla-1.png" alt="Plantilla para el dibujo." width="326.4" />
+<p class="caption">
+Figure 6.15: Plantilla para el dibujo.
+</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Incluir en el gráfico vacío y con rejillas anterior el dibujo mostrado en la Figura <a href="funciones-auxiliares.html#fig:casita">6.16</a>. Use las funciones vistas en este capítulo para replicar el dibujo del paisaje e incluya colores para mejorar la apariencia del paisaje.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:casita"></span>
+<img src="images/casita.png" alt="Paisaje a dibujar." width="157" />
+<p class="caption">
+Figure 6.16: Paisaje a dibujar.
+</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Dibujar las siguientes dos líneas en un mismo gráfico, la primera de color azul y la segunda de color verde.
+<span class="math display">\[\begin{align*} 
+2x - 5y &amp;=  8 \\ 
+3x + 9y &amp;=  -12
+\end{align*}\]</span></p></li>
+<li><p>Dibujar la siguiente figura dada en forma parametrica.
+<span class="math display">\[\begin{align*} 
+x &amp;=  \cos(t) \\ 
+y &amp;=  \sen(t)
+\end{align*}\]</span></p></li>
+</ol>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="funcion-par.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="respuestas-a-preguntas-frecuentes.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/fhernanb/Graficos-con-R/edit/master/09_funciones_auxiliares.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

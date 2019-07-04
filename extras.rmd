@@ -1,0 +1,27 @@
+# Extras
+
+Por favor NO lea este capítulo, es para pruebas.
+
+```{r, eval=FALSE}
+datos <- matrix(sample(0:7,10000,
+                       prob=c(260, 354, 200, 100, 60, 20, 5, 1),
+                       replace=T), ncol=20)
+medias<-apply(datos, 1, mean)
+
+library(MASS)
+resu1 <- fitdistr(x=medias, densfun='gamma')$estimate
+resu1
+
+hist(medias, col='yellow', freq=F, las=1,
+     main='Distribución A priori Aproximada del Parámetro',
+     ylab='Densidad', xlab=expression(lambda))
+xx <- seq(0,3,length=100)
+yy <- dgamma(xx, resu1[1], rate=resu1[2])
+points(xx, yy, type='l')
+legend(1.8, 1.2, bty='n',
+       c(expression(alpha),expression(beta)))
+legend(1.87, 1.2, c('=','='), bty='n')
+resu11 <- format(resu1, digits=6) # Función format() 
+legend(1.91, 1.2, resu11, bty='n')
+```
+
