@@ -1,4 +1,4 @@
-# Gráficos para una variable cuantitativa
+# Gráficos para una variable cuantitativa {#una_cuanti}
 
 En este capítulo se presentan funciones para la creación de gráficos con una sola variable cuantitativa.
 

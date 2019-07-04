@@ -25,14 +25,14 @@ knitr::write_bib(c(
 knitr::include_graphics("images/cover.png")
 ```
 
-Este libro está destinado para estudiantes de ingeniería y estadística que deseen aprender sobre modelos de regresión y la forma de aplicarlos por medio del lenguaje de programación R.
+Este libro fue creado con la intención de ayudar a los estudiantes de pregrado, especialización, maestría e investigadores a crear gráficos estadísticos con las herramientas básicas de R.
 
 [Freddy Hernández](https://fhernanb.github.io/)  
 [Juan Carlos Correa](http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000063932)
 
 ## Estructura del libro {-}
 
-En el capítulo se presenta el modelo de regresión lineal simple y en el Capítulo se generaliza el modelo básico con varias covariables.
+En el capítulo \@ref(intro) se presenta una introducción breve de R, sus orígenes, la instalación, tipos de objetos y una guía de estilo para escribir en R. En el capítulo \@ref(una_cuanti) se muestra como construir gráficos cuando se tiene una variable cuantitativa.
 
 ## Software y convenciones {-}
 

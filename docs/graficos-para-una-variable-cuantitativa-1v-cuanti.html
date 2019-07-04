@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>2 Gráficos para una variable cuantitativa {#1v_cuanti} | Gráficos con R</title>
+  <meta name="description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="2 Gráficos para una variable cuantitativa {#1v_cuanti} | Gráficos con R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.png" />
+  <meta property="og:description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta name="github-repo" content="fhernanb/Graficos-con-R" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="2 Gráficos para una variable cuantitativa {#1v_cuanti} | Gráficos con R" />
+  
+  <meta name="twitter:description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta name="twitter:image" content="images/cover.png" />
+
+<meta name="author" content="Freddy Hernández">
+<meta name="author" content="Juan Carlos Correa">
+
+
+<meta name="date" content="2019-07-04">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="intro.html">
+<link rel="next" href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Gráficos con R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenido</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-y-convenciones"><i class="fa fa-check"></i>Software y convenciones</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#bloques-informativos"><i class="fa fa-check"></i>Bloques informativos</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="sobre-los-autores.html"><a href="sobre-los-autores.html"><i class="fa fa-check"></i>Sobre los autores</a></li>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a></li>
+<li class="chapter" data-level="2" data-path="graficos-para-una-variable-cuantitativa-1v-cuanti.html"><a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html"><i class="fa fa-check"></i><b>2</b> Gráficos para una variable cuantitativa {#1v_cuanti}</a><ul>
+<li class="chapter" data-level="2.1" data-path="graficos-para-una-variable-cuantitativa-1v-cuanti.html"><a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#funcion-stem"><i class="fa fa-check"></i><b>2.1</b> Función <code>stem</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable-cuantitativa-1v-cuanti.html"><a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="graficos-para-una-variable-cuantitativa-1v-cuanti.html"><a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#funcion-boxplot"><i class="fa fa-check"></i><b>2.2</b> Función <code>boxplot</code> </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable-cuantitativa-1v-cuanti.html"><a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable-cuantitativa-1v-cuanti.html"><a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="graficos-para-una-variable-cuantitativa-1v-cuanti.html"><a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#funcion-hist"><i class="fa fa-check"></i><b>2.3</b> Función <code>hist</code></a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable-cuantitativa-1v-cuanti.html"><a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="graficos-para-una-variable-cuantitativa-1v-cuanti.html"><a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#funcion-qqnorm-y-qqplot"><i class="fa fa-check"></i><b>2.4</b> Función <code>qqnorm</code> y <code>qqplot</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable-cuantitativa-1v-cuanti.html"><a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#ejemplo-4"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable-cuantitativa-1v-cuanti.html"><a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="graficos-para-una-variable-cuantitativa-1v-cuanti.html"><a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#funcion-density"><i class="fa fa-check"></i><b>2.5</b> Función <code>density</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable-cuantitativa-1v-cuanti.html"><a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable-cuantitativa-1v-cuanti.html"><a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-una-variable-cuantitativa-1v-cuanti.html"><a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#ejemplo-8"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><i class="fa fa-check"></i><b>3</b> Gráficos para varias variables cuantitativas {#2v_cuanti}</a><ul>
+<li class="chapter" data-level="3.1" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#funcion-plot"><i class="fa fa-check"></i><b>3.1</b> Función <code>plot</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-9"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-10"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#funcion-sunflowerplot"><i class="fa fa-check"></i><b>3.2</b> Función <code>sunflowerplot</code> </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-11"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-12"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#funcion-symbols"><i class="fa fa-check"></i><b>3.3</b> Función <code>symbols</code> </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-13"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#funcion-pairs"><i class="fa fa-check"></i><b>3.4</b> Función <code>pairs</code> </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-14"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-15"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-16"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-17"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-18"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#funcion-persp"><i class="fa fa-check"></i><b>3.5</b> Función <code>persp</code> </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-19"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-20"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#funcion-contour"><i class="fa fa-check"></i><b>3.6</b> Función <code>contour</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-21"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#funcion-filled.contour"><i class="fa fa-check"></i><b>3.7</b> Función <code>filled.contour</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-22"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-23"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#funcion-image"><i class="fa fa-check"></i><b>3.8</b> Función <code>image</code> </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-24"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#funcion-kde2d"><i class="fa fa-check"></i><b>3.9</b> Función <code>kde2d</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-25"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#funcion-interaction.plot"><i class="fa fa-check"></i><b>3.10</b> Función <code>interaction.plot</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-26"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#grafico-de-espagueti"><i class="fa fa-check"></i><b>3.11</b> Gráfico de espagueti </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-varias-variables-cuantitativas-2v-cuanti.html"><a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html#ejemplo-27"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html"><i class="fa fa-check"></i><b>4</b> Gráficos para variables cualitativas</a><ul>
+<li class="chapter" data-level="4.1" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html#funcion-barplot"><i class="fa fa-check"></i><b>4.1</b> Función <code>barplot</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html#ejemplo-28"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html#ejemplo-29"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html#funcion-pie"><i class="fa fa-check"></i><b>4.2</b> Función <code>pie</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html#ejemplo-30"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html#funcion-dotchart"><i class="fa fa-check"></i><b>4.3</b> Función <code>dotchart</code>  </a><ul>
+<li class="chapter" data-level="" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html#ejemplo-31"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html#ejemplo-32"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="graficos-para-variables-cualitativas.html"><a href="graficos-para-variables-cualitativas.html#ejercicios"><i class="fa fa-check"></i>EJERCICIOS</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="funcion-par.html"><a href="funcion-par.html"><i class="fa fa-check"></i><b>5</b> Función <code>par</code></a><ul>
+<li class="chapter" data-level="5.1" data-path="funcion-par.html"><a href="funcion-par.html#parametro-ann"><i class="fa fa-check"></i><b>5.1</b> Parámetro <code>ann</code>  </a><ul>
+<li class="chapter" data-level="" data-path="funcion-par.html"><a href="funcion-par.html#ejemplo-33"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="funcion-par.html"><a href="funcion-par.html#parametro-adj"><i class="fa fa-check"></i><b>5.2</b> Parámetro <code>adj</code>  </a><ul>
+<li class="chapter" data-level="" data-path="funcion-par.html"><a href="funcion-par.html#ejemplo-34"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="funcion-par.html"><a href="funcion-par.html#parametro-bg"><i class="fa fa-check"></i><b>5.3</b> Parámetro <code>bg</code>  </a><ul>
+<li class="chapter" data-level="" data-path="funcion-par.html"><a href="funcion-par.html#ejemplo-35"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="funcion-par.html"><a href="funcion-par.html#parametro-mfrow"><i class="fa fa-check"></i><b>5.4</b> Parámetro <code>mfrow</code>  </a><ul>
+<li class="chapter" data-level="" data-path="funcion-par.html"><a href="funcion-par.html#ejemplo-36"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="funcion-par.html"><a href="funcion-par.html#parametro-bty"><i class="fa fa-check"></i><b>5.5</b> Parámetro <code>bty</code>  </a><ul>
+<li class="chapter" data-level="" data-path="funcion-par.html"><a href="funcion-par.html#ejemplo-37"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="funcion-par.html"><a href="funcion-par.html#parametro-cex"><i class="fa fa-check"></i><b>5.6</b> Parámetro <code>cex</code>  </a><ul>
+<li class="chapter" data-level="" data-path="funcion-par.html"><a href="funcion-par.html#ejemplo-38"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.7" data-path="funcion-par.html"><a href="funcion-par.html#parametros-cex.axis-cex.lab-cex.main-y-cex.sub"><i class="fa fa-check"></i><b>5.7</b> Parámetros <code>cex.axis</code>, <code>cex.lab</code>, <code>cex.main</code> y <code>cex.sub</code>    </a><ul>
+<li class="chapter" data-level="" data-path="funcion-par.html"><a href="funcion-par.html#ejemplo-39"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="funcion-par.html"><a href="funcion-par.html#parametro-col-col.axis-col.lab-col.main-y-col.sub"><i class="fa fa-check"></i><b>5.8</b> Parámetro <code>col</code>, <code>col.axis</code>, <code>col.lab</code>, <code>col.main</code> y <code>col.sub</code>  </a><ul>
+<li class="chapter" data-level="" data-path="funcion-par.html"><a href="funcion-par.html#ejemplo-40"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html"><i class="fa fa-check"></i><b>6</b> Funciones auxiliares</a><ul>
+<li class="chapter" data-level="6.1" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#funcion-segments"><i class="fa fa-check"></i><b>6.1</b> Función <code>segments</code>  </a></li>
+<li class="chapter" data-level="6.2" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#funcion-rect"><i class="fa fa-check"></i><b>6.2</b> Función <code>rect</code>  </a></li>
+<li class="chapter" data-level="6.3" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#funcion-polygon"><i class="fa fa-check"></i><b>6.3</b> Función <code>polygon</code>  </a></li>
+<li class="chapter" data-level="6.4" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#funcion-abline"><i class="fa fa-check"></i><b>6.4</b> Función <code>abline</code> </a></li>
+<li class="chapter" data-level="6.5" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#para-dibujar-un-circulo"><i class="fa fa-check"></i><b>6.5</b> Para dibujar un círculo </a></li>
+<li class="chapter" data-level="6.6" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#funcion-arrows"><i class="fa fa-check"></i><b>6.6</b> Función <code>arrows</code>  </a></li>
+<li class="chapter" data-level="6.7" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#funcion-grid"><i class="fa fa-check"></i><b>6.7</b> Función <code>grid</code>  </a></li>
+<li class="chapter" data-level="6.8" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#funcion-points"><i class="fa fa-check"></i><b>6.8</b> Función <code>points</code>  </a></li>
+<li class="chapter" data-level="6.9" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#funcion-curve"><i class="fa fa-check"></i><b>6.9</b> Función <code>curve</code>  </a><ul>
+<li class="chapter" data-level="" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#ejemplo-41"><i class="fa fa-check"></i>Ejemplo</a></li>
+<li class="chapter" data-level="" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#ejemplo-42"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="funciones-auxiliares.html"><a href="funciones-auxiliares.html#ejercicios-1"><i class="fa fa-check"></i>EJERCICIOS</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html"><i class="fa fa-check"></i><b>7</b> Respuestas a preguntas frecuentes</a><ul>
+<li class="chapter" data-level="7.1" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html#como-crear-un-grafico-vacio"><i class="fa fa-check"></i><b>7.1</b> ¿Cómo crear un gráfico vacío? </a></li>
+<li class="chapter" data-level="7.2" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html#como-personalizar-los-valores-a-mostrar-en-los-ejes"><i class="fa fa-check"></i><b>7.2</b> ¿Cómo personalizar los valores a mostrar en los ejes?</a></li>
+<li class="chapter" data-level="7.3" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html#como-dibujar-varios-qqplot-en-una-misma-figura"><i class="fa fa-check"></i><b>7.3</b> ¿Cómo dibujar varios QQplot en una misma figura?</a></li>
+<li class="chapter" data-level="7.4" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html#como-dibujar-varias-densidades-en-una-misma-figura"><i class="fa fa-check"></i><b>7.4</b> ¿Cómo dibujar varias densidades en una misma figura?</a></li>
+<li class="chapter" data-level="7.5" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html#como-dibujar-varias-densidades-transparentes-en-una-misma-figura"><i class="fa fa-check"></i><b>7.5</b> ¿Cómo dibujar varias densidades transparentes en una misma figura?</a></li>
+<li class="chapter" data-level="7.6" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html#como-incluir-una-rejilla-a-una-figura-en-ciertos-puntos"><i class="fa fa-check"></i><b>7.6</b> ¿Cómo incluir una rejilla a una figura en ciertos puntos? </a></li>
+<li class="chapter" data-level="7.7" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html#como-incluir-en-un-grafico-valores-en-forma-automatica"><i class="fa fa-check"></i><b>7.7</b> ¿Cómo incluir en un gráfico valores en forma automática?</a></li>
+<li class="chapter" data-level="7.8" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html#como-incluir-en-un-grafico-varios-valores-en-forma-automatica"><i class="fa fa-check"></i><b>7.8</b> ¿Cómo incluir en un gráfico varios valores en forma automática?</a></li>
+<li class="chapter" data-level="7.9" data-path="respuestas-a-preguntas-frecuentes.html"><a href="respuestas-a-preguntas-frecuentes.html#como-incluir-colores-dependiendo-de-los-valores-de-una-variable-cualitativa"><i class="fa fa-check"></i><b>7.9</b> ¿Cómo incluir colores dependiendo de los valores de una variable cualitativa?</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="extras.html"><a href="extras.html"><i class="fa fa-check"></i><b>8</b> Extras</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Gráficos con R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="graficos-para-una-variable-cuantitativa-1v_cuanti" class="section level1">
+<h1><span class="header-section-number">2</span> Gráficos para una variable cuantitativa {#1v_cuanti}</h1>
+<p>En este capítulo se presentan funciones para la creación de gráficos con una sola variable cuantitativa.</p>
+<div id="funcion-stem" class="section level2">
+<h2><span class="header-section-number">2.1</span> Función <code>stem</code>  </h2>
+<p>Esta función permite crear el gráfico llamado de tallo y hoja. Este gráfico fue propuesto por Tukey (1977) y a pesar de no ser un gráfico para presentación definitiva, se utiliza a la vez que el analista recoge la información para ver rápidamente la distribución de los datos.</p>
+<p>¿Qué muestra este gráfico?</p>
+<ol style="list-style-type: decimal">
+<li>El centro de la distribución.</li>
+<li>La forma general de la distribución:
+<ul>
+<li>Simétrica: Si las porciones a cada lado del centro son imágenes espejos de las otras.</li>
+<li>Sesgada a la izquierda: Si la cola izquierda (los valores menores) es mucho más larga que los de la derecha (los valores mayores).</li>
+<li>Sesgada a la derecha: Opuesto a la sesgada a la izquierda.</li>
+</ul></li>
+<li>Desviaciones marcadas de la forma global de la distribución.
+<ul>
+<li>Outliers: Observaciones individuales que caen muy por fuera del patrón general de los datos.</li>
+<li>Gaps: Huecos en la distribución</li>
+</ul></li>
+</ol>
+<p>Ventajas del gráfico:</p>
+<ol style="list-style-type: decimal">
+<li>Muy fácil de realizar y puede hacerse a mano.</li>
+<li>Fácil de entender.</li>
+</ol>
+<p>Desventajas del gráfico:</p>
+<ol style="list-style-type: decimal">
+<li>El gráfico es tosco y no sirve para presentaciones definitivas.</li>
+<li>Funciona cuando el número de observaciones no es muy grande.</li>
+<li>No permite comparar claramente diferentes poblaciones</li>
+</ol>
+<div id="ejemplo" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Como ilustración vamos a crear el gráfico de tallo y hoja para la variable altura (cm) de un grupo de estudiantes de la universidad. Primero se leerán los datos disponibles en github y luego se usará la función <code>stem</code> para obtener el gráfico. A continuación el código usado.</p>
+<pre class="sourceCode r"><code class="sourceCode r">url &lt;-<span class="st"> &#39;https://tinyurl.com/k55nnlu&#39;</span>
+datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)
+<span class="kw">stem</span>(datos<span class="op">$</span>altura)</code></pre>
+<pre><code>## 
+##   The decimal point is 1 digit(s) to the right of the |
+## 
+##   14 | 7
+##   15 | 3
+##   15 | 679
+##   16 | 0001
+##   16 | 68888
+##   17 | 001334
+##   17 | 5678899
+##   18 | 000033
+##   18 | 88
+##   19 | 1</code></pre>
+<p>De este gráfico sencillo se puede ver que la variable presenta una mayor frecuencia para alturas ente 170 y 179 cm y que no tiene una distribución simétrica.</p>
+</div>
+</div>
+<div id="funcion-boxplot" class="section level2">
+<h2><span class="header-section-number">2.2</span> Función <code>boxplot</code> </h2>
+<p>La función <code>boxplot</code> sirve para crear un diagrama de cajas y bigote para una variable cuantitativa. La estructura de la función <code>boxplot</code> con los argumentos más comunes de uso se muestran a continuación.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(x, formula, data, subset, na.action,
+        range, width, varwidth, notch, names, 
+        plot, col, log, horizontal, add, ...)</code></pre>
+<p>Los argumentos de la función <code>boxplot</code> son:</p>
+<ul>
+<li><code>x</code>: vector numérico con los datos para crear el boxplot.</li>
+<li><code>formula</code>: fórmula con la estructura <code>x ~ g</code> para indicar que las observaciones en el vector <code>x</code> van a ser agrupadas de acuerdo a los niveles del factor <code>g</code>.</li>
+<li><code>data</code>: marco de datos con las variables.</li>
+<li><code>subset</code>: un vector opcional para especificar un subconjunto de observaciones a ser usadas en el proceso de ajuste.</li>
+<li><code>na.action</code>: una función la cual indica lo que debería pasar cuando los datos contienen ``NA’s’’.</li>
+<li><code>range</code>: valor numérico que indica la extensión de los bigotes. Si es positivo, los bigotes se extenderán hasta el punto más extremo de tal manera que el bigote no supere  veces el rango intercuatílico (<span class="math inline">\(IQ\)</span>). Un valor de cero hace que los bigotes se extiendan hasta los datos extremos.</li>
+<li><code>width</code>: un vector con los anchos relativos de las cajas.</li>
+<li><code>varwidth</code>: Si es <code>TRUE</code>, las cajas son dibujadas con anchos proporcionales a las raíces cuadradas del número de observaciones en los grupos.</li>
+<li><code>notch</code>: si es <code>TRUE</code>, una cuña es dibujada a cada lado de las cajas. Cuando las cuñas de dos gráficos de caja no se traslapan, entonces las medianas son significativamente diferentes a un nivel del 5%.</li>
+<li><code>names</code>: un con las etiquetas a ser impresas debajo de cada boxplot.</li>
+<li><code>plot</code>: si es <code>TRUE</code> (por defecto) entonces se produce el gráfico, de lo contrario, se producen los resúmenes de los boxplots.</li>
+<li><code>col</code>: vector con los colores a usar en el cuerpo de las cajas.</li>
+<li><code>log</code>: para indicar si las coordenadas <code>x</code> o <code>y</code> o serán graficadas en escala logarítmica.</li>
+<li><code>...</code>: otros parámetros gráficos que pueden ser pasados como argumentos para el boxplot.</li>
+</ul>
+<div id="ejemplo-1" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Como ilustración vamos a crear dos boxplot para la variable altura (cm) de un grupo de estudiantes de la universidad, el primer boxplot será vertical y el segundo horizontal. Primero se leerán los datos disponibles en github y luego se usará la función <code>boxplot</code> para obtener ambos gráfico. A continuación el código usado.</p>
+<pre class="sourceCode r"><code class="sourceCode r">url &lt;-<span class="st"> &#39;https://tinyurl.com/k55nnlu&#39;</span>
+datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)
+
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
+<span class="kw">boxplot</span>(<span class="dt">x=</span>datos<span class="op">$</span>altura, <span class="dt">ylab=</span><span class="st">&#39;Altura (cm)&#39;</span>)
+<span class="kw">boxplot</span>(<span class="dt">x=</span>datos<span class="op">$</span>altura, <span class="dt">xlab=</span><span class="st">&#39;Altura (cm)&#39;</span>, <span class="dt">horizontal=</span><span class="ot">TRUE</span>)</code></pre>
+<div class="figure"><span id="fig:boxplots"></span>
+<img src="Graficos_con_R_files/figure-html/boxplots-1.png" alt="Boxplot para la variable altura." width="672" />
+<p class="caption">
+Figure 2.1: Boxplot para la variable altura.
+</p>
+</div>
+<p>En la Figura <a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#fig:boxplots">2.1</a> se presentan los boxplots obtenidos con las instrucciones anteriores. El segundo y tercer boxplot son el mismo, lo único que se modificó fueron los nombres o etiquetas a colocar debajo de cada boxplot por medio del argumento <code>names</code> y la orientación.</p>
+</div>
+<div id="ejemplo-2" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>
+Es posible crear boxplots comparativos usando 1 o 2 variables cualitativas. A continuación se construyen dos boxplots para la variable precio de apartamentos usados en Medellín. En el primer boxtplot diferencia por la variable balcón (no, si) y en el segundo se diferencia por los cruces de las variables parqueadero y ubicación (en Laureles y Poblado).</p>
+<p>A continuación se muestra el código necesario para construir los boxplots. En el primero se usa la fórmula <code>precio ~ balcon</code> para crear el boxplot del precio diferenciando por los dos niveles de la variable balcón. En el segundo se usa la fórmula <code>precio ~ ubicacion * parqueadero</code> pero se limitan las ubicaciones a sólo dos, Laureles y Aburrá sur, por esa razón se usa el parámetro <code>subset</code> para incluir la restricción. Se agregó también <code>drop=TRUE</code> para que en el segundo boxplot no aparezcan las otras ubicaciones.</p>
+<pre class="sourceCode r"><code class="sourceCode r">url &lt;-<span class="st"> &#39;https://tinyurl.com/hwhb769&#39;</span>
+datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(url, <span class="dt">header=</span>T)
+
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
+<span class="kw">boxplot</span>(precio <span class="op">~</span><span class="st"> </span>balcon, <span class="dt">data=</span>datos,
+        <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;lightblue&#39;</span>, <span class="st">&#39;pink&#39;</span>),
+        <span class="dt">xlab=</span><span class="st">&#39;¿Tiene balcón?&#39;</span>, <span class="dt">main=</span><span class="st">&#39;(a)&#39;</span>,
+        <span class="dt">ylab=</span><span class="st">&#39;Precio (millones $)&#39;</span>)
+
+<span class="kw">boxplot</span>(precio <span class="op">~</span><span class="st"> </span>ubicacion <span class="op">*</span><span class="st"> </span>parqueadero,
+        <span class="dt">data=</span>datos, <span class="dt">drop=</span><span class="ot">TRUE</span>, <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;lightblue&#39;</span>, <span class="st">&#39;pink&#39;</span>),
+        <span class="dt">subset=</span>ubicacion <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;laureles&#39;</span>, <span class="st">&#39;aburra sur&#39;</span>),
+        <span class="dt">xlab=</span><span class="st">&#39;Ubicación y parqueadero&#39;</span>,
+        <span class="dt">ylab=</span><span class="st">&#39;Precio (millones $)&#39;</span>, <span class="dt">main=</span><span class="st">&#39;(b)&#39;</span>)</code></pre>
+<div class="figure"><span id="fig:boxplots2"></span>
+<img src="Graficos_con_R_files/figure-html/boxplots2-1.png" alt="Boxplot para la variable precio del apartamento. En el pánel (a) de condiciona por la variable balcón y en el pánel (b) por las combinaciones de las variables ubicación y parqueadero." width="1152" />
+<p class="caption">
+Figure 2.2: Boxplot para la variable precio del apartamento. En el pánel (a) de condiciona por la variable balcón y en el pánel (b) por las combinaciones de las variables ubicación y parqueadero.
+</p>
+</div>
+<p>En la Figura <a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#fig:boxplots2">2.2</a> se muestran los boxplots. Se le recomienda al lector construir nuevamente el segundo boxplot pero eliminando <code>drop=TRUE</code> para que vea el efecto que tiene sobre el dibujo.</p>
+</div>
+</div>
+<div id="funcion-hist" class="section level2">
+<h2><span class="header-section-number">2.3</span> Función <code>hist</code></h2>
+<p>La función <code>hist</code> sirve para crear el histograma  a una variable cuantitativa. Como argumentos esta función recibe un vector con los datos y opcionalmente puede ingresarse como argumento adicional el número de intervalos a ser graficados o en su defecto el número de intervalos se determina con la fórmula de Sturges.</p>
+
+<div class="rmdtip">
+Los programas de computador usualmente construyen los histogramas automáticamente, sin embargo, un buen programa debe permitirnos elegir el número de intervalos del histograma. Si usted posee un programa que no le permite hacer cambios, cambie de programa.
+</div>
+
+<p>La estructura de la función <code>hist</code> con los argumentos más comunes de uso se muestran a continuación.</p>
+<ul>
+<li><code>x</code>: vector numérico de valores para construir el histograma.</li>
+<li><code>breaks</code>: puede ser un número entero que indica el número aproximado de clases o un vector cuyos elementos indican los límites de los intervalos.</li>
+<li><code>freq</code>: argumento lógico; si se especifica como <code>TRUE</code>, el histograma presentará frecuencias absolutas o conteo de datos para cada intervalo; si se especifica como <code>FALSE</code> el histograma presentar las frecuencias relativas (en porcentaje). Por defecto, este argumento toma el valor de <code>TRUE</code> siempre y cuando los intervalos sean de igual ancho.</li>
+<li><code>include.lowest</code>: argumento lógico; si se especifica como <code>TRUE</code>, un <code>x[i]</code> igual a los equal a un valor <code>breaks</code> se incluirá en la primera barra, si el argumento <code>right = TRUE</code>, o en la última en caso contrario.</li>
+<li><code>right</code>: argumento lógico; si es <code>TRUE</code>, los intervalos son abiertos a la izquierda y cerrados a la derecha <span class="math inline">\((a,b]\)</span>. Para la primera clase o intervalo si <code>include.lowest=TRUE</code> el valor más pequeño de los datos será incluido en éste. Si es <code>FALSE</code> los intervalos serán de la forma <span class="math inline">\([a,b)\)</span> y el argumento <code>include.lowest=TRUE</code> tendrá el significado de incluir el ``más alto’’.</li>
+<li><code>col</code>: para definir el color de las barras. Por defecto, <code>NULL</code> produce barras sin fondo.</li>
+<li><code>border</code>: para definir el color de los bordes de las barras.</li>
+<li><code>plot</code>: argumento lógico. Por defecto es <code>TRUE</code>, y el resultado es el gráfico del histograma; si se especifica como <code>FALSE</code> el resultado es una lista de conteos por cada intervalo.</li>
+<li><code>labels</code>: argumento lógico o carácter. Si se especifica como <code>TRUE</code> coloca etiquetas arriba de cada barra.</li>
+<li><code>...</code>: parámetros gráficos adicionales a <code>title</code> y <code>axis</code>.</li>
+</ul>
+<div id="ejemplo-3" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Vamos a construir varios histogramas para los tiempos de 180 corredores de la media maratón de CONAVI realizada hace algunos años. A continuación se muestra la forma de ingresar los 180 datos.</p>
+<pre class="sourceCode r"><code class="sourceCode r">maraton &lt;-<span class="st"> </span><span class="kw">c</span>(
+<span class="dv">10253</span>, <span class="dv">10302</span>, <span class="dv">10307</span>, <span class="dv">10309</span>, <span class="dv">10349</span>, <span class="dv">10353</span>, <span class="dv">10409</span>, <span class="dv">10442</span>, <span class="dv">10447</span>, 
+<span class="dv">10452</span>, <span class="dv">10504</span>, <span class="dv">10517</span>, <span class="dv">10530</span>, <span class="dv">10540</span>, <span class="dv">10549</span>, <span class="dv">10549</span>, <span class="dv">10606</span>, <span class="dv">10612</span>, 
+<span class="dv">10646</span>, <span class="dv">10648</span>, <span class="dv">10655</span>, <span class="dv">10707</span>, <span class="dv">10726</span>, <span class="dv">10731</span>, <span class="dv">10737</span>, <span class="dv">10743</span>, <span class="dv">10808</span>, 
+<span class="dv">10833</span>, <span class="dv">10843</span>, <span class="dv">10920</span>, <span class="dv">10938</span>, <span class="dv">10949</span>, <span class="dv">10954</span>, <span class="dv">10956</span>, <span class="dv">10958</span>, <span class="dv">11004</span>, 
+<span class="dv">11009</span>, <span class="dv">11024</span>, <span class="dv">11037</span>, <span class="dv">11045</span>, <span class="dv">11046</span>, <span class="dv">11049</span>, <span class="dv">11104</span>, <span class="dv">11127</span>, <span class="dv">11205</span>, 
+<span class="dv">11207</span>, <span class="dv">11215</span>, <span class="dv">11226</span>, <span class="dv">11233</span>, <span class="dv">11239</span>, <span class="dv">11307</span>, <span class="dv">11330</span>, <span class="dv">11342</span>, <span class="dv">11351</span>, 
+<span class="dv">11405</span>, <span class="dv">11413</span>, <span class="dv">11438</span>, <span class="dv">11453</span>, <span class="dv">11500</span>, <span class="dv">11501</span>, <span class="dv">11502</span>, <span class="dv">11503</span>, <span class="dv">11527</span>, 
+<span class="dv">11544</span>, <span class="dv">11549</span>, <span class="dv">11559</span>, <span class="dv">11612</span>, <span class="dv">11617</span>, <span class="dv">11635</span>, <span class="dv">11655</span>, <span class="dv">11731</span>, <span class="dv">11735</span>,
+<span class="dv">11746</span>, <span class="dv">11800</span>, <span class="dv">11814</span>, <span class="dv">11828</span>, <span class="dv">11832</span>, <span class="dv">11841</span>, <span class="dv">11909</span>, <span class="dv">11926</span>, <span class="dv">11937</span>, 
+<span class="dv">11940</span>, <span class="dv">11947</span>, <span class="dv">11952</span>, <span class="dv">12005</span>, <span class="dv">12044</span>, <span class="dv">12113</span>, <span class="dv">12209</span>, <span class="dv">12230</span>, <span class="dv">12258</span>, 
+<span class="dv">12309</span>, <span class="dv">12327</span>, <span class="dv">12341</span>, <span class="dv">12413</span>, <span class="dv">12433</span>, <span class="dv">12440</span>, <span class="dv">12447</span>, <span class="dv">12530</span>, <span class="dv">12600</span>, 
+<span class="dv">12617</span>, <span class="dv">12640</span>, <span class="dv">12700</span>, <span class="dv">12706</span>, <span class="dv">12727</span>, <span class="dv">12840</span>, <span class="dv">12851</span>, <span class="dv">12851</span>, <span class="dv">12937</span>,
+<span class="dv">13019</span>, <span class="dv">13040</span>, <span class="dv">13110</span>, <span class="dv">13114</span>, <span class="dv">13122</span>, <span class="dv">13155</span>, <span class="dv">13205</span>, <span class="dv">13210</span>, <span class="dv">13220</span>, 
+<span class="dv">13228</span>, <span class="dv">13307</span>, <span class="dv">13316</span>, <span class="dv">13335</span>, <span class="dv">13420</span>, <span class="dv">13425</span>, <span class="dv">13435</span>, <span class="dv">13435</span>, <span class="dv">13448</span>, 
+<span class="dv">13456</span>, <span class="dv">13536</span>, <span class="dv">13608</span>, <span class="dv">13612</span>, <span class="dv">13620</span>, <span class="dv">13646</span>, <span class="dv">13705</span>, <span class="dv">13730</span>, <span class="dv">13730</span>, 
+<span class="dv">13730</span>, <span class="dv">13747</span>, <span class="dv">13810</span>, <span class="dv">13850</span>, <span class="dv">13854</span>, <span class="dv">13901</span>, <span class="dv">13905</span>, <span class="dv">13907</span>, <span class="dv">13912</span>,
+<span class="dv">13920</span>, <span class="dv">14000</span>, <span class="dv">14010</span>, <span class="dv">14025</span>, <span class="dv">14152</span>, <span class="dv">14208</span>, <span class="dv">14230</span>, <span class="dv">14344</span>, <span class="dv">14400</span>, 
+<span class="dv">14455</span>, <span class="dv">14509</span>, <span class="dv">14552</span>, <span class="dv">14652</span>, <span class="dv">15009</span>, <span class="dv">15026</span>, <span class="dv">15242</span>, <span class="dv">15406</span>, <span class="dv">15409</span>, 
+<span class="dv">15528</span>, <span class="dv">15549</span>, <span class="dv">15644</span>, <span class="dv">15758</span>, <span class="dv">15837</span>, <span class="dv">15916</span>, <span class="dv">15926</span>, <span class="dv">15948</span>, <span class="dv">20055</span>, 
+<span class="dv">20416</span>, <span class="dv">20520</span>, <span class="dv">20600</span>, <span class="dv">20732</span>, <span class="dv">20748</span>, <span class="dv">20916</span>, <span class="dv">21149</span>, <span class="dv">21714</span>, <span class="dv">23256</span>)</code></pre>
+<p>Los datos están codificados como por seis números en el formato hmmss, donde h corresponde a las horas, mm a los minutos y ss a los segundos necesarios para completar la maratón. Antes de construir los histogramas es necesario convertir los tiempos anteriores almacenados en <code>maraton</code> a horas, para esto se utiliza el siguiente código.</p>
+<pre class="sourceCode r"><code class="sourceCode r">horas &lt;-<span class="st"> </span>maraton <span class="op">%/%</span><span class="st"> </span><span class="dv">10000</span>
+min &lt;-<span class="st"> </span>(maraton <span class="op">-</span><span class="st"> </span>horas <span class="op">*</span><span class="st"> </span><span class="dv">10000</span>) <span class="op">%/%</span><span class="st"> </span><span class="dv">100</span>
+seg &lt;-<span class="st"> </span>maraton <span class="op">-</span><span class="st"> </span>horas <span class="op">*</span><span class="st"> </span><span class="dv">10000</span> <span class="op">-</span><span class="st"> </span>min <span class="op">*</span><span class="st"> </span><span class="dv">100</span>
+Tiempos &lt;-<span class="st"> </span>horas <span class="op">+</span><span class="st"> </span>min <span class="op">/</span><span class="st"> </span><span class="dv">60</span> <span class="op">+</span><span class="st"> </span>seg <span class="op">/</span><span class="st"> </span><span class="dv">3600</span></code></pre>
+<p>A continuación se muestra el código para construir cuatro histogramas con 2, 4, 8 y 16 intervalos para los tiempos a partir de la variable <code>Tiempos</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))
+
+<span class="kw">hist</span>(<span class="dt">x=</span>Tiempos, <span class="dt">breaks=</span><span class="dv">2</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Tiempo (horas)&quot;</span>,
+     <span class="dt">ylab=</span><span class="st">&quot;Frecuencias&quot;</span>, <span class="dt">las=</span><span class="dv">1</span>)
+<span class="kw">mtext</span>(<span class="st">&quot;(A)&quot;</span>, <span class="dt">side=</span><span class="dv">1</span>, <span class="dt">line=</span><span class="dv">4</span>, <span class="dt">font=</span><span class="dv">1</span>)
+
+<span class="kw">hist</span>(<span class="dt">x=</span>Tiempos, <span class="dt">breaks=</span><span class="dv">4</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Tiempo (horas)&quot;</span>,
+     <span class="dt">ylab=</span><span class="st">&quot;Frecuencias&quot;</span>, <span class="dt">las=</span><span class="dv">1</span>)
+<span class="kw">mtext</span>(<span class="st">&quot;(B)&quot;</span>, <span class="dt">side=</span><span class="dv">1</span>, <span class="dt">line=</span><span class="dv">4</span>, <span class="dt">font=</span><span class="dv">1</span>)
+
+<span class="kw">hist</span>(<span class="dt">x=</span>Tiempos, <span class="dt">breaks=</span><span class="dv">8</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Tiempo (horas)&quot;</span>,
+     <span class="dt">ylab=</span><span class="st">&quot;Frecuencias&quot;</span>)
+<span class="kw">mtext</span>(<span class="st">&quot;(C)&quot;</span>, <span class="dt">side=</span><span class="dv">1</span>, <span class="dt">line=</span><span class="dv">4</span>, <span class="dt">font=</span><span class="dv">1</span>)
+
+<span class="kw">hist</span>(<span class="dt">x=</span>Tiempos, <span class="dt">breaks=</span><span class="dv">16</span>, <span class="dt">main=</span><span class="st">&quot;&quot;</span>, <span class="dt">xlab=</span><span class="st">&quot;Tiempo (horas)&quot;</span>,
+     <span class="dt">ylab=</span><span class="st">&quot;Frecuencias&quot;</span>)
+<span class="kw">mtext</span>(<span class="st">&quot;(D)&quot;</span>, <span class="dt">side=</span><span class="dv">1</span>, <span class="dt">line=</span><span class="dv">4</span>, <span class="dt">font=</span><span class="dv">1</span>)</code></pre>
+<div class="figure"><span id="fig:hist1"></span>
+<img src="Graficos_con_R_files/figure-html/hist1-1.png" alt="Histogramas para el tiempo en la media maratón de CONAVI. A: histograma con dos intervalos, B: histograma con cuatro intervalos, C: histograma con seis intervalos, C: histograma con 18 intervalos." width="672" />
+<p class="caption">
+Figure 2.3: Histogramas para el tiempo en la media maratón de CONAVI. A: histograma con dos intervalos, B: histograma con cuatro intervalos, C: histograma con seis intervalos, C: histograma con 18 intervalos.
+</p>
+</div>
+<p>En la Figura <a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#fig:hist1">2.3</a> se presentan los cuatro histogramas. El histograma C, con 8 barras, muestra más claramente la asimetría (este es el que la mayoría de los programas produce por defecto, ya que la regla de Sturges para este conjunto de datos aproxima a 8 barras). Si consideramos más barras por ejemplo 16, como tenemos en D, se refina más la información y empezamos a notar multimodalidad. En el código anterior se incluyó <code>las = 1</code> para conseguir que los número del eje Y queden escritos de forma horizontal, ver A y B en Figura <a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#fig:hist1">2.3</a>.</p>
+<p>A continuación vamos a construir cuatro histogramas: el primero con dos intervalos intervalos y puntos de corte dados por el mínimo, la mediana y el máximo; el segundo con tres intervalos y puntos de corte dados por el mínimo, cuartiles 1, 2, 3 y máximo; el cuarto con diez intervalos y puntos de corte dados por los deciles; y el último con veinte intervalos y puntos de corte dados por cuantiles 5, 10, <span class="math inline">\(\ldots\)</span>, 95. En el código mostrado a continuación se presenta la creación de los puntos de corte y los cuatro histogramas.</p>
+<pre class="sourceCode r"><code class="sourceCode r">puntos1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">quantile</span>(Tiempos, <span class="dt">probs=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.5</span>, <span class="dv">1</span>)))
+puntos2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">quantile</span>(Tiempos, <span class="dt">probs=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span>, <span class="dv">1</span>)))
+puntos3 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">quantile</span>(Tiempos, <span class="dt">probs=</span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dt">by=</span><span class="fl">0.1</span>)))
+puntos4 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="kw">quantile</span>(Tiempos, <span class="dt">probs=</span><span class="kw">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dt">by=</span><span class="fl">0.05</span>)))
+
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
+<span class="kw">hist</span>(Tiempos, <span class="dt">breaks=</span>puntos1, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">2</span>), <span class="dt">labels=</span><span class="ot">TRUE</span>,
+     <span class="dt">main=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Densidad&quot;</span>)
+<span class="kw">mtext</span>(<span class="st">&quot;(A)&quot;</span>, <span class="dt">side=</span><span class="dv">1</span>, <span class="dt">line=</span><span class="dv">4</span>, <span class="dt">font=</span><span class="dv">1</span>)
+<span class="kw">hist</span>(Tiempos, <span class="dt">breaks=</span>puntos2, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">2</span>), <span class="dt">labels=</span><span class="ot">TRUE</span>,
+     <span class="dt">main=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Densidad&quot;</span>)
+<span class="kw">mtext</span>(<span class="st">&quot;(B)&quot;</span>, <span class="dt">side=</span><span class="dv">1</span>, <span class="dt">line=</span><span class="dv">4</span>, <span class="dt">font=</span><span class="dv">1</span>)
+<span class="kw">hist</span>(Tiempos, <span class="dt">breaks=</span>puntos3, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">2</span>),
+     <span class="dt">main=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Densidad&quot;</span>)
+<span class="kw">mtext</span>(<span class="st">&quot;(C)&quot;</span>, <span class="dt">side=</span><span class="dv">1</span>, <span class="dt">line=</span><span class="dv">4</span>, <span class="dt">font=</span><span class="dv">1</span>)
+<span class="kw">hist</span>(Tiempos, <span class="dt">breaks=</span>puntos4, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">2</span>),
+     <span class="dt">main=</span><span class="st">&quot;&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Densidad&quot;</span>)
+<span class="kw">mtext</span>(<span class="st">&quot;(D)&quot;</span>, <span class="dt">side=</span><span class="dv">1</span>, <span class="dt">line=</span><span class="dv">4</span>, <span class="dt">font=</span><span class="dv">1</span>)</code></pre>
+<div class="figure"><span id="fig:hist2"></span>
+<img src="Graficos_con_R_files/figure-html/hist2-1.png" alt="Histogramas para el tiempo en la media maratón de CONAVI. A: histograma con dos intervalos, B: histograma con cuatro intervalos, C: histograma con diez intervalos, C: histograma con veinte intervalos." width="672" />
+<p class="caption">
+Figure 2.4: Histogramas para el tiempo en la media maratón de CONAVI. A: histograma con dos intervalos, B: histograma con cuatro intervalos, C: histograma con diez intervalos, C: histograma con veinte intervalos.
+</p>
+</div>
+<p>Nota: En estos histogramas, las alturas corresponden a las intensidades (frec. relativa/long. intervalo). Por tanto, el área de cada rectángulo da cuenta de las frecuencias relativas. Para el caso (A) ambos intervalos tienen igual área y cada uno contiene 50% de los datos. esto puede verificarse así:</p>
+<pre><code>Intensidad primera clase = 1.4869888 = 0.5 / (1.384306 - 1.048056)
+Intensidad segunda clase = 0.4293381 = 0.5 / (2.548889 - 1.384306)</code></pre>
+</div>
+</div>
+<div id="funcion-qqnorm-y-qqplot" class="section level2">
+<h2><span class="header-section-number">2.4</span> Función <code>qqnorm</code> y <code>qqplot</code>  </h2>
+<p>Los gráficos cuantil cuantil (quantile-quantile plot) son una ayuda para explorar si un conjunto de datos o muestra proviene de una población con cierta distribución.</p>
+<p>La función <code>qqnorm</code> sirve para explorar la normalidad de una muestra mientras que la función <code>qqplot</code> es de propósito más general, sirve para crear el gráfico cuantil cuantil para cualquier distribución.</p>
+<p>La estructura de las funciones con los argumentos más comunes de uso se muestran a continuación.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">qqnorm</span>(y, ...)
+<span class="kw">qqplot</span>(y, x, ...)</code></pre>
+<p>La función <code>qqnorm</code> sólo necesita que se le ingrese el vector con la muestra por medio del parámetro <code>y</code>, la función <code>qqplot</code> necesita de la muestra en el parámetro <code>y</code> y que se ingrese en el parámetro <code>x</code> los cuantiles de la población candidata.</p>
+<p>Existe otra función útil y es <code>qqline</code>, esta función sirve para agregar una línea de referencia al gráfico cuantil cuantil obtenido con <code>qqnorm</code>.</p>
+<div id="ejemplo-4" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Simular 30 observaciones de una distribución <span class="math inline">\(N(\mu=10, \sigma=4)\)</span> y construir el gráfico cuantil cuantil.</p>
+<p>El código para simular la muestra y crear el gráfico cuantil cuantil se muestra a continuación.</p>
+<pre class="sourceCode r"><code class="sourceCode r">muestra &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">30</span>, <span class="dt">mean=</span><span class="dv">10</span>, <span class="dt">sd=</span><span class="dv">4</span>)
+
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
+
+<span class="kw">qqnorm</span>(<span class="dt">y=</span>muestra)
+<span class="kw">qqline</span>(<span class="dt">y=</span>muestra)
+
+<span class="kw">qqnorm</span>(<span class="dt">y=</span>muestra, <span class="dt">main=</span><span class="st">&#39;&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Cuantiles muestrales&#39;</span>,
+       <span class="dt">xlab=</span><span class="st">&#39;Cuantiles teóricos&#39;, las=1)</span>
+<span class="st">qqline(y=muestra, col=&#39;</span>blue<span class="st">&#39;, lwd=2, lty=2)</span></code></pre>
+<div class="figure"><span id="fig:qqplot1"></span>
+<img src="Graficos_con_R_files/figure-html/qqplot1-1.png" alt="Gráfico cuantil cuantil para una muestra generada de una población normal." width="768" />
+<p class="caption">
+Figure 2.5: Gráfico cuantil cuantil para una muestra generada de una población normal.
+</p>
+</div>
+<p>En la izquierda de la Figura <a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#fig:qqplot1">2.5</a> está el gráfico cuantil cuantil sin editar, en la derecha se encuentra el gráfico luego de modificar los nombres de los ejes, grosor y color de la línea de referencia.</p>
+</div>
+<div id="ejemplo-5" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Simular 100 observaciones de una distribución <span class="math inline">\(Weibull(1,1)\)</span> y construir dos gráficos cuantil cuantil, el primero tomando como referencia los cuantiles de una <span class="math inline">\(N(0,1)\)</span> y el segundo tomando los cuantiles de la <span class="math inline">\(Weibull(1,1)\)</span>.</p>
+<p>El código para simular la muestra y crear los gráficos cuantil cuantil se muestra a continuación.</p>
+<pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span><span class="dv">100</span>
+muestra &lt;-<span class="st"> </span><span class="kw">rweibull</span>(<span class="dt">n=</span>n, <span class="dt">shape=</span><span class="dv">1</span>, <span class="dt">scale=</span><span class="dv">1</span>)
+
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
+<span class="kw">qqplot</span>(<span class="dt">y=</span>muestra, <span class="dt">x=</span><span class="kw">qnorm</span>(<span class="kw">ppoints</span>(n)))
+<span class="kw">qqplot</span>(<span class="dt">y=</span>muestra, <span class="dt">x=</span><span class="kw">qweibull</span>(<span class="kw">ppoints</span>(n), <span class="dt">shape=</span><span class="dv">1</span>, <span class="dt">scale=</span><span class="dv">1</span>))</code></pre>
+<div class="figure"><span id="fig:qqplot2"></span>
+<img src="Graficos_con_R_files/figure-html/qqplot2-1.png" alt="Gráfico cuantil cuantil para una muestra generada de una población Weibull." width="768" />
+<p class="caption">
+Figure 2.6: Gráfico cuantil cuantil para una muestra generada de una población Weibull.
+</p>
+</div>
+<p>En la Figura <a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#fig:qqplot2">2.6</a> están los gráficos cuantil cuantil solicitados. Del pánel izquierdo de la figura vemos que los puntos NO están alineados, esto indica que la muestra no proviene de la distribución <span class="math inline">\(N(0, 1)\)</span>, esto es un resultado esperado ya que sabíamos que la muestra no fue generada de una normal. En el pánel derecho de la misma figura vemos que los puntos SI están alineados, esto indica que la muestra generada puede provenir de una población <span class="math inline">\(Weibull(1, 1)\)</span>. Los nombres de los ejes en la Figura <a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#fig:qqplot2">2.6</a> pueden ser editados para presentar una figura con mejor apariencia.</p>
+</div>
+</div>
+<div id="funcion-density" class="section level2">
+<h2><span class="header-section-number">2.5</span> Función <code>density</code>  </h2>
+<p>Los gráficos de densidad son muy útiles porque permiten ver el(los) intervalo(s) donde una variable cuantitativa puede ocurrir con mayor probabilidad.</p>
+<p>La función <code>density</code> crea la información de la densidad y la función <code>plot</code> dibuja la densidad.</p>
+<p>La estructura de la función <code>density</code> con los argumentos más comunes de uso se muestra a continuación.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">density</span>(x, bw, <span class="dt">adjust=</span><span class="dv">1</span>, <span class="dt">kernel=</span><span class="st">&#39;gaussian&#39;</span>, <span class="dt">na.rm=</span><span class="ot">FALSE</span>)</code></pre>
+<p>Los argumentos de la función <code>density</code> son:</p>
+<ul>
+<li><code>x</code>: vector con los datos para los cuales se quiere la densidad.</li>
+<li><code>bw</code>: ancho de banda.</li>
+<li><code>kernel</code>: núcleo de suavización a usar, los posibles valores son <code>gaussian</code>, <code>rectangular</code>, <code>triangular</code>, <code>epanechnikov</code>, <code>biweight</code>, <code>cosine</code> o <code>optcosine</code>, el valor por defecto es <code>gaussian</code>.</li>
+<li><code>na.rm</code>: valor lógico, si es <code>TRUE</code> se eliminan los valores con <code>NA</code> para construir la densidad, el valor por defecto es <code>FALSE</code>.</li>
+</ul>
+<div id="ejemplo-6" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Simular mil observaciones de una <span class="math inline">\(N(0, 1)\)</span>, aplicar la función <code>density</code> al vector y explorar el contenido de la salida.</p>
+<p>Primero se generan las observaciones y se almacenan en el objeto <code>y</code>, luego se aplica la función <code>density</code> y el resultado se guarda en el objeto <code>res</code>, para explorar lo que almacena <code>res</code> se usa la función <code>names</code>. A continuación el código utilizado.</p>
+<pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">1000</span>)
+res &lt;-<span class="st"> </span><span class="kw">density</span>(y)
+<span class="kw">names</span>(res)</code></pre>
+<pre><code>## [1] &quot;x&quot;         &quot;y&quot;         &quot;bw&quot;        &quot;n&quot;         &quot;call&quot;      &quot;data.name&quot;
+## [7] &quot;has.na&quot;</code></pre>
+<p>De la salida anterior se observa que la lista <code>res</code> tiene 7 elementos, los dos primeros son los vectores con las coordenadas para dibujar la densidad, los restantes elementos con información adicional.</p>
+</div>
+<div id="ejemplo-7" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Con los datos generados en el ejemplo anterior construir la densidad para varios núcleo y para varios valores de ancho de banda.</p>
+<p>En el siguiente código se construyen 4 densidades para diferentes núcleos.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
+<span class="kw">plot</span>(<span class="kw">density</span>(y, <span class="dt">kernel=</span><span class="st">&#39;gaussian&#39;</span>))
+<span class="kw">plot</span>(<span class="kw">density</span>(y, <span class="dt">kernel=</span><span class="st">&#39;triangular&#39;</span>))
+<span class="kw">plot</span>(<span class="kw">density</span>(y, <span class="dt">kernel=</span><span class="st">&#39;cosine&#39;</span>))
+<span class="kw">plot</span>(<span class="kw">density</span>(y, <span class="dt">kernel=</span><span class="st">&#39;rectangular&#39;</span>))</code></pre>
+<div class="figure"><span id="fig:density1"></span>
+<img src="Graficos_con_R_files/figure-html/density1-1.png" alt="Densidad para una muestra aleatoria de una N(0, 1) cambiando el núcleo de la densidad." width="768" />
+<p class="caption">
+Figure 2.7: Densidad para una muestra aleatoria de una N(0, 1) cambiando el núcleo de la densidad.
+</p>
+</div>
+<p>En la Figura <a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#fig:density1">2.7</a> se muestran las densidades para 4 elecciones del núcleo. En la práctica se usa el núcleo que está por defecto (<code>gaussian</code>) ya que el objetivo de una densidad es ver la zonas donde es más probable encontrar observaciones de la variable.</p>
+<p>En el siguiente código se construyen 4 densidades para diferentes anchos de banda.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
+<span class="kw">plot</span>(<span class="kw">density</span>(y, <span class="dt">bw=</span><span class="fl">0.1</span>))
+<span class="kw">plot</span>(<span class="kw">density</span>(y, <span class="dt">bw=</span><span class="fl">0.2241</span>))  <span class="co"># bw obtenido antes</span>
+<span class="kw">plot</span>(<span class="kw">density</span>(y, <span class="dt">bw=</span><span class="fl">0.5</span>))
+<span class="kw">plot</span>(<span class="kw">density</span>(y, <span class="dt">bw=</span><span class="dv">1</span>))</code></pre>
+<div class="figure"><span id="fig:density2"></span>
+<img src="Graficos_con_R_files/figure-html/density2-1.png" alt="Densidad para una muestra aleatoria de una N(0, 1) cambiando el ancho de banda." width="768" />
+<p class="caption">
+Figure 2.8: Densidad para una muestra aleatoria de una N(0, 1) cambiando el ancho de banda.
+</p>
+</div>
+<p>En la Figura <a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#fig:density2">2.8</a> se muestran las densidades para 4 elecciones del parámetro ancho de banda <code>bw</code>, el valor de 0.2241 fue el valor calculado automáticamente por  y fue obtenido de la Figura <a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#fig:density1">2.7</a>, los otros valores fueron elegidos arbitrariamente para ver los cambios en la densidad. El usar un ancho de banda pequeño la densidad queda muy rugosa y usar un valor muy grande la suaviza, se recomienda usar el valor automático.</p>
+</div>
+<div id="ejemplo-8" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Construir un gráfico de densidad para la variable peso corporal de la base de datos <code>medidas_cuerpo</code>, luego construir la densidad para la misma variable pero diferenciando por sexo.</p>
+<pre class="sourceCode r"><code class="sourceCode r">url &lt;-<span class="st"> &#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span>
+datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)
+
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
+<span class="kw">plot</span>(<span class="kw">density</span>(datos<span class="op">$</span>peso), <span class="dt">main=</span><span class="st">&#39;Distribución del peso corporal&#39;</span>,
+     <span class="dt">xlab=</span><span class="st">&#39;Peso corporal (kg)&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Densidad&#39;</span>, <span class="dt">lwd=</span><span class="dv">4</span>)
+
+den.hom &lt;-<span class="st"> </span><span class="kw">with</span>(datos, <span class="kw">density</span>(peso[sexo <span class="op">==</span><span class="st"> &#39;Hombre&#39;</span>]))
+den.muj &lt;-<span class="st"> </span><span class="kw">with</span>(datos, <span class="kw">density</span>(peso[sexo <span class="op">==</span><span class="st"> &#39;Mujer&#39;</span>]))
+
+<span class="kw">plot</span>(den.hom, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">20</span>, <span class="dv">120</span>), 
+     <span class="dt">main=</span><span class="st">&#39;Distribución del peso corporal por género&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Densidad&#39;</span>,
+     <span class="dt">xlab=</span><span class="st">&#39;Peso corporal (kg)&#39;</span>, <span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">col=</span><span class="st">&#39;blue&#39;</span>)
+<span class="kw">lines</span>(den.muj, <span class="dt">lwd=</span><span class="dv">4</span>, <span class="dt">col=</span><span class="st">&#39;red&#39;</span>)
+<span class="kw">legend</span>(<span class="st">&#39;topright&#39;</span>, <span class="dt">legend=</span><span class="kw">c</span>(<span class="st">&#39;Hombres&#39;</span>, <span class="st">&#39;Mujeres&#39;</span>), <span class="dt">bty=</span><span class="st">&#39;n&#39;</span>,
+       <span class="dt">lwd=</span><span class="dv">3</span>, <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;blue&#39;</span>, <span class="st">&#39;red&#39;</span>))</code></pre>
+<div class="figure"><span id="fig:density3"></span>
+<img src="Graficos_con_R_files/figure-html/density3-1.png" alt="Densidad para la variable peso en la izquierda, densidad para el peso diferenciando por sexo a la derecha." width="1152" />
+<p class="caption">
+Figure 2.9: Densidad para la variable peso en la izquierda, densidad para el peso diferenciando por sexo a la derecha.
+</p>
+</div>
+<p>En el panel izquierdo de la Figura <a href="graficos-para-una-variable-cuantitativa-1v-cuanti.html#fig:density3">2.9</a> se muestra la densidad para la variable peso, de esta figura se observa que tiene dos sectores de mayor densidad, alrededor de 50 kg y alrededor de 80 kg. En el panel izquierdo están la densidades del peso corporal para hombres y mujeres, aquí se observa claramente la diferencia entre los pesos de hombres y mujeres.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="graficos-para-varias-variables-cuantitativas-2v-cuanti.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/fhernanb/Graficos-con-R/edit/master/02_graphs1v_cuanti.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

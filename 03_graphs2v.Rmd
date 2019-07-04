@@ -1,4 +1,4 @@
-# Gráficos para varias variables cuantitativas
+# Gráficos para varias variables cuantitativas {#dos_cuanti}
 
 En este capítulo se presentan funciones para la creación de gráficos que involucran varias variables cuantitativas.
 
