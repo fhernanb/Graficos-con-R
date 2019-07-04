@@ -1,0 +1,8 @@
+Package: modelos-de-regresion-con-r
+Title: Modelos de regresion con R
+Version: 0.0.0.9000
+Authors@R: c(person("Freddy", "Hernandez", email = "fhernanb@unal.edu.co", role = c("aut", "cre")),
+             person("Mauricio", "Mazo", email = "mamazol@unal.edu.co", role = c("aut")))
+Depends: R (>= 3.3.0)
+Imports:
+  bookdown

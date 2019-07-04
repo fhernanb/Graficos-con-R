@@ -32,7 +32,7 @@ Este libro está destinado para estudiantes de ingeniería y estadística que de
 
 ## Estructura del libro {-}
 
-En el capítulo \@ref(rls) se presenta el modelo de regresión lineal simple y en el Capítulo \@ref(rlm) se generaliza el modelo básico con varias covariables.
+En el capítulo \@ref(rls) se presenta el modelo de regresión lineal simple y en el Capítulo se generaliza el modelo básico con varias covariables.
 
 ## Software y convenciones {-}
 
