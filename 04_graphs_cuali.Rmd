@@ -1,4 +1,4 @@
-# Gráficos para variables cualitativas
+# Gráficos para variables cualitativas {#cuali}
 
 En este capítulo se presentan funciones para la creación de gráficos para variables cualitativas.
 

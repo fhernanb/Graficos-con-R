@@ -1,4 +1,4 @@
-# Funciones auxiliares
+# Funciones auxiliares {#auxiliares}
 
 En este capítulo se presentan funciones auxiliares que son útiles para complementar los gráficos generados en \proglang{R}.
 
@@ -397,6 +397,6 @@ knitr::include_graphics("images/casita.png")
 5. Dibujar la siguiente figura dada en forma parametrica.
 \begin{align*} 
 x &=  \cos(t) \\ 
-y &=  \sen(t)
+y &=  \sin(t)
 \end{align*}
 

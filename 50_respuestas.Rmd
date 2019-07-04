@@ -1,4 +1,4 @@
-# Respuestas a preguntas frecuentes
+# Respuestas a preguntas frecuentes {#respuestas}
 
 En este capítulo se presentan las respuestas a preguntas frecuentes que tienen los usuarios de \proglang{R} sobre la construcción de gráficos personalizados.
 

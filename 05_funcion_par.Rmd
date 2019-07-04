@@ -1,4 +1,4 @@
-# Función `par`
+# Función `par` {#par}
 
 En este capítulo se presentan las posibilidades que ofrece la función `par` para la elaboración de gráficos. La función `par` tiene `r length(par())` parámetros y a continuación se muestran.
 
