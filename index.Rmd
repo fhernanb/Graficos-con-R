@@ -32,7 +32,7 @@ Este libro fue creado con la intención de ayudar a los estudiantes de pregrado,
 
 ## Estructura del libro {-}
 
-En el capítulo \@ref(intro) se presenta una introducción breve de R, sus orígenes, la instalación, tipos de objetos y una guía de estilo para escribir en R. En el capítulo \@ref(una_cuanti) se muestra como construir gráficos cuando se tiene una variable cuantitativa.
+En el capítulo \@ref(intro) se presenta una introducción breve de R, sus orígenes, la instalación, tipos de objetos y una guía de estilo para escribir en R. En el capítulo \@ref(unacuanti) se muestra como construir gráficos cuando se tiene una variable cuantitativa. En el capítulo \@ref(doscuanti) se muestran los diferentes gráficos que se pueden construir cuando se tiene 2 variables cuantitativas.
 
 ## Software y convenciones {-}
 
