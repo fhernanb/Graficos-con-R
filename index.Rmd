@@ -1,47 +1,44 @@
 --- 
 title: "Gráficos con R"
-author: |
-  | Freddy Hernández Barajas
-  | Juan Carlos Correa Morales
+author: ["Freddy Hernández", "Juan Carlos Correa"]
 date: "`r Sys.Date()`"
-documentclass: krantz
-fontsize: 10pt
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-colorlinks: yes
-lot: yes
-lof: yes
-site: bookdown::bookdown_site
-description: "A book example for a Chapman & Hall book."
-github-repo: yihui/bookdown-crc
-#cover-image: images/cover.jpg
+cover-image: images/cover.png
+github-repo: fhernanb/Graficos-con-R
+description: "Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia."
 ---
 
-```{r setup, include=FALSE}
-options(
-  htmltools.dir.version = FALSE, formatR.indent = 2, width = 55, digits = 4
-)
+# Bienvenido {-}
 
-# install the packages needed by this book; you fill out c(), e.g. c('ggplot2', 'dplyr')
-lapply(c(), function(pkg) {
-  if (system.file(package = pkg) == '') install.packages(pkg)
-})
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'), 'packages.bib')
 ```
 
-# Prefacio {-}
+```{r echo=FALSE, out.width="33%", fig.align='center'}
+knitr::include_graphics("images/cover.png")
+```
 
-Este libro fue creado con la intención de ayudar a los estudiantes de pregrado, especialización, maestría e investigadores a crear gráficos estadísticos con las herramientas básicas de \proglang{R}. Como complemento, recomendamos a los lectores el libro @hernandez_usuga que muestra cómo usar \proglang{R} para realizar diversos procedimiento estadísticos.
+Este libro está destinado para estudiantes de ingeniería y estadística que deseen aprender sobre modelos de regresión y la forma de aplicarlos por medio del lenguaje de programación R.
+
+[Freddy Hernández](https://fhernanb.github.io/)  
+[Juan Carlos Correa](http://scienti.colciencias.gov.co:8081/cvlac/visualizador/generarCurriculoCv.do?cod_rh=0000063932)
 
 ## Estructura del libro {-}
 
-En el capítulo \@ref(intro) se presenta una introducción breve de \proglang{R}, sus orígenes, la instalación, tipos de objetos y una guía de estilo para escribir en \proglang{R}.
+En el capítulo \@ref(rls) se presenta el modelo de regresión lineal simple y en el Capítulo \@ref(rlm) se generaliza el modelo básico con varias covariables.
 
-## Software information and conventions {-}
+## Software y convenciones {-}
 
-Para realizar este libro usamos los paquetes **knitr**\index{knitr} [@xie2015] y **bookdown**\index{bookdown} [@R-bookdown] que permiten unir la ventajas de \LaTeX y \proglang{R} en un mismo archivo.
+Para realizar este libro usamos los paquetes **knitr**\index{knitr} [@xie2015] y **bookdown**\index{bookdown} [@R-bookdown] que permiten unir la ventajas de LaTeX y R en un mismo archivo.
 
-En todo el libro se presentarán códigos que el lector puede copiar y pegar en su consola de \proglang{R} para obtener los mismos resultados aquí presentados. Los códigos se destacan en una caja de color beis (o beige) similar a la mostrada a continuación.
+En todo el libro se presentarán códigos que el lector puede copiar y pegar en su consola de R para obtener los mismos resultados aquí del libro. Los códigos se destacan en una caja de color similar a la mostrada a continuación.
 
 ```{r, eval=F}
 4 + 6
@@ -63,24 +60,16 @@ a <- c(1, 5, 6)
 En varias partes del libro usaremos bloques informativos para resaltar algún aspecto importante. Abajo se encuentra un ejemplo de los bloques y su significado.
 
 ```{block2, type='rmdnote'}
-Este bloque sirve para una nota aclaratoria.
+Nota aclaratoria.
 ```
 
 ```{block2, type='rmdtip'}
-Este bloque sirve para una sugerencia.
+Sugerencia.
 ```
 
 ```{block2, type='rmdwarning'}
-Este bloque sirve para una advertencia.
+Advertencia.
 ```
 
-## Agradecimientos {-}
 
-Agradecemos a nuestros estudiantes, profesores y colegas que han leído el manuscrito y se han tomado el trabajo de escribirnos dándonos sus sugerencias y comentarios para mejorar continuamente este material.
-
-```{block2, type='flushright', html.tag='p'}
-Freddy Hernández Barajas
-
-Juan Carlos Correa Morales
-```
 

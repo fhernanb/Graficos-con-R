@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>1 Regresión lineal simple | Gráficos con R</title>
+  <meta name="description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia.">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+
+  <meta property="og:title" content="1 Regresión lineal simple | Gráficos con R" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/cover.png" />
+  <meta property="og:description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta name="github-repo" content="fhernanb/Graficos-con-R" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="1 Regresión lineal simple | Gráficos con R" />
+  
+  <meta name="twitter:description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta name="twitter:image" content="images/cover.png" />
+
+<meta name="author" content="Freddy Hernández">
+<meta name="author" content="Juan Carlos Correa">
+
+
+<meta name="date" content="2019-07-04">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Gráficos con R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Bienvenido</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#estructura-del-libro"><i class="fa fa-check"></i>Estructura del libro</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#software-y-convenciones"><i class="fa fa-check"></i>Software y convenciones</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#bloques-informativos"><i class="fa fa-check"></i>Bloques informativos</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="rls.html"><a href="rls.html"><i class="fa fa-check"></i><b>1</b> Regresión lineal simple</a><ul>
+<li class="chapter" data-level="" data-path="rls.html"><a href="rls.html#modelo-estadistico"><i class="fa fa-check"></i>Modelo estadístico</a></li>
+<li><a href="rls.html#funcion-lm">Función <code>lm</code></a><ul>
+<li class="chapter" data-level="" data-path="rls.html"><a href="rls.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="rls.html"><a href="rls.html#clase-lm"><i class="fa fa-check"></i>Clase lm</a><ul>
+<li class="chapter" data-level="" data-path="rls.html"><a href="rls.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Gráficos con R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rls" class="section level1">
+<h1><span class="header-section-number">1</span> Regresión lineal simple</h1>
+<p>En este capítulo se presenta una descripción breve del modelo de regresión lineal simple y la forma de estimar los parámetros del modelo con R.</p>
+<div id="modelo-estadistico" class="section level2 unnumbered">
+<h2>Modelo estadístico</h2>
+<p>El modelo estadístico en regresión lineal simple se puede escribir de dos formas como se muestra a continuación.</p>
+<ol style="list-style-type: decimal">
+<li>En esta forma la variable respuesta <span class="math inline">\(y\)</span> se expresa como una suma de <span class="math inline">\(\beta_0 + \beta_1 x_i\)</span> y un error aleatorio <span class="math inline">\(e_i\)</span> el cual tiene distribución <span class="math inline">\(N(0, \sigma^2)\)</span>. El modelo en esta forma se puede expresar como sigue.</li>
+</ol>
+<p><span class="math display">\[\begin{align} \label{mod1}
+y_i &amp;= \beta_0 + \beta_1 x_i + e_i, \\ 
+e_i &amp;\sim N(0, \sigma^2)
+\end{align}\]</span></p>
+<ol start="2" style="list-style-type: decimal">
+<li>En esta forma la variable respuesta <span class="math inline">\(y\)</span> tiene distribución normal con media que cambia en función de la variable <span class="math inline">\(x\)</span> pero con varianza constante. El modelo en esta forma se puede expresar como sigue.</li>
+</ol>
+<p><span class="math display">\[\begin{align} \label{mod2}
+y_i &amp;\sim N(\mu_i, \sigma^2), \\ 
+\mu_i &amp;= \beta_0 + \beta_1 x_i, \\
+\sigma^2 &amp;= \text{constante}
+\end{align}\]</span></p>
+<p>En cualquiera de las dos formas el vector de parámetros del modelo es <span class="math inline">\(\boldsymbol{\theta}=(\beta_0, \beta_1, \sigma)^\top\)</span>.</p>
+</div>
+<div id="funcion-lm" class="section level2 unnumbered">
+<h2>Función <code>lm</code></h2>
+<p>La función <code>lm</code> de R se usa para ajustar un modelo de regresión lineal simple, la estructura de esta función se muestra a continuación.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">lm</span>(formula, data, subset, weights, na.action,
+   <span class="dt">method =</span> <span class="st">&quot;qr&quot;</span>, <span class="dt">model =</span> <span class="ot">TRUE</span>, <span class="dt">x =</span> <span class="ot">FALSE</span>, <span class="dt">y =</span> <span class="ot">FALSE</span>, <span class="dt">qr =</span> <span class="ot">TRUE</span>,
+   <span class="dt">singular.ok =</span> <span class="ot">TRUE</span>, <span class="dt">contrasts =</span> <span class="ot">NULL</span>, offset, ...)</code></pre>
+<p>A continuación se presenta una corta descripción de los parámetros más usados en la función.</p>
+<ul>
+<li><code>formula</code>: es un objeto de la clase fórmula para indicar la variable respuesta y las covariables. Por ejemplo, si <code>formula = y ~ x1 + x2</code> lo que se indica es que la variable respuesta es <code>y</code>, las covariables serían <code>x1</code> y <code>x2</code>.</li>
+<li><code>data</code>: es el marco de datos donde se buscarán las variables usadas en la fórmula. Si este parámetro queda vacío, R buscará las variables en el ambiente global.</li>
+</ul>
+<div id="ejemplo" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Como ilustración vamos a usar los datos del ejemplo 2.1 del libro de <a href="https://www.amazon.com/Introduccion-analisis-regresion-lineal-Spanish/dp/9702403278">Montgomery, Peck and Vining (2003)</a>. En el ejemplo 2.1 los autores ajustaron un modelo de regresión lineal simple para explicar la Resistencia de una soldadura en función de la Edad de la misma.</p>
+<p>A continuación el código para cargar los datos y una muestra de las 6 primeras observaciones de la base de datos, en total tenemos 20 observaciones.</p>
+<pre class="sourceCode r"><code class="sourceCode r">file &lt;-<span class="st"> &quot;https://raw.githubusercontent.com/fhernanb/datos/master/propelente&quot;</span>
+datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>file, <span class="dt">header=</span><span class="ot">TRUE</span>)
+<span class="kw">head</span>(datos) <span class="co"># shows the first 6 rows</span></code></pre>
+<pre><code>##   Resistencia  Edad
+## 1     2158.70 15.50
+## 2     1678.15 23.75
+## 3     2316.00  8.00
+## 4     2061.30 17.00
+## 5     2207.50  5.50
+## 6     1708.30 19.00</code></pre>
+<p>Para crear un diagrama de dispersión que nos muestre la relación entre las dos variables usamos las siguientes instrucciones.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+<span class="kw">ggplot</span>(datos, <span class="kw">aes</span>(<span class="dt">x=</span>Edad, <span class="dt">y=</span>Resistencia)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">theme_light</span>()</code></pre>
+<p><img src="Graficos_con_R_files/figure-html/soldadura1-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>De la figura anterior se ve claramente que a medida que aumenta la edad de la soldadura, la resistencia que ella ofrece disminuye. Adicionalmente, se observa que la relación entre las variables es lineal con una dispersión que parece constante.</p>
+<p>El modelo que se va a ajustar se muestra a continuación.</p>
+<p><span class="math display">\[\begin{align}
+Resistencia_i &amp;\sim N(\mu_i, \sigma^2), \\ 
+\mu_i &amp;= \beta_0 + \beta_1 Edad_i, \\
+\sigma^2 &amp;= \text{constante}
+\end{align}\]</span></p>
+<p>Para obtener las estimaciones de los parámetros del modelo anterior se usa el código mostrado abajo. La función <code>lm</code> se aplica con la fórmula <code>Resistencia ~ Edad</code> para indicar que Resistencia es la variable respuesta y que Edad es la variable explicativa. Los resultados del la función <code>lm</code> se almacenan en el objeto <code>mod1</code> para luego poder usar el modelo ajustado. La segunda línea del código mostrado abajo se usa para mostrar por pantalla un reporte sencillo del modelo ajustado.</p>
+<pre class="sourceCode r"><code class="sourceCode r">mod1 &lt;-<span class="st"> </span><span class="kw">lm</span>(Resistencia <span class="op">~</span><span class="st"> </span>Edad, <span class="dt">data=</span>datos)
+mod1 <span class="co"># Para imprimir el objeto mod1</span></code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = Resistencia ~ Edad, data = datos)
+## 
+## Coefficients:
+## (Intercept)         Edad  
+##     2627.82       -37.15</code></pre>
+<p>En la salida anterior se observan los valores estimados de <span class="math inline">\(\beta_0\)</span> y <span class="math inline">\(\beta_1\)</span> pero no aparece la estimación de <span class="math inline">\(\sigma\)</span>. Para obtener una tabla de resumen con detalles del modelo ajustado, se usa la función genérica <code>summary</code>, a continuación el código necesario para obtener la tabla.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(mod1)</code></pre>
+<p>La siguiente figura muestra el resultado del código anterior. En la figura se resalta la información sobre los residuales y las estimaciones de <span class="math inline">\(\beta_0\)</span>, <span class="math inline">\(\beta_1\)</span> y <span class="math inline">\(\sigma\)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:summary01"></span>
+<img src="images/summary01.png" alt="Tabla de resumen para un modelo lineal." width="175" />
+<p class="caption">
+Figure 1.1: Tabla de resumen para un modelo lineal.
+</p>
+</div>
+<p>Con los resultados anteriores se puede expresar el modelo ajustado como se muestra a continuación.</p>
+<p><span class="math display">\[\begin{align}
+\widehat{Resistencia}_i &amp;\sim N(\hat{\mu}_i, \hat{\sigma}^2), \\ 
+\hat{\mu}_i &amp;= 2627.822 -37.154 \, Edad_i, \\
+\hat{\sigma} &amp;= 96.11
+\end{align}\]</span></p>
+<p>Para incluir la recta de regresión que representa el modelo ajustado anterior se puede usar el siguiente código.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(datos, <span class="kw">aes</span>(<span class="dt">x=</span>Edad, <span class="dt">y=</span>Resistencia)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>, <span class="dt">formula=</span>y<span class="op">~</span>x, <span class="dt">se=</span><span class="ot">FALSE</span>, <span class="dt">col=</span><span class="st">&#39;dodgerblue1&#39;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_light</span>()</code></pre>
+<p><img src="Graficos_con_R_files/figure-html/soldadura2-1.png" width="480" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="clase-lm" class="section level2 unnumbered">
+<h2>Clase lm</h2>
+<p>Todo objeto creado con la función <code>lm( )</code> es de la clase <strong>lm</strong>, para verificar esto podemos escribir lo siguiente en la consola.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">class</span>(mod1)</code></pre>
+<pre><code>## [1] &quot;lm&quot;</code></pre>
+<p>Dentro de todo objeto de la clase <strong>lm</strong> hay doce elementos o valores que se pueden utilizar. A continuación se muestra el código para saber los nombres de esos elementos.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(mod1)</code></pre>
+<pre><code>##  [1] &quot;coefficients&quot;  &quot;residuals&quot;     &quot;effects&quot;       &quot;rank&quot;         
+##  [5] &quot;fitted.values&quot; &quot;assign&quot;        &quot;qr&quot;            &quot;df.residual&quot;  
+##  [9] &quot;xlevels&quot;       &quot;call&quot;          &quot;terms&quot;         &quot;model&quot;</code></pre>
+<p>Cualquiera de los anteriores elementos se pueden extraer usando el operador <code>$</code> entre el objeto y el elemento, por ejemplo, para extraer los coeficientes estimados se escribe lo siguiente:</p>
+<pre class="sourceCode r"><code class="sourceCode r">mod1<span class="op">$</span>coefficients</code></pre>
+<pre><code>## (Intercept)        Edad 
+##  2627.82236   -37.15359</code></pre>
+<p>Los nombres de los elementos dan una idea clara de lo que ellos almacenan, si el lector quiere más detalles sobre los elementos, sólo debe solicitar la ayuda de la función con <code>help(lm)</code> y en la sección de <strong>Value</strong> encontrará la información.</p>
+<p>En el siguiente código se utiliza para extraer el elemento <code>$fitted.value</code> que contiene los valores predichos o ajustados <span class="math inline">\(\hat{y}_i\)</span>.</p>
+<pre class="sourceCode r"><code class="sourceCode r">mod1<span class="op">$</span>fitted.values</code></pre>
+<pre><code>##        1        2        3        4        5        6        7        8 
+## 2051.942 1745.425 2330.594 1996.211 2423.478 1921.904 1736.136 2534.938 
+##        9       10       11       12       13       14       15       16 
+## 2349.170 2219.133 2144.826 2488.496 1698.983 2265.575 1810.443 1959.058 
+##       17       18       19       20 
+## 2404.901 2163.402 2553.515 1829.020</code></pre>
+<p>A continuación se muestra el código para extraer el elemento <code>$residuals</code> que contiene los residuales usuales <span class="math inline">\(e_i= y_i - \hat{y}_i\)</span>.</p>
+<pre class="sourceCode r"><code class="sourceCode r">mod1<span class="op">$</span>residuals</code></pre>
+<pre><code>##           1           2           3           4           5           6 
+##  106.758301  -67.274574  -14.593631   65.088687 -215.977609 -213.604131 
+##           7           8           9          10          11          12 
+##   48.563824   40.061618    8.729573   37.567141   20.374323  -88.946393 
+##          13          14          15          16          17          18 
+##   80.817415   71.175153  -45.143358   94.442278    9.499187   37.097528 
+##          19          20 
+##  100.684823  -75.320154</code></pre>
+
+<div class="rmdnote">
+Los valores ajustados y los residuales también se pueden recuperar usando las funciones <code>fitted( )</code> y <code>residuals( )</code>. Consulte la ayuda de estas funciones para conocer otros detalles.
+</div>
+
+<div id="ejemplo-1" class="section level3 unnumbered">
+<h3>Ejemplo</h3>
+<p>Aquí se retoma el ejemplo de Resistencia en función de la Edad. El objetivo es crear una diagrama de dispersión con los puntos originales <span class="math inline">\((x_i, y_i)\)</span>, las estimaciones <span class="math inline">\(\hat{y}_i\)</span> y los residuales <span class="math inline">\(e_i\)</span>.</p>
+<p>Lo primero que se debe hacer es agregar a los datos originales el vector con las estimaciones <span class="math inline">\(\hat{y}_i\)</span>, el código necesario se muestra a continuación.</p>
+<pre class="sourceCode r"><code class="sourceCode r">datos<span class="op">$</span>predicciones &lt;-<span class="st"> </span><span class="kw">predict</span>(mod1)</code></pre>
+<p>En el diagrama dispersión los puntos originales <span class="math inline">\((x_i, y_i)\)</span> estarán en color negro y los puntos correspondientes a las estimaciones <span class="math inline">\((x_i, \hat{y}_i)\)</span> estarán en color rojo, estos últimos coincidirán con la recta estimada en color gris. Los residuales <span class="math inline">\(e_i\)</span> se mostrarán como líneas a trazos de color rojo. El código necesario se muestra a continuación.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(datos, <span class="kw">aes</span>(<span class="dt">x=</span>Edad, <span class="dt">y=</span>Resistencia)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span><span class="ot">FALSE</span>, <span class="dt">color=</span><span class="st">&quot;lightgrey&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_segment</span>(<span class="kw">aes</span>(<span class="dt">xend=</span>Edad, <span class="dt">yend=</span>predicciones), <span class="dt">col=</span><span class="st">&#39;red&#39;</span>, <span class="dt">lty=</span><span class="st">&#39;dashed&#39;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="kw">aes</span>(<span class="dt">y=</span>predicciones), <span class="dt">col=</span><span class="st">&#39;red&#39;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_light</span>()</code></pre>
+<p><img src="Graficos_con_R_files/figure-html/soldadura3-1.png" width="480" style="display: block; margin: auto;" /></p>
+
+<div id="refs" class="references">
+<div>
+<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a>.</p>
+</div>
+<div>
+<p>———. 2018. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/fhernanb/Graficos-con-R/edit/master/01-rls.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

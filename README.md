@@ -1,4 +1,8 @@
-Para descargar la versión actualizada del libro usted debe ingresar al siguiente [enlace](https://github.com/fhernanb/Graficos-con-R/blob/master/_book/Graficos_con_R.pdf) y luego dar clic en el botón __download__.
+## Análisis de Regresión con R
+
 <p align="center">
-  <img src="images/portada.png" width="180">
+  <img src="images/cover.png" width="250">
 </p>
+
+El libro puede ser consultado en este [enlace](https://fhernanb.github.io/libro_regresion) 
+

@@ -1,9 +1,6 @@
-book_filename: Graficos_con_R
-clean: [packages.bib, bookdown.bbl]
+book_filename: "Graficos_con_R"
 language:
-  label:
-    fig: "FIGURE "
-    tab: "TABLE "
   ui:
-    edit: "Edit"
-    chapter_name: "Chapter "
+    chapter_name: ""
+delete_merged_file: true
+output_dir: "docs"
