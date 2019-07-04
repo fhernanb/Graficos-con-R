@@ -2,7 +2,7 @@
 
 En este capítulo se presentan funciones auxiliares que son útiles para complementar los gráficos generados en \proglang{R}.
 
-## Función `segments` \index{segments} \index{segmentos}
+## Función `segments`
 Esta función es muy útil para digujar segmentos. La estructura de la función se muestra a continuación.
 
 ```{r, eval=FALSE}
@@ -30,7 +30,7 @@ segments(-4, 9, 0, -9, lwd=4)
 segments(0, -9, 0, 9, lwd=4)
 ```
 
-## Función `rect` \index{rect} \index{rectángulos}
+## Función `rect`
 Esta función es muy útil para digujar rectángulos. La estructura de la función se muestra a continuación.
 
 ```{r, eval=FALSE}
@@ -83,7 +83,7 @@ rect(100+i, 300+i, 150+i, 380+i, col=rainbow(11, start=0.7, end=0.1))
 rect(240-i, 320+i, 250-i, 410+i, col=heat.colors(11), lwd=i/5)
 ```
 
-## Función `polygon` \index{polygon} \index{polígonos}
+## Función `polygon`
 Esta función es muy útil para dibujar polígonos. La estructura de la función se muestra a continuación.
 
 ```{r, eval=FALSE}
@@ -114,7 +114,7 @@ polygon(x=c(3, 5, 5, 2), y=c(5, 4, 1, 1), # Para el cuadrilatero
         col='orange', border='darkgreen', lwd=4)
 ```
 
-## Función `abline` \index{abline}
+## Función `abline`
 Esta función es muy útil para dibujar líneas rectas dada la ecuación $y=a+bx$, donde $a$ representa el intercepto y $b$ la pendiente de la recta. La estructura de la función se muestra a continuación.
 
 ```{r, eval=FALSE}
@@ -150,7 +150,7 @@ abline(h=c(5, -3), v=2,
        col=c('darkgreen', 'red', 'orange'), lwd=5)
 ```
 
-## Para dibujar un círculo \index{círculos}
+## Para dibujar un círculo
 En la base de \proglang{R} no hay una función específica para crear círculos, sin embargo, es posible usar unas pocas líneas para obtener el círculo con un radio y centro deseado por medio de la función `polygon`. A continuación se muestra el código para dibujar un círculo de radio 7 unidades con centro en el punto (-2, 1) con fondo azul claro y borde de color azul obscuro. En la Figura \@ref(fig:circ1) se muestra el círculo construído.
 
 ```{r circ1, fig.cap='Ejemplo de un círculo.', fig.asp=1, fig.width=4}
@@ -166,7 +166,7 @@ polygon(x=rad * cos(theta) + xcenter,
 grid()  # Para incluir una cuadrícula de guía
 ```
 
-## Función `arrows` \index{arrows} \index{flechas}
+## Función `arrows`
 Esta función es muy útil para incluir flechas en una figura. La estructura de la función se muestra a continuación.
 
 ```{r, eval=FALSE}
@@ -212,7 +212,7 @@ text(4.5, 2, 'angle=60')
 text(4.5, 1, 'angle=90')
 ```
 
-## Función `grid` \index{grid} \label{grid}
+## Función `grid`
 La función `grid` es muy útil para construir rejillas sobre un gráfico, estas rejillas se pueden usar como referencia para facilitar la interpretación o como guía para ubicar elementos en un dibujo.
 
 La estructura de la función se muestra a continuación.
@@ -248,7 +248,7 @@ Para dibujar rejillas en puntos seleccionados por el usuario se puede utilizar e
 Se recomienda agregar la rejilla a un gráfico antes de poner el contenido (puntos o líneas) para que no interfiera.
 ```
 
-## Función `points` \index{points} \index{puntos}
+## Función `points`
 Esta función es útil para agregar puntos a una figura ya creada. La estructura de la función es la siguiente.
 
 ```{r, eval=FALSE}
@@ -285,7 +285,7 @@ points(x=1:5, y=1:5,
        col=1:5)
 ```
 
-## Función `curve` \index{curve} \index{curve}
+## Función `curve`
 Esta función sirve para dibujar una curva en un intervalo dado. La estructura de la función es la siguiente.
 
 ```{r, eval=FALSE}

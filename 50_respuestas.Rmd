@@ -2,7 +2,7 @@
 
 En este capítulo se presentan las respuestas a preguntas frecuentes que tienen los usuarios de \proglang{R} sobre la construcción de gráficos personalizados.
 
-## ¿Cómo crear un gráfico vacío? \label{emptygraph}
+## ¿Cómo crear un gráfico vacío? {#emptygraph}
 Es muy frecuente que se necesite crear un gráfico vacío para luego agregar ciertos elementos y construir un nuevo gráfico de forma incremental. Hacer esto en \proglang{R} es muy sencillo, solo se debe dibujar el gráfico con `plot` incluyendo `type='n'` para que no dibuje nada.
 
 A continuación se presenta el código para crear un gráfico vacío con valores de X entre -5 y 5, valores de Y entre 0 y 1, sin nombres en los ejes. En el pánel izquierdo de la Figura \@ref(fig:empty1) se muestra el gráfico resultante, no se observa nada adentro porque esa era la idea, un gráfico vacío. Es posible crear un gráfico más vacío aún, sin ejes ni la caja alrededor del gráfico. En el pánel derecho de la Figura \@ref(fig:empty1) se muestra el gráfico resultante con un mensaje para alertar que no es un error en la figura.
