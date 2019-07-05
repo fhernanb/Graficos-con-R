@@ -263,7 +263,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="respuestas.html"><a href="respuestas.html#como-dibujar-varios-qqplot-en-una-misma-figura"><i class="fa fa-check"></i><b>7.3</b> ¿Cómo dibujar varios QQplot en una misma figura?</a></li>
 <li class="chapter" data-level="7.4" data-path="respuestas.html"><a href="respuestas.html#como-dibujar-varias-densidades-en-una-misma-figura"><i class="fa fa-check"></i><b>7.4</b> ¿Cómo dibujar varias densidades en una misma figura?</a></li>
 <li class="chapter" data-level="7.5" data-path="respuestas.html"><a href="respuestas.html#como-dibujar-varias-densidades-transparentes-en-una-misma-figura"><i class="fa fa-check"></i><b>7.5</b> ¿Cómo dibujar varias densidades transparentes en una misma figura?</a></li>
-<li class="chapter" data-level="7.6" data-path="respuestas.html"><a href="respuestas.html#como-incluir-una-rejilla-a-una-figura-en-ciertos-puntos"><i class="fa fa-check"></i><b>7.6</b> ¿Cómo incluir una rejilla a una figura en ciertos puntos? </a></li>
+<li class="chapter" data-level="7.6" data-path="respuestas.html"><a href="respuestas.html#rejper"><i class="fa fa-check"></i><b>7.6</b> ¿Cómo incluir una rejilla a una figura en ciertos puntos?</a></li>
 <li class="chapter" data-level="7.7" data-path="respuestas.html"><a href="respuestas.html#como-incluir-en-un-grafico-valores-en-forma-automatica"><i class="fa fa-check"></i><b>7.7</b> ¿Cómo incluir en un gráfico valores en forma automática?</a></li>
 <li class="chapter" data-level="7.8" data-path="respuestas.html"><a href="respuestas.html#como-incluir-en-un-grafico-varios-valores-en-forma-automatica"><i class="fa fa-check"></i><b>7.8</b> ¿Cómo incluir en un gráfico varios valores en forma automática?</a></li>
 <li class="chapter" data-level="7.9" data-path="respuestas.html"><a href="respuestas.html#como-incluir-colores-dependiendo-de-los-valores-de-una-variable-cualitativa"><i class="fa fa-check"></i><b>7.9</b> ¿Cómo incluir colores dependiendo de los valores de una variable cualitativa?</a></li>
@@ -292,7 +292,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="intro" class="section level1">
 <h1><span class="header-section-number">1</span> Introducción</h1>
 
-<p>R es un lenguaje de programación usado para realizar procedimientos estadísticos y gráficos de alto nivel, este lenguaje fue creado en 1993 por los profesores e investigadores Robert Gentleman y Ross Ihaka. Inicialmente el lenguaje se usó para apoyar los cursos que tenían a su cargo los profesores, pero luego de ver la utilidad de la herramienta desarrollada, decidieron colocar copias de R en StatLib. A partir de 1995 el código fuente de R está disponible bajo licencia GNU GPL para sistemas operativos Windows, Macintosh y distribuciones Unix/Linux. La comunidad de usuarios de R en el mundo es muy grande y los usuarios cuentan con diferentes espacios para interactuar, a continuación una lista no exhaustiva de los sitios más populares relacionados con R:</p>
+<p>{#sec:origenes}
+R es un lenguaje de programación usado para realizar procedimientos estadísticos y gráficos de alto nivel, este lenguaje fue creado en 1993 por los profesores e investigadores Robert Gentleman y Ross Ihaka. Inicialmente el lenguaje se usó para apoyar los cursos que tenían a su cargo los profesores, pero luego de ver la utilidad de la herramienta desarrollada, decidieron colocar copias de R en StatLib. A partir de 1995 el código fuente de R está disponible bajo licencia GNU GPL para sistemas operativos Windows, Macintosh y distribuciones Unix/Linux. La comunidad de usuarios de R en el mundo es muy grande y los usuarios cuentan con diferentes espacios para interactuar, a continuación una lista no exhaustiva de los sitios más populares relacionados con R:</p>
 <ul>
 <li><a href="https://www.r-bloggers.com/">Rbloggers</a>.</li>
 <li><a href="http://r-es.org/">Comunidad hispana de R</a>.</li>
@@ -312,6 +313,7 @@ Figure 1.1: Robert Gentleman (izquierda) y Ross Ihaka (derecha) creadores de R.
 </p>
 </div>
 
+<p>{#sec:descarga}</p>
 <p>Para realizar la instalación de R usted debe visitar la página del CRAN () disponible en este <a href="https://cran.r-project.org/">enlace</a>. Una vez ingrese a la página encontrará un cuadro similar al mostrado en la Figura <a href="intro.html#fig:cran">1.2</a> donde aparecen los enlaces de la instalación para los sistemas operativos Linux, Mac y Windows.</p>
 <div class="figure" style="text-align: center"><span id="fig:cran"></span>
 <img src="images/cran.PNG" alt="Página del Cran." width="218" />
@@ -335,7 +337,8 @@ Figure 1.4: Página de descarga.
 </div>
 <p>Se recomienda observar el siguiente video didáctico de instalación de R disponible en este <a href="http://tinyurl.com/jd7b9ks">enlace</a> para facilitar la tarea de instalación.</p>
 
-<p>Una vez que esté instalado R en su computador, usted podrá acceder a él por la lista de programas o por medio del acceso directo que quedó en el escritorio, en la Figura <a href="intro.html#fig:rlogo">1.5</a> se muestra la apariencia del acceso directo para ingresar a R.</p>
+<p>{#sec:apariencia}
+Una vez que esté instalado R en su computador, usted podrá acceder a él por la lista de programas o por medio del acceso directo que quedó en el escritorio, en la Figura <a href="intro.html#fig:rlogo">1.5</a> se muestra la apariencia del acceso directo para ingresar a R.</p>
 <div class="figure" style="text-align: center"><span id="fig:rlogo"></span>
 <img src="images/rlogo.png" alt="Apariencia del acceso directo para ingresar a R." width="33%" />
 <p class="caption">
@@ -350,7 +353,8 @@ Figure 1.6: Apariencia de R.
 </p>
 </div>
 
-<p>En R existen varios tipos de objectos  que permiten que el usuario pueda almacenar la información para realizar procedimientos estadísticos y gráficos. Los principales objetos en R son vectores, matrices, arreglos, marcos de datos y listas. A continuación se presentan las características de estos objetos y la forma para crearlos.</p>
+<p>{#sec:objetos}</p>
+<p>En R existen varios tipos de objectos que permiten que el usuario pueda almacenar la información para realizar procedimientos estadísticos y gráficos. Los principales objetos en R son vectores, matrices, arreglos, marcos de datos y listas. A continuación se presentan las características de estos objetos y la forma para crearlos.</p>
 
 <p>Los vectores  son arreglos ordenados en los cuales se puede almacenar información de tipo numérico (variable cuantitativa), alfanumérico (variable cualitativa) o lógico (<code>TRUE</code> o <code>FALSE</code>), pero no mezclas de éstos. La función de R para crear un vector es <code>c()</code> y que significa concatenar; dentro de los paréntesis de esta función se ubica la información a almacenar. Una vez construído el vector se acostumbra a etiquetarlo con un nombre corto y representativo de la información que almacena, la asignación se hace por medio del operador <code>&lt;-</code> entre el nombre y el vector.</p>
 <p>A continuación se presenta un ejemplo de cómo crear tres vectores que contienen las respuestas de cinco personas a tres preguntas que se les realizaron.</p>
@@ -439,7 +443,8 @@ milista &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="
 ## 4   NA   FALSE      &lt;NA&gt;
 ## 5   20    TRUE    Batman</code></pre>
 
-<p>Así como en el español existen reglas ortográficas, la escritura de códigos en R también tiene unas reglas que se recomienda seguir para evitar confusiones. Tener una buena guía de estilo  es importante para que el código creado por usted sea fácilmente entendido por sus lectores <span class="citation">(<span class="citeproc-not-found" data-reference-id="rpackages"><strong>???</strong></span>)</span>. No existe una única y mejor guía de estilo para escritura en R, sin embargo aquí vamos a mostrar unas sugerencias basadas en la guía llamada .</p>
+<p>{#sec:estilo}</p>
+<p>Así como en el español existen reglas ortográficas, la escritura de códigos en R también tiene unas reglas que se recomienda seguir para evitar confusiones. Tener una buena guía de estilo es importante para que el código creado por usted sea fácilmente entendido por sus lectores <span class="citation">(<span class="citeproc-not-found" data-reference-id="rpackages"><strong>???</strong></span>)</span>. No existe una única y mejor guía de estilo para escritura en R, sin embargo aquí vamos a mostrar unas sugerencias basadas en la guía Google’s R style guide (<a href="https://google.github.io/styleguide/Rguide.xml" class="uri">https://google.github.io/styleguide/Rguide.xml</a>).</p>
 
 <p>Se sugiere que el nombre usado para nombrar un archivo tenga sentido y que termine con extensión .R. A continuación dos ejemplos de como nombrar mal y bien un archivo.</p>
 

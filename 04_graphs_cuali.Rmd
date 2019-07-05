@@ -110,7 +110,7 @@ legend('topleft', legend=rownames(tabla2), bty='n',
 
 
 ## Función `pie` \index{gráfico de pastel} \index{pie}
-En \proglang{R} es posible construir gráficos de pastel para representar una tabla de frecuencia relativa o absoluta, sin embargo este tipo de gráficos no es recomendable y en la ayuda de la función se hace la siguiente advertencia:
+En R es posible construir gráficos de pastel para representar una tabla de frecuencia relativa o absoluta, sin embargo este tipo de gráficos no es recomendable y en la ayuda de la función se hace la siguiente advertencia:
 
 ```{block2, type='rmdwarning'}
 Pie charts are a very bad way of displaying information. The eye is good at judging linear measures and bad at judging relative areas. A bar chart or dot chart is a preferable way of displaying this type of data.
@@ -201,7 +201,7 @@ dotchart(x=x,
 ```
 
 ## EJERCICIOS {-}
-Use funciones o procedimientos (varias líneas) de \proglang{R} para responder cada una de las siguientes preguntas.
+Use funciones o procedimientos (varias líneas) de R para responder cada una de las siguientes preguntas.
 
 Todas las preguntas siguientes están relacionadas con la base de datos sobre [apartamentos](https://raw.githubusercontent.com/fhernanb/datos/master/aptos2015) usados en la ciudad de Medellín.
 

@@ -19,7 +19,7 @@ Para conocer los valores que tienen por defecto cada uno de estos parámetros se
 par()
 ```
 
-Al ejecutar el código anterior se obtendrá una lista con `r length(par())` objetos en la cual se tendrán los valores que cada uno de los parámetros asume inicialmente en una sesión de \proglang{R}. Luego de modificar uno o alguno de los parámetros de la función `par`, todos los gráficos que se construyan de ahí en adelante estarán afectados por el cambio realizado.
+Al ejecutar el código anterior se obtendrá una lista con `r length(par())` objetos en la cual se tendrán los valores que cada uno de los parámetros asume inicialmente en una sesión de R. Luego de modificar uno o alguno de los parámetros de la función `par`, todos los gráficos que se construyan de ahí en adelante estarán afectados por el cambio realizado.
 
 ```{block2, type='rmdnote'}
 Una buena práctica para retornar a los valores iniciales del objeto `par()` es cerrar la ventana gráfica.
@@ -76,7 +76,7 @@ Este parámetro sirve para modificar el color del fondo donde se va a dibujar.
 ### Ejemplo {-}
 Dibujar la densidad de una normal estándar usando un color verde para el fondo.
 
-A continuación el código necesario para modficar el color del fondo. En esta [página](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf) se puede encontrar una paleta de colores disponibles en \proglang{R}. En la Figura \@ref(fig:bg) se muestra el resultado, el color de fondo está por toda la ventana gráfica.
+A continuación el código necesario para modficar el color del fondo. En esta [página](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf) se puede encontrar una paleta de colores disponibles en R. En la Figura \@ref(fig:bg) se muestra el resultado, el color de fondo está por toda la ventana gráfica.
 
 ```{r bg, fig.cap='Efecto del parámetro `bg`.', fig.asp=0.8, fig.width=4}
 par(bg='darkseagreen1')
@@ -159,7 +159,7 @@ Hacer un gráfico cualquiera y modificar los parámetros `cex.axis`, `cex.lab`, 
 
 A continuación se construye un gráfico simple y se modifican todos los paramétros `cex.algo` para ver el efecto que ellos tienen sobre el gráfico resultante, abajo el código usado.
 
-En la Figura \@ref(fig:cexs) se muestra el resultado. Observe que las marcas y números en los ejes quedaron grandes debido a que se usó `cex.axis=1.8`, los nombres que identifican los ejes casi no se ven porque se usó `cex.lab=0.3`. El título principal quedó muy pequeño debido a que `cex.main=0.7` mientras que el subtítulo quedó demasiado grande porque se usó `cex.sub=2`. Este ejemplo muestra que el usuario tiene todo el control para construir gráficos personalizados en \proglang{R}.
+En la Figura \@ref(fig:cexs) se muestra el resultado. Observe que las marcas y números en los ejes quedaron grandes debido a que se usó `cex.axis=1.8`, los nombres que identifican los ejes casi no se ven porque se usó `cex.lab=0.3`. El título principal quedó muy pequeño debido a que `cex.main=0.7` mientras que el subtítulo quedó demasiado grande porque se usó `cex.sub=2`. Este ejemplo muestra que el usuario tiene todo el control para construir gráficos personalizados en R.
 
 ```{r cexs, fig.cap='Efecto de los parámetros `cex.axis`, `cex.lab`, `cex.main` y `cex.sub`.', fig.asp=0.7, fig.width=6}
 x <- -3:3

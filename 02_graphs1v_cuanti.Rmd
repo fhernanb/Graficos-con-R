@@ -321,7 +321,7 @@ plot(density(y, bw=0.5))
 plot(density(y, bw=1))
 ```
 
-En la Figura \@ref(fig:density2) se muestran las densidades para 4 elecciones del parámetro ancho de banda `bw`, el valor de 0.2241 fue el valor calculado automáticamente por \proglang{R} y fue obtenido de la Figura \@ref(fig:density1), los otros valores fueron elegidos arbitrariamente para ver los cambios en la densidad. El usar un ancho de banda pequeño la densidad queda muy rugosa y usar un valor muy grande la suaviza, se recomienda usar el valor automático. 
+En la Figura \@ref(fig:density2) se muestran las densidades para 4 elecciones del parámetro ancho de banda `bw`, el valor de 0.2241 fue el valor calculado automáticamente por R y fue obtenido de la Figura \@ref(fig:density1), los otros valores fueron elegidos arbitrariamente para ver los cambios en la densidad. El usar un ancho de banda pequeño la densidad queda muy rugosa y usar un valor muy grande la suaviza, se recomienda usar el valor automático. 
 
 ### Ejemplo {-}
 Construir un gráfico de densidad para la variable peso corporal de la base de datos `medidas_cuerpo`, luego construir la densidad para la misma variable pero diferenciando por sexo.

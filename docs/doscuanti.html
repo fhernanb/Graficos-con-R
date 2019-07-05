@@ -263,7 +263,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="respuestas.html"><a href="respuestas.html#como-dibujar-varios-qqplot-en-una-misma-figura"><i class="fa fa-check"></i><b>7.3</b> ¿Cómo dibujar varios QQplot en una misma figura?</a></li>
 <li class="chapter" data-level="7.4" data-path="respuestas.html"><a href="respuestas.html#como-dibujar-varias-densidades-en-una-misma-figura"><i class="fa fa-check"></i><b>7.4</b> ¿Cómo dibujar varias densidades en una misma figura?</a></li>
 <li class="chapter" data-level="7.5" data-path="respuestas.html"><a href="respuestas.html#como-dibujar-varias-densidades-transparentes-en-una-misma-figura"><i class="fa fa-check"></i><b>7.5</b> ¿Cómo dibujar varias densidades transparentes en una misma figura?</a></li>
-<li class="chapter" data-level="7.6" data-path="respuestas.html"><a href="respuestas.html#como-incluir-una-rejilla-a-una-figura-en-ciertos-puntos"><i class="fa fa-check"></i><b>7.6</b> ¿Cómo incluir una rejilla a una figura en ciertos puntos? </a></li>
+<li class="chapter" data-level="7.6" data-path="respuestas.html"><a href="respuestas.html#rejper"><i class="fa fa-check"></i><b>7.6</b> ¿Cómo incluir una rejilla a una figura en ciertos puntos?</a></li>
 <li class="chapter" data-level="7.7" data-path="respuestas.html"><a href="respuestas.html#como-incluir-en-un-grafico-valores-en-forma-automatica"><i class="fa fa-check"></i><b>7.7</b> ¿Cómo incluir en un gráfico valores en forma automática?</a></li>
 <li class="chapter" data-level="7.8" data-path="respuestas.html"><a href="respuestas.html#como-incluir-en-un-grafico-varios-valores-en-forma-automatica"><i class="fa fa-check"></i><b>7.8</b> ¿Cómo incluir en un gráfico varios valores en forma automática?</a></li>
 <li class="chapter" data-level="7.9" data-path="respuestas.html"><a href="respuestas.html#como-incluir-colores-dependiendo-de-los-valores-de-una-variable-cualitativa"><i class="fa fa-check"></i><b>7.9</b> ¿Cómo incluir colores dependiendo de los valores de una variable cualitativa?</a></li>
@@ -300,7 +300,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><code>x</code>: vector numérico con las coordenadas del eje horizontal.</li>
 <li><code>y</code>: vector numérico con las coordenadas del eje vertical.</li>
-<li><code>type</code>: tipo de gráfico a dibujar. Las opciones son: 
+<li><code>type</code>: tipo de gráfico a dibujar. Las opciones son: {#type}
 <ul>
 <li><code>'p'</code> para obtener puntos, esta es la opción por defecto.</li>
 <li><code>'l'</code> para obtener líneas.</li>
@@ -610,7 +610,7 @@ Figure 3.12: Matriz de dispersión con páneles modificados.
 </p>
 </div>
 <p>En la Figura <a href="doscuanti.html#fig:exmod1pairs">3.12</a> se presenta la matriz de dispersión con las modificaciones en cada uno de los páneles. Cualquier usuario puede modificar las funciones <code>panel.reg</code>, <code>panel.hist</code> y <code>panel.cor</code> para personalizar la apariencia de los contenidos.</p>
-<p>La función <code>panel.smooth</code> está disponible en  para que el usuario pueda incluir arriba o abajo de la diagonal un diagrama de dispersión con una línea resultado de un ajuste suavizado. Abajo se muestra el código de cómo incluir la función <code>panel.smooth</code> y en la Figura <a href="doscuanti.html#fig:exmod2pairs">3.13</a> se muestra gráfico obtenido.</p>
+<p>La función <code>panel.smooth</code> está disponible en R para que el usuario pueda incluir arriba o abajo de la diagonal un diagrama de dispersión con una línea resultado de un ajuste suavizado. Abajo se muestra el código de cómo incluir la función <code>panel.smooth</code> y en la Figura <a href="doscuanti.html#fig:exmod2pairs">3.13</a> se muestra gráfico obtenido.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(datos.num,
       <span class="dt">upper.panel =</span> panel.reg,
       <span class="dt">diag.panel =</span> panel.hist,

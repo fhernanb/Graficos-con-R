@@ -1,6 +1,6 @@
 # Funciones auxiliares {#auxiliares}
 
-En este capítulo se presentan funciones auxiliares que son útiles para complementar los gráficos generados en \proglang{R}.
+En este capítulo se presentan funciones auxiliares que son útiles para complementar los gráficos generados en R.
 
 ## Función `segments`
 Esta función es muy útil para digujar segmentos. La estructura de la función se muestra a continuación.
@@ -151,7 +151,7 @@ abline(h=c(5, -3), v=2,
 ```
 
 ## Para dibujar un círculo
-En la base de \proglang{R} no hay una función específica para crear círculos, sin embargo, es posible usar unas pocas líneas para obtener el círculo con un radio y centro deseado por medio de la función `polygon`. A continuación se muestra el código para dibujar un círculo de radio 7 unidades con centro en el punto (-2, 1) con fondo azul claro y borde de color azul obscuro. En la Figura \@ref(fig:circ1) se muestra el círculo construído.
+En la base de R no hay una función específica para crear círculos, sin embargo, es posible usar unas pocas líneas para obtener el círculo con un radio y centro deseado por medio de la función `polygon`. A continuación se muestra el código para dibujar un círculo de radio 7 unidades con centro en el punto (-2, 1) con fondo azul claro y borde de color azul obscuro. En la Figura \@ref(fig:circ1) se muestra el círculo construído.
 
 ```{r circ1, fig.cap='Ejemplo de un círculo.', fig.asp=1, fig.width=4}
 rad     <- 7   # Valor del radio

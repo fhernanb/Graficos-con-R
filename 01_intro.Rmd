@@ -1,6 +1,6 @@
 # Introducción {#intro}
 
-\section{Orígenes} \label{sec:origenes}
+\section{Orígenes} {#sec:origenes}
 R es un lenguaje de programación usado para realizar procedimientos estadísticos y gráficos de alto nivel, este lenguaje fue creado en 1993 por los profesores e investigadores Robert Gentleman y Ross Ihaka. Inicialmente el lenguaje se usó para apoyar los cursos que tenían a su cargo los profesores, pero luego de ver la utilidad de la herramienta desarrollada, decidieron colocar copias de R en StatLib. A partir de 1995 el código fuente de R está disponible bajo licencia GNU GPL para sistemas operativos Windows, Macintosh y distribuciones Unix/Linux. La comunidad de usuarios de R en el mundo es muy grande y los usuarios cuentan con diferentes espacios para interactuar, a continuación una lista no exhaustiva de los sitios más populares relacionados con R:
 
 - [Rbloggers](https://www.r-bloggers.com/).
@@ -18,7 +18,7 @@ R es un lenguaje de programación usado para realizar procedimientos estadístic
 knitr::include_graphics("images/Robert_Roos.png")
 ```
 
-\section{Descarga e instalación} \label{sec:descarga}
+\section{Descarga e instalación} {#sec:descarga}
 
 Para realizar la instalación de R usted debe visitar la página del CRAN (\textit{Comprehensive R Archive Network}) disponible en este [enlace](https://cran.r-project.org/). Una vez ingrese a la página encontrará un cuadro similar al mostrado en la Figura \@ref(fig:cran) donde aparecen los enlaces de la instalación para los sistemas operativos Linux, Mac y Windows.
 
@@ -40,7 +40,7 @@ knitr::include_graphics("images/instalacion2.png")
 
 Se recomienda observar el siguiente video didáctico de instalación de R disponible en este [enlace](http://tinyurl.com/jd7b9ks) para facilitar la tarea de instalación.
 
-\section{Apariencia del programa} \label{sec:apariencia}
+\section{Apariencia del programa} {#sec:apariencia}
 Una vez que esté instalado R en su computador, usted podrá acceder a él por la lista de programas o por medio del acceso directo que quedó en el escritorio, en la Figura \@ref(fig:rlogo) se muestra la apariencia del acceso directo para ingresar a R.
 
 ```{r rlogo, echo=F, fig.cap='Apariencia del acceso directo para ingresar a R.', out.width = '33%', fig.align='center'}
@@ -54,9 +54,9 @@ knitr::include_graphics("images/Rpantallazo.png")
 ```
 
 
-\section{Tipos de objetos} \label{sec:objetos}
+\section{Tipos de objetos} {#sec:objetos}
 
-En R existen varios tipos de objectos \index{objetos} que permiten que el usuario pueda almacenar la información para realizar procedimientos estadísticos y gráficos. Los principales objetos en R son vectores, matrices, arreglos, marcos de datos y listas. A continuación se presentan las características de estos objetos y la forma para crearlos.
+En R existen varios tipos de objectos que permiten que el usuario pueda almacenar la información para realizar procedimientos estadísticos y gráficos. Los principales objetos en R son vectores, matrices, arreglos, marcos de datos y listas. A continuación se presentan las características de estos objetos y la forma para crearlos.
 
 \subsection{Vectores}
 
@@ -147,9 +147,9 @@ La función `set.seed` de la línea número 1 sirve para fijar la semilla de tal
 milista
 ```
 
-\section{Guía de estilo para la escritura en R} \label{sec:estilo}
+\section{Guía de estilo para la escritura en R} {#sec:estilo}
 
-Así como en el español existen reglas ortográficas, la escritura de códigos en R también tiene unas reglas que se recomienda seguir para evitar confusiones. Tener una buena guía de estilo \index{guía de estilo} es importante para que el código creado por usted sea fácilmente entendido por sus lectores @rpackages. No existe una única y mejor guía de estilo para escritura en R, sin embargo aquí vamos a mostrar unas sugerencias basadas en la guía llamada \href{https://google.github.io/styleguide/Rguide.xml}{\textit{Google's R style guide}}.
+Así como en el español existen reglas ortográficas, la escritura de códigos en R también tiene unas reglas que se recomienda seguir para evitar confusiones. Tener una buena guía de estilo es importante para que el código creado por usted sea fácilmente entendido por sus lectores @rpackages. No existe una única y mejor guía de estilo para escritura en R, sin embargo aquí vamos a mostrar unas sugerencias basadas en la guía Google's R style guide (https://google.github.io/styleguide/Rguide.xml).
 
 \subsection{Nombres de los archivos}
 Se sugiere que el nombre usado para nombrar un archivo tenga sentido y que termine con extensión .R. A continuación dos ejemplos de como nombrar mal y bien un archivo.

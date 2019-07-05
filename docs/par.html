@@ -263,7 +263,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="respuestas.html"><a href="respuestas.html#como-dibujar-varios-qqplot-en-una-misma-figura"><i class="fa fa-check"></i><b>7.3</b> ¿Cómo dibujar varios QQplot en una misma figura?</a></li>
 <li class="chapter" data-level="7.4" data-path="respuestas.html"><a href="respuestas.html#como-dibujar-varias-densidades-en-una-misma-figura"><i class="fa fa-check"></i><b>7.4</b> ¿Cómo dibujar varias densidades en una misma figura?</a></li>
 <li class="chapter" data-level="7.5" data-path="respuestas.html"><a href="respuestas.html#como-dibujar-varias-densidades-transparentes-en-una-misma-figura"><i class="fa fa-check"></i><b>7.5</b> ¿Cómo dibujar varias densidades transparentes en una misma figura?</a></li>
-<li class="chapter" data-level="7.6" data-path="respuestas.html"><a href="respuestas.html#como-incluir-una-rejilla-a-una-figura-en-ciertos-puntos"><i class="fa fa-check"></i><b>7.6</b> ¿Cómo incluir una rejilla a una figura en ciertos puntos? </a></li>
+<li class="chapter" data-level="7.6" data-path="respuestas.html"><a href="respuestas.html#rejper"><i class="fa fa-check"></i><b>7.6</b> ¿Cómo incluir una rejilla a una figura en ciertos puntos?</a></li>
 <li class="chapter" data-level="7.7" data-path="respuestas.html"><a href="respuestas.html#como-incluir-en-un-grafico-valores-en-forma-automatica"><i class="fa fa-check"></i><b>7.7</b> ¿Cómo incluir en un gráfico valores en forma automática?</a></li>
 <li class="chapter" data-level="7.8" data-path="respuestas.html"><a href="respuestas.html#como-incluir-en-un-grafico-varios-valores-en-forma-automatica"><i class="fa fa-check"></i><b>7.8</b> ¿Cómo incluir en un gráfico varios valores en forma automática?</a></li>
 <li class="chapter" data-level="7.9" data-path="respuestas.html"><a href="respuestas.html#como-incluir-colores-dependiendo-de-los-valores-de-una-variable-cualitativa"><i class="fa fa-check"></i><b>7.9</b> ¿Cómo incluir colores dependiendo de los valores de una variable cualitativa?</a></li>
@@ -302,7 +302,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     yaxp, yaxs, yaxt, ylbias)</code></pre>
 <p>Para conocer los valores que tienen por defecto cada uno de estos parámetros se puede utilizar el siguiente código.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>()</code></pre>
-<p>Al ejecutar el código anterior se obtendrá una lista con 72 objetos en la cual se tendrán los valores que cada uno de los parámetros asume inicialmente en una sesión de . Luego de modificar uno o alguno de los parámetros de la función <code>par</code>, todos los gráficos que se construyan de ahí en adelante estarán afectados por el cambio realizado.</p>
+<p>Al ejecutar el código anterior se obtendrá una lista con 72 objetos en la cual se tendrán los valores que cada uno de los parámetros asume inicialmente en una sesión de R. Luego de modificar uno o alguno de los parámetros de la función <code>par</code>, todos los gráficos que se construyan de ahí en adelante estarán afectados por el cambio realizado.</p>
 
 <div class="rmdnote">
 Una buena práctica para retornar a los valores iniciales del objeto <code>par()</code> es cerrar la ventana gráfica.
@@ -367,7 +367,7 @@ Figure 5.2: Efecto del parámetro <code>adj</code>.
 <div id="ejemplo-35" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Dibujar la densidad de una normal estándar usando un color verde para el fondo.</p>
-<p>A continuación el código necesario para modficar el color del fondo. En esta <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">página</a> se puede encontrar una paleta de colores disponibles en . En la Figura <a href="par.html#fig:bg">5.3</a> se muestra el resultado, el color de fondo está por toda la ventana gráfica.</p>
+<p>A continuación el código necesario para modficar el color del fondo. En esta <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">página</a> se puede encontrar una paleta de colores disponibles en R. En la Figura <a href="par.html#fig:bg">5.3</a> se muestra el resultado, el color de fondo está por toda la ventana gráfica.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">bg=</span><span class="st">&#39;darkseagreen1&#39;</span>)
 <span class="kw">curve</span>(dnorm, <span class="dt">lwd=</span><span class="dv">6</span>, <span class="dt">col=</span><span class="st">&#39;blue&#39;</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>))</code></pre>
 <div class="figure"><span id="fig:bg"></span>
@@ -464,7 +464,7 @@ Figure 5.6: Efecto del parámetro <code>cex</code>.
 <h3>Ejemplo</h3>
 <p>Hacer un gráfico cualquiera y modificar los parámetros <code>cex.axis</code>, <code>cex.lab</code>, <code>cex.main</code> y <code>cex.sub</code> de la función <code>par</code> con el objetivo de ver el efecto que ellos tiene sobre el gráfico.</p>
 <p>A continuación se construye un gráfico simple y se modifican todos los paramétros <code>cex.algo</code> para ver el efecto que ellos tienen sobre el gráfico resultante, abajo el código usado.</p>
-<p>En la Figura <a href="par.html#fig:cexs">5.7</a> se muestra el resultado. Observe que las marcas y números en los ejes quedaron grandes debido a que se usó <code>cex.axis=1.8</code>, los nombres que identifican los ejes casi no se ven porque se usó <code>cex.lab=0.3</code>. El título principal quedó muy pequeño debido a que <code>cex.main=0.7</code> mientras que el subtítulo quedó demasiado grande porque se usó <code>cex.sub=2</code>. Este ejemplo muestra que el usuario tiene todo el control para construir gráficos personalizados en .</p>
+<p>En la Figura <a href="par.html#fig:cexs">5.7</a> se muestra el resultado. Observe que las marcas y números en los ejes quedaron grandes debido a que se usó <code>cex.axis=1.8</code>, los nombres que identifican los ejes casi no se ven porque se usó <code>cex.lab=0.3</code>. El título principal quedó muy pequeño debido a que <code>cex.main=0.7</code> mientras que el subtítulo quedó demasiado grande porque se usó <code>cex.sub=2</code>. Este ejemplo muestra que el usuario tiene todo el control para construir gráficos personalizados en R.</p>
 <pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">-3</span><span class="op">:</span><span class="dv">3</span>
 <span class="kw">par</span>(<span class="dt">cex.axis=</span><span class="fl">1.8</span>, <span class="dt">cex.lab=</span><span class="fl">0.3</span>, <span class="dt">cex.main=</span><span class="fl">0.7</span>, <span class="dt">cex.sub=</span><span class="fl">2.0</span>)
 <span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>x,

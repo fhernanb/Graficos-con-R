@@ -263,7 +263,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.3" data-path="respuestas.html"><a href="respuestas.html#como-dibujar-varios-qqplot-en-una-misma-figura"><i class="fa fa-check"></i><b>7.3</b> ¿Cómo dibujar varios QQplot en una misma figura?</a></li>
 <li class="chapter" data-level="7.4" data-path="respuestas.html"><a href="respuestas.html#como-dibujar-varias-densidades-en-una-misma-figura"><i class="fa fa-check"></i><b>7.4</b> ¿Cómo dibujar varias densidades en una misma figura?</a></li>
 <li class="chapter" data-level="7.5" data-path="respuestas.html"><a href="respuestas.html#como-dibujar-varias-densidades-transparentes-en-una-misma-figura"><i class="fa fa-check"></i><b>7.5</b> ¿Cómo dibujar varias densidades transparentes en una misma figura?</a></li>
-<li class="chapter" data-level="7.6" data-path="respuestas.html"><a href="respuestas.html#como-incluir-una-rejilla-a-una-figura-en-ciertos-puntos"><i class="fa fa-check"></i><b>7.6</b> ¿Cómo incluir una rejilla a una figura en ciertos puntos? </a></li>
+<li class="chapter" data-level="7.6" data-path="respuestas.html"><a href="respuestas.html#rejper"><i class="fa fa-check"></i><b>7.6</b> ¿Cómo incluir una rejilla a una figura en ciertos puntos?</a></li>
 <li class="chapter" data-level="7.7" data-path="respuestas.html"><a href="respuestas.html#como-incluir-en-un-grafico-valores-en-forma-automatica"><i class="fa fa-check"></i><b>7.7</b> ¿Cómo incluir en un gráfico valores en forma automática?</a></li>
 <li class="chapter" data-level="7.8" data-path="respuestas.html"><a href="respuestas.html#como-incluir-en-un-grafico-varios-valores-en-forma-automatica"><i class="fa fa-check"></i><b>7.8</b> ¿Cómo incluir en un gráfico varios valores en forma automática?</a></li>
 <li class="chapter" data-level="7.9" data-path="respuestas.html"><a href="respuestas.html#como-incluir-colores-dependiendo-de-los-valores-de-una-variable-cualitativa"><i class="fa fa-check"></i><b>7.9</b> ¿Cómo incluir colores dependiendo de los valores de una variable cualitativa?</a></li>
@@ -291,7 +291,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="auxiliares" class="section level1">
 <h1><span class="header-section-number">6</span> Funciones auxiliares</h1>
-<p>En este capítulo se presentan funciones auxiliares que son útiles para complementar los gráficos generados en .</p>
+<p>En este capítulo se presentan funciones auxiliares que son útiles para complementar los gráficos generados en R.</p>
 <div id="funcion-segments" class="section level2">
 <h2><span class="header-section-number">6.1</span> Función <code>segments</code></h2>
 <p>Esta función es muy útil para digujar segmentos. La estructura de la función se muestra a continuación.</p>
@@ -446,7 +446,7 @@ Figure 6.6: Ejemplo de una recta con la función abline.
 </div>
 <div id="para-dibujar-un-circulo" class="section level2">
 <h2><span class="header-section-number">6.5</span> Para dibujar un círculo</h2>
-<p>En la base de  no hay una función específica para crear círculos, sin embargo, es posible usar unas pocas líneas para obtener el círculo con un radio y centro deseado por medio de la función <code>polygon</code>. A continuación se muestra el código para dibujar un círculo de radio 7 unidades con centro en el punto (-2, 1) con fondo azul claro y borde de color azul obscuro. En la Figura <a href="auxiliares.html#fig:circ1">6.7</a> se muestra el círculo construído.</p>
+<p>En la base de R no hay una función específica para crear círculos, sin embargo, es posible usar unas pocas líneas para obtener el círculo con un radio y centro deseado por medio de la función <code>polygon</code>. A continuación se muestra el código para dibujar un círculo de radio 7 unidades con centro en el punto (-2, 1) con fondo azul claro y borde de color azul obscuro. En la Figura <a href="auxiliares.html#fig:circ1">6.7</a> se muestra el círculo construído.</p>
 <pre class="sourceCode r"><code class="sourceCode r">rad     &lt;-<span class="st"> </span><span class="dv">7</span>   <span class="co"># Valor del radio</span>
 xcenter &lt;-<span class="st"> </span><span class="dv">-2</span>  <span class="co"># Coordenada en x del centro</span>
 ycenter &lt;-<span class="st"> </span><span class="dv">1</span>   <span class="co"># Coordenada en y del centro</span>
@@ -540,7 +540,7 @@ Figure 6.10: Ejemplos de rejillas con <code>grid</code>.
 </div>
 
 <div class="rmdtip">
-Para dibujar rejillas en puntos seleccionados por el usuario se puede utilizar el procedimiento explicado en la sección <a href="#rejper"><strong>??</strong></a>.
+Para dibujar rejillas en puntos seleccionados por el usuario se puede utilizar el procedimiento explicado en la sección <a href="respuestas.html#rejper">7.6</a>.
 </div>
 
 
@@ -654,7 +654,7 @@ Figure 6.14: Dibujo de un cardiode.
 <h2>EJERCICIOS</h2>
 <ol style="list-style-type: decimal">
 <li><p>Crear un gráfico vacío de manera que el eje horizontal tome valores desde 0 a 30 y el eje vertical valores de 0 a 20, usar los pasos de la sección <a href="respuestas.html#emptygraph">7.1</a> para construir el gráfico solicitado.</p></li>
-<li><p>Para el gráfico vacío creado en el paso anterior, agregar una rejilla o cuadrícula que pase por los valores enteros, use los pasos de la sección <a href="#rejper"><strong>??</strong></a> para incluir la rejilla en los valores solicitados. El gráfico resultante de los ejercicios 1 y 2 debe ser similar al presentando en la Figura <a href="auxiliares.html#fig:plantilla">6.15</a>.</p></li>
+<li><p>Para el gráfico vacío creado en el paso anterior, agregar una rejilla o cuadrícula que pase por los valores enteros, use los pasos de la sección <a href="respuestas.html#rejper">7.6</a> para incluir la rejilla en los valores solicitados. El gráfico resultante de los ejercicios 1 y 2 debe ser similar al presentando en la Figura <a href="auxiliares.html#fig:plantilla">6.15</a>.</p></li>
 </ol>
 <div class="figure"><span id="fig:plantilla"></span>
 <img src="Graficos_con_R_files/figure-html/plantilla-1.png" alt="Plantilla para el dibujo." width="326.4" />

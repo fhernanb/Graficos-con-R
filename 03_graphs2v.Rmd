@@ -14,7 +14,7 @@ Los argumentos de la función `plot` son:
 
 - `x`: vector numérico con las coordenadas del eje horizontal.
 - `y`: vector numérico con las coordenadas del eje vertical.
-- `type`: tipo de gráfico a dibujar. Las opciones son: \label{type}
+- `type`: tipo de gráfico a dibujar. Las opciones son: {#type}
     - `'p'` para obtener puntos, esta es la opción por defecto.
     - `'l'` para obtener líneas.
     - `'b'` para obtener los puntos y líneas que unen los puntos.
@@ -309,7 +309,7 @@ pairs(datos.num,
 
 En la Figura \@ref(fig:exmod1pairs) se presenta la matriz de dispersión con las modificaciones en cada uno de los páneles. Cualquier usuario puede modificar las funciones `panel.reg`, `panel.hist` y `panel.cor` para personalizar la apariencia de los contenidos. 
 
-La función `panel.smooth` está disponible en \proglang{R} para que el usuario pueda incluir arriba o abajo de la diagonal un diagrama de dispersión con una línea resultado de un ajuste suavizado. Abajo se muestra el código de cómo incluir la función `panel.smooth` y en la Figura \@ref(fig:exmod2pairs) se muestra gráfico obtenido.
+La función `panel.smooth` está disponible en R para que el usuario pueda incluir arriba o abajo de la diagonal un diagrama de dispersión con una línea resultado de un ajuste suavizado. Abajo se muestra el código de cómo incluir la función `panel.smooth` y en la Figura \@ref(fig:exmod2pairs) se muestra gráfico obtenido.
 
 
 ```{r exmod2pairs, fig.cap='Matriz de dispersión usando la función panel.smooth.', fig.asp=0.8, fig.width=6}
