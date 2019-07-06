@@ -105,7 +105,7 @@ boxplot(precio ~ ubicacion * parqueadero,
 En la Figura \@ref(fig:boxplots2) se muestran los boxplots. Se le recomienda al lector construir nuevamente el segundo boxplot pero eliminando `drop=TRUE` para que vea el efecto que tiene sobre el dibujo.
 
 ## Función `hist`
-La función `hist` sirve para crear el histograma \index{histograma}\index{hist} a una variable cuantitativa. Como argumentos esta función recibe un vector con los datos y opcionalmente puede ingresarse como argumento adicional el número de intervalos a ser graficados o en su defecto el número de intervalos se determina con la fórmula de Sturges.
+La función `hist` sirve para crear el histograma a una variable cuantitativa. Como argumentos esta función recibe un vector con los datos y opcionalmente puede ingresarse como argumento adicional el número de intervalos a ser graficados o en su defecto el número de intervalos se determina con la fórmula de Sturges.
 
 ```{block2, type='rmdtip'}
 Los programas de computador usualmente construyen los histogramas automáticamente, sin embargo, un buen programa debe permitirnos elegir el número de intervalos del histograma. Si usted posee un programa que no le permite hacer cambios, cambie de programa.
