@@ -2,7 +2,7 @@
 
 En este capítulo se presentan funciones para la creación de gráficos con una sola variable cuantitativa.
 
-## Función `stem` \index{stem} \index{tallo y hoja}
+## Función `stem`
 
 Esta función permite crear el gráfico llamado de tallo y hoja. Este gráfico fue propuesto por Tukey (1977) y a pesar de no ser un gráfico para presentación definitiva, se utiliza a la vez que el analista recoge la información para ver rápidamente la distribución de los datos.
 
@@ -39,7 +39,7 @@ stem(datos$altura)
 
 De este gráfico sencillo se puede ver que la variable presenta una mayor frecuencia para alturas ente 170 y 179 cm y que no tiene una distribución simétrica.
 
-## Función `boxplot` \index{boxplot}
+## Función `boxplot`
 La función `boxplot` sirve para crear un diagrama de cajas y bigote para una variable cuantitativa. La estructura de la función `boxplot` con los argumentos más comunes de uso se muestran a continuación.
 
 ```{r, eval=F}
@@ -80,7 +80,6 @@ boxplot(x=datos$altura, xlab='Altura (cm)', horizontal=TRUE)
 En la Figura \@ref(fig:boxplots) se presentan los boxplots obtenidos con las instrucciones anteriores. El segundo y tercer boxplot son el mismo, lo único que se modificó fueron los nombres o etiquetas a colocar debajo de cada boxplot por medio del argumento `names` y la orientación.
 
 ### Ejemplo {-}
-\index{boxplot comparativo}
 Es posible crear boxplots comparativos usando 1 o 2 variables cualitativas. A continuación se construyen dos boxplots para la variable precio de apartamentos usados en Medellín. En el primer boxtplot diferencia por la variable balcón (no, si) y en el segundo se diferencia por los cruces de las variables parqueadero y ubicación (en Laureles y Poblado).
 
 A continuación se muestra el código necesario para construir los boxplots. En el primero se usa la fórmula `precio ~ balcon` para crear el boxplot del precio diferenciando por los dos niveles de la variable balcón. En el segundo se usa la fórmula `precio ~ ubicacion * parqueadero` pero se limitan las ubicaciones a sólo dos, Laureles y Aburrá sur, por esa razón se usa el parámetro `subset` para incluir la restricción. Se agregó también `drop=TRUE` para que en el segundo boxplot no aparezcan las otras ubicaciones.
@@ -214,7 +213,7 @@ Intensidad primera clase = 1.4869888 = 0.5 / (1.384306 - 1.048056)
 Intensidad segunda clase = 0.4293381 = 0.5 / (2.548889 - 1.384306)
 ```
 
-## Función `qqnorm` y `qqplot` \index{qqnorm} \index{qqplot}
+## Función `qqnorm` y `qqplot`
 Los gráficos cuantil cuantil (quantile-quantile plot) son una ayuda para explorar si un conjunto de datos o muestra proviene de una población con cierta distribución.
 
 La función `qqnorm` sirve para explorar la normalidad de una muestra mientras que la función `qqplot` es de propósito más general, sirve para crear el gráfico cuantil cuantil para cualquier distribución.
@@ -239,7 +238,6 @@ El código para simular la muestra y crear el gráfico cuantil cuantil se muestr
 muestra <- rnorm(n=30, mean=10, sd=4)
 
 par(mfrow=c(1, 2))
-
 qqnorm(y=muestra)
 qqline(y=muestra)
 
@@ -266,7 +264,7 @@ qqplot(y=muestra, x=qweibull(ppoints(n), shape=1, scale=1))
 
 En la Figura \@ref(fig:qqplot2) están los gráficos cuantil cuantil solicitados. Del pánel izquierdo de la figura vemos que los puntos NO están alineados, esto indica que la muestra no proviene de la distribución $N(0, 1)$, esto es un resultado esperado ya que sabíamos que la muestra no fue generada de una normal. En el pánel derecho de la misma figura vemos que los puntos SI están alineados, esto indica que la muestra generada puede provenir de una población $Weibull(1, 1)$. Los nombres de los ejes en la Figura \@ref(fig:qqplot2) pueden ser editados para presentar una figura con mejor apariencia.
 
-## Función `density` \index{density} \index{densidad}
+## Función `density`
 Los gráficos de densidad son muy útiles porque permiten ver el(los) intervalo(s) donde una variable cuantitativa puede ocurrir con mayor probabilidad.
 
 La función `density` crea la información de la densidad y la función `plot` dibuja la densidad.

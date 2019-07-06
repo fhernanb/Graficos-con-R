@@ -212,7 +212,7 @@ text(4.5, 2, 'angle=60')
 text(4.5, 1, 'angle=90')
 ```
 
-## Función `grid`
+## Función `grid` {#grid}
 La función `grid` es muy útil para construir rejillas sobre un gráfico, estas rejillas se pueden usar como referencia para facilitar la interpretación o como guía para ubicar elementos en un dibujo.
 
 La estructura de la función se muestra a continuación.
