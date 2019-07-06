@@ -12,7 +12,7 @@ Los argumentos de la función `plot` son:
 
 - `x`: vector numérico con las coordenadas del eje horizontal.
 - `y`: vector numérico con las coordenadas del eje vertical.
-- `type`: tipo de gráfico a dibujar. Las opciones son: {#type}
+- `type`: tipo de gráfico a dibujar. Las opciones son: {#par_type}
     - `'p'` para obtener puntos, esta es la opción por defecto.
     - `'l'` para obtener líneas.
     - `'b'` para obtener los puntos y líneas que unen los puntos.

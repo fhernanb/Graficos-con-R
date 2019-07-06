@@ -299,7 +299,7 @@ Los argumentos de la función son:
 - `from, to`: valores mínimo y máximo donde se va a evaluar la función.
 - `n`: número de puntos en los cuales se va a evaluar la función, su valor por defecto es 101.
 - `add`: valor lógico para indicar que se desea agregar la curva a un gráfico ya existente.
-- `type`: tipo de representación para la función, se disponen de 9 opciones que se pueden consultar en descripción de `type` para la función `plot` en la sección \@ref(type).
+- `type`: tipo de representación para la función, se disponen de 9 opciones que se pueden consultar en descripción de `type` para la función `plot` en la sección \@ref(par_type).
 - `xlim`: intervalo para construir la ventana gráfica, no confundir con `from` y `to`.
 
 ### Ejemplo {-}
