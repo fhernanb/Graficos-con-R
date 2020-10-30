@@ -347,12 +347,3 @@ En el panel izquierdo de la Figura \@ref(fig:density3) se muestra la densidad pa
 
 
 
-
-
-
-
-
-
-
-
-

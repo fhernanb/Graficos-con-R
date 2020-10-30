@@ -78,6 +78,7 @@ Los argumentos de la función `plot` son:
 - `x`: vector numérico con las coordenadas del eje horizontal.
 - `y`: vector numérico con las coordenadas del eje vertical.
 - `pch`: valor o vector numérico con el tipo de punto a usar, por defecto `pch=1`. Para conocer los diferentes símbolos que se pueden obtener con el parámetro `pch` se recomienda consultar la Figura \@ref(fig:point1).
+
 - `seg.col`: color de los pétalos.
 - `seg.lwd`: ancho de los pétalos.
 - `...`: otros parámetros gráficos que pueden ser pasados como argumentos para `plot`.

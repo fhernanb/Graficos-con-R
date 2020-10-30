@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>5 Función par | Gráficos con R</title>
-  <meta name="description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="5 Función par | Gráficos con R" />
   <meta property="og:type" content="book" />
@@ -22,19 +21,19 @@
   <meta name="twitter:description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="twitter:image" content="images/cover.png" />
 
-<meta name="author" content="Freddy Hernández">
-<meta name="author" content="Juan Carlos Correa">
+<meta name="author" content="Freddy Hernández" />
+<meta name="author" content="Juan Carlos Correa" />
 
 
-<meta name="date" content="2019-07-05">
+<meta name="date" content="2020-10-30" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="cuali.html">
-<link rel="next" href="auxiliares.html">
+<link rel="prev" href="cuali.html"/>
+<link rel="next" href="auxiliares.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -42,6 +41,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -52,26 +54,27 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +83,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -138,138 +141,124 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="sobre-los-autores.html"><a href="sobre-los-autores.html"><i class="fa fa-check"></i>Sobre los autores</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#origenes"><i class="fa fa-check"></i><b>1.1</b> Orígenes</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#descarga-e-instalacion"><i class="fa fa-check"></i><b>1.2</b> Descarga e instalación</a></li>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#orígenes"><i class="fa fa-check"></i><b>1.1</b> Orígenes</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#descarga-e-instalación"><i class="fa fa-check"></i><b>1.2</b> Descarga e instalación</a></li>
 <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#apariencia-del-programa"><i class="fa fa-check"></i><b>1.3</b> Apariencia del programa</a></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#tipos-de-objetos"><i class="fa fa-check"></i><b>1.4</b> Tipos de objetos</a></li>
-<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#vectores"><i class="fa fa-check"></i><b>1.5</b> Vectores</a></li>
-<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>1.6</b> Matrices</a></li>
-<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#arreglos"><i class="fa fa-check"></i><b>1.7</b> Arreglos</a></li>
-<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#marco-de-datos"><i class="fa fa-check"></i><b>1.8</b> Marco de datos</a></li>
-<li class="chapter" data-level="1.9" data-path="intro.html"><a href="intro.html#listas"><i class="fa fa-check"></i><b>1.9</b> Listas</a></li>
-<li class="chapter" data-level="1.10" data-path="intro.html"><a href="intro.html#guia-de-estilo-para-la-escritura-en-r"><i class="fa fa-check"></i><b>1.10</b> Guía de estilo para la escritura en R</a><ul>
-<li class="chapter" data-level="1.10.1" data-path="intro.html"><a href="intro.html#nombres-de-los-archivos"><i class="fa fa-check"></i><b>1.10.1</b> Nombres de los archivos</a></li>
-<li class="chapter" data-level="1.10.2" data-path="intro.html"><a href="intro.html#nombres-de-los-objetos"><i class="fa fa-check"></i><b>1.10.2</b> Nombres de los objetos</a></li>
-<li class="chapter" data-level="1.10.3" data-path="intro.html"><a href="intro.html#longitud-de-una-linea-de-codigo"><i class="fa fa-check"></i><b>1.10.3</b> Longitud de una línea de código</a></li>
-<li class="chapter" data-level="1.10.4" data-path="intro.html"><a href="intro.html#espacios"><i class="fa fa-check"></i><b>1.10.4</b> Espacios</a></li>
-<li class="chapter" data-level="1.10.5" data-path="intro.html"><a href="intro.html#asignacion"><i class="fa fa-check"></i><b>1.10.5</b> Asignación</a></li>
-<li class="chapter" data-level="1.10.6" data-path="intro.html"><a href="intro.html#punto-y-coma"><i class="fa fa-check"></i><b>1.10.6</b> Punto y coma</a></li>
-</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="unacuanti.html"><a href="unacuanti.html"><i class="fa fa-check"></i><b>2</b> Gráficos para una variable cuantitativa</a><ul>
-<li class="chapter" data-level="2.1" data-path="unacuanti.html"><a href="unacuanti.html#funcion-stem"><i class="fa fa-check"></i><b>2.1</b> Función <code>stem</code></a><ul>
+<li class="chapter" data-level="2.1" data-path="unacuanti.html"><a href="unacuanti.html#función-stem"><i class="fa fa-check"></i><b>2.1</b> Función <code>stem</code></a><ul>
 <li class="chapter" data-level="" data-path="unacuanti.html"><a href="unacuanti.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="unacuanti.html"><a href="unacuanti.html#funcion-boxplot"><i class="fa fa-check"></i><b>2.2</b> Función <code>boxplot</code></a><ul>
+<li class="chapter" data-level="2.2" data-path="unacuanti.html"><a href="unacuanti.html#función-boxplot"><i class="fa fa-check"></i><b>2.2</b> Función <code>boxplot</code></a><ul>
 <li class="chapter" data-level="" data-path="unacuanti.html"><a href="unacuanti.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="unacuanti.html"><a href="unacuanti.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="unacuanti.html"><a href="unacuanti.html#funcion-hist"><i class="fa fa-check"></i><b>2.3</b> Función <code>hist</code></a><ul>
+<li class="chapter" data-level="2.3" data-path="unacuanti.html"><a href="unacuanti.html#función-hist"><i class="fa fa-check"></i><b>2.3</b> Función <code>hist</code></a><ul>
 <li class="chapter" data-level="" data-path="unacuanti.html"><a href="unacuanti.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="unacuanti.html"><a href="unacuanti.html#funcion-qqnorm-y-qqplot"><i class="fa fa-check"></i><b>2.4</b> Función <code>qqnorm</code> y <code>qqplot</code></a><ul>
+<li class="chapter" data-level="2.4" data-path="unacuanti.html"><a href="unacuanti.html#función-qqnorm-y-qqplot"><i class="fa fa-check"></i><b>2.4</b> Función <code>qqnorm</code> y <code>qqplot</code></a><ul>
 <li class="chapter" data-level="" data-path="unacuanti.html"><a href="unacuanti.html#ejemplo-4"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="unacuanti.html"><a href="unacuanti.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="unacuanti.html"><a href="unacuanti.html#funcion-density"><i class="fa fa-check"></i><b>2.5</b> Función <code>density</code></a><ul>
+<li class="chapter" data-level="2.5" data-path="unacuanti.html"><a href="unacuanti.html#función-density"><i class="fa fa-check"></i><b>2.5</b> Función <code>density</code></a><ul>
 <li class="chapter" data-level="" data-path="unacuanti.html"><a href="unacuanti.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="unacuanti.html"><a href="unacuanti.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="unacuanti.html"><a href="unacuanti.html#ejemplo-8"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="doscuanti.html"><a href="doscuanti.html"><i class="fa fa-check"></i><b>3</b> Gráficos para varias variables cuantitativas</a><ul>
-<li class="chapter" data-level="3.1" data-path="doscuanti.html"><a href="doscuanti.html#funcion-plot"><i class="fa fa-check"></i><b>3.1</b> Función <code>plot</code></a><ul>
+<li class="chapter" data-level="3.1" data-path="doscuanti.html"><a href="doscuanti.html#función-plot"><i class="fa fa-check"></i><b>3.1</b> Función <code>plot</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-9"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-10"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="doscuanti.html"><a href="doscuanti.html#funcion-sunflowerplot"><i class="fa fa-check"></i><b>3.2</b> Función <code>sunflowerplot</code></a><ul>
+<li class="chapter" data-level="3.2" data-path="doscuanti.html"><a href="doscuanti.html#función-sunflowerplot"><i class="fa fa-check"></i><b>3.2</b> Función <code>sunflowerplot</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-11"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-12"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="doscuanti.html"><a href="doscuanti.html#funcion-symbols"><i class="fa fa-check"></i><b>3.3</b> Función <code>symbols</code></a><ul>
+<li class="chapter" data-level="3.3" data-path="doscuanti.html"><a href="doscuanti.html#función-symbols"><i class="fa fa-check"></i><b>3.3</b> Función <code>symbols</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-13"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="doscuanti.html"><a href="doscuanti.html#funcion-pairs"><i class="fa fa-check"></i><b>3.4</b> Función <code>pairs</code></a><ul>
+<li class="chapter" data-level="3.4" data-path="doscuanti.html"><a href="doscuanti.html#función-pairs"><i class="fa fa-check"></i><b>3.4</b> Función <code>pairs</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-14"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-15"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-16"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-17"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-18"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="doscuanti.html"><a href="doscuanti.html#funcion-persp"><i class="fa fa-check"></i><b>3.5</b> Función <code>persp</code></a><ul>
+<li class="chapter" data-level="3.5" data-path="doscuanti.html"><a href="doscuanti.html#función-persp"><i class="fa fa-check"></i><b>3.5</b> Función <code>persp</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-19"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-20"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="doscuanti.html"><a href="doscuanti.html#funcion-contour"><i class="fa fa-check"></i><b>3.6</b> Función <code>contour</code></a><ul>
+<li class="chapter" data-level="3.6" data-path="doscuanti.html"><a href="doscuanti.html#función-contour"><i class="fa fa-check"></i><b>3.6</b> Función <code>contour</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-21"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="doscuanti.html"><a href="doscuanti.html#funcion-filled.contour"><i class="fa fa-check"></i><b>3.7</b> Función <code>filled.contour</code></a><ul>
+<li class="chapter" data-level="3.7" data-path="doscuanti.html"><a href="doscuanti.html#función-filled.contour"><i class="fa fa-check"></i><b>3.7</b> Función <code>filled.contour</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-22"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-23"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="doscuanti.html"><a href="doscuanti.html#funcion-image"><i class="fa fa-check"></i><b>3.8</b> Función <code>image</code></a><ul>
+<li class="chapter" data-level="3.8" data-path="doscuanti.html"><a href="doscuanti.html#función-image"><i class="fa fa-check"></i><b>3.8</b> Función <code>image</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-24"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="doscuanti.html"><a href="doscuanti.html#funcion-kde2d"><i class="fa fa-check"></i><b>3.9</b> Función <code>kde2d</code></a><ul>
+<li class="chapter" data-level="3.9" data-path="doscuanti.html"><a href="doscuanti.html#función-kde2d"><i class="fa fa-check"></i><b>3.9</b> Función <code>kde2d</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-25"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.10" data-path="doscuanti.html"><a href="doscuanti.html#funcion-interaction.plot"><i class="fa fa-check"></i><b>3.10</b> Función <code>interaction.plot</code></a><ul>
+<li class="chapter" data-level="3.10" data-path="doscuanti.html"><a href="doscuanti.html#función-interaction.plot"><i class="fa fa-check"></i><b>3.10</b> Función <code>interaction.plot</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-26"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.11" data-path="doscuanti.html"><a href="doscuanti.html#grafico-de-espagueti"><i class="fa fa-check"></i><b>3.11</b> Gráfico de espagueti</a><ul>
+<li class="chapter" data-level="3.11" data-path="doscuanti.html"><a href="doscuanti.html#gráfico-de-espagueti"><i class="fa fa-check"></i><b>3.11</b> Gráfico de espagueti</a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-27"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="cuali.html"><a href="cuali.html"><i class="fa fa-check"></i><b>4</b> Gráficos para variables cualitativas</a><ul>
-<li class="chapter" data-level="4.1" data-path="cuali.html"><a href="cuali.html#funcion-barplot"><i class="fa fa-check"></i><b>4.1</b> Función <code>barplot</code>  </a><ul>
+<li class="chapter" data-level="4.1" data-path="cuali.html"><a href="cuali.html#función-barplot"><i class="fa fa-check"></i><b>4.1</b> Función <code>barplot</code>  </a><ul>
 <li class="chapter" data-level="" data-path="cuali.html"><a href="cuali.html#ejemplo-28"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="cuali.html"><a href="cuali.html#ejemplo-29"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="cuali.html"><a href="cuali.html#funcion-pie"><i class="fa fa-check"></i><b>4.2</b> Función <code>pie</code>  </a><ul>
+<li class="chapter" data-level="4.2" data-path="cuali.html"><a href="cuali.html#función-pie"><i class="fa fa-check"></i><b>4.2</b> Función <code>pie</code>  </a><ul>
 <li class="chapter" data-level="" data-path="cuali.html"><a href="cuali.html#ejemplo-30"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="cuali.html"><a href="cuali.html#funcion-dotchart"><i class="fa fa-check"></i><b>4.3</b> Función <code>dotchart</code>  </a><ul>
+<li class="chapter" data-level="4.3" data-path="cuali.html"><a href="cuali.html#función-dotchart"><i class="fa fa-check"></i><b>4.3</b> Función <code>dotchart</code>  </a><ul>
 <li class="chapter" data-level="" data-path="cuali.html"><a href="cuali.html#ejemplo-31"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="cuali.html"><a href="cuali.html#ejemplo-32"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="cuali.html"><a href="cuali.html#ejercicios"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="par.html"><a href="par.html"><i class="fa fa-check"></i><b>5</b> Función <code>par</code></a><ul>
-<li class="chapter" data-level="5.1" data-path="par.html"><a href="par.html#parametro-ann"><i class="fa fa-check"></i><b>5.1</b> Parámetro <code>ann</code>  </a><ul>
+<li class="chapter" data-level="5.1" data-path="par.html"><a href="par.html#parámetro-ann"><i class="fa fa-check"></i><b>5.1</b> Parámetro <code>ann</code>  </a><ul>
 <li class="chapter" data-level="" data-path="par.html"><a href="par.html#ejemplo-33"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="par.html"><a href="par.html#parametro-adj"><i class="fa fa-check"></i><b>5.2</b> Parámetro <code>adj</code>  </a><ul>
+<li class="chapter" data-level="5.2" data-path="par.html"><a href="par.html#parámetro-adj"><i class="fa fa-check"></i><b>5.2</b> Parámetro <code>adj</code>  </a><ul>
 <li class="chapter" data-level="" data-path="par.html"><a href="par.html#ejemplo-34"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="par.html"><a href="par.html#parametro-bg"><i class="fa fa-check"></i><b>5.3</b> Parámetro <code>bg</code>  </a><ul>
+<li class="chapter" data-level="5.3" data-path="par.html"><a href="par.html#parámetro-bg"><i class="fa fa-check"></i><b>5.3</b> Parámetro <code>bg</code>  </a><ul>
 <li class="chapter" data-level="" data-path="par.html"><a href="par.html#ejemplo-35"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="par.html"><a href="par.html#parametro-mfrow"><i class="fa fa-check"></i><b>5.4</b> Parámetro <code>mfrow</code>  </a><ul>
+<li class="chapter" data-level="5.4" data-path="par.html"><a href="par.html#parámetro-mfrow"><i class="fa fa-check"></i><b>5.4</b> Parámetro <code>mfrow</code>  </a><ul>
 <li class="chapter" data-level="" data-path="par.html"><a href="par.html#ejemplo-36"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="par.html"><a href="par.html#parametro-bty"><i class="fa fa-check"></i><b>5.5</b> Parámetro <code>bty</code>  </a><ul>
+<li class="chapter" data-level="5.5" data-path="par.html"><a href="par.html#parámetro-bty"><i class="fa fa-check"></i><b>5.5</b> Parámetro <code>bty</code>  </a><ul>
 <li class="chapter" data-level="" data-path="par.html"><a href="par.html#ejemplo-37"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="par.html"><a href="par.html#parametro-cex"><i class="fa fa-check"></i><b>5.6</b> Parámetro <code>cex</code>  </a><ul>
+<li class="chapter" data-level="5.6" data-path="par.html"><a href="par.html#parámetro-cex"><i class="fa fa-check"></i><b>5.6</b> Parámetro <code>cex</code>  </a><ul>
 <li class="chapter" data-level="" data-path="par.html"><a href="par.html#ejemplo-38"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="par.html"><a href="par.html#parametros-cex.axis-cex.lab-cex.main-y-cex.sub"><i class="fa fa-check"></i><b>5.7</b> Parámetros <code>cex.axis</code>, <code>cex.lab</code>, <code>cex.main</code> y <code>cex.sub</code>    </a><ul>
+<li class="chapter" data-level="5.7" data-path="par.html"><a href="par.html#parámetros-cex.axis-cex.lab-cex.main-y-cex.sub"><i class="fa fa-check"></i><b>5.7</b> Parámetros <code>cex.axis</code>, <code>cex.lab</code>, <code>cex.main</code> y <code>cex.sub</code>    </a><ul>
 <li class="chapter" data-level="" data-path="par.html"><a href="par.html#ejemplo-39"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="par.html"><a href="par.html#parametro-col-col.axis-col.lab-col.main-y-col.sub"><i class="fa fa-check"></i><b>5.8</b> Parámetro <code>col</code>, <code>col.axis</code>, <code>col.lab</code>, <code>col.main</code> y <code>col.sub</code>  </a><ul>
+<li class="chapter" data-level="5.8" data-path="par.html"><a href="par.html#parámetro-col-col.axis-col.lab-col.main-y-col.sub"><i class="fa fa-check"></i><b>5.8</b> Parámetro <code>col</code>, <code>col.axis</code>, <code>col.lab</code>, <code>col.main</code> y <code>col.sub</code>  </a><ul>
 <li class="chapter" data-level="" data-path="par.html"><a href="par.html#ejemplo-40"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="auxiliares.html"><a href="auxiliares.html"><i class="fa fa-check"></i><b>6</b> Funciones auxiliares</a><ul>
-<li class="chapter" data-level="6.1" data-path="auxiliares.html"><a href="auxiliares.html#funcion-segments"><i class="fa fa-check"></i><b>6.1</b> Función <code>segments</code></a></li>
-<li class="chapter" data-level="6.2" data-path="auxiliares.html"><a href="auxiliares.html#funcion-rect"><i class="fa fa-check"></i><b>6.2</b> Función <code>rect</code></a></li>
-<li class="chapter" data-level="6.3" data-path="auxiliares.html"><a href="auxiliares.html#funcion-polygon"><i class="fa fa-check"></i><b>6.3</b> Función <code>polygon</code></a></li>
-<li class="chapter" data-level="6.4" data-path="auxiliares.html"><a href="auxiliares.html#funcion-abline"><i class="fa fa-check"></i><b>6.4</b> Función <code>abline</code></a></li>
-<li class="chapter" data-level="6.5" data-path="auxiliares.html"><a href="auxiliares.html#para-dibujar-un-circulo"><i class="fa fa-check"></i><b>6.5</b> Para dibujar un círculo</a></li>
-<li class="chapter" data-level="6.6" data-path="auxiliares.html"><a href="auxiliares.html#funcion-arrows"><i class="fa fa-check"></i><b>6.6</b> Función <code>arrows</code></a></li>
+<li class="chapter" data-level="6.1" data-path="auxiliares.html"><a href="auxiliares.html#función-segments"><i class="fa fa-check"></i><b>6.1</b> Función <code>segments</code></a></li>
+<li class="chapter" data-level="6.2" data-path="auxiliares.html"><a href="auxiliares.html#función-rect"><i class="fa fa-check"></i><b>6.2</b> Función <code>rect</code></a></li>
+<li class="chapter" data-level="6.3" data-path="auxiliares.html"><a href="auxiliares.html#función-polygon"><i class="fa fa-check"></i><b>6.3</b> Función <code>polygon</code></a></li>
+<li class="chapter" data-level="6.4" data-path="auxiliares.html"><a href="auxiliares.html#función-abline"><i class="fa fa-check"></i><b>6.4</b> Función <code>abline</code></a></li>
+<li class="chapter" data-level="6.5" data-path="auxiliares.html"><a href="auxiliares.html#para-dibujar-un-círculo"><i class="fa fa-check"></i><b>6.5</b> Para dibujar un círculo</a></li>
+<li class="chapter" data-level="6.6" data-path="auxiliares.html"><a href="auxiliares.html#función-arrows"><i class="fa fa-check"></i><b>6.6</b> Función <code>arrows</code></a></li>
 <li class="chapter" data-level="6.7" data-path="auxiliares.html"><a href="auxiliares.html#grid"><i class="fa fa-check"></i><b>6.7</b> Función <code>grid</code></a></li>
-<li class="chapter" data-level="6.8" data-path="auxiliares.html"><a href="auxiliares.html#funcion-points"><i class="fa fa-check"></i><b>6.8</b> Función <code>points</code></a></li>
-<li class="chapter" data-level="6.9" data-path="auxiliares.html"><a href="auxiliares.html#funcion-curve"><i class="fa fa-check"></i><b>6.9</b> Función <code>curve</code></a><ul>
+<li class="chapter" data-level="6.8" data-path="auxiliares.html"><a href="auxiliares.html#función-points"><i class="fa fa-check"></i><b>6.8</b> Función <code>points</code></a></li>
+<li class="chapter" data-level="6.9" data-path="auxiliares.html"><a href="auxiliares.html#función-curve"><i class="fa fa-check"></i><b>6.9</b> Función <code>curve</code></a><ul>
 <li class="chapter" data-level="" data-path="auxiliares.html"><a href="auxiliares.html#ejemplo-41"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="auxiliares.html"><a href="auxiliares.html#ejemplo-42"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
@@ -277,14 +266,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="respuestas.html"><a href="respuestas.html"><i class="fa fa-check"></i><b>7</b> Respuestas a preguntas frecuentes</a><ul>
 <li class="chapter" data-level="7.1" data-path="respuestas.html"><a href="respuestas.html#emptygraph"><i class="fa fa-check"></i><b>7.1</b> ¿Cómo crear un gráfico vacío?</a></li>
-<li class="chapter" data-level="7.2" data-path="respuestas.html"><a href="respuestas.html#como-personalizar-los-valores-a-mostrar-en-los-ejes"><i class="fa fa-check"></i><b>7.2</b> ¿Cómo personalizar los valores a mostrar en los ejes?</a></li>
-<li class="chapter" data-level="7.3" data-path="respuestas.html"><a href="respuestas.html#como-dibujar-varios-qqplot-en-una-misma-figura"><i class="fa fa-check"></i><b>7.3</b> ¿Cómo dibujar varios QQplot en una misma figura?</a></li>
-<li class="chapter" data-level="7.4" data-path="respuestas.html"><a href="respuestas.html#como-dibujar-varias-densidades-en-una-misma-figura"><i class="fa fa-check"></i><b>7.4</b> ¿Cómo dibujar varias densidades en una misma figura?</a></li>
-<li class="chapter" data-level="7.5" data-path="respuestas.html"><a href="respuestas.html#como-dibujar-varias-densidades-transparentes-en-una-misma-figura"><i class="fa fa-check"></i><b>7.5</b> ¿Cómo dibujar varias densidades transparentes en una misma figura?</a></li>
+<li class="chapter" data-level="7.2" data-path="respuestas.html"><a href="respuestas.html#cómo-personalizar-los-valores-a-mostrar-en-los-ejes"><i class="fa fa-check"></i><b>7.2</b> ¿Cómo personalizar los valores a mostrar en los ejes?</a></li>
+<li class="chapter" data-level="7.3" data-path="respuestas.html"><a href="respuestas.html#cómo-dibujar-varios-qqplot-en-una-misma-figura"><i class="fa fa-check"></i><b>7.3</b> ¿Cómo dibujar varios QQplot en una misma figura?</a></li>
+<li class="chapter" data-level="7.4" data-path="respuestas.html"><a href="respuestas.html#cómo-dibujar-varias-densidades-en-una-misma-figura"><i class="fa fa-check"></i><b>7.4</b> ¿Cómo dibujar varias densidades en una misma figura?</a></li>
+<li class="chapter" data-level="7.5" data-path="respuestas.html"><a href="respuestas.html#cómo-dibujar-varias-densidades-transparentes-en-una-misma-figura"><i class="fa fa-check"></i><b>7.5</b> ¿Cómo dibujar varias densidades transparentes en una misma figura?</a></li>
 <li class="chapter" data-level="7.6" data-path="respuestas.html"><a href="respuestas.html#rejper"><i class="fa fa-check"></i><b>7.6</b> ¿Cómo incluir una rejilla a una figura en ciertos puntos?</a></li>
-<li class="chapter" data-level="7.7" data-path="respuestas.html"><a href="respuestas.html#como-incluir-en-un-grafico-valores-en-forma-automatica"><i class="fa fa-check"></i><b>7.7</b> ¿Cómo incluir en un gráfico valores en forma automática?</a></li>
-<li class="chapter" data-level="7.8" data-path="respuestas.html"><a href="respuestas.html#como-incluir-en-un-grafico-varios-valores-en-forma-automatica"><i class="fa fa-check"></i><b>7.8</b> ¿Cómo incluir en un gráfico varios valores en forma automática?</a></li>
-<li class="chapter" data-level="7.9" data-path="respuestas.html"><a href="respuestas.html#como-incluir-colores-dependiendo-de-los-valores-de-una-variable-cualitativa"><i class="fa fa-check"></i><b>7.9</b> ¿Cómo incluir colores dependiendo de los valores de una variable cualitativa?</a></li>
+<li class="chapter" data-level="7.7" data-path="respuestas.html"><a href="respuestas.html#cómo-incluir-en-un-gráfico-valores-en-forma-automática"><i class="fa fa-check"></i><b>7.7</b> ¿Cómo incluir en un gráfico valores en forma automática?</a></li>
+<li class="chapter" data-level="7.8" data-path="respuestas.html"><a href="respuestas.html#cómo-incluir-en-un-gráfico-varios-valores-en-forma-automática"><i class="fa fa-check"></i><b>7.8</b> ¿Cómo incluir en un gráfico varios valores en forma automática?</a></li>
+<li class="chapter" data-level="7.9" data-path="respuestas.html"><a href="respuestas.html#cómo-incluir-colores-dependiendo-de-los-valores-de-una-variable-cualitativa"><i class="fa fa-check"></i><b>7.9</b> ¿Cómo incluir colores dependiendo de los valores de una variable cualitativa?</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="extras.html"><a href="extras.html"><i class="fa fa-check"></i><b>8</b> Extras</a></li>
 <li class="divider"></li>
@@ -310,16 +299,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="par" class="section level1">
 <h1><span class="header-section-number">5</span> Función <code>par</code></h1>
 <p>En este capítulo se presentan las posibilidades que ofrece la función <code>par</code> para la elaboración de gráficos. La función <code>par</code> tiene 72 parámetros y a continuación se muestran.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(xlog, ylog, adj, ann, ask, bg, bty, cex, cex.axis, cex.lab,
-    cex.main, cex.sub, cin, col, col.axis, col.lab, col.main,
-    col.sub, cra, crt, csi, cxy, din, err, family, fg, fig, fin,
-    font, font.axis, font.lab, font.main, font.sub, lab, las, 
-    lend, lheight, ljoin, lmitre, lty, lwd, mai, mar, mex, mfcol,
-    mfg, mfrow, mgp, mkh, new, oma, omd, omi, page, pch, pin, 
-    plt, ps, pty, smo, srt, tck, tcl, usr, xaxp, xaxs, xaxt, xpd, 
-    yaxp, yaxs, yaxt, ylbias)</code></pre>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="par.html#cb78-1"></a><span class="kw">par</span>(xlog, ylog, adj, ann, ask, bg, bty, cex, cex.axis, cex.lab,</span>
+<span id="cb78-2"><a href="par.html#cb78-2"></a>    cex.main, cex.sub, cin, col, col.axis, col.lab, col.main,</span>
+<span id="cb78-3"><a href="par.html#cb78-3"></a>    col.sub, cra, crt, csi, cxy, din, err, family, fg, fig, fin,</span>
+<span id="cb78-4"><a href="par.html#cb78-4"></a>    font, font.axis, font.lab, font.main, font.sub, lab, las, </span>
+<span id="cb78-5"><a href="par.html#cb78-5"></a>    lend, lheight, ljoin, lmitre, lty, lwd, mai, mar, mex, mfcol,</span>
+<span id="cb78-6"><a href="par.html#cb78-6"></a>    mfg, mfrow, mgp, mkh, new, oma, omd, omi, page, pch, pin, </span>
+<span id="cb78-7"><a href="par.html#cb78-7"></a>    plt, ps, pty, smo, srt, tck, tcl, usr, xaxp, xaxs, xaxt, xpd, </span>
+<span id="cb78-8"><a href="par.html#cb78-8"></a>    yaxp, yaxs, yaxt, ylbias)</span></code></pre></div>
 <p>Para conocer los valores que tienen por defecto cada uno de estos parámetros se puede utilizar el siguiente código.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>()</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="par.html#cb79-1"></a><span class="kw">par</span>()</span></code></pre></div>
 <p>Al ejecutar el código anterior se obtendrá una lista con 72 objetos en la cual se tendrán los valores que cada uno de los parámetros asume inicialmente en una sesión de R. Luego de modificar uno o alguno de los parámetros de la función <code>par</code>, todos los gráficos que se construyan de ahí en adelante estarán afectados por el cambio realizado.</p>
 
 <div class="rmdnote">
@@ -327,17 +316,17 @@ Una buena práctica para retornar a los valores iniciales del objeto <code>par()
 </div>
 
 <p>La utilidad de cada uno de los parámetros para personalizar los gráficos se mostrará por medio de ejemplos.</p>
-<div id="parametro-ann" class="section level2">
+<div id="parámetro-ann" class="section level2">
 <h2><span class="header-section-number">5.1</span> Parámetro <code>ann</code>  </h2>
 <p>Este parámetro sirve para indicar si se quiere un gráfico con nombres en los ejes y título principal, por defecto asume el valor <code>TRUE</code>.</p>
 <div id="ejemplo-33" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Dibujar la densidad para una distribución <span class="math inline">\(\chi^2_1\)</span> usando <code>ann=FALSE</code> dentro de la función <code>par</code>.</p>
 <p>El código necesario para obtener la figura se muestra a continuación. Note que a pesar de haber solicitado título principal y nombres de los ejes, éstos no aparecen en el resultado final porque se usó antes <code>par(ann=FALSE)</code>. En la Figura <a href="par.html#fig:ann">5.1</a> se muestra el gráfico solicitado.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">ann=</span><span class="ot">FALSE</span>)
-<span class="kw">curve</span>(<span class="kw">dchisq</span>(x, <span class="dt">df=</span><span class="dv">1</span>), <span class="dt">col=</span><span class="st">&#39;salmon1&#39;</span>, <span class="dt">lwd=</span><span class="dv">4</span>,
-      <span class="dt">main=</span><span class="st">&#39;Chi cuadrada&#39;</span>,
-      <span class="dt">xlab=</span><span class="st">&#39;x&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Densidad&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="par.html#cb80-1"></a><span class="kw">par</span>(<span class="dt">ann=</span><span class="ot">FALSE</span>)</span>
+<span id="cb80-2"><a href="par.html#cb80-2"></a><span class="kw">curve</span>(<span class="kw">dchisq</span>(x, <span class="dt">df=</span><span class="dv">1</span>), <span class="dt">col=</span><span class="st">&#39;salmon1&#39;</span>, <span class="dt">lwd=</span><span class="dv">4</span>,</span>
+<span id="cb80-3"><a href="par.html#cb80-3"></a>      <span class="dt">main=</span><span class="st">&#39;Chi cuadrada&#39;</span>,</span>
+<span id="cb80-4"><a href="par.html#cb80-4"></a>      <span class="dt">xlab=</span><span class="st">&#39;x&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Densidad&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:ann"></span>
 <img src="Graficos_con_R_files/figure-html/ann-1.png" alt="Efecto del parámetro `ann`." width="384" />
 <p class="caption">
@@ -351,26 +340,26 @@ La opción <code>ann=FALSE</code> es muy útil para gráficos sin nombres en los
 
 </div>
 </div>
-<div id="parametro-adj" class="section level2">
+<div id="parámetro-adj" class="section level2">
 <h2><span class="header-section-number">5.2</span> Parámetro <code>adj</code>  </h2>
 <p>Este parámetro sirve para modificar la justificación del texto cuando se usan las funciones <code>text</code>, <code>mtext</code> y <code>title</code>. Su valor por defecto es 0.5 que indica que el texto debe quedar centrado en las coordenadas x e y indicadas, un valor de 0 significa justificación a izquierda mientras que 1 significa justificación a derecha.</p>
 <div id="ejemplo-34" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Dibujar un gráfico vacío, ubicar las palabra <em>hola mi mundo</em> horizontalmente en el gráfico y explorar el efecto del parámetro <code>adj</code>.</p>
 <p>El código necesario para obtener lo solicitado se muestra a continuación. Se agregaron líneas a trazos de color azul para indicar el sitio exacto donde se quería el texto. Observando la Figura <a href="par.html#fig:adj">5.2</a> se nota claramente que cuando <code>adj=0.5</code> la palabra queda centrada mientras que con otros valores cambia la justificación del texto.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="ot">NULL</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.6</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))
-
-<span class="kw">par</span>(<span class="dt">adj=</span><span class="dv">0</span>)  <span class="co"># Para justificar a izquierda</span>
-<span class="kw">text</span>(<span class="dt">x=</span><span class="fl">0.1</span>, <span class="dt">y=</span><span class="fl">0.6</span>, <span class="st">&#39;hola&#39;</span>, <span class="dt">cex=</span><span class="dv">3</span>)
-
-<span class="kw">par</span>(<span class="dt">adj=</span><span class="fl">0.5</span>)  <span class="co"># Para justificar centrado</span>
-<span class="kw">text</span>(<span class="dt">x=</span><span class="fl">0.3</span>, <span class="dt">y=</span><span class="fl">0.6</span>, <span class="st">&#39;mi&#39;</span>, <span class="dt">cex=</span><span class="dv">3</span>)
-
-<span class="kw">par</span>(<span class="dt">adj=</span><span class="dv">1</span>)  <span class="co"># Para justificar a derecha</span>
-<span class="kw">text</span>(<span class="dt">x=</span><span class="fl">0.5</span>, <span class="dt">y=</span><span class="fl">0.6</span>, <span class="st">&#39;mundo&#39;</span>, <span class="dt">cex=</span><span class="dv">3</span>)
-
-<span class="kw">abline</span>(<span class="dt">h=</span><span class="fl">0.6</span>, <span class="dt">v=</span><span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.3</span>, <span class="fl">0.5</span>),
-       <span class="dt">lty=</span><span class="dv">3</span>, <span class="dt">col=</span><span class="st">&#39;deepskyblue3&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="par.html#cb81-1"></a><span class="kw">plot</span>(<span class="ot">NULL</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="fl">0.6</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb81-2"><a href="par.html#cb81-2"></a></span>
+<span id="cb81-3"><a href="par.html#cb81-3"></a><span class="kw">par</span>(<span class="dt">adj=</span><span class="dv">0</span>)  <span class="co"># Para justificar a izquierda</span></span>
+<span id="cb81-4"><a href="par.html#cb81-4"></a><span class="kw">text</span>(<span class="dt">x=</span><span class="fl">0.1</span>, <span class="dt">y=</span><span class="fl">0.6</span>, <span class="st">&#39;hola&#39;</span>, <span class="dt">cex=</span><span class="dv">3</span>)</span>
+<span id="cb81-5"><a href="par.html#cb81-5"></a></span>
+<span id="cb81-6"><a href="par.html#cb81-6"></a><span class="kw">par</span>(<span class="dt">adj=</span><span class="fl">0.5</span>)  <span class="co"># Para justificar centrado</span></span>
+<span id="cb81-7"><a href="par.html#cb81-7"></a><span class="kw">text</span>(<span class="dt">x=</span><span class="fl">0.3</span>, <span class="dt">y=</span><span class="fl">0.6</span>, <span class="st">&#39;mi&#39;</span>, <span class="dt">cex=</span><span class="dv">3</span>)</span>
+<span id="cb81-8"><a href="par.html#cb81-8"></a></span>
+<span id="cb81-9"><a href="par.html#cb81-9"></a><span class="kw">par</span>(<span class="dt">adj=</span><span class="dv">1</span>)  <span class="co"># Para justificar a derecha</span></span>
+<span id="cb81-10"><a href="par.html#cb81-10"></a><span class="kw">text</span>(<span class="dt">x=</span><span class="fl">0.5</span>, <span class="dt">y=</span><span class="fl">0.6</span>, <span class="st">&#39;mundo&#39;</span>, <span class="dt">cex=</span><span class="dv">3</span>)</span>
+<span id="cb81-11"><a href="par.html#cb81-11"></a></span>
+<span id="cb81-12"><a href="par.html#cb81-12"></a><span class="kw">abline</span>(<span class="dt">h=</span><span class="fl">0.6</span>, <span class="dt">v=</span><span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.3</span>, <span class="fl">0.5</span>),</span>
+<span id="cb81-13"><a href="par.html#cb81-13"></a>       <span class="dt">lty=</span><span class="dv">3</span>, <span class="dt">col=</span><span class="st">&#39;deepskyblue3&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:adj"></span>
 <img src="Graficos_con_R_files/figure-html/adj-1.png" alt="Efecto del parámetro `adj`." width="768" />
 <p class="caption">
@@ -379,15 +368,15 @@ Figure 5.2: Efecto del parámetro <code>adj</code>.
 </div>
 </div>
 </div>
-<div id="parametro-bg" class="section level2">
+<div id="parámetro-bg" class="section level2">
 <h2><span class="header-section-number">5.3</span> Parámetro <code>bg</code>  </h2>
 <p>Este parámetro sirve para modificar el color del fondo donde se va a dibujar.</p>
 <div id="ejemplo-35" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Dibujar la densidad de una normal estándar usando un color verde para el fondo.</p>
 <p>A continuación el código necesario para modficar el color del fondo. En esta <a href="http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf">página</a> se puede encontrar una paleta de colores disponibles en R. En la Figura <a href="par.html#fig:bg">5.3</a> se muestra el resultado, el color de fondo está por toda la ventana gráfica.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">bg=</span><span class="st">&#39;darkseagreen1&#39;</span>)
-<span class="kw">curve</span>(dnorm, <span class="dt">lwd=</span><span class="dv">6</span>, <span class="dt">col=</span><span class="st">&#39;blue&#39;</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>))</code></pre>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="par.html#cb82-1"></a><span class="kw">par</span>(<span class="dt">bg=</span><span class="st">&#39;darkseagreen1&#39;</span>)</span>
+<span id="cb82-2"><a href="par.html#cb82-2"></a><span class="kw">curve</span>(dnorm, <span class="dt">lwd=</span><span class="dv">6</span>, <span class="dt">col=</span><span class="st">&#39;blue&#39;</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>))</span></code></pre></div>
 <div class="figure"><span id="fig:bg"></span>
 <img src="Graficos_con_R_files/figure-html/bg-1.png" alt="Efecto del parámetro `bg`." width="384" />
 <p class="caption">
@@ -396,22 +385,22 @@ Figure 5.3: Efecto del parámetro <code>bg</code>.
 </div>
 </div>
 </div>
-<div id="parametro-mfrow" class="section level2">
+<div id="parámetro-mfrow" class="section level2">
 <h2><span class="header-section-number">5.4</span> Parámetro <code>mfrow</code>  </h2>
 <p>Este parámetro sirve para dividir la ventana gráfica en forma de matriz para almacenar en cada celda un gráfico diferente. La forma para modificar este parámetro es <code>mfrow=c(nf, nc)</code>, donde <code>nf</code> es el número de filas y <code>nc</code> el número de columnas en las cuales se va a dividir la ventana gráfica.</p>
 <div id="ejemplo-36" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Dibujar la distribución de probabilidad para una distribución Poisson con <span class="math inline">\(\lambda=1, 3, 7, 15\)</span>.</p>
 <p>Note que el objetivo es repetir el mismo gráfico para 4 valores diferentes del paramétro <span class="math inline">\(\lambda\)</span>, por lo tanto se escribirá una sola vez el código de interés pero se repetirá automáticamente 4 veces para cada valor de <span class="math inline">\(\lambda\)</span>. Para construir el gráfico solicitado iniciamos partiendo la ventana gráfica en una matriz de <span class="math inline">\(2 \times 2\)</span> usando <code>par(mfrow=c(2, 2))</code>. Luego se construye el vector <code>lambdas</code> con los valores de <span class="math inline">\(\lambda\)</span> y por último se coloca el <code>plot</code> de interés dentro de una sentencia <code>for</code>. Abajo el código utilizado.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
-
-lambdas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">15</span>)
-
-<span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>) {
-  <span class="kw">plot</span>(<span class="kw">dpois</span>(<span class="dt">x=</span><span class="dv">0</span><span class="op">:</span><span class="dv">30</span>, <span class="dt">lambda=</span>lambdas[i]), <span class="dt">lwd=</span><span class="dv">4</span>,
-       <span class="dt">type=</span><span class="st">&#39;h&#39;</span>, <span class="dt">xlab=</span><span class="st">&#39;x&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Probabilidad&#39;</span>)
-  <span class="kw">title</span>(<span class="kw">bquote</span>(<span class="op">~</span><span class="st"> </span>lambda <span class="op">==</span><span class="st"> </span>.(lambdas[i])))
-} </code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="par.html#cb83-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb83-2"><a href="par.html#cb83-2"></a></span>
+<span id="cb83-3"><a href="par.html#cb83-3"></a>lambdas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>, <span class="dv">15</span>)</span>
+<span id="cb83-4"><a href="par.html#cb83-4"></a></span>
+<span id="cb83-5"><a href="par.html#cb83-5"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>) {</span>
+<span id="cb83-6"><a href="par.html#cb83-6"></a>  <span class="kw">plot</span>(<span class="kw">dpois</span>(<span class="dt">x=</span><span class="dv">0</span><span class="op">:</span><span class="dv">30</span>, <span class="dt">lambda=</span>lambdas[i]), <span class="dt">lwd=</span><span class="dv">4</span>,</span>
+<span id="cb83-7"><a href="par.html#cb83-7"></a>       <span class="dt">type=</span><span class="st">&#39;h&#39;</span>, <span class="dt">xlab=</span><span class="st">&#39;x&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Probabilidad&#39;</span>)</span>
+<span id="cb83-8"><a href="par.html#cb83-8"></a>  <span class="kw">title</span>(<span class="kw">bquote</span>(<span class="op">~</span><span class="st"> </span>lambda <span class="op">==</span><span class="st"> </span>.(lambdas[i])))</span>
+<span id="cb83-9"><a href="par.html#cb83-9"></a>} </span></code></pre></div>
 <div class="figure"><span id="fig:mfrow"></span>
 <img src="Graficos_con_R_files/figure-html/mfrow-1.png" alt="Efecto del parámetro `mfrow`." width="672" />
 <p class="caption">
@@ -426,25 +415,25 @@ La función <code>bquote</code> sirve para construir mensajes que sean una mezcl
 
 </div>
 </div>
-<div id="parametro-bty" class="section level2">
+<div id="parámetro-bty" class="section level2">
 <h2><span class="header-section-number">5.5</span> Parámetro <code>bty</code>  </h2>
 <p>Este parámetro sirve para modficar la caja alrededor del gráfico construído. Los posibles valores para este parámetro son: <code>'o'</code> valor por defecto para obtener la caja usual; se pueden usar también los símboloes <code>'l'</code>, <code>'7'</code>, <code>'c'</code>, <code>'u'</code> o <code>']'</code>, el resultado será una caja con la forma del símbolo; se puede usar <code>'n'</code> para suprimir la caja.</p>
 <div id="ejemplo-37" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Dibujar la densidad de una <span class="math inline">\(\chi^2_5\)</span> modificando el parámetro <code>bty</code> de <code>par</code>.</p>
 <p>A continuación el código para dibujar la misma densidad 4 veces modificando el valor para <code>bty</code>. En la Figura <a href="par.html#fig:par2">5.5</a> se muestra el efecto que tienen los valores elegidos. Observe que, además de los ejes, hay una caja cuya forma depende el valor seleccionado, cuando <code>bty='u'</code> el resultado es una caja con esa misma forma.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">bty=</span><span class="st">&#39;n&#39;</span>, <span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))
-<span class="kw">curve</span>(<span class="kw">dchisq</span>(x, <span class="dt">df=</span><span class="dv">5</span>), <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">20</span>))
-<span class="kw">title</span>(<span class="st">&quot;Usando bty=&#39;n&#39;&quot;</span>)
-<span class="kw">par</span>(<span class="dt">bty=</span><span class="st">&#39;o&#39;</span>)
-<span class="kw">curve</span>(<span class="kw">dchisq</span>(x, <span class="dt">df=</span><span class="dv">5</span>), <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">20</span>))
-<span class="kw">title</span>(<span class="st">&quot;Usando bty=&#39;o&#39;&quot;</span>)
-<span class="kw">par</span>(<span class="dt">bty=</span><span class="st">&#39;u&#39;</span>)
-<span class="kw">curve</span>(<span class="kw">dchisq</span>(x, <span class="dt">df=</span><span class="dv">5</span>), <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">20</span>))
-<span class="kw">title</span>(<span class="st">&quot;Usando bty=&#39;u&#39;&quot;</span>)
-<span class="kw">par</span>(<span class="dt">bty=</span><span class="st">&#39;l&#39;</span>)
-<span class="kw">curve</span>(<span class="kw">dchisq</span>(x, <span class="dt">df=</span><span class="dv">5</span>), <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">20</span>))
-<span class="kw">title</span>(<span class="st">&quot;Usando bty=&#39;l&#39;&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="par.html#cb84-1"></a><span class="kw">par</span>(<span class="dt">bty=</span><span class="st">&#39;n&#39;</span>, <span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb84-2"><a href="par.html#cb84-2"></a><span class="kw">curve</span>(<span class="kw">dchisq</span>(x, <span class="dt">df=</span><span class="dv">5</span>), <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">20</span>))</span>
+<span id="cb84-3"><a href="par.html#cb84-3"></a><span class="kw">title</span>(<span class="st">&quot;Usando bty=&#39;n&#39;&quot;</span>)</span>
+<span id="cb84-4"><a href="par.html#cb84-4"></a><span class="kw">par</span>(<span class="dt">bty=</span><span class="st">&#39;o&#39;</span>)</span>
+<span id="cb84-5"><a href="par.html#cb84-5"></a><span class="kw">curve</span>(<span class="kw">dchisq</span>(x, <span class="dt">df=</span><span class="dv">5</span>), <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">20</span>))</span>
+<span id="cb84-6"><a href="par.html#cb84-6"></a><span class="kw">title</span>(<span class="st">&quot;Usando bty=&#39;o&#39;&quot;</span>)</span>
+<span id="cb84-7"><a href="par.html#cb84-7"></a><span class="kw">par</span>(<span class="dt">bty=</span><span class="st">&#39;u&#39;</span>)</span>
+<span id="cb84-8"><a href="par.html#cb84-8"></a><span class="kw">curve</span>(<span class="kw">dchisq</span>(x, <span class="dt">df=</span><span class="dv">5</span>), <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">20</span>))</span>
+<span id="cb84-9"><a href="par.html#cb84-9"></a><span class="kw">title</span>(<span class="st">&quot;Usando bty=&#39;u&#39;&quot;</span>)</span>
+<span id="cb84-10"><a href="par.html#cb84-10"></a><span class="kw">par</span>(<span class="dt">bty=</span><span class="st">&#39;l&#39;</span>)</span>
+<span id="cb84-11"><a href="par.html#cb84-11"></a><span class="kw">curve</span>(<span class="kw">dchisq</span>(x, <span class="dt">df=</span><span class="dv">5</span>), <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">20</span>))</span>
+<span id="cb84-12"><a href="par.html#cb84-12"></a><span class="kw">title</span>(<span class="st">&quot;Usando bty=&#39;l&#39;&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:par2"></span>
 <img src="Graficos_con_R_files/figure-html/par2-1.png" alt="Efecto del parámetro `bty`." width="480" />
 <p class="caption">
@@ -453,19 +442,19 @@ Figure 5.5: Efecto del parámetro <code>bty</code>.
 </div>
 </div>
 </div>
-<div id="parametro-cex" class="section level2">
+<div id="parámetro-cex" class="section level2">
 <h2><span class="header-section-number">5.6</span> Parámetro <code>cex</code>  </h2>
 <p>Este parámetro sirve para modificar el tamaño de los símbolos, nombres de los ejes, marcas de los ejes y títulos. El valor por defecto es <code>cex=1</code>, valores mayores a uno generan gráficos con símbolos, títulos y marcas grandes, incluso desproporcionados; valores pequeños de este parámetro permiten obtener mejores figuras. A continuación un ejemplo para ver el efecto que tiene este parámetro sobre las figuras obtenidas.</p>
 <div id="ejemplo-38" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Hacer un gráfico de dispersión sencillo para explorar el efecto del parámetro <code>cex</code>.</p>
 <p>Se construirá un gráfico de dispersión dos veces, en la primera con parámetro <code>cex=1</code> y en la segunda ocasión usando <code>cex=0.6</code>. Abajo el código utilizado. En el pánel izquierdo de la Figura <a href="par.html#fig:cex">5.6</a> está el diagrama de dispersión obtenido con <code>cex=1.4</code> mientras que el de la derecha fue obtenido con <code>cex=0.6</code>. Observe cómo se modificaron los nombres de los ejes, título principal, marcas de los ejes y tamaño del símbolo.</p>
-<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">-3</span><span class="op">:</span><span class="dv">3</span>
-<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">cex=</span><span class="fl">1.4</span>)
-<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>x, <span class="dt">main=</span><span class="st">&#39;Usando </span><span class="ch">\n</span><span class="st"> cex=1.4&#39;</span>)
-
-<span class="kw">par</span>(<span class="dt">cex=</span><span class="fl">0.6</span>)
-<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>x, <span class="dt">main=</span><span class="st">&#39;Usando </span><span class="ch">\n</span><span class="st"> cex=0.6&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="par.html#cb85-1"></a>x &lt;-<span class="st"> </span><span class="dv">-3</span><span class="op">:</span><span class="dv">3</span></span>
+<span id="cb85-2"><a href="par.html#cb85-2"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="dt">cex=</span><span class="fl">1.4</span>)</span>
+<span id="cb85-3"><a href="par.html#cb85-3"></a><span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>x, <span class="dt">main=</span><span class="st">&#39;Usando </span><span class="ch">\n</span><span class="st"> cex=1.4&#39;</span>)</span>
+<span id="cb85-4"><a href="par.html#cb85-4"></a></span>
+<span id="cb85-5"><a href="par.html#cb85-5"></a><span class="kw">par</span>(<span class="dt">cex=</span><span class="fl">0.6</span>)</span>
+<span id="cb85-6"><a href="par.html#cb85-6"></a><span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>x, <span class="dt">main=</span><span class="st">&#39;Usando </span><span class="ch">\n</span><span class="st"> cex=0.6&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:cex"></span>
 <img src="Graficos_con_R_files/figure-html/cex-1.png" alt="Efecto del parámetro `cex`." width="768" />
 <p class="caption">
@@ -475,7 +464,7 @@ Figure 5.6: Efecto del parámetro <code>cex</code>.
 <p>El parámetro <code>cex</code> tiene un efecto importante en las figuras, se recomienda al usuario que cada vez que construya una figura explore diferentes opciones para obtener una figura que exprese la esencia de lo que desea comunicar.</p>
 </div>
 </div>
-<div id="parametros-cex.axis-cex.lab-cex.main-y-cex.sub" class="section level2">
+<div id="parámetros-cex.axis-cex.lab-cex.main-y-cex.sub" class="section level2">
 <h2><span class="header-section-number">5.7</span> Parámetros <code>cex.axis</code>, <code>cex.lab</code>, <code>cex.main</code> y <code>cex.sub</code>    </h2>
 <p>Los parámetros <code>cex.axis</code>, <code>cex.lab</code>, <code>cex.main</code> y <code>cex.sub</code> sirven para modificar el tamaño de las marcas en los ejes, el tamaño de los nombres de los ejes, el tamaño del título principal y el tamaño del subtítulo respectivamente. El parámetro <code>cex</code> explicado en la sección anterior, modifica el tamaño de los anteriores elementos simultáneamente mientras que los parámetros explicados en esta sección modifican cada uno de los elementos por aparte.</p>
 <div id="ejemplo-39" class="section level3 unnumbered">
@@ -483,12 +472,12 @@ Figure 5.6: Efecto del parámetro <code>cex</code>.
 <p>Hacer un gráfico cualquiera y modificar los parámetros <code>cex.axis</code>, <code>cex.lab</code>, <code>cex.main</code> y <code>cex.sub</code> de la función <code>par</code> con el objetivo de ver el efecto que ellos tiene sobre el gráfico.</p>
 <p>A continuación se construye un gráfico simple y se modifican todos los paramétros <code>cex.algo</code> para ver el efecto que ellos tienen sobre el gráfico resultante, abajo el código usado.</p>
 <p>En la Figura <a href="par.html#fig:cexs">5.7</a> se muestra el resultado. Observe que las marcas y números en los ejes quedaron grandes debido a que se usó <code>cex.axis=1.8</code>, los nombres que identifican los ejes casi no se ven porque se usó <code>cex.lab=0.3</code>. El título principal quedó muy pequeño debido a que <code>cex.main=0.7</code> mientras que el subtítulo quedó demasiado grande porque se usó <code>cex.sub=2</code>. Este ejemplo muestra que el usuario tiene todo el control para construir gráficos personalizados en R.</p>
-<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">-3</span><span class="op">:</span><span class="dv">3</span>
-<span class="kw">par</span>(<span class="dt">cex.axis=</span><span class="fl">1.8</span>, <span class="dt">cex.lab=</span><span class="fl">0.3</span>, <span class="dt">cex.main=</span><span class="fl">0.7</span>, <span class="dt">cex.sub=</span><span class="fl">2.0</span>)
-<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>x,
-     <span class="dt">xlab=</span><span class="st">&#39;Valores de x&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Valores de y&#39;</span>,
-     <span class="dt">main=</span><span class="st">&#39;Título principal&#39;</span>,
-     <span class="dt">sub=</span><span class="st">&#39;Subtítulo&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="par.html#cb86-1"></a>x &lt;-<span class="st"> </span><span class="dv">-3</span><span class="op">:</span><span class="dv">3</span></span>
+<span id="cb86-2"><a href="par.html#cb86-2"></a><span class="kw">par</span>(<span class="dt">cex.axis=</span><span class="fl">1.8</span>, <span class="dt">cex.lab=</span><span class="fl">0.3</span>, <span class="dt">cex.main=</span><span class="fl">0.7</span>, <span class="dt">cex.sub=</span><span class="fl">2.0</span>)</span>
+<span id="cb86-3"><a href="par.html#cb86-3"></a><span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>x,</span>
+<span id="cb86-4"><a href="par.html#cb86-4"></a>     <span class="dt">xlab=</span><span class="st">&#39;Valores de x&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Valores de y&#39;</span>,</span>
+<span id="cb86-5"><a href="par.html#cb86-5"></a>     <span class="dt">main=</span><span class="st">&#39;Título principal&#39;</span>,</span>
+<span id="cb86-6"><a href="par.html#cb86-6"></a>     <span class="dt">sub=</span><span class="st">&#39;Subtítulo&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:cexs"></span>
 <img src="Graficos_con_R_files/figure-html/cexs-1.png" alt="Efecto de los parámetros `cex.axis`, `cex.lab`, `cex.main` y `cex.sub`." width="576" />
 <p class="caption">
@@ -497,18 +486,18 @@ Figure 5.7: Efecto de los parámetros <code>cex.axis</code>, <code>cex.lab</code
 </div>
 </div>
 </div>
-<div id="parametro-col-col.axis-col.lab-col.main-y-col.sub" class="section level2">
+<div id="parámetro-col-col.axis-col.lab-col.main-y-col.sub" class="section level2">
 <h2><span class="header-section-number">5.8</span> Parámetro <code>col</code>, <code>col.axis</code>, <code>col.lab</code>, <code>col.main</code> y <code>col.sub</code>  </h2>
 <p>Estos parámetros sirven para definir el color a usar en los ejes, en los nombres de los ejes, en el título y en el subtítulo.</p>
 <div id="ejemplo-40" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Hacer un gráfico cualquiera y modificar los parámetros <code>col</code>, <code>col.axis</code>, <code>col.lab</code>, <code>col.main</code> y <code>col.sub</code> de la función <code>par</code> con el objetivo de ver el efecto que ellos tiene sobre el gráfico.</p>
 <p>A continuación se construye un gráfico simple y se modifican todos los paramétros para ver el efecto que ellos tienen sobre el gráfico resultante, abajo el código usado.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">col=</span><span class="st">&#39;blue&#39;</span>, <span class="dt">col.axis=</span><span class="st">&#39;red&#39;</span>, <span class="dt">col.lab=</span><span class="st">&#39;orange&#39;</span>,
-    <span class="dt">col.main=</span><span class="st">&#39;darkgreen&#39;</span>, <span class="dt">col.sub=</span><span class="st">&#39;purple&#39;</span>, <span class="dt">bty=</span><span class="st">&#39;n&#39;</span>)
-<span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">cex=</span><span class="dv">2</span>, <span class="dt">las=</span><span class="dv">1</span>,
-     <span class="dt">main=</span><span class="st">&#39;Título&#39;</span>, <span class="dt">xlab=</span><span class="st">&#39;Nombre eje X&#39;</span>,
-     <span class="dt">ylab=</span><span class="st">&#39;Nombre eje Y&#39;</span>, <span class="dt">sub=</span><span class="st">&#39;Subtítulo&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="par.html#cb87-1"></a><span class="kw">par</span>(<span class="dt">col=</span><span class="st">&#39;blue&#39;</span>, <span class="dt">col.axis=</span><span class="st">&#39;red&#39;</span>, <span class="dt">col.lab=</span><span class="st">&#39;orange&#39;</span>,</span>
+<span id="cb87-2"><a href="par.html#cb87-2"></a>    <span class="dt">col.main=</span><span class="st">&#39;darkgreen&#39;</span>, <span class="dt">col.sub=</span><span class="st">&#39;purple&#39;</span>, <span class="dt">bty=</span><span class="st">&#39;n&#39;</span>)</span>
+<span id="cb87-3"><a href="par.html#cb87-3"></a><span class="kw">plot</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">pch=</span><span class="dv">20</span>, <span class="dt">cex=</span><span class="dv">2</span>, <span class="dt">las=</span><span class="dv">1</span>,</span>
+<span id="cb87-4"><a href="par.html#cb87-4"></a>     <span class="dt">main=</span><span class="st">&#39;Título&#39;</span>, <span class="dt">xlab=</span><span class="st">&#39;Nombre eje X&#39;</span>,</span>
+<span id="cb87-5"><a href="par.html#cb87-5"></a>     <span class="dt">ylab=</span><span class="st">&#39;Nombre eje Y&#39;</span>, <span class="dt">sub=</span><span class="st">&#39;Subtítulo&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:cols"></span>
 <img src="Graficos_con_R_files/figure-html/cols-1.png" alt="Efecto de los parámetros `col`, `col.axis`, `col.lab`, `col.main` y `col.sub`." width="384" />
 <p class="caption">
@@ -531,11 +520,13 @@ Figure 5.8: Efecto de los parámetros <code>col</code>, <code>col.axis</code>, <
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -543,12 +534,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -560,6 +550,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -578,8 +572,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

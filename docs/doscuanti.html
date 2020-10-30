@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html >
-
+<html lang="" xml:lang="">
 <head>
 
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>3 Gráficos para varias variables cuantitativas | Gráficos con R</title>
-  <meta name="description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia.">
-  <meta name="generator" content="bookdown  and GitBook 2.6.7">
+  <meta name="description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
   <meta property="og:title" content="3 Gráficos para varias variables cuantitativas | Gráficos con R" />
   <meta property="og:type" content="book" />
@@ -22,19 +21,19 @@
   <meta name="twitter:description" content="Libro de apoyo para los estudiantes de la Escuela de Estadística de la Universidad Nacional de Colombia." />
   <meta name="twitter:image" content="images/cover.png" />
 
-<meta name="author" content="Freddy Hernández">
-<meta name="author" content="Juan Carlos Correa">
+<meta name="author" content="Freddy Hernández" />
+<meta name="author" content="Juan Carlos Correa" />
 
 
-<meta name="date" content="2019-07-05">
+<meta name="date" content="2020-10-30" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="unacuanti.html">
-<link rel="next" href="cuali.html">
+<link rel="prev" href="unacuanti.html"/>
+<link rel="next" href="cuali.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -42,6 +41,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -52,26 +54,27 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -80,9 +83,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -138,138 +141,124 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="sobre-los-autores.html"><a href="sobre-los-autores.html"><i class="fa fa-check"></i>Sobre los autores</a></li>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Introducción</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#origenes"><i class="fa fa-check"></i><b>1.1</b> Orígenes</a></li>
-<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#descarga-e-instalacion"><i class="fa fa-check"></i><b>1.2</b> Descarga e instalación</a></li>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#orígenes"><i class="fa fa-check"></i><b>1.1</b> Orígenes</a></li>
+<li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#descarga-e-instalación"><i class="fa fa-check"></i><b>1.2</b> Descarga e instalación</a></li>
 <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#apariencia-del-programa"><i class="fa fa-check"></i><b>1.3</b> Apariencia del programa</a></li>
-<li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#tipos-de-objetos"><i class="fa fa-check"></i><b>1.4</b> Tipos de objetos</a></li>
-<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#vectores"><i class="fa fa-check"></i><b>1.5</b> Vectores</a></li>
-<li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>1.6</b> Matrices</a></li>
-<li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#arreglos"><i class="fa fa-check"></i><b>1.7</b> Arreglos</a></li>
-<li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#marco-de-datos"><i class="fa fa-check"></i><b>1.8</b> Marco de datos</a></li>
-<li class="chapter" data-level="1.9" data-path="intro.html"><a href="intro.html#listas"><i class="fa fa-check"></i><b>1.9</b> Listas</a></li>
-<li class="chapter" data-level="1.10" data-path="intro.html"><a href="intro.html#guia-de-estilo-para-la-escritura-en-r"><i class="fa fa-check"></i><b>1.10</b> Guía de estilo para la escritura en R</a><ul>
-<li class="chapter" data-level="1.10.1" data-path="intro.html"><a href="intro.html#nombres-de-los-archivos"><i class="fa fa-check"></i><b>1.10.1</b> Nombres de los archivos</a></li>
-<li class="chapter" data-level="1.10.2" data-path="intro.html"><a href="intro.html#nombres-de-los-objetos"><i class="fa fa-check"></i><b>1.10.2</b> Nombres de los objetos</a></li>
-<li class="chapter" data-level="1.10.3" data-path="intro.html"><a href="intro.html#longitud-de-una-linea-de-codigo"><i class="fa fa-check"></i><b>1.10.3</b> Longitud de una línea de código</a></li>
-<li class="chapter" data-level="1.10.4" data-path="intro.html"><a href="intro.html#espacios"><i class="fa fa-check"></i><b>1.10.4</b> Espacios</a></li>
-<li class="chapter" data-level="1.10.5" data-path="intro.html"><a href="intro.html#asignacion"><i class="fa fa-check"></i><b>1.10.5</b> Asignación</a></li>
-<li class="chapter" data-level="1.10.6" data-path="intro.html"><a href="intro.html#punto-y-coma"><i class="fa fa-check"></i><b>1.10.6</b> Punto y coma</a></li>
-</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="unacuanti.html"><a href="unacuanti.html"><i class="fa fa-check"></i><b>2</b> Gráficos para una variable cuantitativa</a><ul>
-<li class="chapter" data-level="2.1" data-path="unacuanti.html"><a href="unacuanti.html#funcion-stem"><i class="fa fa-check"></i><b>2.1</b> Función <code>stem</code></a><ul>
+<li class="chapter" data-level="2.1" data-path="unacuanti.html"><a href="unacuanti.html#función-stem"><i class="fa fa-check"></i><b>2.1</b> Función <code>stem</code></a><ul>
 <li class="chapter" data-level="" data-path="unacuanti.html"><a href="unacuanti.html#ejemplo"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="unacuanti.html"><a href="unacuanti.html#funcion-boxplot"><i class="fa fa-check"></i><b>2.2</b> Función <code>boxplot</code></a><ul>
+<li class="chapter" data-level="2.2" data-path="unacuanti.html"><a href="unacuanti.html#función-boxplot"><i class="fa fa-check"></i><b>2.2</b> Función <code>boxplot</code></a><ul>
 <li class="chapter" data-level="" data-path="unacuanti.html"><a href="unacuanti.html#ejemplo-1"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="unacuanti.html"><a href="unacuanti.html#ejemplo-2"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="unacuanti.html"><a href="unacuanti.html#funcion-hist"><i class="fa fa-check"></i><b>2.3</b> Función <code>hist</code></a><ul>
+<li class="chapter" data-level="2.3" data-path="unacuanti.html"><a href="unacuanti.html#función-hist"><i class="fa fa-check"></i><b>2.3</b> Función <code>hist</code></a><ul>
 <li class="chapter" data-level="" data-path="unacuanti.html"><a href="unacuanti.html#ejemplo-3"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="unacuanti.html"><a href="unacuanti.html#funcion-qqnorm-y-qqplot"><i class="fa fa-check"></i><b>2.4</b> Función <code>qqnorm</code> y <code>qqplot</code></a><ul>
+<li class="chapter" data-level="2.4" data-path="unacuanti.html"><a href="unacuanti.html#función-qqnorm-y-qqplot"><i class="fa fa-check"></i><b>2.4</b> Función <code>qqnorm</code> y <code>qqplot</code></a><ul>
 <li class="chapter" data-level="" data-path="unacuanti.html"><a href="unacuanti.html#ejemplo-4"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="unacuanti.html"><a href="unacuanti.html#ejemplo-5"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="unacuanti.html"><a href="unacuanti.html#funcion-density"><i class="fa fa-check"></i><b>2.5</b> Función <code>density</code></a><ul>
+<li class="chapter" data-level="2.5" data-path="unacuanti.html"><a href="unacuanti.html#función-density"><i class="fa fa-check"></i><b>2.5</b> Función <code>density</code></a><ul>
 <li class="chapter" data-level="" data-path="unacuanti.html"><a href="unacuanti.html#ejemplo-6"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="unacuanti.html"><a href="unacuanti.html#ejemplo-7"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="unacuanti.html"><a href="unacuanti.html#ejemplo-8"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="doscuanti.html"><a href="doscuanti.html"><i class="fa fa-check"></i><b>3</b> Gráficos para varias variables cuantitativas</a><ul>
-<li class="chapter" data-level="3.1" data-path="doscuanti.html"><a href="doscuanti.html#funcion-plot"><i class="fa fa-check"></i><b>3.1</b> Función <code>plot</code></a><ul>
+<li class="chapter" data-level="3.1" data-path="doscuanti.html"><a href="doscuanti.html#función-plot"><i class="fa fa-check"></i><b>3.1</b> Función <code>plot</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-9"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-10"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="doscuanti.html"><a href="doscuanti.html#funcion-sunflowerplot"><i class="fa fa-check"></i><b>3.2</b> Función <code>sunflowerplot</code></a><ul>
+<li class="chapter" data-level="3.2" data-path="doscuanti.html"><a href="doscuanti.html#función-sunflowerplot"><i class="fa fa-check"></i><b>3.2</b> Función <code>sunflowerplot</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-11"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-12"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="doscuanti.html"><a href="doscuanti.html#funcion-symbols"><i class="fa fa-check"></i><b>3.3</b> Función <code>symbols</code></a><ul>
+<li class="chapter" data-level="3.3" data-path="doscuanti.html"><a href="doscuanti.html#función-symbols"><i class="fa fa-check"></i><b>3.3</b> Función <code>symbols</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-13"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="doscuanti.html"><a href="doscuanti.html#funcion-pairs"><i class="fa fa-check"></i><b>3.4</b> Función <code>pairs</code></a><ul>
+<li class="chapter" data-level="3.4" data-path="doscuanti.html"><a href="doscuanti.html#función-pairs"><i class="fa fa-check"></i><b>3.4</b> Función <code>pairs</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-14"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-15"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-16"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-17"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-18"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="doscuanti.html"><a href="doscuanti.html#funcion-persp"><i class="fa fa-check"></i><b>3.5</b> Función <code>persp</code></a><ul>
+<li class="chapter" data-level="3.5" data-path="doscuanti.html"><a href="doscuanti.html#función-persp"><i class="fa fa-check"></i><b>3.5</b> Función <code>persp</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-19"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-20"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.6" data-path="doscuanti.html"><a href="doscuanti.html#funcion-contour"><i class="fa fa-check"></i><b>3.6</b> Función <code>contour</code></a><ul>
+<li class="chapter" data-level="3.6" data-path="doscuanti.html"><a href="doscuanti.html#función-contour"><i class="fa fa-check"></i><b>3.6</b> Función <code>contour</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-21"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="doscuanti.html"><a href="doscuanti.html#funcion-filled.contour"><i class="fa fa-check"></i><b>3.7</b> Función <code>filled.contour</code></a><ul>
+<li class="chapter" data-level="3.7" data-path="doscuanti.html"><a href="doscuanti.html#función-filled.contour"><i class="fa fa-check"></i><b>3.7</b> Función <code>filled.contour</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-22"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-23"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="doscuanti.html"><a href="doscuanti.html#funcion-image"><i class="fa fa-check"></i><b>3.8</b> Función <code>image</code></a><ul>
+<li class="chapter" data-level="3.8" data-path="doscuanti.html"><a href="doscuanti.html#función-image"><i class="fa fa-check"></i><b>3.8</b> Función <code>image</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-24"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="doscuanti.html"><a href="doscuanti.html#funcion-kde2d"><i class="fa fa-check"></i><b>3.9</b> Función <code>kde2d</code></a><ul>
+<li class="chapter" data-level="3.9" data-path="doscuanti.html"><a href="doscuanti.html#función-kde2d"><i class="fa fa-check"></i><b>3.9</b> Función <code>kde2d</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-25"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.10" data-path="doscuanti.html"><a href="doscuanti.html#funcion-interaction.plot"><i class="fa fa-check"></i><b>3.10</b> Función <code>interaction.plot</code></a><ul>
+<li class="chapter" data-level="3.10" data-path="doscuanti.html"><a href="doscuanti.html#función-interaction.plot"><i class="fa fa-check"></i><b>3.10</b> Función <code>interaction.plot</code></a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-26"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="3.11" data-path="doscuanti.html"><a href="doscuanti.html#grafico-de-espagueti"><i class="fa fa-check"></i><b>3.11</b> Gráfico de espagueti</a><ul>
+<li class="chapter" data-level="3.11" data-path="doscuanti.html"><a href="doscuanti.html#gráfico-de-espagueti"><i class="fa fa-check"></i><b>3.11</b> Gráfico de espagueti</a><ul>
 <li class="chapter" data-level="" data-path="doscuanti.html"><a href="doscuanti.html#ejemplo-27"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="cuali.html"><a href="cuali.html"><i class="fa fa-check"></i><b>4</b> Gráficos para variables cualitativas</a><ul>
-<li class="chapter" data-level="4.1" data-path="cuali.html"><a href="cuali.html#funcion-barplot"><i class="fa fa-check"></i><b>4.1</b> Función <code>barplot</code>  </a><ul>
+<li class="chapter" data-level="4.1" data-path="cuali.html"><a href="cuali.html#función-barplot"><i class="fa fa-check"></i><b>4.1</b> Función <code>barplot</code>  </a><ul>
 <li class="chapter" data-level="" data-path="cuali.html"><a href="cuali.html#ejemplo-28"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="cuali.html"><a href="cuali.html#ejemplo-29"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="4.2" data-path="cuali.html"><a href="cuali.html#funcion-pie"><i class="fa fa-check"></i><b>4.2</b> Función <code>pie</code>  </a><ul>
+<li class="chapter" data-level="4.2" data-path="cuali.html"><a href="cuali.html#función-pie"><i class="fa fa-check"></i><b>4.2</b> Función <code>pie</code>  </a><ul>
 <li class="chapter" data-level="" data-path="cuali.html"><a href="cuali.html#ejemplo-30"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="cuali.html"><a href="cuali.html#funcion-dotchart"><i class="fa fa-check"></i><b>4.3</b> Función <code>dotchart</code>  </a><ul>
+<li class="chapter" data-level="4.3" data-path="cuali.html"><a href="cuali.html#función-dotchart"><i class="fa fa-check"></i><b>4.3</b> Función <code>dotchart</code>  </a><ul>
 <li class="chapter" data-level="" data-path="cuali.html"><a href="cuali.html#ejemplo-31"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="cuali.html"><a href="cuali.html#ejemplo-32"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 <li class="chapter" data-level="" data-path="cuali.html"><a href="cuali.html#ejercicios"><i class="fa fa-check"></i>EJERCICIOS</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="par.html"><a href="par.html"><i class="fa fa-check"></i><b>5</b> Función <code>par</code></a><ul>
-<li class="chapter" data-level="5.1" data-path="par.html"><a href="par.html#parametro-ann"><i class="fa fa-check"></i><b>5.1</b> Parámetro <code>ann</code>  </a><ul>
+<li class="chapter" data-level="5.1" data-path="par.html"><a href="par.html#parámetro-ann"><i class="fa fa-check"></i><b>5.1</b> Parámetro <code>ann</code>  </a><ul>
 <li class="chapter" data-level="" data-path="par.html"><a href="par.html#ejemplo-33"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.2" data-path="par.html"><a href="par.html#parametro-adj"><i class="fa fa-check"></i><b>5.2</b> Parámetro <code>adj</code>  </a><ul>
+<li class="chapter" data-level="5.2" data-path="par.html"><a href="par.html#parámetro-adj"><i class="fa fa-check"></i><b>5.2</b> Parámetro <code>adj</code>  </a><ul>
 <li class="chapter" data-level="" data-path="par.html"><a href="par.html#ejemplo-34"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="par.html"><a href="par.html#parametro-bg"><i class="fa fa-check"></i><b>5.3</b> Parámetro <code>bg</code>  </a><ul>
+<li class="chapter" data-level="5.3" data-path="par.html"><a href="par.html#parámetro-bg"><i class="fa fa-check"></i><b>5.3</b> Parámetro <code>bg</code>  </a><ul>
 <li class="chapter" data-level="" data-path="par.html"><a href="par.html#ejemplo-35"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.4" data-path="par.html"><a href="par.html#parametro-mfrow"><i class="fa fa-check"></i><b>5.4</b> Parámetro <code>mfrow</code>  </a><ul>
+<li class="chapter" data-level="5.4" data-path="par.html"><a href="par.html#parámetro-mfrow"><i class="fa fa-check"></i><b>5.4</b> Parámetro <code>mfrow</code>  </a><ul>
 <li class="chapter" data-level="" data-path="par.html"><a href="par.html#ejemplo-36"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="par.html"><a href="par.html#parametro-bty"><i class="fa fa-check"></i><b>5.5</b> Parámetro <code>bty</code>  </a><ul>
+<li class="chapter" data-level="5.5" data-path="par.html"><a href="par.html#parámetro-bty"><i class="fa fa-check"></i><b>5.5</b> Parámetro <code>bty</code>  </a><ul>
 <li class="chapter" data-level="" data-path="par.html"><a href="par.html#ejemplo-37"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="par.html"><a href="par.html#parametro-cex"><i class="fa fa-check"></i><b>5.6</b> Parámetro <code>cex</code>  </a><ul>
+<li class="chapter" data-level="5.6" data-path="par.html"><a href="par.html#parámetro-cex"><i class="fa fa-check"></i><b>5.6</b> Parámetro <code>cex</code>  </a><ul>
 <li class="chapter" data-level="" data-path="par.html"><a href="par.html#ejemplo-38"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="par.html"><a href="par.html#parametros-cex.axis-cex.lab-cex.main-y-cex.sub"><i class="fa fa-check"></i><b>5.7</b> Parámetros <code>cex.axis</code>, <code>cex.lab</code>, <code>cex.main</code> y <code>cex.sub</code>    </a><ul>
+<li class="chapter" data-level="5.7" data-path="par.html"><a href="par.html#parámetros-cex.axis-cex.lab-cex.main-y-cex.sub"><i class="fa fa-check"></i><b>5.7</b> Parámetros <code>cex.axis</code>, <code>cex.lab</code>, <code>cex.main</code> y <code>cex.sub</code>    </a><ul>
 <li class="chapter" data-level="" data-path="par.html"><a href="par.html#ejemplo-39"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
-<li class="chapter" data-level="5.8" data-path="par.html"><a href="par.html#parametro-col-col.axis-col.lab-col.main-y-col.sub"><i class="fa fa-check"></i><b>5.8</b> Parámetro <code>col</code>, <code>col.axis</code>, <code>col.lab</code>, <code>col.main</code> y <code>col.sub</code>  </a><ul>
+<li class="chapter" data-level="5.8" data-path="par.html"><a href="par.html#parámetro-col-col.axis-col.lab-col.main-y-col.sub"><i class="fa fa-check"></i><b>5.8</b> Parámetro <code>col</code>, <code>col.axis</code>, <code>col.lab</code>, <code>col.main</code> y <code>col.sub</code>  </a><ul>
 <li class="chapter" data-level="" data-path="par.html"><a href="par.html#ejemplo-40"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="auxiliares.html"><a href="auxiliares.html"><i class="fa fa-check"></i><b>6</b> Funciones auxiliares</a><ul>
-<li class="chapter" data-level="6.1" data-path="auxiliares.html"><a href="auxiliares.html#funcion-segments"><i class="fa fa-check"></i><b>6.1</b> Función <code>segments</code></a></li>
-<li class="chapter" data-level="6.2" data-path="auxiliares.html"><a href="auxiliares.html#funcion-rect"><i class="fa fa-check"></i><b>6.2</b> Función <code>rect</code></a></li>
-<li class="chapter" data-level="6.3" data-path="auxiliares.html"><a href="auxiliares.html#funcion-polygon"><i class="fa fa-check"></i><b>6.3</b> Función <code>polygon</code></a></li>
-<li class="chapter" data-level="6.4" data-path="auxiliares.html"><a href="auxiliares.html#funcion-abline"><i class="fa fa-check"></i><b>6.4</b> Función <code>abline</code></a></li>
-<li class="chapter" data-level="6.5" data-path="auxiliares.html"><a href="auxiliares.html#para-dibujar-un-circulo"><i class="fa fa-check"></i><b>6.5</b> Para dibujar un círculo</a></li>
-<li class="chapter" data-level="6.6" data-path="auxiliares.html"><a href="auxiliares.html#funcion-arrows"><i class="fa fa-check"></i><b>6.6</b> Función <code>arrows</code></a></li>
+<li class="chapter" data-level="6.1" data-path="auxiliares.html"><a href="auxiliares.html#función-segments"><i class="fa fa-check"></i><b>6.1</b> Función <code>segments</code></a></li>
+<li class="chapter" data-level="6.2" data-path="auxiliares.html"><a href="auxiliares.html#función-rect"><i class="fa fa-check"></i><b>6.2</b> Función <code>rect</code></a></li>
+<li class="chapter" data-level="6.3" data-path="auxiliares.html"><a href="auxiliares.html#función-polygon"><i class="fa fa-check"></i><b>6.3</b> Función <code>polygon</code></a></li>
+<li class="chapter" data-level="6.4" data-path="auxiliares.html"><a href="auxiliares.html#función-abline"><i class="fa fa-check"></i><b>6.4</b> Función <code>abline</code></a></li>
+<li class="chapter" data-level="6.5" data-path="auxiliares.html"><a href="auxiliares.html#para-dibujar-un-círculo"><i class="fa fa-check"></i><b>6.5</b> Para dibujar un círculo</a></li>
+<li class="chapter" data-level="6.6" data-path="auxiliares.html"><a href="auxiliares.html#función-arrows"><i class="fa fa-check"></i><b>6.6</b> Función <code>arrows</code></a></li>
 <li class="chapter" data-level="6.7" data-path="auxiliares.html"><a href="auxiliares.html#grid"><i class="fa fa-check"></i><b>6.7</b> Función <code>grid</code></a></li>
-<li class="chapter" data-level="6.8" data-path="auxiliares.html"><a href="auxiliares.html#funcion-points"><i class="fa fa-check"></i><b>6.8</b> Función <code>points</code></a></li>
-<li class="chapter" data-level="6.9" data-path="auxiliares.html"><a href="auxiliares.html#funcion-curve"><i class="fa fa-check"></i><b>6.9</b> Función <code>curve</code></a><ul>
+<li class="chapter" data-level="6.8" data-path="auxiliares.html"><a href="auxiliares.html#función-points"><i class="fa fa-check"></i><b>6.8</b> Función <code>points</code></a></li>
+<li class="chapter" data-level="6.9" data-path="auxiliares.html"><a href="auxiliares.html#función-curve"><i class="fa fa-check"></i><b>6.9</b> Función <code>curve</code></a><ul>
 <li class="chapter" data-level="" data-path="auxiliares.html"><a href="auxiliares.html#ejemplo-41"><i class="fa fa-check"></i>Ejemplo</a></li>
 <li class="chapter" data-level="" data-path="auxiliares.html"><a href="auxiliares.html#ejemplo-42"><i class="fa fa-check"></i>Ejemplo</a></li>
 </ul></li>
@@ -277,14 +266,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="respuestas.html"><a href="respuestas.html"><i class="fa fa-check"></i><b>7</b> Respuestas a preguntas frecuentes</a><ul>
 <li class="chapter" data-level="7.1" data-path="respuestas.html"><a href="respuestas.html#emptygraph"><i class="fa fa-check"></i><b>7.1</b> ¿Cómo crear un gráfico vacío?</a></li>
-<li class="chapter" data-level="7.2" data-path="respuestas.html"><a href="respuestas.html#como-personalizar-los-valores-a-mostrar-en-los-ejes"><i class="fa fa-check"></i><b>7.2</b> ¿Cómo personalizar los valores a mostrar en los ejes?</a></li>
-<li class="chapter" data-level="7.3" data-path="respuestas.html"><a href="respuestas.html#como-dibujar-varios-qqplot-en-una-misma-figura"><i class="fa fa-check"></i><b>7.3</b> ¿Cómo dibujar varios QQplot en una misma figura?</a></li>
-<li class="chapter" data-level="7.4" data-path="respuestas.html"><a href="respuestas.html#como-dibujar-varias-densidades-en-una-misma-figura"><i class="fa fa-check"></i><b>7.4</b> ¿Cómo dibujar varias densidades en una misma figura?</a></li>
-<li class="chapter" data-level="7.5" data-path="respuestas.html"><a href="respuestas.html#como-dibujar-varias-densidades-transparentes-en-una-misma-figura"><i class="fa fa-check"></i><b>7.5</b> ¿Cómo dibujar varias densidades transparentes en una misma figura?</a></li>
+<li class="chapter" data-level="7.2" data-path="respuestas.html"><a href="respuestas.html#cómo-personalizar-los-valores-a-mostrar-en-los-ejes"><i class="fa fa-check"></i><b>7.2</b> ¿Cómo personalizar los valores a mostrar en los ejes?</a></li>
+<li class="chapter" data-level="7.3" data-path="respuestas.html"><a href="respuestas.html#cómo-dibujar-varios-qqplot-en-una-misma-figura"><i class="fa fa-check"></i><b>7.3</b> ¿Cómo dibujar varios QQplot en una misma figura?</a></li>
+<li class="chapter" data-level="7.4" data-path="respuestas.html"><a href="respuestas.html#cómo-dibujar-varias-densidades-en-una-misma-figura"><i class="fa fa-check"></i><b>7.4</b> ¿Cómo dibujar varias densidades en una misma figura?</a></li>
+<li class="chapter" data-level="7.5" data-path="respuestas.html"><a href="respuestas.html#cómo-dibujar-varias-densidades-transparentes-en-una-misma-figura"><i class="fa fa-check"></i><b>7.5</b> ¿Cómo dibujar varias densidades transparentes en una misma figura?</a></li>
 <li class="chapter" data-level="7.6" data-path="respuestas.html"><a href="respuestas.html#rejper"><i class="fa fa-check"></i><b>7.6</b> ¿Cómo incluir una rejilla a una figura en ciertos puntos?</a></li>
-<li class="chapter" data-level="7.7" data-path="respuestas.html"><a href="respuestas.html#como-incluir-en-un-grafico-valores-en-forma-automatica"><i class="fa fa-check"></i><b>7.7</b> ¿Cómo incluir en un gráfico valores en forma automática?</a></li>
-<li class="chapter" data-level="7.8" data-path="respuestas.html"><a href="respuestas.html#como-incluir-en-un-grafico-varios-valores-en-forma-automatica"><i class="fa fa-check"></i><b>7.8</b> ¿Cómo incluir en un gráfico varios valores en forma automática?</a></li>
-<li class="chapter" data-level="7.9" data-path="respuestas.html"><a href="respuestas.html#como-incluir-colores-dependiendo-de-los-valores-de-una-variable-cualitativa"><i class="fa fa-check"></i><b>7.9</b> ¿Cómo incluir colores dependiendo de los valores de una variable cualitativa?</a></li>
+<li class="chapter" data-level="7.7" data-path="respuestas.html"><a href="respuestas.html#cómo-incluir-en-un-gráfico-valores-en-forma-automática"><i class="fa fa-check"></i><b>7.7</b> ¿Cómo incluir en un gráfico valores en forma automática?</a></li>
+<li class="chapter" data-level="7.8" data-path="respuestas.html"><a href="respuestas.html#cómo-incluir-en-un-gráfico-varios-valores-en-forma-automática"><i class="fa fa-check"></i><b>7.8</b> ¿Cómo incluir en un gráfico varios valores en forma automática?</a></li>
+<li class="chapter" data-level="7.9" data-path="respuestas.html"><a href="respuestas.html#cómo-incluir-colores-dependiendo-de-los-valores-de-una-variable-cualitativa"><i class="fa fa-check"></i><b>7.9</b> ¿Cómo incluir colores dependiendo de los valores de una variable cualitativa?</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="extras.html"><a href="extras.html"><i class="fa fa-check"></i><b>8</b> Extras</a></li>
 <li class="divider"></li>
@@ -310,10 +299,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="doscuanti" class="section level1">
 <h1><span class="header-section-number">3</span> Gráficos para varias variables cuantitativas</h1>
 <p>En este capítulo se presentan funciones para la creación de gráficos que involucran varias variables cuantitativas.</p>
-<div id="funcion-plot" class="section level2">
+<div id="función-plot" class="section level2">
 <h2><span class="header-section-number">3.1</span> Función <code>plot</code></h2>
 <p>Los gráficos de dispersión son muy útiles porque permiten ver la relación que existe entre dos variables cuantitativas, la función <code>plot</code> permite crear este tipo de gráficos. La estructura de la función <code>plot</code> con los argumentos más usuales se muestra a continuación:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(x, y, type, main, sub, xlab, ylab)</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="doscuanti.html#cb24-1"></a><span class="kw">plot</span>(x, y, type, main, sub, xlab, ylab)</span></code></pre></div>
 <p>Los argumentos de la función <code>plot</code> son:</p>
 <ul>
 <li><code>x</code>: vector numérico con las coordenadas del eje horizontal.</li>
@@ -336,18 +325,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3>Ejemplo</h3>
 <p>Crear 16 parejas de puntos tales que <span class="math inline">\(x=-5, -4, \ldots, 9, 10\)</span> con <span class="math inline">\(y=-10+(x-3)^2\)</span>, dibujar los nueve diagramas de dispersión de <span class="math inline">\(y\)</span> contra <span class="math inline">\(x\)</span> usando todos los valores posibles para el parámetro <code>type</code>.</p>
 <p>A continuación se muestra el código para crear las 16 parejas de <span class="math inline">\(x\)</span> e <span class="math inline">\(y\)</span>. Los nueve diagramas de dispersión se observan en la Figura <a href="doscuanti.html#fig:ex1plot">3.1</a>, de esta figura se observa claramente el efecto que tiene el parámetro <code>type</code> en la construcción del diagrama de dispersión.</p>
-<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="dv">-5</span><span class="op">:</span><span class="dv">10</span>
-y &lt;-<span class="st"> </span><span class="dv">-10</span> <span class="op">+</span><span class="st"> </span>(x<span class="dv">-3</span>)<span class="op">^</span><span class="dv">2</span>
-<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>))
-<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;p&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;p&#39;&quot;</span>)
-<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;l&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;l&#39;&quot;</span>)
-<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;b&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;b&#39;&quot;</span>)
-<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;c&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;c&#39;&quot;</span>)
-<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;o&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;o&#39;&quot;</span>)
-<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;h&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;h&#39;&quot;</span>)
-<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;s&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;s&#39;&quot;</span>)
-<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;S&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;S&#39;&quot;</span>)
-<span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;n&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;n&#39;&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="doscuanti.html#cb25-1"></a>x &lt;-<span class="st"> </span><span class="dv">-5</span><span class="op">:</span><span class="dv">10</span></span>
+<span id="cb25-2"><a href="doscuanti.html#cb25-2"></a>y &lt;-<span class="st"> </span><span class="dv">-10</span> <span class="op">+</span><span class="st"> </span>(x<span class="dv">-3</span>)<span class="op">^</span><span class="dv">2</span></span>
+<span id="cb25-3"><a href="doscuanti.html#cb25-3"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb25-4"><a href="doscuanti.html#cb25-4"></a><span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;p&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;p&#39;&quot;</span>)</span>
+<span id="cb25-5"><a href="doscuanti.html#cb25-5"></a><span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;l&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;l&#39;&quot;</span>)</span>
+<span id="cb25-6"><a href="doscuanti.html#cb25-6"></a><span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;b&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;b&#39;&quot;</span>)</span>
+<span id="cb25-7"><a href="doscuanti.html#cb25-7"></a><span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;c&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;c&#39;&quot;</span>)</span>
+<span id="cb25-8"><a href="doscuanti.html#cb25-8"></a><span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;o&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;o&#39;&quot;</span>)</span>
+<span id="cb25-9"><a href="doscuanti.html#cb25-9"></a><span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;h&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;h&#39;&quot;</span>)</span>
+<span id="cb25-10"><a href="doscuanti.html#cb25-10"></a><span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;s&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;s&#39;&quot;</span>)</span>
+<span id="cb25-11"><a href="doscuanti.html#cb25-11"></a><span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;S&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;S&#39;&quot;</span>)</span>
+<span id="cb25-12"><a href="doscuanti.html#cb25-12"></a><span class="kw">plot</span>(<span class="dt">x=</span>x, <span class="dt">y=</span>y, <span class="dt">type=</span><span class="st">&#39;n&#39;</span>, <span class="dt">main=</span><span class="st">&quot;con type=&#39;n&#39;&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:ex1plot"></span>
 <img src="Graficos_con_R_files/figure-html/ex1plot-1.png" alt="Efecto del parámetro `type` en la función `plot`." width="480" />
 <p class="caption">
@@ -359,14 +348,14 @@ Figure 3.1: Efecto del parámetro <code>type</code> en la función <code>plot</c
 <h3>Ejemplo</h3>
 <p>Como ilustración vamos a crear dos diagramas de dispersión entre el precio de apartamentos usados en la ciudad de Medellín y el área de los apartamentos. El primer diagrama es un gráfico básico mientras que el segundo es un diagrama mejorado.</p>
 <p>El código necesario para cargar la base de datos y construir los diagramas de dispersión se muestra a continuación.</p>
-<pre class="sourceCode r"><code class="sourceCode r">url &lt;-<span class="st"> &#39;https://tinyurl.com/hwhb769&#39;</span>
-datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)
-
-<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
-<span class="kw">plot</span>(<span class="dt">x=</span>datos<span class="op">$</span>mt2, <span class="dt">y=</span>datos<span class="op">$</span>precio)
-<span class="kw">plot</span>(<span class="dt">x=</span>datos<span class="op">$</span>mt2, <span class="dt">y=</span>datos<span class="op">$</span>precio, <span class="dt">pch=</span><span class="st">&#39;.&#39;</span>,
-     <span class="dt">xlab=</span><span class="st">&#39;Área del apartamento (m2)&#39;</span>,
-     <span class="dt">ylab=</span><span class="st">&#39;Precio (millones de pesos)&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="doscuanti.html#cb26-1"></a>url &lt;-<span class="st"> &#39;https://tinyurl.com/hwhb769&#39;</span></span>
+<span id="cb26-2"><a href="doscuanti.html#cb26-2"></a>datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)</span>
+<span id="cb26-3"><a href="doscuanti.html#cb26-3"></a></span>
+<span id="cb26-4"><a href="doscuanti.html#cb26-4"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb26-5"><a href="doscuanti.html#cb26-5"></a><span class="kw">plot</span>(<span class="dt">x=</span>datos<span class="op">$</span>mt2, <span class="dt">y=</span>datos<span class="op">$</span>precio)</span>
+<span id="cb26-6"><a href="doscuanti.html#cb26-6"></a><span class="kw">plot</span>(<span class="dt">x=</span>datos<span class="op">$</span>mt2, <span class="dt">y=</span>datos<span class="op">$</span>precio, <span class="dt">pch=</span><span class="st">&#39;.&#39;</span>,</span>
+<span id="cb26-7"><a href="doscuanti.html#cb26-7"></a>     <span class="dt">xlab=</span><span class="st">&#39;Área del apartamento (m2)&#39;</span>,</span>
+<span id="cb26-8"><a href="doscuanti.html#cb26-8"></a>     <span class="dt">ylab=</span><span class="st">&#39;Precio (millones de pesos)&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:ex2plot"></span>
 <img src="Graficos_con_R_files/figure-html/ex2plot-1.png" alt="Diagrama de dispersión del precio del apartamento versus área del apartamento. A la izquierda el diagrama de dispersión sin editar y a la derecha el diagrama de dispersión mejorado." width="768" />
 <p class="caption">
@@ -376,33 +365,33 @@ Figure 3.2: Diagrama de dispersión del precio del apartamento versus área del 
 <p>En la Figura <a href="doscuanti.html#fig:ex2plot">3.2</a> se presentan los diagramas de dispersión entre precio y área de los apartamentos. En el panel de la izquierda está el diagrama básico, de este diagrama se observa claramente que a medida que los apartamentos tienen mayor área el precio promedio y la variabilidad del precio aumentan. En la parte inferior izquierda de este diagrama se tiene una zona de alta densidad de puntos y por esa razón se observa una mancha en el diagrama. Para la construcción del diagrama de dispersión mostrado en el panel derecho se usó el parámetro <code>pch='.'</code> con el objetivo de obtener pequeños puntos que representen cada apartamento y que no se traslapen debido a que se tienen 694 observaciones en la base de datos.</p>
 </div>
 </div>
-<div id="funcion-sunflowerplot" class="section level2">
+<div id="función-sunflowerplot" class="section level2">
 <h2><span class="header-section-number">3.2</span> Función <code>sunflowerplot</code></h2>
 <p>La función <code>sunflowerplot</code> sirve para crear gráficos de dispersión en los cuales hay parejas repetidas que se superponen y que por lo tanto no se podrían apreciar.</p>
 <p>Si una pareja está una sola vez se representará por un punto; si la pareja se repite dos veces se representará por un punto y dos rayitas rojas (pétalos); si la pareja se repite tres veces se representará por un punto y tres rayitas rojas (pétalos) y así sucesivamente.</p>
 <p>La estructura de la función <code>sunflowerplot</code> con los argumentos más usuales se muestra a continuación:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sunflowerplot</span>(x, y, pch, seg.col, seg.lwd, ...)</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="doscuanti.html#cb27-1"></a><span class="kw">sunflowerplot</span>(x, y, pch, seg.col, seg.lwd, ...)</span></code></pre></div>
 <p>Los argumentos de la función <code>plot</code> son:</p>
 <ul>
-<li><code>x</code>: vector numérico con las coordenadas del eje horizontal.</li>
-<li><code>y</code>: vector numérico con las coordenadas del eje vertical.</li>
-<li><code>pch</code>: valor o vector numérico con el tipo de punto a usar, por defecto <code>pch=1</code>. Para conocer los diferentes símbolos que se pueden obtener con el parámetro <code>pch</code> se recomienda consultar la Figura <a href="auxiliares.html#fig:point1">6.11</a>.</li>
-<li><code>seg.col</code>: color de los pétalos.</li>
-<li><code>seg.lwd</code>: ancho de los pétalos.</li>
-<li><code>...</code>: otros parámetros gráficos que pueden ser pasados como argumentos para <code>plot</code>.</li>
+<li><p><code>x</code>: vector numérico con las coordenadas del eje horizontal.</p></li>
+<li><p><code>y</code>: vector numérico con las coordenadas del eje vertical.</p></li>
+<li><p><code>pch</code>: valor o vector numérico con el tipo de punto a usar, por defecto <code>pch=1</code>. Para conocer los diferentes símbolos que se pueden obtener con el parámetro <code>pch</code> se recomienda consultar la Figura <a href="auxiliares.html#fig:point1">6.11</a>.</p></li>
+<li><p><code>seg.col</code>: color de los pétalos.</p></li>
+<li><p><code>seg.lwd</code>: ancho de los pétalos.</p></li>
+<li><p><code>...</code>: otros parámetros gráficos que pueden ser pasados como argumentos para <code>plot</code>.</p></li>
 </ul>
 <p>A continuación se presenta un ejemplo en los cuales se usa la función <code>sunflowerplot</code> para crear gráficos de dispersión.</p>
 <div id="ejemplo-11" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Suponga que se tiene el punto (1, 1) una sola vez, el punto (2, 3) repetido cuatro veces, el punto (3, 2) repetido seis veces y el punto (4, 5) repetido dos veces. El objetivo es crear dos gráficos de dispersión con los trece puntos, uno con la función <code>plot</code> y el otro con la función <code>sunflowerplot</code> para comparar los resultados.</p>
 <p>A continuación se muestra el código con la creación de los vectores y los dos gráficos de dispersión con <code>plot</code> y <code>sunflowerplot</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>)
-y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">5</span>)
-
-<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
-<span class="kw">plot</span>(x, y, <span class="dt">main=</span><span class="st">&#39;a) Usando plot&#39;</span>)
-<span class="kw">sunflowerplot</span>(x, y, <span class="dt">seg.col=</span><span class="st">&#39;blue&#39;</span>, <span class="dt">seg.lwd=</span><span class="dv">2</span>, <span class="dt">cex=</span><span class="fl">1.5</span>,
-              <span class="dt">main=</span><span class="st">&#39;b) Usando sunflowerplot&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="doscuanti.html#cb28-1"></a>x &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span>
+<span id="cb28-2"><a href="doscuanti.html#cb28-2"></a>y &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">5</span>)</span>
+<span id="cb28-3"><a href="doscuanti.html#cb28-3"></a></span>
+<span id="cb28-4"><a href="doscuanti.html#cb28-4"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb28-5"><a href="doscuanti.html#cb28-5"></a><span class="kw">plot</span>(x, y, <span class="dt">main=</span><span class="st">&#39;a) Usando plot&#39;</span>)</span>
+<span id="cb28-6"><a href="doscuanti.html#cb28-6"></a><span class="kw">sunflowerplot</span>(x, y, <span class="dt">seg.col=</span><span class="st">&#39;blue&#39;</span>, <span class="dt">seg.lwd=</span><span class="dv">2</span>, <span class="dt">cex=</span><span class="fl">1.5</span>,</span>
+<span id="cb28-7"><a href="doscuanti.html#cb28-7"></a>              <span class="dt">main=</span><span class="st">&#39;b) Usando sunflowerplot&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:sunflower1"></span>
 <img src="Graficos_con_R_files/figure-html/sunflower1-1.png" alt="Gráfico de dispersión para datos hipotéticos. En la izquierda el gráfico obtenido con `plot` y a la derecha el obtenido con `sunflowerplot`." width="768" />
 <p class="caption">
@@ -415,10 +404,10 @@ Figure 3.3: Gráfico de dispersión para datos hipotéticos. En la izquierda el 
 <h3>Ejemplo</h3>
 <p>Como ilustración vamos a crear un diagrama de dispersión con la función <code>sunflowerplot</code> para las variables número de alcobas y número de baños de la base de datos de apartamentos usados.</p>
 <p>El código necesario para cargar la base de datos y construir el diagrama de dispersión se muestra a continuación. El diagrama de dispersión se construyó excluyendo la información del apartamento 594 porque éste aparece con 14 alcobas.</p>
-<pre class="sourceCode r"><code class="sourceCode r">url &lt;-<span class="st"> &#39;https://tinyurl.com/hwhb769&#39;</span>
-datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)
-datos &lt;-<span class="st"> </span>datos[<span class="op">-</span><span class="dv">594</span>, ]  <span class="co"># Sacando el apto 594</span>
-<span class="kw">sunflowerplot</span>(<span class="dt">x=</span>datos<span class="op">$</span>alcobas, <span class="dt">y=</span>datos<span class="op">$</span>banos)</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="doscuanti.html#cb29-1"></a>url &lt;-<span class="st"> &#39;https://tinyurl.com/hwhb769&#39;</span></span>
+<span id="cb29-2"><a href="doscuanti.html#cb29-2"></a>datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)</span>
+<span id="cb29-3"><a href="doscuanti.html#cb29-3"></a>datos &lt;-<span class="st"> </span>datos[<span class="op">-</span><span class="dv">594</span>, ]  <span class="co"># Sacando el apto 594</span></span>
+<span id="cb29-4"><a href="doscuanti.html#cb29-4"></a><span class="kw">sunflowerplot</span>(<span class="dt">x=</span>datos<span class="op">$</span>alcobas, <span class="dt">y=</span>datos<span class="op">$</span>banos)</span></code></pre></div>
 <div class="figure"><span id="fig:sunflower2"></span>
 <img src="Graficos_con_R_files/figure-html/sunflower2-1.png" alt="Diagrama de dispersión para número de baños versus número de alcobas." width="336" />
 <p class="caption">
@@ -428,47 +417,47 @@ Figure 3.4: Diagrama de dispersión para número de baños versus número de alc
 <p>En la Figura <a href="doscuanti.html#fig:sunflower2">3.4</a> se muestra el diagrama de dispersión entre número de baños y número de alcobas. De este diagrama se observa que la mayor parte de los apartamentos de la base de datos tienen 2 o 3 alcobas con 2 o 3 baños, se nota que sólo 8 apartamentos tiene 5 alcobas y que sólo un apatamento tiene seis baños.</p>
 </div>
 </div>
-<div id="funcion-symbols" class="section level2">
+<div id="función-symbols" class="section level2">
 <h2><span class="header-section-number">3.3</span> Función <code>symbols</code></h2>
 <p>La función <code>symbols</code> sirve para construir diagramas de dispersión en dos dimensiones incluyendo información adicional de variables cuantitativas.</p>
 <div id="ejemplo-13" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Como ilustración vamos a crear un diagrama de dispersión entre el precio de apartamentos usados en la ciudad de Medellín y el área de los apartamentos pero incluyendo otras variables.</p>
-<pre class="sourceCode r"><code class="sourceCode r">url &lt;-<span class="st"> &#39;https://tinyurl.com/hwhb769&#39;</span>
-datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(url, <span class="dt">header=</span>T)
-subdat &lt;-<span class="st"> </span><span class="kw">subset</span>(datos, ubicacion <span class="op">==</span><span class="st"> &#39;centro&#39;</span>)
-
-<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
-<span class="kw">with</span>(subdat, <span class="kw">symbols</span>(<span class="dt">x=</span>mt2, <span class="dt">y=</span>precio,
-                     <span class="dt">circles=</span>alcobas, 
-                     <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">inches=</span><span class="fl">0.4</span>, 
-                     <span class="dt">fg=</span><span class="st">&#39;red&#39;</span>,
-                     <span class="dt">main=</span><span class="st">&#39;Radio = N° alcobas&#39;</span>))
-
-<span class="kw">with</span>(subdat, <span class="kw">symbols</span>(<span class="dt">x=</span>mt2, <span class="dt">y=</span>precio,
-                     <span class="dt">squares=</span>alcobas, 
-                     <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">inches=</span><span class="fl">0.4</span>, 
-                     <span class="dt">fg=</span><span class="st">&#39;dodgerblue4&#39;</span>, <span class="dt">bg=</span><span class="st">&#39;pink&#39;</span>,
-                     <span class="dt">main=</span><span class="st">&#39;Lado = N° alcobas&#39;</span>))</code></pre>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="doscuanti.html#cb30-1"></a>url &lt;-<span class="st"> &#39;https://tinyurl.com/hwhb769&#39;</span></span>
+<span id="cb30-2"><a href="doscuanti.html#cb30-2"></a>datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(url, <span class="dt">header=</span>T)</span>
+<span id="cb30-3"><a href="doscuanti.html#cb30-3"></a>subdat &lt;-<span class="st"> </span><span class="kw">subset</span>(datos, ubicacion <span class="op">==</span><span class="st"> &#39;centro&#39;</span>)</span>
+<span id="cb30-4"><a href="doscuanti.html#cb30-4"></a></span>
+<span id="cb30-5"><a href="doscuanti.html#cb30-5"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb30-6"><a href="doscuanti.html#cb30-6"></a><span class="kw">with</span>(subdat, <span class="kw">symbols</span>(<span class="dt">x=</span>mt2, <span class="dt">y=</span>precio,</span>
+<span id="cb30-7"><a href="doscuanti.html#cb30-7"></a>                     <span class="dt">circles=</span>alcobas, </span>
+<span id="cb30-8"><a href="doscuanti.html#cb30-8"></a>                     <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">inches=</span><span class="fl">0.4</span>, </span>
+<span id="cb30-9"><a href="doscuanti.html#cb30-9"></a>                     <span class="dt">fg=</span><span class="st">&#39;red&#39;</span>,</span>
+<span id="cb30-10"><a href="doscuanti.html#cb30-10"></a>                     <span class="dt">main=</span><span class="st">&#39;Radio = N° alcobas&#39;</span>))</span>
+<span id="cb30-11"><a href="doscuanti.html#cb30-11"></a></span>
+<span id="cb30-12"><a href="doscuanti.html#cb30-12"></a><span class="kw">with</span>(subdat, <span class="kw">symbols</span>(<span class="dt">x=</span>mt2, <span class="dt">y=</span>precio,</span>
+<span id="cb30-13"><a href="doscuanti.html#cb30-13"></a>                     <span class="dt">squares=</span>alcobas, </span>
+<span id="cb30-14"><a href="doscuanti.html#cb30-14"></a>                     <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">inches=</span><span class="fl">0.4</span>, </span>
+<span id="cb30-15"><a href="doscuanti.html#cb30-15"></a>                     <span class="dt">fg=</span><span class="st">&#39;dodgerblue4&#39;</span>, <span class="dt">bg=</span><span class="st">&#39;pink&#39;</span>,</span>
+<span id="cb30-16"><a href="doscuanti.html#cb30-16"></a>                     <span class="dt">main=</span><span class="st">&#39;Lado = N° alcobas&#39;</span>))</span></code></pre></div>
 <div class="figure"><span id="fig:symbols1"></span>
 <img src="Graficos_con_R_files/figure-html/symbols1-1.png" alt="Diagrama de dispersión con los símbolos circle y squares para incluir más variables." width="768" />
 <p class="caption">
 Figure 3.5: Diagrama de dispersión con los símbolos circle y squares para incluir más variables.
 </p>
 </div>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
-<span class="kw">with</span>(subdat, <span class="kw">symbols</span>(<span class="dt">x=</span>mt2, <span class="dt">y=</span>precio,
-                     <span class="dt">rectangles=</span><span class="kw">cbind</span>(estrato, alcobas), 
-                     <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">inches=</span><span class="fl">0.4</span>, 
-                     <span class="dt">fg=</span><span class="st">&#39;chartreuse4&#39;</span>, <span class="dt">bg=</span><span class="st">&#39;yellow&#39;</span>,
-                     <span class="dt">main=</span><span class="st">&#39;Ancho = estrato y Alto = N° alcobas&#39;</span>))
-
-<span class="kw">with</span>(subdat, <span class="kw">symbols</span>(<span class="dt">x=</span>mt2, <span class="dt">y=</span>precio,
-                     <span class="dt">stars=</span><span class="kw">cbind</span>(estrato, alcobas,
-                                 banos), 
-                     <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">inches=</span><span class="fl">0.4</span>, 
-                     <span class="dt">fg=</span><span class="st">&#39;purple1&#39;</span>, <span class="dt">bg=</span><span class="st">&#39;tomato&#39;</span>,
-                     <span class="dt">main=</span><span class="st">&#39;Estrato, alcobas y n° baños&#39;</span>))</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="doscuanti.html#cb31-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb31-2"><a href="doscuanti.html#cb31-2"></a><span class="kw">with</span>(subdat, <span class="kw">symbols</span>(<span class="dt">x=</span>mt2, <span class="dt">y=</span>precio,</span>
+<span id="cb31-3"><a href="doscuanti.html#cb31-3"></a>                     <span class="dt">rectangles=</span><span class="kw">cbind</span>(estrato, alcobas), </span>
+<span id="cb31-4"><a href="doscuanti.html#cb31-4"></a>                     <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">inches=</span><span class="fl">0.4</span>, </span>
+<span id="cb31-5"><a href="doscuanti.html#cb31-5"></a>                     <span class="dt">fg=</span><span class="st">&#39;chartreuse4&#39;</span>, <span class="dt">bg=</span><span class="st">&#39;yellow&#39;</span>,</span>
+<span id="cb31-6"><a href="doscuanti.html#cb31-6"></a>                     <span class="dt">main=</span><span class="st">&#39;Ancho = estrato y Alto = N° alcobas&#39;</span>))</span>
+<span id="cb31-7"><a href="doscuanti.html#cb31-7"></a></span>
+<span id="cb31-8"><a href="doscuanti.html#cb31-8"></a><span class="kw">with</span>(subdat, <span class="kw">symbols</span>(<span class="dt">x=</span>mt2, <span class="dt">y=</span>precio,</span>
+<span id="cb31-9"><a href="doscuanti.html#cb31-9"></a>                     <span class="dt">stars=</span><span class="kw">cbind</span>(estrato, alcobas,</span>
+<span id="cb31-10"><a href="doscuanti.html#cb31-10"></a>                                 banos), </span>
+<span id="cb31-11"><a href="doscuanti.html#cb31-11"></a>                     <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">inches=</span><span class="fl">0.4</span>, </span>
+<span id="cb31-12"><a href="doscuanti.html#cb31-12"></a>                     <span class="dt">fg=</span><span class="st">&#39;purple1&#39;</span>, <span class="dt">bg=</span><span class="st">&#39;tomato&#39;</span>,</span>
+<span id="cb31-13"><a href="doscuanti.html#cb31-13"></a>                     <span class="dt">main=</span><span class="st">&#39;Estrato, alcobas y n° baños&#39;</span>))</span></code></pre></div>
 <div class="figure"><span id="fig:symbols2"></span>
 <img src="Graficos_con_R_files/figure-html/symbols2-1.png" alt="Diagrama de dispersión con los símbolos rectangles y stars para incluir más variables." width="768" />
 <p class="caption">
@@ -477,7 +466,7 @@ Figure 3.6: Diagrama de dispersión con los símbolos rectangles y stars para in
 </div>
 </div>
 </div>
-<div id="funcion-pairs" class="section level2">
+<div id="función-pairs" class="section level2">
 <h2><span class="header-section-number">3.4</span> Función <code>pairs</code></h2>
 <p>Las matrices de dispersión obtenidas con la función <code>pairs</code> proporcionan un método simple de presentar las relaciones entre pares de variables cuantitativas y son la versión múltiple de la función <code>plot</code>. Este gráfico consiste en una matriz donde cada entrada presenta un gráfico de dispersión sencillo. Un inconveniente es que si tenemos muchas variables el tamaño de cada entrada se reduce demasiado impidiendo ver con claridad las relaciones entre los pares de variables. La celda <span class="math inline">\((i,j)\)</span> de una matriz de dispersión contiene el gráfico de dispersión de la columna <span class="math inline">\(i\)</span> versus la columna <span class="math inline">\(j\)</span> de la matriz de datos.</p>
 <p>En la Figura <a href="doscuanti.html#fig:ex0pairs">3.7</a> se muestra un ejemplo de una matriz de dispersión para un conjunto de datos, en la diagonal están los nombres de las variables y por fuera de la diagonal están los diagramas de dispersión para cada combinación de variables.</p>
@@ -488,13 +477,13 @@ Figure 3.7: Ilustración de una matriz de dispersión.
 </p>
 </div>
 <p>La estructura de la función <code>pairs</code> con los argumentos más usuales se muestra a continuación:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(x, labels, <span class="dt">panel =</span> points, ...,
-      <span class="dt">horInd =</span> <span class="dv">1</span><span class="op">:</span>nc, <span class="dt">verInd =</span> <span class="dv">1</span><span class="op">:</span>nc,
-      <span class="dt">lower.panel =</span> panel, <span class="dt">upper.panel =</span> panel,
-      <span class="dt">diag.panel =</span> <span class="ot">NULL</span>, <span class="dt">text.panel =</span> textPanel,
-      <span class="dt">label.pos =</span> <span class="fl">0.5</span> <span class="op">+</span><span class="st"> </span>has.diag<span class="op">/</span><span class="dv">3</span>, <span class="dt">line.main =</span> <span class="dv">3</span>,
-      <span class="dt">cex.labels =</span> <span class="ot">NULL</span>, <span class="dt">font.labels =</span> <span class="dv">1</span>,
-      <span class="dt">row1attop =</span> <span class="ot">TRUE</span>, <span class="dt">gap =</span> <span class="dv">1</span>, <span class="dt">log =</span> <span class="st">&quot;&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="doscuanti.html#cb32-1"></a><span class="kw">pairs</span>(x, labels, <span class="dt">panel =</span> points, ...,</span>
+<span id="cb32-2"><a href="doscuanti.html#cb32-2"></a>      <span class="dt">horInd =</span> <span class="dv">1</span><span class="op">:</span>nc, <span class="dt">verInd =</span> <span class="dv">1</span><span class="op">:</span>nc,</span>
+<span id="cb32-3"><a href="doscuanti.html#cb32-3"></a>      <span class="dt">lower.panel =</span> panel, <span class="dt">upper.panel =</span> panel,</span>
+<span id="cb32-4"><a href="doscuanti.html#cb32-4"></a>      <span class="dt">diag.panel =</span> <span class="ot">NULL</span>, <span class="dt">text.panel =</span> textPanel,</span>
+<span id="cb32-5"><a href="doscuanti.html#cb32-5"></a>      <span class="dt">label.pos =</span> <span class="fl">0.5</span> <span class="op">+</span><span class="st"> </span>has.diag<span class="op">/</span><span class="dv">3</span>, <span class="dt">line.main =</span> <span class="dv">3</span>,</span>
+<span id="cb32-6"><a href="doscuanti.html#cb32-6"></a>      <span class="dt">cex.labels =</span> <span class="ot">NULL</span>, <span class="dt">font.labels =</span> <span class="dv">1</span>,</span>
+<span id="cb32-7"><a href="doscuanti.html#cb32-7"></a>      <span class="dt">row1attop =</span> <span class="ot">TRUE</span>, <span class="dt">gap =</span> <span class="dv">1</span>, <span class="dt">log =</span> <span class="st">&quot;&quot;</span>)</span></code></pre></div>
 <p>Los argumentos de la función <code>pairs</code> son:</p>
 <ul>
 <li><code>x</code>: matriz o marco de datos con la información de las variables cuantitativas a incluir en la matriz de dispersión.</li>
@@ -512,11 +501,11 @@ Figure 3.7: Ilustración de una matriz de dispersión.
 <h3>Ejemplo</h3>
 <p>Dibujar una matriz de dispersión para las variables precio, área, número de alcobas y número de baños de la base de datos sobre apartamentos en Medellín.</p>
 <p>A continuación se muestra el código usado para crear el gráfico solicitado. El objeto <code>datos</code> corresponde a la base de datos completa mientras que <code>datos.num</code> es el marco de datos sólo con las variables de interés precio, área, número de alcobas y número de baños.</p>
-<pre class="sourceCode r"><code class="sourceCode r">url &lt;-<span class="st"> &#39;https://tinyurl.com/hwhb769&#39;</span>
-datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)
-datos.num &lt;-<span class="st"> </span>datos[, <span class="kw">c</span>(<span class="st">&#39;precio&#39;</span>, <span class="st">&#39;mt2&#39;</span>, <span class="st">&#39;alcobas&#39;</span>, <span class="st">&#39;banos&#39;</span>)]
-
-<span class="kw">pairs</span>(datos.num)</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="doscuanti.html#cb33-1"></a>url &lt;-<span class="st"> &#39;https://tinyurl.com/hwhb769&#39;</span></span>
+<span id="cb33-2"><a href="doscuanti.html#cb33-2"></a>datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)</span>
+<span id="cb33-3"><a href="doscuanti.html#cb33-3"></a>datos.num &lt;-<span class="st"> </span>datos[, <span class="kw">c</span>(<span class="st">&#39;precio&#39;</span>, <span class="st">&#39;mt2&#39;</span>, <span class="st">&#39;alcobas&#39;</span>, <span class="st">&#39;banos&#39;</span>)]</span>
+<span id="cb33-4"><a href="doscuanti.html#cb33-4"></a></span>
+<span id="cb33-5"><a href="doscuanti.html#cb33-5"></a><span class="kw">pairs</span>(datos.num)</span></code></pre></div>
 <div class="figure"><span id="fig:ex1pairs"></span>
 <img src="Graficos_con_R_files/figure-html/ex1pairs-1.png" alt="Matriz de dispersión para las variables precio, área, número de alcobas y número de baños de la base de datos sobre apartamentos en Medellín." width="576" />
 <p class="caption">
@@ -529,10 +518,10 @@ Figure 3.8: Matriz de dispersión para las variables precio, área, número de a
 <h3>Ejemplo</h3>
 <p>Volver a construir la Figura <a href="doscuanti.html#fig:ex1pairs">3.8</a> editando los nombres de las variables, usando cruces azules en lugar de puntos, en escala logaritmica, con marcas horizontales en el eje vertical y eliminando los diagramas de dispersión abajo de la diagonal.</p>
 <p>Para obtener la nueva matriz de dispersión con los cambios solicitados se usa el siguiente código. En la Figura <a href="doscuanti.html#fig:ex2pairs">3.9</a> se presenta la nueva matriz de dispersión.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(datos.num, <span class="dt">lower.panel=</span><span class="ot">NULL</span>, <span class="dt">cex.labels=</span><span class="fl">1.5</span>, <span class="dt">log=</span><span class="st">&#39;xy&#39;</span>,
-      <span class="dt">main=</span><span class="st">&#39;Matriz de dispersión&#39;, las=1,</span>
-<span class="st">      labels=c(&#39;</span>Precio<span class="st">&#39;, &#39;</span>Área<span class="st">&#39;, &#39;</span>Num alcobas<span class="st">&#39;, &#39;</span>Num baños<span class="st">&#39;),</span>
-<span class="st">      pch=3, cex=0.6, col=&#39;</span>dodgerblue2<span class="st">&#39;)</span></code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="doscuanti.html#cb34-1"></a><span class="kw">pairs</span>(datos.num, <span class="dt">lower.panel=</span><span class="ot">NULL</span>, <span class="dt">cex.labels=</span><span class="fl">1.5</span>, <span class="dt">log=</span><span class="st">&#39;xy&#39;</span>,</span>
+<span id="cb34-2"><a href="doscuanti.html#cb34-2"></a>      <span class="dt">main=</span><span class="st">&#39;Matriz de dispersión&#39;, las=1,</span></span>
+<span id="cb34-3"><a href="doscuanti.html#cb34-3"></a><span class="st">      labels=c(&#39;</span>Precio<span class="st">&#39;, &#39;</span>Área<span class="st">&#39;, &#39;</span>Num alcobas<span class="st">&#39;, &#39;</span>Num baños<span class="st">&#39;),</span></span>
+<span id="cb34-4"><a href="doscuanti.html#cb34-4"></a><span class="st">      pch=3, cex=0.6, col=&#39;</span>dodgerblue2<span class="st">&#39;)</span></span></code></pre></div>
 <div class="figure"><span id="fig:ex2pairs"></span>
 <img src="Graficos_con_R_files/figure-html/ex2pairs-1.png" alt="Matriz de dispersión modificando los parámetros adicionales de la función `pairs`." width="576" />
 <p class="caption">
@@ -544,12 +533,12 @@ Figure 3.9: Matriz de dispersión modificando los parámetros adicionales de la 
 <h3>Ejemplo</h3>
 <p>Construir una matriz de dispersión con las variables precio, área y avaluo para apartamentos que cumplan la condición <span class="math inline">\(100 m^2 &lt; area &lt; 130 m^2\)</span>. Adicionalmente, se deben diferenciar los apartamentos sin parqueadero con color rojo y los apartamentos con parqueadero con color verde.</p>
 <p>Para crear una matriz de dispersión se puede tambien usar la base de datos original llamada <code>datos</code> que contiene todas las variables y usar una fórmula con la ayuda del operador <code>~</code> para indicar las variables de interés. La fórmula <strong>NO</strong> debe contener nada del lado izquierdo mientras que en el lado derecho se colocan todas las variables a considerar en la matriz de dispersión, por esta razón es que en el códido mostrado abajo se inicia con la instrucción <code>~ precio + mt2 + avaluo</code>. Para incluir condiciones se usa el parámetro <code>subset</code> de la siguiente manera: <code>subset=mt2 &gt; 100 &amp; mt2 &lt; 130</code>. A continuación el código completo para construir la matriz de dispersión solicitada.</p>
-<pre class="sourceCode r"><code class="sourceCode r">col1 &lt;-<span class="st"> </span><span class="kw">ifelse</span>(datos<span class="op">$</span>parqueadero <span class="op">==</span><span class="st"> &#39;no&#39;</span>, <span class="st">&#39;red&#39;</span>, <span class="st">&#39;green3&#39;</span>)
-<span class="kw">pairs</span>(<span class="op">~</span><span class="st"> </span>precio <span class="op">+</span><span class="st"> </span>mt2 <span class="op">+</span><span class="st"> </span>avaluo, <span class="dt">data=</span>datos,
-      <span class="dt">lower.panel=</span><span class="ot">NULL</span>, <span class="dt">col=</span>col1,
-      <span class="dt">subset=</span>mt2 <span class="op">&gt;</span><span class="st"> </span><span class="dv">100</span> <span class="op">&amp;</span><span class="st"> </span>mt2 <span class="op">&lt;</span><span class="st"> </span><span class="dv">130</span>, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">cex=</span><span class="fl">0.8</span>,
-      <span class="dt">main=</span><span class="st">&quot;Matriz de dispersión para aptos con </span>
-<span class="st">      100 &lt; área &lt; 130 mt2&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="doscuanti.html#cb35-1"></a>col1 &lt;-<span class="st"> </span><span class="kw">ifelse</span>(datos<span class="op">$</span>parqueadero <span class="op">==</span><span class="st"> &#39;no&#39;</span>, <span class="st">&#39;red&#39;</span>, <span class="st">&#39;green3&#39;</span>)</span>
+<span id="cb35-2"><a href="doscuanti.html#cb35-2"></a><span class="kw">pairs</span>(<span class="op">~</span><span class="st"> </span>precio <span class="op">+</span><span class="st"> </span>mt2 <span class="op">+</span><span class="st"> </span>avaluo, <span class="dt">data=</span>datos,</span>
+<span id="cb35-3"><a href="doscuanti.html#cb35-3"></a>      <span class="dt">lower.panel=</span><span class="ot">NULL</span>, <span class="dt">col=</span>col1,</span>
+<span id="cb35-4"><a href="doscuanti.html#cb35-4"></a>      <span class="dt">subset=</span>mt2 <span class="op">&gt;</span><span class="st"> </span><span class="dv">100</span> <span class="op">&amp;</span><span class="st"> </span>mt2 <span class="op">&lt;</span><span class="st"> </span><span class="dv">130</span>, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">cex=</span><span class="fl">0.8</span>,</span>
+<span id="cb35-5"><a href="doscuanti.html#cb35-5"></a>      <span class="dt">main=</span><span class="st">&quot;Matriz de dispersión para aptos con </span></span>
+<span id="cb35-6"><a href="doscuanti.html#cb35-6"></a><span class="st">      100 &lt; área &lt; 130 mt2&quot;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:ex3pairs"></span>
 <img src="Graficos_con_R_files/figure-html/ex3pairs-1.png" alt="Matriz de dispersión con un subconjunto de los datos y con colores para identificar los puntos." width="576" />
 <p class="caption">
@@ -562,12 +551,12 @@ Figure 3.10: Matriz de dispersión con un subconjunto de los datos y con colores
 <h3>Ejemplo</h3>
 <p>¿Es posible agregar una leyenda a una matriz de dispersión?</p>
 <p>Claro que es posible, se construye la matriz de dispersión y se deja en el lienzo del dibujo un espacio para colocar la leyenda. A continuación se muestra un ejemplo disponible en <a href="http://stackoverflow.com/questions/14948852/how-to-use-the-pairs-function-combined-with-layout-in-r">Stackoverflow</a>. A continuación se muestra el código para el ejemplo y en la Figura <a href="doscuanti.html#fig:expairs">3.11</a> se presenta el resultado.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(iris[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], <span class="dt">main=</span><span class="st">&quot;Anderson&#39;s Iris Data -- 3 species&quot;</span>,
-      <span class="dt">pch=</span><span class="dv">21</span>, <span class="dt">bg=</span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green3&quot;</span>, <span class="st">&quot;blue&quot;</span>)[iris<span class="op">$</span>Species],
-      <span class="dt">oma=</span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">12</span>))
-<span class="kw">par</span>(<span class="dt">xpd=</span><span class="ot">TRUE</span>)
-<span class="kw">legend</span>(<span class="fl">0.85</span>, <span class="fl">0.7</span>, <span class="kw">as.vector</span>(<span class="kw">unique</span>(iris<span class="op">$</span>Species)), <span class="dt">bty=</span><span class="st">&#39;n&#39;</span>,
-       <span class="dt">fill=</span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green3&quot;</span>, <span class="st">&quot;blue&quot;</span>))</code></pre>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="doscuanti.html#cb36-1"></a><span class="kw">pairs</span>(iris[<span class="dv">1</span><span class="op">:</span><span class="dv">4</span>], <span class="dt">main=</span><span class="st">&quot;Anderson&#39;s Iris Data -- 3 species&quot;</span>,</span>
+<span id="cb36-2"><a href="doscuanti.html#cb36-2"></a>      <span class="dt">pch=</span><span class="dv">21</span>, <span class="dt">bg=</span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green3&quot;</span>, <span class="st">&quot;blue&quot;</span>)[iris<span class="op">$</span>Species],</span>
+<span id="cb36-3"><a href="doscuanti.html#cb36-3"></a>      <span class="dt">oma=</span><span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">12</span>))</span>
+<span id="cb36-4"><a href="doscuanti.html#cb36-4"></a><span class="kw">par</span>(<span class="dt">xpd=</span><span class="ot">TRUE</span>)</span>
+<span id="cb36-5"><a href="doscuanti.html#cb36-5"></a><span class="kw">legend</span>(<span class="fl">0.85</span>, <span class="fl">0.7</span>, <span class="kw">as.vector</span>(<span class="kw">unique</span>(iris<span class="op">$</span>Species)), <span class="dt">bty=</span><span class="st">&#39;n&#39;</span>,</span>
+<span id="cb36-6"><a href="doscuanti.html#cb36-6"></a>       <span class="dt">fill=</span><span class="kw">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;green3&quot;</span>, <span class="st">&quot;blue&quot;</span>))</span></code></pre></div>
 <div class="figure"><span id="fig:expairs"></span>
 <img src="Graficos_con_R_files/figure-html/expairs-1.png" alt="Matriz de dispersión con leyenda." width="576" />
 <p class="caption">
@@ -586,40 +575,40 @@ Figure 3.11: Matriz de dispersión con leyenda.
 <li>debajo de la diagonal el coeficiente de correlación entre las variables involucradas y usando un tamaño de fuente proporcional a la fuerza de correlación.</li>
 </ul>
 <p>Para obtener esta matriz de dispersión especial se definen a continuación las funciones <code>panel.reg</code>, <code>panel.hist</code> y <code>panel.cor</code>, a continuación el código utilizado. Luego se usa la función <code>pairs</code> y se indica qué función debe actuar en cada uno de los parámetros <code>upper.panel</code>, <code>diag.panel</code> y <code>lower.panel</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Función para dibujar los puntos y agregar la recta de regresión</span>
-panel.reg &lt;-<span class="st"> </span><span class="cf">function</span> (x, y) 
-{
-  <span class="kw">points</span>(x, y, <span class="dt">pch=</span><span class="dv">20</span>)
-  <span class="kw">abline</span>(<span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&#39;dodgerblue2&#39;</span>)
-}
-
-<span class="co"># Función para crear el histograma</span>
-panel.hist &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...)
-{
-  usr &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="st">&quot;usr&quot;</span>); <span class="kw">on.exit</span>(<span class="kw">par</span>(usr))
-  <span class="kw">par</span>(<span class="dt">usr =</span> <span class="kw">c</span>(usr[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dv">0</span>, <span class="fl">1.5</span>) )
-  h &lt;-<span class="st"> </span><span class="kw">hist</span>(x, <span class="dt">plot =</span> <span class="ot">FALSE</span>)
-  breaks &lt;-<span class="st"> </span>h<span class="op">$</span>breaks; nB &lt;-<span class="st"> </span><span class="kw">length</span>(breaks)
-  y &lt;-<span class="st"> </span>h<span class="op">$</span>counts; y &lt;-<span class="st"> </span>y<span class="op">/</span><span class="kw">max</span>(y)
-  <span class="kw">rect</span>(breaks[<span class="op">-</span>nB], <span class="dv">0</span>, breaks[<span class="op">-</span><span class="dv">1</span>], y, <span class="dt">col=</span><span class="st">&quot;dodgerblue2&quot;</span>, ...)
-}
-
-<span class="co"># Función para obtener la correlación</span>
-panel.cor &lt;-<span class="st"> </span><span class="cf">function</span>(x, y, <span class="dt">digits=</span><span class="dv">2</span>, <span class="dt">prefix=</span><span class="st">&quot;&quot;</span>, cex.cor)
-{
-  usr &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="st">&quot;usr&quot;</span>); <span class="kw">on.exit</span>(<span class="kw">par</span>(usr))
-  <span class="kw">par</span>(<span class="dt">usr =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))
-  r &lt;-<span class="st"> </span><span class="kw">abs</span>(<span class="kw">cor</span>(x, y))
-  txt &lt;-<span class="st"> </span><span class="kw">format</span>(<span class="kw">c</span>(r, <span class="fl">0.123456789</span>), <span class="dt">digits=</span>digits)[<span class="dv">1</span>]
-  txt &lt;-<span class="st"> </span><span class="kw">paste</span>(prefix, txt, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)
-  <span class="cf">if</span>(<span class="kw">missing</span>(cex.cor)) cex &lt;-<span class="st"> </span><span class="fl">0.8</span><span class="op">/</span><span class="kw">strwidth</span>(txt)
-  <span class="kw">text</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>, txt, <span class="dt">cex =</span> cex <span class="op">*</span><span class="st"> </span>r)
-}
-
-<span class="kw">pairs</span>(datos.num,
-      <span class="dt">upper.panel =</span> panel.reg,
-      <span class="dt">diag.panel =</span> panel.hist,
-      <span class="dt">lower.panel =</span> panel.cor)</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="doscuanti.html#cb37-1"></a><span class="co"># Función para dibujar los puntos y agregar la recta de regresión</span></span>
+<span id="cb37-2"><a href="doscuanti.html#cb37-2"></a>panel.reg &lt;-<span class="st"> </span><span class="cf">function</span> (x, y) </span>
+<span id="cb37-3"><a href="doscuanti.html#cb37-3"></a>{</span>
+<span id="cb37-4"><a href="doscuanti.html#cb37-4"></a>  <span class="kw">points</span>(x, y, <span class="dt">pch=</span><span class="dv">20</span>)</span>
+<span id="cb37-5"><a href="doscuanti.html#cb37-5"></a>  <span class="kw">abline</span>(<span class="kw">lm</span>(y <span class="op">~</span><span class="st"> </span>x), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&#39;dodgerblue2&#39;</span>)</span>
+<span id="cb37-6"><a href="doscuanti.html#cb37-6"></a>}</span>
+<span id="cb37-7"><a href="doscuanti.html#cb37-7"></a></span>
+<span id="cb37-8"><a href="doscuanti.html#cb37-8"></a><span class="co"># Función para crear el histograma</span></span>
+<span id="cb37-9"><a href="doscuanti.html#cb37-9"></a>panel.hist &lt;-<span class="st"> </span><span class="cf">function</span>(x, ...)</span>
+<span id="cb37-10"><a href="doscuanti.html#cb37-10"></a>{</span>
+<span id="cb37-11"><a href="doscuanti.html#cb37-11"></a>  usr &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="st">&quot;usr&quot;</span>); <span class="kw">on.exit</span>(<span class="kw">par</span>(usr))</span>
+<span id="cb37-12"><a href="doscuanti.html#cb37-12"></a>  <span class="kw">par</span>(<span class="dt">usr =</span> <span class="kw">c</span>(usr[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dv">0</span>, <span class="fl">1.5</span>) )</span>
+<span id="cb37-13"><a href="doscuanti.html#cb37-13"></a>  h &lt;-<span class="st"> </span><span class="kw">hist</span>(x, <span class="dt">plot =</span> <span class="ot">FALSE</span>)</span>
+<span id="cb37-14"><a href="doscuanti.html#cb37-14"></a>  breaks &lt;-<span class="st"> </span>h<span class="op">$</span>breaks; nB &lt;-<span class="st"> </span><span class="kw">length</span>(breaks)</span>
+<span id="cb37-15"><a href="doscuanti.html#cb37-15"></a>  y &lt;-<span class="st"> </span>h<span class="op">$</span>counts; y &lt;-<span class="st"> </span>y<span class="op">/</span><span class="kw">max</span>(y)</span>
+<span id="cb37-16"><a href="doscuanti.html#cb37-16"></a>  <span class="kw">rect</span>(breaks[<span class="op">-</span>nB], <span class="dv">0</span>, breaks[<span class="op">-</span><span class="dv">1</span>], y, <span class="dt">col=</span><span class="st">&quot;dodgerblue2&quot;</span>, ...)</span>
+<span id="cb37-17"><a href="doscuanti.html#cb37-17"></a>}</span>
+<span id="cb37-18"><a href="doscuanti.html#cb37-18"></a></span>
+<span id="cb37-19"><a href="doscuanti.html#cb37-19"></a><span class="co"># Función para obtener la correlación</span></span>
+<span id="cb37-20"><a href="doscuanti.html#cb37-20"></a>panel.cor &lt;-<span class="st"> </span><span class="cf">function</span>(x, y, <span class="dt">digits=</span><span class="dv">2</span>, <span class="dt">prefix=</span><span class="st">&quot;&quot;</span>, cex.cor)</span>
+<span id="cb37-21"><a href="doscuanti.html#cb37-21"></a>{</span>
+<span id="cb37-22"><a href="doscuanti.html#cb37-22"></a>  usr &lt;-<span class="st"> </span><span class="kw">par</span>(<span class="st">&quot;usr&quot;</span>); <span class="kw">on.exit</span>(<span class="kw">par</span>(usr))</span>
+<span id="cb37-23"><a href="doscuanti.html#cb37-23"></a>  <span class="kw">par</span>(<span class="dt">usr =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>))</span>
+<span id="cb37-24"><a href="doscuanti.html#cb37-24"></a>  r &lt;-<span class="st"> </span><span class="kw">abs</span>(<span class="kw">cor</span>(x, y))</span>
+<span id="cb37-25"><a href="doscuanti.html#cb37-25"></a>  txt &lt;-<span class="st"> </span><span class="kw">format</span>(<span class="kw">c</span>(r, <span class="fl">0.123456789</span>), <span class="dt">digits=</span>digits)[<span class="dv">1</span>]</span>
+<span id="cb37-26"><a href="doscuanti.html#cb37-26"></a>  txt &lt;-<span class="st"> </span><span class="kw">paste</span>(prefix, txt, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</span>
+<span id="cb37-27"><a href="doscuanti.html#cb37-27"></a>  <span class="cf">if</span>(<span class="kw">missing</span>(cex.cor)) cex &lt;-<span class="st"> </span><span class="fl">0.8</span><span class="op">/</span><span class="kw">strwidth</span>(txt)</span>
+<span id="cb37-28"><a href="doscuanti.html#cb37-28"></a>  <span class="kw">text</span>(<span class="fl">0.5</span>, <span class="fl">0.5</span>, txt, <span class="dt">cex =</span> cex <span class="op">*</span><span class="st"> </span>r)</span>
+<span id="cb37-29"><a href="doscuanti.html#cb37-29"></a>}</span>
+<span id="cb37-30"><a href="doscuanti.html#cb37-30"></a></span>
+<span id="cb37-31"><a href="doscuanti.html#cb37-31"></a><span class="kw">pairs</span>(datos.num,</span>
+<span id="cb37-32"><a href="doscuanti.html#cb37-32"></a>      <span class="dt">upper.panel =</span> panel.reg,</span>
+<span id="cb37-33"><a href="doscuanti.html#cb37-33"></a>      <span class="dt">diag.panel =</span> panel.hist,</span>
+<span id="cb37-34"><a href="doscuanti.html#cb37-34"></a>      <span class="dt">lower.panel =</span> panel.cor)</span></code></pre></div>
 <div class="figure"><span id="fig:exmod1pairs"></span>
 <img src="Graficos_con_R_files/figure-html/exmod1pairs-1.png" alt="Matriz de dispersión con páneles modificados." width="576" />
 <p class="caption">
@@ -628,10 +617,10 @@ Figure 3.12: Matriz de dispersión con páneles modificados.
 </div>
 <p>En la Figura <a href="doscuanti.html#fig:exmod1pairs">3.12</a> se presenta la matriz de dispersión con las modificaciones en cada uno de los páneles. Cualquier usuario puede modificar las funciones <code>panel.reg</code>, <code>panel.hist</code> y <code>panel.cor</code> para personalizar la apariencia de los contenidos.</p>
 <p>La función <code>panel.smooth</code> está disponible en R para que el usuario pueda incluir arriba o abajo de la diagonal un diagrama de dispersión con una línea resultado de un ajuste suavizado. Abajo se muestra el código de cómo incluir la función <code>panel.smooth</code> y en la Figura <a href="doscuanti.html#fig:exmod2pairs">3.13</a> se muestra gráfico obtenido.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pairs</span>(datos.num,
-      <span class="dt">upper.panel =</span> panel.reg,
-      <span class="dt">diag.panel =</span> panel.hist,
-      <span class="dt">lower.panel =</span> panel.smooth)</code></pre>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="doscuanti.html#cb38-1"></a><span class="kw">pairs</span>(datos.num,</span>
+<span id="cb38-2"><a href="doscuanti.html#cb38-2"></a>      <span class="dt">upper.panel =</span> panel.reg,</span>
+<span id="cb38-3"><a href="doscuanti.html#cb38-3"></a>      <span class="dt">diag.panel =</span> panel.hist,</span>
+<span id="cb38-4"><a href="doscuanti.html#cb38-4"></a>      <span class="dt">lower.panel =</span> panel.smooth)</span></code></pre></div>
 <div class="figure"><span id="fig:exmod2pairs"></span>
 <img src="Graficos_con_R_files/figure-html/exmod2pairs-1.png" alt="Matriz de dispersión usando la función panel.smooth." width="576" />
 <p class="caption">
@@ -645,11 +634,11 @@ Al construir un gráfico con <code>pairs</code> se recomienda no incluir demasia
 
 </div>
 </div>
-<div id="funcion-persp" class="section level2">
+<div id="función-persp" class="section level2">
 <h2><span class="header-section-number">3.5</span> Función <code>persp</code></h2>
 <p>La función <code>persp</code> dibuja superfices en tres dimensiones y es posible rotar la superficie para obtener una perpectiva apropiada. La estructura de la función <code>persp</code> con los argumentos más usuales se muestra a continuación:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">persp</span>(x, y, z, main, sub, theta, phi, r, col,
-      border, box, axes, nticks)</code></pre>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="doscuanti.html#cb39-1"></a><span class="kw">persp</span>(x, y, z, main, sub, theta, phi, r, col,</span>
+<span id="cb39-2"><a href="doscuanti.html#cb39-2"></a>      border, box, axes, nticks)</span></code></pre></div>
 <p>Los argumentos de la función <code>plot</code> son:</p>
 <ul>
 <li><code>x</code>: vector numérico con los valores de <span class="math inline">\(x\)</span> donde fue evaluada la función o superficie.</li>
@@ -677,20 +666,20 @@ Figure 3.14: Ilustración de los ángulos theta y phi para la función persp. Fi
 <h3>Ejemplo</h3>
 <p>Dibujar la superficie asociada a la función <span class="math inline">\(f(x, y)=sen(x^2+y^2)\)</span> para <span class="math inline">\(-2 \leq x \leq2\)</span> y <span class="math inline">\(-2 \leq y \leq2\)</span>. Usar 4 combinaciones de los parámetros <code>theta</code> y <code>phi</code> para obtener un buen punto de vista de la superficie.</p>
 <p>Lo primero que se debe hacer es crear la función <span class="math inline">\(f(x, y)\)</span> la cual se va a llamar <code>fun</code>. Luego se definen los vectores <code>x</code> e <code>y</code> tomando por ejemplo 25 puntos equiespaciados en el intervalo <span class="math inline">\([-2, 2]\)</span>. Luego se usa la función <code>outer</code> para crear la rejilla o matriz que contiene los valores de <span class="math inline">\(f(x, y)\)</span> para cada combinación de <code>x</code> e <code>y</code>, los resultados se almacenan en el objeto <code>z</code>. Por último se dibujan 4 perspectivas de la función variando los parámetros <code>theta</code> y <code>phi</code> de la función <code>persp</code>. A continuación el código utilizado.</p>
-<pre class="sourceCode r"><code class="sourceCode r">fun &lt;-<span class="st"> </span><span class="cf">function</span>(x, y)   <span class="kw">sin</span>(x<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>y<span class="op">^</span><span class="dv">2</span>)
-x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="op">-</span><span class="dv">2</span>, <span class="dt">to=</span><span class="dv">2</span>, <span class="dt">length.out=</span><span class="dv">25</span>)
-y &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="op">-</span><span class="dv">2</span>, <span class="dt">to=</span><span class="dv">2</span>, <span class="dt">length.out=</span><span class="dv">25</span>)
-z &lt;-<span class="st"> </span><span class="kw">outer</span>(x, y, fun)
-
-<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>))
-<span class="kw">persp</span>(x, y, z, <span class="dt">zlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="fl">1.5</span>), <span class="dt">theta=</span><span class="dv">0</span>, <span class="dt">phi=</span><span class="dv">0</span>, <span class="dt">col=</span><span class="st">&#39;aquamarine&#39;</span>,
-      <span class="dt">main=</span><span class="st">&#39;(A) theta=0, phi=0&#39;</span>)
-<span class="kw">persp</span>(x, y, z, <span class="dt">zlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="fl">1.5</span>), <span class="dt">theta=</span><span class="dv">15</span>, <span class="dt">phi=</span><span class="dv">15</span>, <span class="dt">col=</span><span class="st">&#39;lightpink&#39;</span>,
-      <span class="dt">main=</span><span class="st">&#39;(B) theta=15, phi=15&#39;</span>)
-<span class="kw">persp</span>(x, y, z, <span class="dt">zlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="fl">1.5</span>), <span class="dt">theta=</span><span class="dv">45</span>, <span class="dt">phi=</span><span class="dv">30</span>, <span class="dt">col=</span><span class="st">&#39;yellow1&#39;</span>,
-      <span class="dt">main=</span><span class="st">&#39;(c) theta=45, phi=30&#39;</span>)
-<span class="kw">persp</span>(x, y, z, <span class="dt">zlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="fl">1.5</span>), <span class="dt">theta=</span><span class="dv">60</span>, <span class="dt">phi=</span><span class="dv">50</span>, <span class="dt">col=</span><span class="st">&#39;lightblue&#39;</span>,
-      <span class="dt">main=</span><span class="st">&#39;(D) theta=60, phi=50&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="doscuanti.html#cb40-1"></a>fun &lt;-<span class="st"> </span><span class="cf">function</span>(x, y)   <span class="kw">sin</span>(x<span class="op">^</span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span>y<span class="op">^</span><span class="dv">2</span>)</span>
+<span id="cb40-2"><a href="doscuanti.html#cb40-2"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="op">-</span><span class="dv">2</span>, <span class="dt">to=</span><span class="dv">2</span>, <span class="dt">length.out=</span><span class="dv">25</span>)</span>
+<span id="cb40-3"><a href="doscuanti.html#cb40-3"></a>y &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="op">-</span><span class="dv">2</span>, <span class="dt">to=</span><span class="dv">2</span>, <span class="dt">length.out=</span><span class="dv">25</span>)</span>
+<span id="cb40-4"><a href="doscuanti.html#cb40-4"></a>z &lt;-<span class="st"> </span><span class="kw">outer</span>(x, y, fun)</span>
+<span id="cb40-5"><a href="doscuanti.html#cb40-5"></a></span>
+<span id="cb40-6"><a href="doscuanti.html#cb40-6"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">2</span>), <span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>))</span>
+<span id="cb40-7"><a href="doscuanti.html#cb40-7"></a><span class="kw">persp</span>(x, y, z, <span class="dt">zlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="fl">1.5</span>), <span class="dt">theta=</span><span class="dv">0</span>, <span class="dt">phi=</span><span class="dv">0</span>, <span class="dt">col=</span><span class="st">&#39;aquamarine&#39;</span>,</span>
+<span id="cb40-8"><a href="doscuanti.html#cb40-8"></a>      <span class="dt">main=</span><span class="st">&#39;(A) theta=0, phi=0&#39;</span>)</span>
+<span id="cb40-9"><a href="doscuanti.html#cb40-9"></a><span class="kw">persp</span>(x, y, z, <span class="dt">zlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="fl">1.5</span>), <span class="dt">theta=</span><span class="dv">15</span>, <span class="dt">phi=</span><span class="dv">15</span>, <span class="dt">col=</span><span class="st">&#39;lightpink&#39;</span>,</span>
+<span id="cb40-10"><a href="doscuanti.html#cb40-10"></a>      <span class="dt">main=</span><span class="st">&#39;(B) theta=15, phi=15&#39;</span>)</span>
+<span id="cb40-11"><a href="doscuanti.html#cb40-11"></a><span class="kw">persp</span>(x, y, z, <span class="dt">zlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="fl">1.5</span>), <span class="dt">theta=</span><span class="dv">45</span>, <span class="dt">phi=</span><span class="dv">30</span>, <span class="dt">col=</span><span class="st">&#39;yellow1&#39;</span>,</span>
+<span id="cb40-12"><a href="doscuanti.html#cb40-12"></a>      <span class="dt">main=</span><span class="st">&#39;(c) theta=45, phi=30&#39;</span>)</span>
+<span id="cb40-13"><a href="doscuanti.html#cb40-13"></a><span class="kw">persp</span>(x, y, z, <span class="dt">zlim=</span><span class="kw">c</span>(<span class="op">-</span><span class="dv">1</span>, <span class="fl">1.5</span>), <span class="dt">theta=</span><span class="dv">60</span>, <span class="dt">phi=</span><span class="dv">50</span>, <span class="dt">col=</span><span class="st">&#39;lightblue&#39;</span>,</span>
+<span id="cb40-14"><a href="doscuanti.html#cb40-14"></a>      <span class="dt">main=</span><span class="st">&#39;(D) theta=60, phi=50&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:ex1persp"></span>
 <img src="Graficos_con_R_files/figure-html/ex1persp-1.png" alt="Superficie generada con `persp` y diferentes valores de theta y phi." width="960" />
 <p class="caption">
@@ -704,21 +693,21 @@ Figure 3.15: Superficie generada con <code>persp</code> y diferentes valores de 
 <h3>Ejemplo</h3>
 <p>Dibujar la superficie de una distribución normal bivariada con vector de medias <span class="math inline">\(\boldsymbol{\mu}=(5, 12)^\top\)</span>, varianzas unitarias y covarianza con valor de -0.8. Explorar el efecto de los parámetros <code>ticktype</code>, <code>nticks</code>, <code>expand</code>, <code>axes</code> y <code>box</code>.</p>
 <p>Primero se define el vector de medias y la matriz de varianzas y covarianzas, luego se carga el paquete <code>mvtnorm</code> que contiene la función <code>dmvnorm</code> que calcula la densidad dado el vector de medias y la matriz de varianzas y covarianzas. Se construye la función <code>fun</code> y se vectoriza para luego obtener las alturas de la superficie con la ayuda de <code>outer</code>. Por último se dibujan tres perspectivas diferentes para la densidad modificando los parámetros <code>ticktype</code>, <code>nticks</code>, <code>expand</code>, <code>axes</code> y <code>box</code>, a continuación el código usado.</p>
-<pre class="sourceCode r"><code class="sourceCode r">media &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">12</span>)
-varianza &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="fl">-0.8</span>, <span class="fl">-0.8</span>, <span class="dv">1</span>), <span class="dt">ncol=</span><span class="dv">2</span>)
-
-<span class="kw">require</span>(mvtnorm)
-fun &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) <span class="kw">dmvnorm</span>(<span class="kw">c</span>(x, y), <span class="dt">mean=</span>media, <span class="dt">sigma=</span>varianza)
-fun &lt;-<span class="st"> </span><span class="kw">Vectorize</span>(fun)
-
-x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">2</span>, <span class="dt">to=</span><span class="dv">8</span>, <span class="dt">length.out=</span><span class="dv">30</span>)
-y &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">9</span>, <span class="dt">to=</span><span class="dv">15</span>, <span class="dt">length.out=</span><span class="dv">30</span>)
-z &lt;-<span class="st"> </span><span class="kw">outer</span>(x, y, fun)
-
-<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>))
-<span class="kw">persp</span>(x, y, z, <span class="dt">theta=</span><span class="dv">30</span>, <span class="dt">phi=</span><span class="dv">30</span>, <span class="dt">ticktype =</span> <span class="st">&quot;detailed&quot;</span>, <span class="dt">nticks=</span><span class="dv">4</span>)
-<span class="kw">persp</span>(x, y, z, <span class="dt">theta=</span><span class="dv">30</span>, <span class="dt">phi=</span><span class="dv">30</span>, <span class="dt">col=</span><span class="st">&#39;salmon1&#39;</span>, <span class="dt">expand=</span><span class="fl">0.5</span>, <span class="dt">axes=</span><span class="ot">FALSE</span>)
-<span class="kw">persp</span>(x, y, z, <span class="dt">theta=</span><span class="dv">30</span>, <span class="dt">phi=</span><span class="dv">30</span>, <span class="dt">col=</span><span class="st">&#39;springgreen1&#39;</span>, <span class="dt">expand=</span><span class="fl">0.2</span>, <span class="dt">box=</span><span class="ot">FALSE</span>)</code></pre>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="doscuanti.html#cb41-1"></a>media &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">12</span>)</span>
+<span id="cb41-2"><a href="doscuanti.html#cb41-2"></a>varianza &lt;-<span class="st"> </span><span class="kw">matrix</span>(<span class="kw">c</span>(<span class="dv">1</span>, <span class="fl">-0.8</span>, <span class="fl">-0.8</span>, <span class="dv">1</span>), <span class="dt">ncol=</span><span class="dv">2</span>)</span>
+<span id="cb41-3"><a href="doscuanti.html#cb41-3"></a></span>
+<span id="cb41-4"><a href="doscuanti.html#cb41-4"></a><span class="kw">require</span>(mvtnorm)</span>
+<span id="cb41-5"><a href="doscuanti.html#cb41-5"></a>fun &lt;-<span class="st"> </span><span class="cf">function</span>(x, y) <span class="kw">dmvnorm</span>(<span class="kw">c</span>(x, y), <span class="dt">mean=</span>media, <span class="dt">sigma=</span>varianza)</span>
+<span id="cb41-6"><a href="doscuanti.html#cb41-6"></a>fun &lt;-<span class="st"> </span><span class="kw">Vectorize</span>(fun)</span>
+<span id="cb41-7"><a href="doscuanti.html#cb41-7"></a></span>
+<span id="cb41-8"><a href="doscuanti.html#cb41-8"></a>x &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">2</span>, <span class="dt">to=</span><span class="dv">8</span>, <span class="dt">length.out=</span><span class="dv">30</span>)</span>
+<span id="cb41-9"><a href="doscuanti.html#cb41-9"></a>y &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">9</span>, <span class="dt">to=</span><span class="dv">15</span>, <span class="dt">length.out=</span><span class="dv">30</span>)</span>
+<span id="cb41-10"><a href="doscuanti.html#cb41-10"></a>z &lt;-<span class="st"> </span><span class="kw">outer</span>(x, y, fun)</span>
+<span id="cb41-11"><a href="doscuanti.html#cb41-11"></a></span>
+<span id="cb41-12"><a href="doscuanti.html#cb41-12"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>))</span>
+<span id="cb41-13"><a href="doscuanti.html#cb41-13"></a><span class="kw">persp</span>(x, y, z, <span class="dt">theta=</span><span class="dv">30</span>, <span class="dt">phi=</span><span class="dv">30</span>, <span class="dt">ticktype =</span> <span class="st">&quot;detailed&quot;</span>, <span class="dt">nticks=</span><span class="dv">4</span>)</span>
+<span id="cb41-14"><a href="doscuanti.html#cb41-14"></a><span class="kw">persp</span>(x, y, z, <span class="dt">theta=</span><span class="dv">30</span>, <span class="dt">phi=</span><span class="dv">30</span>, <span class="dt">col=</span><span class="st">&#39;salmon1&#39;</span>, <span class="dt">expand=</span><span class="fl">0.5</span>, <span class="dt">axes=</span><span class="ot">FALSE</span>)</span>
+<span id="cb41-15"><a href="doscuanti.html#cb41-15"></a><span class="kw">persp</span>(x, y, z, <span class="dt">theta=</span><span class="dv">30</span>, <span class="dt">phi=</span><span class="dv">30</span>, <span class="dt">col=</span><span class="st">&#39;springgreen1&#39;</span>, <span class="dt">expand=</span><span class="fl">0.2</span>, <span class="dt">box=</span><span class="ot">FALSE</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:ex2persp"></span>
 <img src="Graficos_con_R_files/figure-html/ex2persp-1.png" alt="Distribución normal bivariada." width="768" />
 <p class="caption">
@@ -728,12 +717,12 @@ Figure 3.16: Distribución normal bivariada.
 <p>En la Figura <a href="doscuanti.html#fig:ex2persp">3.16</a> se presentan las 3 perspectivas para la densidad. Note los efectos que <code>ticktype</code>, <code>nticks</code>, <code>expand</code>, <code>axes</code> y <code>box</code> tienen sobre los dibujos de las perspectivas.</p>
 </div>
 </div>
-<div id="funcion-contour" class="section level2">
+<div id="función-contour" class="section level2">
 <h2><span class="header-section-number">3.6</span> Función <code>contour</code></h2>
 <p>La función <code>contour</code> dibuja gráficos contornos. La estructura de la función <code>contour</code> con los argumentos más usuales se muestra a continuación:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">contour</span>(x, y, z,
-        xlim, ylim, zlim,
-        levels, <span class="dt">nlevels=</span><span class="dv">20</span>, col)</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="doscuanti.html#cb42-1"></a><span class="kw">contour</span>(x, y, z,</span>
+<span id="cb42-2"><a href="doscuanti.html#cb42-2"></a>        xlim, ylim, zlim,</span>
+<span id="cb42-3"><a href="doscuanti.html#cb42-3"></a>        levels, <span class="dt">nlevels=</span><span class="dv">20</span>, col)</span></code></pre></div>
 <p>Los argumentos de la función son:</p>
 <ul>
 <li><code>x, y</code>: vectores numéricos en los cuales se evaluó la función de interés para construir el objeto <code>z</code>. Ambos vectores deben estar ordenados.</li>
@@ -747,17 +736,17 @@ Figure 3.16: Distribución normal bivariada.
 <h3>Ejemplo</h3>
 <p>Generar una muestra aleatoria de 50 observaciones de una distribución normal con parámetros <span class="math inline">\(\mu=170\)</span> y <span class="math inline">\(\sigma^2=25\)</span>. Dibujar un gráfico de contornos para la superficie de log-verosimilitud.</p>
 <p>La muestra aleatoria se genera con el siguiente código.</p>
-<pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">50</span>, <span class="dt">mean=</span><span class="dv">170</span>, <span class="dt">sd=</span><span class="dv">5</span>)  <span class="co"># sd es desviación</span></code></pre>
-<p>Para dibujar los contornos solicitados se debe primero construir la función de log-verosimilitud llamada <code>ll</code>. A continuación el código para crear <code>ll</code>, mayores detalles de cómo construir funciones de log-verosimilitud se pueden consultar en <span class="citation">(<span class="citeproc-not-found" data-reference-id="hernandez_usuga"><strong>???</strong></span>)</span>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">ll &lt;-<span class="st"> </span><span class="cf">function</span>(a, b) <span class="kw">sum</span>(<span class="kw">dnorm</span>(<span class="dt">x=</span>y, <span class="dt">mean=</span>a, <span class="dt">sd=</span>b, <span class="dt">log=</span><span class="ot">TRUE</span>))
-ll &lt;-<span class="st"> </span><span class="kw">Vectorize</span>(ll)  <span class="co"># Para vectorizar la función</span></code></pre>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="doscuanti.html#cb43-1"></a>y &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dt">n=</span><span class="dv">50</span>, <span class="dt">mean=</span><span class="dv">170</span>, <span class="dt">sd=</span><span class="dv">5</span>)  <span class="co"># sd es desviación</span></span></code></pre></div>
+<p>Para dibujar los contornos solicitados se debe primero construir la función de log-verosimilitud llamada <code>ll</code>. A continuación el código para crear <code>ll</code>, mayores detalles de cómo construir funciones de log-verosimilitud se pueden consultar en <span class="citation">Hernández and Usuga (<a href="#ref-hernandez_usuga" role="doc-biblioref">2018</a>)</span>.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="doscuanti.html#cb44-1"></a>ll &lt;-<span class="st"> </span><span class="cf">function</span>(a, b) <span class="kw">sum</span>(<span class="kw">dnorm</span>(<span class="dt">x=</span>y, <span class="dt">mean=</span>a, <span class="dt">sd=</span>b, <span class="dt">log=</span><span class="ot">TRUE</span>))</span>
+<span id="cb44-2"><a href="doscuanti.html#cb44-2"></a>ll &lt;-<span class="st"> </span><span class="kw">Vectorize</span>(ll)  <span class="co"># Para vectorizar la función</span></span></code></pre></div>
 <p>Una vez construída la función <code>ll</code> se deben construir los vectores con las coordenadas horizontal y vertical donde se evalua la función <code>ll</code>. En el código mostrado abajo se tienen dos vectores <code>xx</code> e <code>yy</code> obtenidos como secuencias desde el menor valor hasta el mayor valor para cada uno de los parámetros <span class="math inline">\(\mu\)</span> y <span class="math inline">\(\sigma\)</span> de la distribución normal, el valor <code>by=0.5</code> indica el tamaño de paso de la secuencia. Luego se construye la matriz <code>zz</code> usando la función <code>outer</code> evaluando <code>ll</code> en <code>xx</code> e <code>yy</code>. Por último la función <code>contour</code> se aplica sobre los elementos <code>xx</code>, <code>yy</code> e <code>zz</code>. En la Figura <a href="doscuanti.html#fig:contour1">3.17</a> se muestra el gráfico de contornos con aproximadamente 50 niveles.</p>
-<pre class="sourceCode r"><code class="sourceCode r">xx &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">160</span>, <span class="dt">to=</span><span class="dv">180</span>, <span class="dt">by=</span><span class="fl">0.5</span>)
-yy &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">3</span>, <span class="dt">to=</span><span class="dv">7</span>, <span class="dt">by=</span><span class="fl">0.5</span>)
-zz &lt;-<span class="st"> </span><span class="kw">outer</span>(<span class="dt">X=</span>xx, <span class="dt">Y=</span>yy, ll)
-<span class="kw">contour</span>(<span class="dt">x=</span>xx, <span class="dt">y=</span>yy, <span class="dt">z=</span>zz, <span class="dt">nlevels=</span><span class="dv">50</span>,
-        <span class="dt">col=</span><span class="kw">gray</span>(<span class="fl">0.3</span>), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">lty=</span><span class="st">&#39;solid&#39;</span>,
-        <span class="dt">xlab=</span><span class="kw">expression</span>(mu), <span class="dt">ylab=</span><span class="kw">expression</span>(sigma))</code></pre>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="doscuanti.html#cb45-1"></a>xx &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">160</span>, <span class="dt">to=</span><span class="dv">180</span>, <span class="dt">by=</span><span class="fl">0.5</span>)</span>
+<span id="cb45-2"><a href="doscuanti.html#cb45-2"></a>yy &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dt">from=</span><span class="dv">3</span>, <span class="dt">to=</span><span class="dv">7</span>, <span class="dt">by=</span><span class="fl">0.5</span>)</span>
+<span id="cb45-3"><a href="doscuanti.html#cb45-3"></a>zz &lt;-<span class="st"> </span><span class="kw">outer</span>(<span class="dt">X=</span>xx, <span class="dt">Y=</span>yy, ll)</span>
+<span id="cb45-4"><a href="doscuanti.html#cb45-4"></a><span class="kw">contour</span>(<span class="dt">x=</span>xx, <span class="dt">y=</span>yy, <span class="dt">z=</span>zz, <span class="dt">nlevels=</span><span class="dv">50</span>,</span>
+<span id="cb45-5"><a href="doscuanti.html#cb45-5"></a>        <span class="dt">col=</span><span class="kw">gray</span>(<span class="fl">0.3</span>), <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">lty=</span><span class="st">&#39;solid&#39;</span>,</span>
+<span id="cb45-6"><a href="doscuanti.html#cb45-6"></a>        <span class="dt">xlab=</span><span class="kw">expression</span>(mu), <span class="dt">ylab=</span><span class="kw">expression</span>(sigma))</span></code></pre></div>
 <div class="figure"><span id="fig:contour1"></span>
 <img src="Graficos_con_R_files/figure-html/contour1-1.png" alt="Gráfico de contornos para la función de log-verosimilitud para el ejemplo sobre normal." width="672" />
 <p class="caption">
@@ -766,13 +755,13 @@ Figure 3.17: Gráfico de contornos para la función de log-verosimilitud para el
 </div>
 </div>
 </div>
-<div id="funcion-filled.contour" class="section level2">
+<div id="función-filled.contour" class="section level2">
 <h2><span class="header-section-number">3.7</span> Función <code>filled.contour</code></h2>
 <p>La función <code>filled.contour</code> dibuja gráficos contornos pero usando una paleta de colores, este tipo de representación se denomina gráfico de nivel. La estructura de la función <code>filled.contour</code> con los argumentos más usuales se muestra a continuación:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filled.contour</span>(x, y, z,
-               xlim, ylim, zlim,
-               levels, <span class="dt">nlevels=</span><span class="dv">20</span>,
-               <span class="dt">color.palette=</span>cm.colors, col)</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="doscuanti.html#cb46-1"></a><span class="kw">filled.contour</span>(x, y, z,</span>
+<span id="cb46-2"><a href="doscuanti.html#cb46-2"></a>               xlim, ylim, zlim,</span>
+<span id="cb46-3"><a href="doscuanti.html#cb46-3"></a>               levels, <span class="dt">nlevels=</span><span class="dv">20</span>,</span>
+<span id="cb46-4"><a href="doscuanti.html#cb46-4"></a>               <span class="dt">color.palette=</span>cm.colors, col)</span></code></pre></div>
 <p>Los argumentos de la función son:</p>
 <ul>
 <li><code>x, y</code>: vectores numéricos en los cuales se evaluó la función de interés para construir el objeto <code>z</code>. Ambos vectores deben estar ordenados.</li>
@@ -785,9 +774,9 @@ Figure 3.17: Gráfico de contornos para la función de log-verosimilitud para el
 <div id="ejemplo-22" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Abajo se muestra el código para crear un gráfico de nivel usando los datos del ejemplo anterior. Observe que las figuras <a href="doscuanti.html#fig:contour1">3.17</a> y <a href="doscuanti.html#fig:contour2">3.18</a> son bastante similares.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filled.contour</span>(<span class="dt">x=</span>xx, <span class="dt">y=</span>yy, <span class="dt">z=</span>zz, <span class="dt">nlevels=</span><span class="dv">20</span>,
-               <span class="dt">xlab=</span><span class="kw">expression</span>(mu), <span class="dt">ylab=</span><span class="kw">expression</span>(sigma),
-               <span class="dt">color =</span> topo.colors)</code></pre>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="doscuanti.html#cb47-1"></a><span class="kw">filled.contour</span>(<span class="dt">x=</span>xx, <span class="dt">y=</span>yy, <span class="dt">z=</span>zz, <span class="dt">nlevels=</span><span class="dv">20</span>,</span>
+<span id="cb47-2"><a href="doscuanti.html#cb47-2"></a>               <span class="dt">xlab=</span><span class="kw">expression</span>(mu), <span class="dt">ylab=</span><span class="kw">expression</span>(sigma),</span>
+<span id="cb47-3"><a href="doscuanti.html#cb47-3"></a>               <span class="dt">color =</span> topo.colors)</span></code></pre></div>
 <div class="figure"><span id="fig:contour2"></span>
 <img src="Graficos_con_R_files/figure-html/contour2-1.png" alt="Gráfico de nivel para la función de log-verosimilitud para el ejemplo sobre normal." width="672" />
 <p class="caption">
@@ -799,9 +788,9 @@ Figure 3.18: Gráfico de nivel para la función de log-verosimilitud para el eje
 <h3>Ejemplo</h3>
 <p>¿Es posible crear un gráfico de contornos y de niveles en la misma figura?</p>
 <p>Claro que si, abajo se muestra el código para crear primero el gráfico de niveles (en colores) y luego superponer el gráficos de contornos (las lineas). En la Figura <a href="doscuanti.html#fig:contour3">3.19</a> se muestra el gráfico resultante.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">filled.contour</span>(<span class="dt">x=</span>xx, <span class="dt">y=</span>yy, <span class="dt">z=</span>zz,  <span class="dt">nlevels=</span><span class="dv">20</span>,
-               <span class="dt">color.palette =</span> topo.colors, 
-               <span class="dt">plot.axes=</span><span class="kw">contour</span>(xx, yy, zz, <span class="dt">nlevels=</span><span class="dv">20</span>, <span class="dt">add=</span><span class="ot">TRUE</span>))</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="doscuanti.html#cb48-1"></a><span class="kw">filled.contour</span>(<span class="dt">x=</span>xx, <span class="dt">y=</span>yy, <span class="dt">z=</span>zz,  <span class="dt">nlevels=</span><span class="dv">20</span>,</span>
+<span id="cb48-2"><a href="doscuanti.html#cb48-2"></a>               <span class="dt">color.palette =</span> topo.colors, </span>
+<span id="cb48-3"><a href="doscuanti.html#cb48-3"></a>               <span class="dt">plot.axes=</span><span class="kw">contour</span>(xx, yy, zz, <span class="dt">nlevels=</span><span class="dv">20</span>, <span class="dt">add=</span><span class="ot">TRUE</span>))</span></code></pre></div>
 <div class="figure"><span id="fig:contour3"></span>
 <img src="Graficos_con_R_files/figure-html/contour3-1.png" alt="Gráfico de nivel y contornos para la función de log-verosimilitud para el ejemplo sobre normal." width="672" />
 <p class="caption">
@@ -810,10 +799,10 @@ Figure 3.19: Gráfico de nivel y contornos para la función de log-verosimilitud
 </div>
 </div>
 </div>
-<div id="funcion-image" class="section level2">
+<div id="función-image" class="section level2">
 <h2><span class="header-section-number">3.8</span> Función <code>image</code></h2>
 <p>La función <code>image</code> dibuja un gráfico de calor similar al obtenido con la función <code>filled.contour</code>. La estructura de la función <code>image</code> con los argumentos más usuales se muestra a continuación:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">image</span>(x, y, z)</code></pre>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="doscuanti.html#cb49-1"></a><span class="kw">image</span>(x, y, z)</span></code></pre></div>
 <p>Los argumentos de la función son:</p>
 <ul>
 <li><code>x, y</code>: vectores numéricos en los cuales se evaluó la función de interés para construir el objeto <code>z</code>. Ambos vectores deben estar ordenados.</li>
@@ -823,8 +812,8 @@ Figure 3.19: Gráfico de nivel y contornos para la función de log-verosimilitud
 <h3>Ejemplo</h3>
 <p>Para la muestra aleatoria obtenida en el ejemplo anterior, dibujar un gráfico con <code>image</code> para la superficie de log-verosimilitud.</p>
 <p>Usando los objetos <code>xx</code>, <code>yy</code> e <code>zz</code> creados en el ejemplo anterior se puede construir el gráfico solicitado, a continuación el código utilizado. En la Figura <a href="doscuanti.html#fig:image1">3.20</a> se muestra el gráfico.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">image</span>(<span class="dt">x=</span>xx, <span class="dt">y=</span>yy, <span class="dt">z=</span>zz,
-      <span class="dt">xlab=</span><span class="kw">expression</span>(mu), <span class="dt">ylab=</span><span class="kw">expression</span>(sigma))</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="doscuanti.html#cb50-1"></a><span class="kw">image</span>(<span class="dt">x=</span>xx, <span class="dt">y=</span>yy, <span class="dt">z=</span>zz,</span>
+<span id="cb50-2"><a href="doscuanti.html#cb50-2"></a>      <span class="dt">xlab=</span><span class="kw">expression</span>(mu), <span class="dt">ylab=</span><span class="kw">expression</span>(sigma))</span></code></pre></div>
 <div class="figure"><span id="fig:image1"></span>
 <img src="Graficos_con_R_files/figure-html/image1-1.png" alt="Gráfico para la función de log-verosimilitud para el ejemplo sobre normal." width="864" />
 <p class="caption">
@@ -833,10 +822,10 @@ Figure 3.20: Gráfico para la función de log-verosimilitud para el ejemplo sobr
 </div>
 </div>
 </div>
-<div id="funcion-kde2d" class="section level2">
+<div id="función-kde2d" class="section level2">
 <h2><span class="header-section-number">3.9</span> Función <code>kde2d</code></h2>
 <p>La función <code>kde2d</code> pertenece al paquete <code>MASS</code> y es utilizada para crear densidades para dos variables cuantitativas. La estructura de la función <code>kde2d</code> con los argumentos más usuales se muestra a continuación:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kde2d</span>(x, y, h, <span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">lims =</span> <span class="kw">c</span>(<span class="kw">range</span>(x), <span class="kw">range</span>(y)))</code></pre>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="doscuanti.html#cb51-1"></a><span class="kw">kde2d</span>(x, y, h, <span class="dt">n =</span> <span class="dv">25</span>, <span class="dt">lims =</span> <span class="kw">c</span>(<span class="kw">range</span>(x), <span class="kw">range</span>(y)))</span></code></pre></div>
 <p>Los argumentos de la función son:</p>
 <ul>
 <li><code>x</code>: vector con la variable para el eje X.</li>
@@ -850,16 +839,16 @@ Figure 3.20: Gráfico para la función de log-verosimilitud para el ejemplo sobr
 <p>La base de datos medidas del cuerpo cuenta con 6 variables registradas
 a un grupo de 36 estudiantes de la universidad, dos de esas variables son la altura y el peso corporal. Se desea construir un gráfico de densidad bivariada para altura y peso.</p>
 <p>El código mostrado a continuación hace la lectura de la base de datos y luego se construyen dos densidades, la primera con <code>n=5</code> y la segunda con <code>n=50</code>, esto para ver el efecto del parámetro <code>n</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r">url &lt;-<span class="st"> &#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span>
-datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)
-
-<span class="kw">require</span>(MASS)  <span class="co"># Se debe cargar este paquete</span>
-f1 &lt;-<span class="st"> </span><span class="kw">kde2d</span>(<span class="dt">x=</span>datos<span class="op">$</span>peso, <span class="dt">y=</span>datos<span class="op">$</span>altura, <span class="dt">n=</span><span class="dv">5</span>)
-f2 &lt;-<span class="st"> </span><span class="kw">kde2d</span>(<span class="dt">x=</span>datos<span class="op">$</span>peso, <span class="dt">y=</span>datos<span class="op">$</span>altura, <span class="dt">n=</span><span class="dv">50</span>)</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="doscuanti.html#cb52-1"></a>url &lt;-<span class="st"> &#39;https://raw.githubusercontent.com/fhernanb/datos/master/medidas_cuerpo&#39;</span></span>
+<span id="cb52-2"><a href="doscuanti.html#cb52-2"></a>datos &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">file=</span>url, <span class="dt">header=</span>T)</span>
+<span id="cb52-3"><a href="doscuanti.html#cb52-3"></a></span>
+<span id="cb52-4"><a href="doscuanti.html#cb52-4"></a><span class="kw">require</span>(MASS)  <span class="co"># Se debe cargar este paquete</span></span>
+<span id="cb52-5"><a href="doscuanti.html#cb52-5"></a>f1 &lt;-<span class="st"> </span><span class="kw">kde2d</span>(<span class="dt">x=</span>datos<span class="op">$</span>peso, <span class="dt">y=</span>datos<span class="op">$</span>altura, <span class="dt">n=</span><span class="dv">5</span>)</span>
+<span id="cb52-6"><a href="doscuanti.html#cb52-6"></a>f2 &lt;-<span class="st"> </span><span class="kw">kde2d</span>(<span class="dt">x=</span>datos<span class="op">$</span>peso, <span class="dt">y=</span>datos<span class="op">$</span>altura, <span class="dt">n=</span><span class="dv">50</span>)</span></code></pre></div>
 <p>En el código mostrado a continuación se dibujan las dos densidades usando un gráfico de calor usando la función <code>image</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))
-<span class="kw">image</span>(f1, <span class="dt">xlab=</span><span class="st">&#39;Peso&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Estatura&#39;</span>, <span class="dt">main=</span><span class="st">&#39;n=5&#39;</span>)
-<span class="kw">image</span>(f2, <span class="dt">xlab=</span><span class="st">&#39;Peso&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Estatura&#39;</span>, <span class="dt">main=</span><span class="st">&#39;n=50&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="doscuanti.html#cb53-1"></a><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span>
+<span id="cb53-2"><a href="doscuanti.html#cb53-2"></a><span class="kw">image</span>(f1, <span class="dt">xlab=</span><span class="st">&#39;Peso&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Estatura&#39;</span>, <span class="dt">main=</span><span class="st">&#39;n=5&#39;</span>)</span>
+<span id="cb53-3"><a href="doscuanti.html#cb53-3"></a><span class="kw">image</span>(f2, <span class="dt">xlab=</span><span class="st">&#39;Peso&#39;</span>, <span class="dt">ylab=</span><span class="st">&#39;Estatura&#39;</span>, <span class="dt">main=</span><span class="st">&#39;n=50&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:den2d1"></span>
 <img src="Graficos_con_R_files/figure-html/den2d1-1.png" alt="Gráfico de densidad bivariada para el peso corporal y la estatura de un grupo de estudiantes. A la izquierda la densidad con `n=5` y a la derecha con `n=50`." width="960" />
 <p class="caption">
@@ -868,11 +857,11 @@ Figure 3.21: Gráfico de densidad bivariada para el peso corporal y la estatura 
 </div>
 </div>
 </div>
-<div id="funcion-interaction.plot" class="section level2">
+<div id="función-interaction.plot" class="section level2">
 <h2><span class="header-section-number">3.10</span> Función <code>interaction.plot</code></h2>
 <p>La función <code>interaction.plot</code> dibuja gráficos de interacción. La estructura de la función <code>interaction.plot</code> con los argumentos más usuales se muestra a continuación:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">interaction.plot</span>(response, x.factor, trace.factor, fun,
-                 legend, trace.label)</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="doscuanti.html#cb54-1"></a><span class="kw">interaction.plot</span>(response, x.factor, trace.factor, fun,</span>
+<span id="cb54-2"><a href="doscuanti.html#cb54-2"></a>                 legend, trace.label)</span></code></pre></div>
 <p>Los argumentos de la función son:</p>
 <ul>
 <li><code>response</code>: vector numérico con la variable respuesta.</li>
@@ -886,19 +875,19 @@ Figure 3.21: Gráfico de densidad bivariada para el peso corporal y la estatura 
 <div id="ejemplo-26" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>Se realizó un experimento para determinar cómo influye el material de la batería y la temperatura del medio ambiente sobre la duración en horas de la batería. Se desea construir un gráfico de interacción entre Temperatura y Material para ver el efecto sobre la duración promedio de las baterías. Los datos y el código para generar el gráfico solicitado se muestran a continuación.</p>
-<pre class="sourceCode r"><code class="sourceCode r">horas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">130</span>, <span class="dv">155</span>, <span class="dv">74</span>, <span class="dv">180</span>, <span class="dv">150</span>, <span class="dv">188</span>, <span class="dv">159</span>, <span class="dv">126</span>, <span class="dv">138</span>, <span class="dv">110</span>, <span class="dv">168</span>, 
-           <span class="dv">160</span>, <span class="dv">34</span>, <span class="dv">40</span>, <span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">136</span>, <span class="dv">122</span>, <span class="dv">106</span>, <span class="dv">115</span>, <span class="dv">174</span>, <span class="dv">120</span>, <span class="dv">150</span>, 
-           <span class="dv">139</span>, <span class="dv">20</span>, <span class="dv">70</span>, <span class="dv">82</span>, <span class="dv">58</span>, <span class="dv">25</span>, <span class="dv">70</span>, <span class="dv">58</span>, <span class="dv">45</span>, <span class="dv">96</span>, <span class="dv">104</span>, <span class="dv">82</span>, <span class="dv">60</span>)
-
-temperatura &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">15</span>, <span class="dv">70</span>, <span class="dv">125</span>), <span class="dt">each=</span><span class="dv">12</span>)
-material    &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">each=</span><span class="dv">4</span>, <span class="dt">times=</span><span class="dv">3</span>)
-
-<span class="kw">interaction.plot</span>(<span class="dt">x.factor=</span>temperatura, <span class="dt">trace.factor=</span>material,
-                 <span class="dt">response=</span>horas, <span class="dt">trace.label=</span><span class="st">&#39;Material&#39;</span>,
-                 <span class="dt">xlab=</span><span class="st">&#39;Temperatura&#39;</span>,
-                 <span class="dt">ylab=</span><span class="st">&#39;Duración promedio (horas)&#39;</span>,
-                 <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;dodgerblue3&#39;</span>, <span class="st">&#39;chartreuse4&#39;</span>, <span class="st">&#39;salmon3&#39;</span>),
-                 <span class="dt">fun=</span>mean, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">fixed=</span>T)</code></pre>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="doscuanti.html#cb55-1"></a>horas &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">130</span>, <span class="dv">155</span>, <span class="dv">74</span>, <span class="dv">180</span>, <span class="dv">150</span>, <span class="dv">188</span>, <span class="dv">159</span>, <span class="dv">126</span>, <span class="dv">138</span>, <span class="dv">110</span>, <span class="dv">168</span>, </span>
+<span id="cb55-2"><a href="doscuanti.html#cb55-2"></a>           <span class="dv">160</span>, <span class="dv">34</span>, <span class="dv">40</span>, <span class="dv">80</span>, <span class="dv">75</span>, <span class="dv">136</span>, <span class="dv">122</span>, <span class="dv">106</span>, <span class="dv">115</span>, <span class="dv">174</span>, <span class="dv">120</span>, <span class="dv">150</span>, </span>
+<span id="cb55-3"><a href="doscuanti.html#cb55-3"></a>           <span class="dv">139</span>, <span class="dv">20</span>, <span class="dv">70</span>, <span class="dv">82</span>, <span class="dv">58</span>, <span class="dv">25</span>, <span class="dv">70</span>, <span class="dv">58</span>, <span class="dv">45</span>, <span class="dv">96</span>, <span class="dv">104</span>, <span class="dv">82</span>, <span class="dv">60</span>)</span>
+<span id="cb55-4"><a href="doscuanti.html#cb55-4"></a></span>
+<span id="cb55-5"><a href="doscuanti.html#cb55-5"></a>temperatura &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">15</span>, <span class="dv">70</span>, <span class="dv">125</span>), <span class="dt">each=</span><span class="dv">12</span>)</span>
+<span id="cb55-6"><a href="doscuanti.html#cb55-6"></a>material    &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">each=</span><span class="dv">4</span>, <span class="dt">times=</span><span class="dv">3</span>)</span>
+<span id="cb55-7"><a href="doscuanti.html#cb55-7"></a></span>
+<span id="cb55-8"><a href="doscuanti.html#cb55-8"></a><span class="kw">interaction.plot</span>(<span class="dt">x.factor=</span>temperatura, <span class="dt">trace.factor=</span>material,</span>
+<span id="cb55-9"><a href="doscuanti.html#cb55-9"></a>                 <span class="dt">response=</span>horas, <span class="dt">trace.label=</span><span class="st">&#39;Material&#39;</span>,</span>
+<span id="cb55-10"><a href="doscuanti.html#cb55-10"></a>                 <span class="dt">xlab=</span><span class="st">&#39;Temperatura&#39;</span>,</span>
+<span id="cb55-11"><a href="doscuanti.html#cb55-11"></a>                 <span class="dt">ylab=</span><span class="st">&#39;Duración promedio (horas)&#39;</span>,</span>
+<span id="cb55-12"><a href="doscuanti.html#cb55-12"></a>                 <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&#39;dodgerblue3&#39;</span>, <span class="st">&#39;chartreuse4&#39;</span>, <span class="st">&#39;salmon3&#39;</span>),</span>
+<span id="cb55-13"><a href="doscuanti.html#cb55-13"></a>                 <span class="dt">fun=</span>mean, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">fixed=</span>T)</span></code></pre></div>
 <div class="figure"><span id="fig:intplot1"></span>
 <img src="Graficos_con_R_files/figure-html/intplot1-1.png" alt="Gráfico de interacción entre Temperatura y Material sobre la duración promedio de las baterías." width="672" />
 <p class="caption">
@@ -907,22 +896,22 @@ Figure 3.22: Gráfico de interacción entre Temperatura y Material sobre la dura
 </div>
 </div>
 </div>
-<div id="grafico-de-espagueti" class="section level2">
+<div id="gráfico-de-espagueti" class="section level2">
 <h2><span class="header-section-number">3.11</span> Gráfico de espagueti</h2>
 <p>Los gráficos de espagueti son usados para representar la evolución de una variable medida para un grupo de sujetos en diferentes momentos del tiempo. La función <code>interaction.plot</code> se puede usar para obtener este tipo de gráficos, a continuación un ejemplo.</p>
 <div id="ejemplo-27" class="section level3 unnumbered">
 <h3>Ejemplo</h3>
 <p>El ejemplo aquí presentado fue tomado de este <a href="http://stats.idre.ucla.edu/r/faq/how-can-i-make-spaghetti-plots/">enlace</a>. El objetivo es crear un gráfico de espagueti para mostrar la evolución de la variable tolerancia a través del tiempo para cada uno de los 16 individuos estudiados. El código para descargar la base de datos y construir el gráfico se muestran a continuación.</p>
-<pre class="sourceCode r"><code class="sourceCode r">dt &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;https://stats.idre.ucla.edu/stat/r/faq/tolpp.csv&quot;</span>,
-                 <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>, <span class="dt">header=</span>T)
-
-<span class="kw">require</span>(gplots)           <span class="co"># Paquete especial para crear una paleta</span>
-<span class="kw">palette</span>(<span class="kw">rich.colors</span>(<span class="dv">16</span>))  <span class="co"># de 16 colores diferentes y suaves</span>
-
-<span class="kw">interaction.plot</span>(<span class="dt">response=</span>dt<span class="op">$</span>tolerance,
-                 <span class="dt">x.factor=</span>dt<span class="op">$</span>time, <span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">16</span>, <span class="dt">lwd=</span><span class="dv">2</span>,
-                 <span class="dt">trace.factor=</span>dt<span class="op">$</span>id, <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">lty=</span><span class="dv">1</span>, 
-                 <span class="dt">xlab=</span><span class="st">&quot;Tiempo&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Tolerancia&quot;</span>, <span class="dt">legend=</span>F)</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="doscuanti.html#cb56-1"></a>dt &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;https://stats.idre.ucla.edu/stat/r/faq/tolpp.csv&quot;</span>,</span>
+<span id="cb56-2"><a href="doscuanti.html#cb56-2"></a>                 <span class="dt">sep=</span><span class="st">&quot;,&quot;</span>, <span class="dt">header=</span>T)</span>
+<span id="cb56-3"><a href="doscuanti.html#cb56-3"></a></span>
+<span id="cb56-4"><a href="doscuanti.html#cb56-4"></a><span class="kw">require</span>(gplots)           <span class="co"># Paquete especial para crear una paleta</span></span>
+<span id="cb56-5"><a href="doscuanti.html#cb56-5"></a><span class="kw">palette</span>(<span class="kw">rich.colors</span>(<span class="dv">16</span>))  <span class="co"># de 16 colores diferentes y suaves</span></span>
+<span id="cb56-6"><a href="doscuanti.html#cb56-6"></a></span>
+<span id="cb56-7"><a href="doscuanti.html#cb56-7"></a><span class="kw">interaction.plot</span>(<span class="dt">response=</span>dt<span class="op">$</span>tolerance,</span>
+<span id="cb56-8"><a href="doscuanti.html#cb56-8"></a>                 <span class="dt">x.factor=</span>dt<span class="op">$</span>time, <span class="dt">col=</span><span class="dv">1</span><span class="op">:</span><span class="dv">16</span>, <span class="dt">lwd=</span><span class="dv">2</span>,</span>
+<span id="cb56-9"><a href="doscuanti.html#cb56-9"></a>                 <span class="dt">trace.factor=</span>dt<span class="op">$</span>id, <span class="dt">las=</span><span class="dv">1</span>, <span class="dt">lty=</span><span class="dv">1</span>, </span>
+<span id="cb56-10"><a href="doscuanti.html#cb56-10"></a>                 <span class="dt">xlab=</span><span class="st">&quot;Tiempo&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Tolerancia&quot;</span>, <span class="dt">legend=</span>F)</span></code></pre></div>
 <div class="figure"><span id="fig:intplot2"></span>
 <img src="Graficos_con_R_files/figure-html/intplot2-1.png" alt="Gráfico de espagueti para ver la evolución de la variable tolerancia." width="672" />
 <p class="caption">
@@ -931,6 +920,12 @@ Figure 3.23: Gráfico de espagueti para ver la evolución de la variable toleran
 </div>
 
 </div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-hernandez_usuga">
+<p>Hernández, F., and O. Usuga. 2018. <em>Manual de R</em>. Medellín, Colombia. <a href="https://fhernanb.github.io/Manual-de-R/">https://fhernanb.github.io/Manual-de-R/</a>.</p>
 </div>
 </div>
             </section>
@@ -944,11 +939,13 @@ Figure 3.23: Gráfico de espagueti para ver la evolución de la variable toleran
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -956,12 +953,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -973,6 +969,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -991,8 +991,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
